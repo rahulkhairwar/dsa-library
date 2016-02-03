@@ -40,79 +40,79 @@ public final class TaskC
 			}
 		});
 
-		Point one, two, three;
+		int curr;
 
-		one = points[n - 1];
-		two = points[n - 2];
-		three = points[n - 3];
-
-		if (one.x == two.x && one.x == three.x)
+		for (int i = 0; i < n; i++)
 		{
-			Point temp;
-			int comp = one.x;
+			int left = i;
+			boolean entered = false;
+			curr = points[i].x;
 
-			int i = n - 4;
-
-			while (i >= 0 && points[i].x == comp)
-				i--;
-
-			if (i >= 0)
+			while (i < n && points[i].x == curr)
 			{
-				temp = points[i];
-
-				if (temp.y >= one.y && temp.y >= two.y && temp.y < three.y)
-				{
-					out.println(temp.num + " " + one.num + " " + two.num);
-				}
-				else if (temp.y >= one.y && temp.y >= three.y && temp.y < two.y)
-				{
-					out.println(temp.num + " " + one.num + " " + three.num);
-				}
-				else
-				{
-					out.println(temp.num + " " + two.num + " " + three.num);
-				}
-			}
-		}
-		else if (two.x == three.x)
-		{
-			Point[] second = new Point[n];
-
-			second[0] = two;
-			second[1] = three;
-
-			int count = 2;
-
-			int i = n - 4;
-			int comp = two.x;
-
-			while (i >= 0 && second[i].x == comp)
-			{
-				second[count++] = points[i];
-				i--;
+				i++;
+				entered = true;
 			}
 
-			if (count == 2)
-			{
-				out.println(one.num + " " + two.num + " " + three.num);
-
-				return;
-			}
-
-			Arrays.sort(second, 0, count, new Comparator<Point>()
+			Arrays.sort(points, left, i, new Comparator<Point>()
 			{
 				@Override
 				public int compare(Point o1, Point o2)
 				{
-					return Integer.compare(o1.y, o2.y);
+					return Integer.compare(o2.y, o1.y);
 				}
 			});
 
-			out.println(second[0].num + " " + second[1].num + " " + one.num);
+			if (entered)
+				i--;
+		}
+
+		Point a, b, c;
+
+		a = points[n - 1];
+		b = points[n - 2];
+		c = points[n - 3];
+
+		if (a.x == b.x)
+		{
+			if (a.x == c.x)
+			{
+				int i = 3;
+
+				while (true)
+				{
+					if (points[n - i].x == c.x)
+						i++;
+					else
+						break;
+				}
+
+				out.println(a.num + " " + b.num + " " + points[n - i].num);
+			}
+			else
+			{
+				out.println(a.num + " " + b.num + " " + c.num);
+			}
 		}
 		else
 		{
-			out.println(one.num + " " + two.num + " " + three.num);
+			int i = 3;
+			double slopeAB, slopeAC;
+
+			slopeAB = (double) (b.x - a.x) / (b.y - a.y);
+
+			while (true)
+			{
+				c = points[n - i];
+				slopeAC = (double) (c.x - a.x) / (c.y - a.y);
+
+				if (slopeAB != slopeAC)
+					break;
+
+				i++;
+			}
+
+			out.println(a.num + " " + b.num + " " + c.num);
 		}
 	}
 
@@ -507,5 +507,41 @@ public final class TaskC
 3 1
 3 -1
 5 2
+
+4
+0 2
+1 1
+2 2
+3 3
+
+21
+0 19
+0 0
+0 8
+0 2
+0 18
+0 17
+0 1
+0 5
+0 16
+0 11
+0 10
+0 13
+0 12
+0 14
+0 6
+0 7
+0 3
+0 15
+0 4
+0 9
+1 1
+
+5
+1 0
+1 1
+1 2
+2 1
+2 2
 
  */

@@ -1,38 +1,63 @@
-package com.codeforces.competitions.year2016.jantomarch.round340div2;
+package com.codeforces.competitions.year2016.jantomarch.round341div2;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.InputMismatchException;
-import java.util.Queue;
+import java.io.*;
+import java.util.*;
 
-public final class Q3
+public final class TaskC
 {
-	static int n, arr[];
+	static int n, p;
+	static int[] left, right, div;
 	static InputReader in;
-	static OutputWriter out;
-	
+
 	public static void main(String[] args)
 	{
 		in = new InputReader(System.in);
-		out = new OutputWriter(System.out);
-		
+
 		solve();
-		
-		out.flush();
-		
+
 		in.close();
-		out.close();
 	}
 
 	static void solve()
 	{
+		n = in.nextInt();
+		p = in.nextInt();
+
+		left = new int[n];
+		right = new int[n];
+		div = new int[n];
+
+		for (int i = 0; i < n; i++)
+		{
+			left[i] = in.nextInt();
+			right[i] = in.nextInt();
+
+			if (p > right[i])
+				continue;
+
+			int lower = left[i] / p;
+			int upper = right[i] / p;
+
+			div[i] = upper - lower;
+
+			if (left[i] % p == 0)
+				div[i]++;
+		}
+
+		double probability = 0;
+
+		for (int i = 1; i < n; i++)
+		{
+			probability += (1. - ((1. - div[i - 1] / (double) (right[i - 1] - left[i - 1] + 1)) *
+					(1. - div[i] / (double) (right[i] - left[i] + 1))));
+		}
+
+		probability += (1. - ((1. - div[0] / (double) (right[0] - left[0] + 1)) * (1. - div[n - 1] / (double)
+				(right[n - 1] - left[n - 1] + 1))));
+
+		System.out.printf("%.10f", (probability * 2e3));
 	}
-	
+
 	static class InputReader
 	{
 		private InputStream stream;
@@ -56,8 +81,7 @@ public final class Q3
 				try
 				{
 					numChars = stream.read(buf);
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -98,14 +122,14 @@ public final class Q3
 
 			return res * sgn;
 		}
-		
+
 		public int[] nextIntArray(int arraySize)
 		{
 			int array[] = new int[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
-			
+
 			return array;
 		}
 
@@ -140,14 +164,14 @@ public final class Q3
 
 			return result * sign;
 		}
-		
+
 		public long[] nextLongArray(int arraySize)
 		{
 			long array[] = new long[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
-			
+
 			return array;
 		}
 
@@ -234,23 +258,23 @@ public final class Q3
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
-		
+
 		public String nextLine()
 		{
 			int c = read();
-			
+
 			StringBuilder result = new StringBuilder();
-			
+
 			do
 			{
 				result.appendCodePoint(c);
-				
+
 				c = read();
 			} while (!isNewLine(c));
-			
+
 			return result.toString();
 		}
-		
+
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -261,8 +285,7 @@ public final class Q3
 			try
 			{
 				stream.close();
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -270,138 +293,4 @@ public final class Q3
 
 	}
 
-	static class OutputWriter
-	{
-		private PrintWriter writer;
-
-		public OutputWriter(OutputStream stream)
-		{
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					stream)));
-		}
-
-		public OutputWriter(Writer writer)
-		{
-			this.writer = new PrintWriter(writer);
-		}
-
-		public void println(int x)
-		{
-			writer.println(x);
-		}
-
-		public void print(int x)
-		{
-			writer.print(x);
-		}
-
-		public void println(int array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				println(array[i]);
-		}
-
-		public void print(int array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				print(array[i] + " ");
-		}
-
-		public void println(long x)
-		{
-			writer.println(x);
-		}
-
-		public void print(long x)
-		{
-			writer.print(x);
-		}
-
-		public void println(long array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				println(array[i]);
-		}
-
-		public void print(long array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				print(array[i]);
-		}
-
-		public void println(float num)
-		{
-			writer.println(num);
-		}
-
-		public void print(float num)
-		{
-			writer.print(num);
-		}
-
-		public void println(double num)
-		{
-			writer.println(num);
-		}
-
-		public void print(double num)
-		{
-			writer.print(num);
-		}
-
-		public void println(String s)
-		{
-			writer.println(s);
-		}
-
-		public void print(String s)
-		{
-			writer.print(s);
-		}
-
-		public void println()
-		{
-			writer.println();
-		}
-
-		public void printSpace()
-		{
-			writer.print(" ");
-		}
-
-		public void flush()
-		{
-			writer.flush();
-		}
-
-		public void close()
-		{
-			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, int power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-			
-			if (power == 1)
-				return number;
-			
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-		
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-		
-	}
-	
 }

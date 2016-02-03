@@ -1,29 +1,28 @@
-package com.codeforces.competitions.educational.year2016.jantomarch.round5;
+package com.codechef.practice.medium.year2016.januarytomarch;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
+import java.io.*;
+import java.util.Comparator;
 import java.util.InputMismatchException;
+import java.util.TreeSet;
 
-public final class Q4
+/**
+ * Created by rahulkhairwar on 02/02/16.
+ */
+public class KnapsackProblem
 {
-	static int n, k, arr[], count[];
+	static int n, w, c;
 	static InputReader in;
 	static OutputWriter out;
-	
+
 	public static void main(String[] args)
 	{
 		in = new InputReader(System.in);
 		out = new OutputWriter(System.out);
-		
+
 		solve();
-		
+
 		out.flush();
-		
+
 		in.close();
 		out.close();
 	}
@@ -31,76 +30,122 @@ public final class Q4
 	static void solve()
 	{
 		n = in.nextInt();
-		k = in.nextInt();
-		
-		arr = new int[n];
-		
-		for (int i = 0; i < n; i++)
-			arr[i] = in.nextInt();
-		
-		count = new int[(int) 1e6 + 5];
-		
-		int currLeft, currRight, maxLeft, maxRight, uniqueCount;
-		
-		currLeft = maxLeft = maxRight = uniqueCount = 0;
-		
-		for (currRight = 0; currRight < n; currRight++)
+
+		Item[] items = new Item[n];
+		TreeSet<Item> one, two;
+
+		one = new TreeSet<Item>(new Comparator<Item>()
 		{
-			if (uniqueCount < k)
+			@Override
+			public int compare(Item o1, Item o2)
 			{
-				if (currRight == n)
-					break;
-				
-				if (count[arr[currRight]] == 0)
-					uniqueCount++;
-				
-				count[arr[currRight]]++;
+				if (o2.value <= o1.value)
+					return -1;
+
+				return 1;
 			}
+		});
+
+		two = new TreeSet<Item>(new Comparator<Item>()
+		{
+			@Override
+			public int compare(Item o1, Item o2)
+			{
+				if (o2.value <= o1.value)
+					return -1;
+
+				return 1;
+			}
+		});
+
+		int totalCapacity = 0;
+
+		for (int i = 0; i < n; i++)
+		{
+			items[i] = new Item(in.nextInt(), in.nextInt());
+			totalCapacity += items[i].weight;
+
+			if (items[i].weight == 1)
+				one.add(items[i]);
 			else
+				two.add(items[i]);
+		}
+
+		int currCapacity;
+		long[] answer = new long[totalCapacity + 1];
+
+		answer[0] = 0;
+
+		for (currCapacity = 1; currCapacity <= totalCapacity; currCapacity += 2)
+		{
+			Item oneFirst, oneSecond, twoFirst;
+			long currValue = 0;
+
+			oneFirst = oneSecond = twoFirst = null;
+
+			if (one.size() > 0)
+				oneFirst = one.pollFirst();
+
+			if (one.size() > 0)
+				oneSecond = one.pollFirst();
+
+			if (two.size() > 0)
+				twoFirst = two.pollFirst();
+
+			if (oneFirst != null)
 			{
-				if (currLeft == n)
-					break;
-				
-				while (currRight < n && count[arr[currRight]] > 0)
-				{
-					count[arr[currRight]]++;
-					currRight++;
-				}
-				
-				currRight--;
-				
-				if (currRight - currLeft > maxRight - maxLeft)
-				{
-					maxRight = currRight;
-					maxLeft = currLeft;
-				}
+				currValue = oneFirst.value;
 
-				while (currLeft < n && count[arr[currLeft]] != 0)
-				{
-					count[arr[currLeft]]--;
-					
-					if (count[arr[currLeft]] == 0)
-					{
-						currLeft++;
-						uniqueCount--;
-						
-						break;
-					}
+				answer[currCapacity] = answer[currCapacity - 1] + currValue;
+			}
 
-					currLeft++;
+/*			if (oneFirst != null)
+				one.add(oneFirst);*/
+
+			if (currCapacity + 1 > totalCapacity)
+				break;
+
+			if (oneSecond != null && twoFirst != null)
+			{
+				if (twoFirst.value > currValue + oneSecond.value)
+				{
+					answer[currCapacity + 1] = answer[currCapacity - 1] + twoFirst.value;
+					one.add(oneSecond);
+					one.add(oneFirst);
+				}
+				else
+				{
+					answer[currCapacity + 1] = answer[currCapacity] + oneSecond.value;
+					two.add(twoFirst);
 				}
 			}
-			
-			if (currRight - currLeft > maxRight - maxLeft)
+			else if (oneSecond != null)
 			{
-				maxRight = currRight;
-				maxLeft = currLeft;
+				answer[currCapacity + 1] = answer[currCapacity] + oneSecond.value;
+			}
+			else if (twoFirst != null)
+			{
+				answer[currCapacity + 1] = answer[currCapacity - 1] + twoFirst.value;
 			}
 		}
-		
-		out.println((maxLeft + 1) + " " + (maxRight + 1));
+
+		for (int i = 1; i <= totalCapacity; i++)
+			out.print(answer[i] + " ");
 	}
-	
+
+	static class Item
+	{
+		int weight;
+		long value;
+
+		public Item(int weight, long value)
+		{
+			this.weight = weight;
+			this.value = value;
+		}
+
+	}
+
 	static class InputReader
 	{
 		private InputStream stream;
@@ -124,8 +169,7 @@ public final class Q4
 				try
 				{
 					numChars = stream.read(buf);
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -166,14 +210,14 @@ public final class Q4
 
 			return res * sgn;
 		}
-		
+
 		public int[] nextIntArray(int arraySize)
 		{
 			int array[] = new int[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
-			
+
 			return array;
 		}
 
@@ -208,14 +252,14 @@ public final class Q4
 
 			return result * sign;
 		}
-		
+
 		public long[] nextLongArray(int arraySize)
 		{
 			long array[] = new long[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
-			
+
 			return array;
 		}
 
@@ -302,23 +346,23 @@ public final class Q4
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
-		
+
 		public String nextLine()
 		{
 			int c = read();
-			
+
 			StringBuilder result = new StringBuilder();
-			
+
 			do
 			{
 				result.appendCodePoint(c);
-				
+
 				c = read();
 			} while (!isNewLine(c));
-			
+
 			return result.toString();
 		}
-		
+
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -329,8 +373,7 @@ public final class Q4
 			try
 			{
 				stream.close();
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -449,14 +492,54 @@ public final class Q4
 
 	}
 
+	static class CMath
+	{
+		static long power(long number, int power)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			if (power == 1)
+				return number;
+
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
+		}
+
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
+
+	}
+
 }
 
 /*
 
-13 3
-1 2 1 4 3 4 1 3 2 4 2 3 2
+5
+1 1
+2 2
+2 3
+2 4
+2 5
 
-70 3
-402220 282419 650495 930659 650495 889316 305186 305186 402220 889316 282419 305186 402220 650495 930659 650495 624910 650495 305186 574693 889316 201793 201793 930659 156713 305186 624910 574693 402220 402220 305186 930659 650495 889316 650495 889316 402220 156713 624910 402220 889316 650495 305186 305186 650495 305186 201793 650495 624910 201793 282419 650495 930659 574693 402220 930659 889316 624910 930659 650495 402220 574693 201793 282419 624910 402220 201793 650495 624910 650495 402220
+14
+1 5
+1 4
+1 3
+1 2
+1 3
+1 1
+1 1
+2 6
+2 5
+2 5
+2 4
+2 3
+2 2
+2 1
 
-*/
+ */

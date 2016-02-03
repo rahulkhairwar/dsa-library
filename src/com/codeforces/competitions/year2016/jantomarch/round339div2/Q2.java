@@ -24,7 +24,7 @@ public final class Q2
 		in = new InputReader(System.in);
 		out = new OutputWriter(System.out);
 		
-		solve2();
+		solve();
 		
 		out.flush();
 		
@@ -33,26 +33,6 @@ public final class Q2
 	}
 
 	static void solve()
-	{
-		n = in.nextInt();
-		
-		BigInteger product = BigInteger.ONE;
-		
-		for (int i = 0; i < n; i++)
-		{
-			//arr[i] = in.nextInt();
-			curr = in.next();
-			BigInteger temp = new BigInteger(curr);
-			product = product.multiply(temp);
-			
-			if (product.intValue() == 0)
-				break;
-		}
-		
-		out.println(product.toString());
-	}
-	
-	static void solve2()
 	{
 		n = in.nextInt();
 		
@@ -88,7 +68,7 @@ public final class Q2
 		int i = 0;
 		int len = answer.length();
 		
-		while (i < len && answer.charAt(i) == (char) '0')
+		while (i < len && answer.charAt(i) == '0')
 			i++;
 		
 		if (!answered)

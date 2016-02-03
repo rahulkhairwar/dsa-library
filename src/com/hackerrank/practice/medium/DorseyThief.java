@@ -7,10 +7,14 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.InputMismatchException;
+import java.time.chrono.IsoChronology;
+import java.util.*;
 
+/**
+ * A really good knapsack question with lots of optimization needed.
+ *
+ * <br /><br />Question Link : <b>https://www.hackerrank.com/challenges/dorsey-thief</b>
+ */
 public class DorseyThief
 {
 	static int n, x;
@@ -22,131 +26,71 @@ public class DorseyThief
 		in = new InputReader(System.in);
 		out = new OutputWriter(System.out);
 		
-		solve();
-		
+		knapsack();
+
 		out.flush();
 		
 		in.close();
 		out.close();
 	}
 
-	static void solve()
+	static void knapsack()
 	{
 		n = in.nextInt();
 		x = in.nextInt();
-		
-		Passenger[] all = new Passenger[n];
-		int total = 0;
-		
+
+		List<Integer>[] neededGold = new ArrayList[x + 1];
+		long[] max = new long[x + 1];
+
+		Arrays.fill(max, -1);
+
+		max[0] = 0;
+
+		for (int i = 0; i <= x; i++)
+			neededGold[i] = new ArrayList<>(0);
+
 		for (int i = 0; i < n; i++)
 		{
-			int val, grams;
-			val = in.nextInt();
+			int value, grams;
+
+			value = in.nextInt();
 			grams = in.nextInt();
 
-			//all[i] = new Passenger(in.nextInt(), in.nextInt());
 			if (grams <= x)
-				all[total++] = new Passenger(val, grams);
+				neededGold[grams].add(value);
 		}
-		
-		/*long[][] dp = new long[n + 1][x];
-		
-		dp[0][0] = 0;
-		*/
-		
-		Arrays.sort(all, new Comparator<Passenger>()
-		{
-			@Override
-			public int compare(Passenger o1, Passenger o2)
-			{
-				return o1.grams - o2.grams;
-			}
-		});
-		
-		Select[][] dp = new Select[total + 1][x + 1];
-		int maxJ = 0;
-		
-		dp[0][0] = new Select(0, true);
-		
-		for (int i = 1; i <= total; i++)
-		{
-			for (int j = 0; j <= maxJ; j++)
-			{
-				if (dp[i - 1][j] != null)
-				{
-					if (dp[i][j] == null)
-						dp[i][j] = new Select(dp[i - 1][j].value, true);
-					else
-						dp[i][j] = new Select(Math.max(dp[i][j].value, dp[i - 1][j].value), true);
 
-					if (j + all[i - 1].grams <= x)
-					{
-						if (dp[i][j + all[i - 1].grams] != null)
-						{
-							dp[i][j + all[i - 1].grams] = new Select(Math.max(
-									dp[i][j + all[i - 1].grams].value,
-									dp[i - 1][j].value + all[i - 1].value), true);
-						}
-						else
-						{
-							dp[i][j + all[i - 1].grams] = new Select(
-									dp[i - 1][j].value + all[i - 1].value, true);
-						}
-						
-						if (j + all[i - 1].grams > maxJ)
-							maxJ = j + all[i - 1].grams;
-					}
+		for (int i = 1; i <= x; i++)
+		{
+			List<Integer> curr = neededGold[i];
+
+			curr.sort(new Comparator<Integer>()
+			{
+				@Override
+				public int compare(Integer o1, Integer o2)
+				{
+					return Integer.compare(o2, o1);
+				}
+			});
+
+			for (int j = 0; (j + 1) * i <= x && j < curr.size(); j++)
+			{
+				int currValue = curr.get(j);
+
+				for (int k = x; k >= i; k--)
+				{
+					if (max[k - i] != -1)
+						max[k] = Math.max(max[k], max[k - i] + currValue);
 				}
 			}
 		}
-		
-/*		System.out.println("dp : ");
-		
-		for (int i = 0; i <= n; i++)
-		{
-			for (int j = 0; j <= x; j++)
-			{
-				if (dp[i][j] == null)
-					System.out.print("---(-) ");
-				else
-					System.out.print(dp[i][j].value + "(" + j + ") ");
-			}
-			
-			System.out.println();
-		}
-		
-		System.out.println("n : " + n + ", x : " + x + ", dp[n][x].value : " + dp[n][x].value);*/
-		
-		if (dp[total][x] == null)
+
+		if (max[x] == -1)
 			out.println("Got caught!");
 		else
-			out.println(dp[total][x].value);
-	}
-	
-	static class Passenger
-	{
-		int value, grams;
-		
-		public Passenger(int value, int grams)
-		{
-			this.value = value;
-			this.grams = grams;
-		}
+			out.println(max[x]);
 	}
 
-	static class Select
-	{
-		long value;
-		boolean keep;
-		
-		public Select(long value, boolean keep)
-		{
-			this.value = value;
-			this.keep = keep;
-		}
-		
-	}
-	
 	static class InputReader
 	{
 		private InputStream stream;

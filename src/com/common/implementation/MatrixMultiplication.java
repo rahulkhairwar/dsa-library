@@ -37,9 +37,40 @@ public class MatrixMultiplication
 			System.out.println("Matrices with entered orders cannot be multiplied with each other.");
 		else
 		{
+			b = new int[bRows][bColumns];
+
+			System.out.println("Enter the elements of matrix B : ");
+
+			for (int i = 0; i < bRows; i++)
+				for (int j = 0; j < bColumns; j++)
+					b[i][j] = in.nextInt();
+
 			int[][] product = new int[aRows][bColumns];
 
-			
+			for (int i = 0; i < aRows; i++)
+			{
+				for (int j = 0; j < bColumns; j++)
+				{
+					int sum = 0;
+
+					for (int k = 0; k < bRows; k++)
+					{
+						sum += a[i][k] * b[k][j];
+					}
+
+					product[i][j] = sum;
+				}
+			}
+
+			System.out.println("The resultant matrix is : ");
+
+			for (int i = 0; i < aRows; i++)
+			{
+				for (int j = 0; j < bColumns; j++)
+					System.out.print(product[i][j] + " ");
+
+				System.out.println();
+			}
 		}
 	}
 

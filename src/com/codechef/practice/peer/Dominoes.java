@@ -4,11 +4,14 @@ import java.io.*;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 03/02/16.
+ * Codechef Question can only be submitted in C, C++ or Go -_-
+ * <br />But very similar question solved on UVA Online Judge.<br />
+ * Link : <b>https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1170</b>
  */
-public class Dominoes
+class Dominoes
 {
-	static int k, n;
+	static int t;
+	static long n, mod = (long) 1e9 + 7;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,7 +30,77 @@ public class Dominoes
 
 	static void solve()
 	{
-		n = in.nextInt();
+		t = in.nextInt();
+
+		long[] f = {1, 2};
+
+		while (t-- > 0)
+		{
+			n = in.nextLong();
+
+			if (n == 1)
+			{
+				out.println(1);
+
+				continue;
+			}
+			else if (n == 2)
+			{
+				out.println(2);
+
+				continue;
+			}
+
+			long[][] tMatrix = {{0, 1}, {1, 1}};
+
+			tMatrix = power(tMatrix, n - 1);
+
+			long answer = 0;
+
+			for (int i = 0; i < 2; i++)
+			{
+				answer += CMath.mod(tMatrix[0][i] * f[i], mod);
+				answer = CMath.mod(answer, mod);
+			}
+
+			out.println(answer);
+		}
+	}
+
+	static long[][] multiply(long[][] a, long[][] b)
+	{
+		long[][] product = new long[2][2];
+
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 2; j++)
+			{
+				long sum = 0;
+
+				for (int k = 0; k < 2; k++)
+				{
+					sum += CMath.mod(a[i][k] * b[k][j], mod);
+					sum = CMath.mod(sum, mod);
+				}
+
+				product[i][j] = sum;
+			}
+		}
+
+		return product;
+	}
+
+	static long[][] power(long[][] matrix, long power)
+	{
+		if (power == 1)
+			return matrix;
+
+		long[][] x = multiply(matrix, matrix);
+
+		if (power % 2 == 0)
+			return power(x, power / 2);
+		else
+			return multiply(matrix, power(x, power / 2));
 	}
 
 	static class InputReader

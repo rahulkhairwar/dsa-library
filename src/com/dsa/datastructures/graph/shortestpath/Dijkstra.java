@@ -1,9 +1,11 @@
-package com.dsa.datastructures.graph;
+package com.dsa.datastructures.graph.shortestpath;
 
 import java.util.*;
 
 /**
  * Created by rahulkhairwar on 29/01/16.
+ *<br /><br />
+ * Hackerrank Question Link : <b>https://www.hackerrank.com/challenges/dijkstrashortreach</b>
  */
 public class Dijkstra
 {

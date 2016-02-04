@@ -1,4 +1,4 @@
-package com.dsa.datastructures.graph;
+package com.dsa.datastructures.graph.shortestpath;
 
 import java.util.*;
 

@@ -1,13 +1,12 @@
-package com.dsa.datastructures.graph;
+package com.dsa.datastructures.graph.traversal;
 
 import java.util.*;
 
 /**
- * Created by rahulkhairwar on 29/01/16.
+ * Created by rahulkhairwar on 28/01/16.
  */
-public class BFSLevels
+public class BFS
 {
-	static int[] level;
 	static int nodes, edges;
 	static List<Integer>[] list;
 	static boolean[] visited;
@@ -15,19 +14,15 @@ public class BFSLevels
 
 	public static void main(String[] args)
 	{
-		System.out.print("Enter the number of nodes you want in the graph : ");
+		System.out.println("Enter the number of nodes in the graph : ");
 		nodes = in.nextInt();
 
-		System.out.print("\nEnter the number of edges : ");
+		System.out.println("Enter the number of edges : ");
 		edges = in.nextInt();
 
 		createGraph();
-		findLevels(0);
 
-		System.out.println("The level of each node in the graph : ");
-
-		for (int i = 0; i < nodes; i++)
-			System.out.println(i + " : " + level[i]);
+		bfs(0);
 	}
 
 	static void createGraph()
@@ -36,6 +31,8 @@ public class BFSLevels
 
 		for (int i = 0; i < edges; i++)
 		{
+			//System.out.println("Enter the details for edge " + (i + 1));
+
 			int from, to;
 
 			from = in.nextInt() - 1;
@@ -53,23 +50,30 @@ public class BFSLevels
 		}
 	}
 
-	static void findLevels(int node)
+	static void bfs(int node)
 	{
-		level = new int[nodes];
-		visited = new boolean[nodes];
-
-		level[node] = 0;
-		visited[node] = true;
-
 		if (list[node] == null)
-			return;
+		{
+			System.out.print(node + " ");
 
+			return;
+		}
+
+		visited = new boolean[nodes];
 		Queue<Integer> queue = new LinkedList<>();
+
 		queue.add(node);
 
 		while (queue.size() > 0)
 		{
 			int front = queue.poll();
+
+			if (visited[front])
+				continue;
+
+			System.out.print(front + " ");
+
+			visited[front] = true;
 			Iterator<Integer> iterator = list[front].iterator();
 
 			while (iterator.hasNext())
@@ -77,14 +81,11 @@ public class BFSLevels
 				int curr = iterator.next();
 
 				if (!visited[curr])
-				{
-					level[curr] = level[front] + 1;
-					visited[curr] = true;
 					queue.add(curr);
-				}
 			}
 		}
 	}
+
 }
 
 /*

@@ -94,6 +94,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/BFS.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/BFSLevels.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/Dijkstra$Edge.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/Dijkstra$Node.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/Dijkstra.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/ZeroOneBFS$Edge.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/ZeroOneBFS.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/graph/BFS.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/graph/BFSLevels.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/graph/Dijkstra.java" afterPath="" />
@@ -200,8 +207,8 @@
       <file leaf-file-name="BellmanFord.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/graph/shortestpath/BellmanFord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.24933334">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding>
                 <element signature="e#4584#4585#0" expanded="true" />
                 <element signature="e#4618#4619#0" expanded="true" />
@@ -1037,7 +1044,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454553016019</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added few more files">
+      <created>1454567987949</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1454567987949</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1107,7 +1120,8 @@
     <MESSAGE value="Added some more files" />
     <MESSAGE value="Some modified files" />
     <MESSAGE value="Changed location of a file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed location of a file" />
+    <MESSAGE value="Added few more files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added few more files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1523,8 +1537,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/graph/shortestpath/BellmanFord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.24933334">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
           <folding>
             <element signature="e#4584#4585#0" expanded="true" />
             <element signature="e#4618#4619#0" expanded="true" />

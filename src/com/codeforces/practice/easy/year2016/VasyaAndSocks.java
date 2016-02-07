@@ -1,14 +1,14 @@
-package com.a2onlinejudge.ladder.CodeforcesDiv2C;
+package com.codeforces.practice.easy.year2016;
 
 import java.io.*;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 07/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public class VasyaAndSocks
 {
-	static int length, sum;
+	static int n, m;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,92 +27,21 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		n = in.nextInt();
+		m = in.nextInt();
 
-		if (length == 1)
+		int count = 0;
+
+		while (n > 0)
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
+			count++;
+			n--;
+
+			if (count % m == 0)
+				n++;
 		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
-		{
-			int[] min, max;
 
-			min = new int[length];
-			max = new int[length];
-
-			int temp = sum;
-			boolean minExists = true;
-
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
-			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
-			}
-
-			if (minExists)
-			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
-
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
-			}
-		}
+		out.println(count);
 	}
 
 	static class InputReader
@@ -461,26 +390,4 @@ public final class GivenLengthAndSumOfDigits
 
 	}
 
-	static class CMath
-	{
-		static long power(long number, int power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-	}
 }

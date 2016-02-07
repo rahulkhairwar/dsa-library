@@ -1,4 +1,4 @@
-package com.codeforces.practice.easy;
+package com.codeforces.practice.easy.year2015;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

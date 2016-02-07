@@ -94,11 +94,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord$Edge.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord$Edge.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord$Graph$Edge.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord$Graph$Edge.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord$Graph.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord$Graph.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Exams.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Team.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/VasyaAndSocks.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/AntonAndCurrencyYouAllKnow.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/AntonAndCurrencyYouAllKnow.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/CircularRMQ.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/CircularRMQ.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/CuttingBanner.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/CuttingBanner.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/FlippingGame.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/FlippingGame.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/MrKitayutasGift.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/MrKitayutasGift.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/PashaAndPixels.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/PashaAndPixels.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/Puzzles.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/Puzzles.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/QuasiBinary.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/QuasiBinary.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/SoftDrinking.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/SoftDrinking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chelper.properties" afterPath="$PROJECT_DIR$/chelper.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -130,7 +140,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1309#1310#0" expanded="false" />
+                <element signature="e#1338#1339#0" expanded="false" />
+                <element signature="e#4091#4092#0" expanded="false" />
+                <element signature="e#4165#4166#0" expanded="false" />
+                <element signature="e#4425#4426#0" expanded="false" />
+                <element signature="e#4450#4451#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,17 +158,49 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="396" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdditionAndMultiplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/july/AdditionAndMultiplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="375" column="79" selection-start-line="375" selection-start-column="79" selection-end-line="375" selection-end-column="79" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#470#471#0" expanded="false" />
+                <element signature="e#499#500#0" expanded="false" />
+                <element signature="e#733#734#0" expanded="false" />
+                <element signature="e#777#778#0" expanded="false" />
+                <element signature="e#4820#4821#0" expanded="false" />
+                <element signature="e#4909#4910#0" expanded="false" />
+                <element signature="e#5277#5278#0" expanded="false" />
+                <element signature="e#5317#5318#0" expanded="false" />
+                <element signature="e#5844#5845#0" expanded="false" />
+                <element signature="e#5905#5906#0" expanded="false" />
+                <element signature="e#5951#5952#0" expanded="false" />
+                <element signature="e#5992#5993#0" expanded="false" />
+                <element signature="e#6036#6037#0" expanded="false" />
+                <element signature="e#6075#6076#0" expanded="false" />
+                <element signature="e#6424#6425#0" expanded="false" />
+                <element signature="e#6465#6466#0" expanded="false" />
+                <element signature="e#6510#6511#0" expanded="false" />
+                <element signature="e#6549#6550#0" expanded="false" />
+                <element signature="e#6897#6898#0" expanded="false" />
+                <element signature="e#6940#6941#0" expanded="false" />
+                <element signature="e#6988#6989#0" expanded="false" />
+                <element signature="e#7029#7030#0" expanded="false" />
+                <element signature="e#7080#7081#0" expanded="false" />
+                <element signature="e#7123#7124#0" expanded="false" />
+                <element signature="e#7172#7173#0" expanded="false" />
+                <element signature="e#7213#7214#0" expanded="false" />
+                <element signature="e#7262#7263#0" expanded="false" />
+                <element signature="e#7303#7304#0" expanded="false" />
+                <element signature="e#7350#7351#0" expanded="false" />
+                <element signature="e#7389#7390#0" expanded="false" />
+                <element signature="e#7430#7431#0" expanded="false" />
+                <element signature="e#7470#7471#0" expanded="false" />
+                <element signature="e#7514#7515#0" expanded="false" />
+                <element signature="e#7555#7556#0" expanded="false" />
+                <element signature="e#7594#7595#0" expanded="false" />
+                <element signature="e#7632#7633#0" expanded="false" />
+                <element signature="e#7671#7672#0" expanded="false" />
+                <element signature="e#7709#7710#0" expanded="false" />
+                <element signature="e#8193#8194#0" expanded="false" />
+                <element signature="e#8253#8254#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,7 +210,47 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2908#2909#0" expanded="false" />
+                <element signature="e#2937#2938#0" expanded="false" />
+                <element signature="e#5690#5691#0" expanded="false" />
+                <element signature="e#5764#5765#0" expanded="false" />
+                <element signature="e#6024#6025#0" expanded="false" />
+                <element signature="e#6049#6050#0" expanded="false" />
+                <element signature="e#6420#6421#0" expanded="false" />
+                <element signature="e#6466#6467#0" expanded="false" />
+                <element signature="e#6500#6501#0" expanded="false" />
+                <element signature="e#6526#6527#0" expanded="false" />
+                <element signature="e#6558#6559#0" expanded="false" />
+                <element signature="e#6582#6583#0" expanded="false" />
+                <element signature="e#6841#6842#0" expanded="false" />
+                <element signature="e#6867#6868#0" expanded="false" />
+                <element signature="e#6900#6901#0" expanded="false" />
+                <element signature="e#6924#6925#0" expanded="false" />
+                <element signature="e#7182#7183#0" expanded="false" />
+                <element signature="e#7210#7211#0" expanded="false" />
+                <element signature="e#7246#7247#0" expanded="false" />
+                <element signature="e#7272#7273#0" expanded="false" />
+                <element signature="e#7311#7312#0" expanded="false" />
+                <element signature="e#7339#7340#0" expanded="false" />
+                <element signature="e#7376#7377#0" expanded="false" />
+                <element signature="e#7402#7403#0" expanded="false" />
+                <element signature="e#7439#7440#0" expanded="false" />
+                <element signature="e#7465#7466#0" expanded="false" />
+                <element signature="e#7500#7501#0" expanded="false" />
+                <element signature="e#7524#7525#0" expanded="false" />
+                <element signature="e#7553#7554#0" expanded="false" />
+                <element signature="e#7578#7579#0" expanded="false" />
+                <element signature="e#7610#7611#0" expanded="false" />
+                <element signature="e#7636#7637#0" expanded="false" />
+                <element signature="e#7663#7664#0" expanded="false" />
+                <element signature="e#7686#7687#0" expanded="false" />
+                <element signature="e#7713#7714#0" expanded="false" />
+                <element signature="e#7736#7737#0" expanded="false" />
+                <element signature="e#8097#8098#0" expanded="false" />
+                <element signature="e#8142#8143#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,26 +260,129 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2265#2266#0" expanded="false" />
+                <element signature="e#2294#2295#0" expanded="false" />
+                <element signature="e#5047#5048#0" expanded="false" />
+                <element signature="e#5121#5122#0" expanded="false" />
+                <element signature="e#5381#5382#0" expanded="false" />
+                <element signature="e#5406#5407#0" expanded="false" />
+                <element signature="e#5777#5778#0" expanded="false" />
+                <element signature="e#5823#5824#0" expanded="false" />
+                <element signature="e#5857#5858#0" expanded="false" />
+                <element signature="e#5883#5884#0" expanded="false" />
+                <element signature="e#5915#5916#0" expanded="false" />
+                <element signature="e#5939#5940#0" expanded="false" />
+                <element signature="e#6198#6199#0" expanded="false" />
+                <element signature="e#6224#6225#0" expanded="false" />
+                <element signature="e#6257#6258#0" expanded="false" />
+                <element signature="e#6281#6282#0" expanded="false" />
+                <element signature="e#6539#6540#0" expanded="false" />
+                <element signature="e#6567#6568#0" expanded="false" />
+                <element signature="e#6603#6604#0" expanded="false" />
+                <element signature="e#6629#6630#0" expanded="false" />
+                <element signature="e#6668#6669#0" expanded="false" />
+                <element signature="e#6696#6697#0" expanded="false" />
+                <element signature="e#6733#6734#0" expanded="false" />
+                <element signature="e#6759#6760#0" expanded="false" />
+                <element signature="e#6796#6797#0" expanded="false" />
+                <element signature="e#6822#6823#0" expanded="false" />
+                <element signature="e#6857#6858#0" expanded="false" />
+                <element signature="e#6881#6882#0" expanded="false" />
+                <element signature="e#6910#6911#0" expanded="false" />
+                <element signature="e#6935#6936#0" expanded="false" />
+                <element signature="e#6967#6968#0" expanded="false" />
+                <element signature="e#6993#6994#0" expanded="false" />
+                <element signature="e#7020#7021#0" expanded="false" />
+                <element signature="e#7043#7044#0" expanded="false" />
+                <element signature="e#7070#7071#0" expanded="false" />
+                <element signature="e#7093#7094#0" expanded="false" />
+                <element signature="e#7454#7455#0" expanded="false" />
+                <element signature="e#7499#7500#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GivenLengthAndSumOfDigits.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java">
+      <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Team.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="480" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1765#1766#0" expanded="false" />
+                <element signature="e#1794#1795#0" expanded="false" />
+                <element signature="e#4547#4548#0" expanded="false" />
+                <element signature="e#4621#4622#0" expanded="false" />
+                <element signature="e#4881#4882#0" expanded="false" />
+                <element signature="e#4906#4907#0" expanded="false" />
+                <element signature="e#5277#5278#0" expanded="false" />
+                <element signature="e#5323#5324#0" expanded="false" />
+                <element signature="e#5357#5358#0" expanded="false" />
+                <element signature="e#5383#5384#0" expanded="false" />
+                <element signature="e#5415#5416#0" expanded="false" />
+                <element signature="e#5439#5440#0" expanded="false" />
+                <element signature="e#5698#5699#0" expanded="false" />
+                <element signature="e#5724#5725#0" expanded="false" />
+                <element signature="e#5757#5758#0" expanded="false" />
+                <element signature="e#5781#5782#0" expanded="false" />
+                <element signature="e#6039#6040#0" expanded="false" />
+                <element signature="e#6067#6068#0" expanded="false" />
+                <element signature="e#6103#6104#0" expanded="false" />
+                <element signature="e#6129#6130#0" expanded="false" />
+                <element signature="e#6168#6169#0" expanded="false" />
+                <element signature="e#6196#6197#0" expanded="false" />
+                <element signature="e#6233#6234#0" expanded="false" />
+                <element signature="e#6259#6260#0" expanded="false" />
+                <element signature="e#6296#6297#0" expanded="false" />
+                <element signature="e#6322#6323#0" expanded="false" />
+                <element signature="e#6357#6358#0" expanded="false" />
+                <element signature="e#6381#6382#0" expanded="false" />
+                <element signature="e#6410#6411#0" expanded="false" />
+                <element signature="e#6435#6436#0" expanded="false" />
+                <element signature="e#6467#6468#0" expanded="false" />
+                <element signature="e#6493#6494#0" expanded="false" />
+                <element signature="e#6520#6521#0" expanded="false" />
+                <element signature="e#6543#6544#0" expanded="false" />
+                <element signature="e#6570#6571#0" expanded="false" />
+                <element signature="e#6593#6594#0" expanded="false" />
+                <element signature="e#6954#6955#0" expanded="false" />
+                <element signature="e#6999#7000#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exams.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Exams.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="472" column="0" selection-start-line="472" selection-start-column="0" selection-end-line="482" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrimeFactorization.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TaskA.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.116">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding>
+                <element signature="class#InputReader#0;class#TaskA#0" expanded="false" />
+                <element signature="class#OutputWriter#0;class#TaskA#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrimeFactorization.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/common/implementation/PrimeFactorization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15866667">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -248,8 +441,14 @@
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/aimtechrounddiv2/TaskB.java" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/aimtechrounddiv2/TaskC.java" />
         <option value="$PROJECT_DIR$/src/a2onlinejudge/ladder/CodeforcesDiv2C/NumberOfWays.java" />
-        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java" />
         <option value="$PROJECT_DIR$/src/com/common/implementation/PrimeFactorization.java" />
+        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Team.java" />
+        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java" />
+        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Exams.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskB.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskC.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/VasyaAndSocks.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskA.java" />
       </list>
     </option>
   </component>
@@ -315,7 +514,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -585,6 +785,70 @@
               <option name="myItemId" value="codeforces" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="practice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="year2016" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeforces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="practice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeforces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -632,8 +896,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -651,15 +914,35 @@
       <recent name="$PROJECT_DIR$/src/com/dsa/algorithms" />
     </key>
   </component>
-  <component name="RunManager" selected="Task.TaskE">
-    <configuration default="false" name="NumberOfWays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Task.TaskA">
+    <configuration default="false" name="Team" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="a2onlinejudge.ladder.CodeforcesDiv2C.*" />
+          <option name="PATTERN" value="com.a2onlinejudge.ladder.CodeforcesDiv2C.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="a2onlinejudge.ladder.CodeforcesDiv2C.NumberOfWays" />
+      <option name="MAIN_CLASS_NAME" value="com.a2onlinejudge.ladder.CodeforcesDiv2C.Team" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Competitive Programming" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Exams" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.a2onlinejudge.ladder.CodeforcesDiv2C.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.a2onlinejudge.ladder.CodeforcesDiv2C.Exams" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -675,11 +958,11 @@
     <configuration default="false" name="TaskA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.aimtechrounddiv2.*" />
+          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.round342div2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.aimtechrounddiv2.TaskA" />
+      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.round342div2.TaskA" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -695,11 +978,11 @@
     <configuration default="false" name="TaskB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.aimtechrounddiv2.*" />
+          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.round342div2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.aimtechrounddiv2.TaskB" />
+      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.round342div2.TaskB" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -715,31 +998,11 @@
     <configuration default="false" name="TaskC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.aimtechrounddiv2.*" />
+          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.round342div2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.aimtechrounddiv2.TaskC" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Competitive Programming" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrimeFactorization" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.common.implementation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.common.implementation.PrimeFactorization" />
+      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.round342div2.TaskC" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1021,36 +1284,36 @@
       <method />
     </configuration>
     <configuration default="false" name="TaskA" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/aimtechrounddiv2/TaskA.task</taskConf>
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskA.task</taskConf>
       <method />
     </configuration>
     <configuration default="false" name="TaskB" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/aimtechrounddiv2/TaskB.task</taskConf>
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskB.task</taskConf>
       <method />
     </configuration>
     <configuration default="false" name="TaskC" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/aimtechrounddiv2/TaskC.task</taskConf>
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskC.task</taskConf>
       <method />
     </configuration>
     <list size="10">
       <item index="0" class="java.lang.String" itemvalue="Task.TaskD" />
       <item index="1" class="java.lang.String" itemvalue="Task.TaskE" />
-      <item index="2" class="java.lang.String" itemvalue="Task.TaskA" />
-      <item index="3" class="java.lang.String" itemvalue="Task.TaskB" />
-      <item index="4" class="java.lang.String" itemvalue="Task.TaskC" />
-      <item index="5" class="java.lang.String" itemvalue="Application.NumberOfWays" />
-      <item index="6" class="java.lang.String" itemvalue="Application.TaskA" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Team" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Exams" />
+      <item index="4" class="java.lang.String" itemvalue="Task.TaskA" />
+      <item index="5" class="java.lang.String" itemvalue="Application.TaskA" />
+      <item index="6" class="java.lang.String" itemvalue="Task.TaskB" />
       <item index="7" class="java.lang.String" itemvalue="Application.TaskB" />
-      <item index="8" class="java.lang.String" itemvalue="Application.TaskC" />
-      <item index="9" class="java.lang.String" itemvalue="Application.PrimeFactorization" />
+      <item index="8" class="java.lang.String" itemvalue="Task.TaskC" />
+      <item index="9" class="java.lang.String" itemvalue="Application.TaskC" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.NumberOfWays" />
-        <item index="1" class="java.lang.String" itemvalue="Application.PrimeFactorization" />
+        <item index="0" class="java.lang.String" itemvalue="Application.TaskA" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TaskB" />
         <item index="2" class="java.lang.String" itemvalue="Application.TaskC" />
-        <item index="3" class="java.lang.String" itemvalue="Application.TaskB" />
-        <item index="4" class="java.lang.String" itemvalue="Application.TaskA" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Exams" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Team" />
       </list>
     </recent_temporary>
   </component>
@@ -1101,7 +1364,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454773710029</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a few more files">
+      <created>1454773719834</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1454773719834</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1112,27 +1381,53 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.50277776" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Armory" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.50277776" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Armory" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1151,7 +1446,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1160,49 +1455,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/june/ChefAndHisFriend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/july/Masterchef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/july/AdditionAndMultiplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/may/DevuAndBinaryString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/intervaltree/IntervalNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70266664">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/intervaltree/Interval.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dsa/algorithms/KadaneAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1396,7 +1648,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="375" column="79" selection-start-line="375" selection-start-column="79" selection-end-line="375" selection-end-column="79" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#10623#10624#0" expanded="false" />
+            <element signature="e#10652#10653#0" expanded="false" />
+            <element signature="e#13425#13426#0" expanded="false" />
+            <element signature="e#13499#13500#0" expanded="false" />
+            <element signature="e#13776#13777#0" expanded="false" />
+            <element signature="e#13801#13802#0" expanded="false" />
+            <element signature="e#14168#14169#0" expanded="false" />
+            <element signature="e#14214#14215#0" expanded="false" />
+            <element signature="e#14248#14249#0" expanded="false" />
+            <element signature="e#14274#14275#0" expanded="false" />
+            <element signature="e#14306#14307#0" expanded="false" />
+            <element signature="e#14330#14331#0" expanded="false" />
+            <element signature="e#14589#14590#0" expanded="false" />
+            <element signature="e#14615#14616#0" expanded="false" />
+            <element signature="e#14648#14649#0" expanded="false" />
+            <element signature="e#14672#14673#0" expanded="false" />
+            <element signature="e#14930#14931#0" expanded="false" />
+            <element signature="e#14958#14959#0" expanded="false" />
+            <element signature="e#14994#14995#0" expanded="false" />
+            <element signature="e#15020#15021#0" expanded="false" />
+            <element signature="e#15059#15060#0" expanded="false" />
+            <element signature="e#15087#15088#0" expanded="false" />
+            <element signature="e#15124#15125#0" expanded="false" />
+            <element signature="e#15150#15151#0" expanded="false" />
+            <element signature="e#15187#15188#0" expanded="false" />
+            <element signature="e#15213#15214#0" expanded="false" />
+            <element signature="e#15248#15249#0" expanded="false" />
+            <element signature="e#15272#15273#0" expanded="false" />
+            <element signature="e#15301#15302#0" expanded="false" />
+            <element signature="e#15326#15327#0" expanded="false" />
+            <element signature="e#15358#15359#0" expanded="false" />
+            <element signature="e#15384#15385#0" expanded="false" />
+            <element signature="e#15411#15412#0" expanded="false" />
+            <element signature="e#15434#15435#0" expanded="false" />
+            <element signature="e#15461#15462#0" expanded="false" />
+            <element signature="e#15484#15485#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1449,22 +1739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round341div2/TaskE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="396" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round341div2/TaskC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/aimtechrounddiv2/TaskA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6573333">
@@ -1486,19 +1760,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spoj/practice/classic/LargeKnapsack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KnapsackProblem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2908#2909#0" expanded="false" />
+            <element signature="e#2937#2938#0" expanded="false" />
+            <element signature="e#5690#5691#0" expanded="false" />
+            <element signature="e#5764#5765#0" expanded="false" />
+            <element signature="e#6024#6025#0" expanded="false" />
+            <element signature="e#6049#6050#0" expanded="false" />
+            <element signature="e#6420#6421#0" expanded="false" />
+            <element signature="e#6466#6467#0" expanded="false" />
+            <element signature="e#6500#6501#0" expanded="false" />
+            <element signature="e#6526#6527#0" expanded="false" />
+            <element signature="e#6558#6559#0" expanded="false" />
+            <element signature="e#6582#6583#0" expanded="false" />
+            <element signature="e#6841#6842#0" expanded="false" />
+            <element signature="e#6867#6868#0" expanded="false" />
+            <element signature="e#6900#6901#0" expanded="false" />
+            <element signature="e#6924#6925#0" expanded="false" />
+            <element signature="e#7182#7183#0" expanded="false" />
+            <element signature="e#7210#7211#0" expanded="false" />
+            <element signature="e#7246#7247#0" expanded="false" />
+            <element signature="e#7272#7273#0" expanded="false" />
+            <element signature="e#7311#7312#0" expanded="false" />
+            <element signature="e#7339#7340#0" expanded="false" />
+            <element signature="e#7376#7377#0" expanded="false" />
+            <element signature="e#7402#7403#0" expanded="false" />
+            <element signature="e#7439#7440#0" expanded="false" />
+            <element signature="e#7465#7466#0" expanded="false" />
+            <element signature="e#7500#7501#0" expanded="false" />
+            <element signature="e#7524#7525#0" expanded="false" />
+            <element signature="e#7553#7554#0" expanded="false" />
+            <element signature="e#7578#7579#0" expanded="false" />
+            <element signature="e#7610#7611#0" expanded="false" />
+            <element signature="e#7636#7637#0" expanded="false" />
+            <element signature="e#7663#7664#0" expanded="false" />
+            <element signature="e#7686#7687#0" expanded="false" />
+            <element signature="e#7713#7714#0" expanded="false" />
+            <element signature="e#7736#7737#0" expanded="false" />
+            <element signature="e#8097#8098#0" expanded="false" />
+            <element signature="e#8142#8143#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1506,28 +1812,233 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.456">
           <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#InputReader#0;class#NumberOfWays#0" expanded="false" />
-            <element signature="class#OutputWriter#0;class#NumberOfWays#0" expanded="false" />
-            <element signature="class#CMath#0;class#NumberOfWays#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8613333">
+          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/spoj/practice/classic/LargeKnapsack.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2265#2266#0" expanded="false" />
+            <element signature="e#2294#2295#0" expanded="false" />
+            <element signature="e#5047#5048#0" expanded="false" />
+            <element signature="e#5121#5122#0" expanded="false" />
+            <element signature="e#5381#5382#0" expanded="false" />
+            <element signature="e#5406#5407#0" expanded="false" />
+            <element signature="e#5777#5778#0" expanded="false" />
+            <element signature="e#5823#5824#0" expanded="false" />
+            <element signature="e#5857#5858#0" expanded="false" />
+            <element signature="e#5883#5884#0" expanded="false" />
+            <element signature="e#5915#5916#0" expanded="false" />
+            <element signature="e#5939#5940#0" expanded="false" />
+            <element signature="e#6198#6199#0" expanded="false" />
+            <element signature="e#6224#6225#0" expanded="false" />
+            <element signature="e#6257#6258#0" expanded="false" />
+            <element signature="e#6281#6282#0" expanded="false" />
+            <element signature="e#6539#6540#0" expanded="false" />
+            <element signature="e#6567#6568#0" expanded="false" />
+            <element signature="e#6603#6604#0" expanded="false" />
+            <element signature="e#6629#6630#0" expanded="false" />
+            <element signature="e#6668#6669#0" expanded="false" />
+            <element signature="e#6696#6697#0" expanded="false" />
+            <element signature="e#6733#6734#0" expanded="false" />
+            <element signature="e#6759#6760#0" expanded="false" />
+            <element signature="e#6796#6797#0" expanded="false" />
+            <element signature="e#6822#6823#0" expanded="false" />
+            <element signature="e#6857#6858#0" expanded="false" />
+            <element signature="e#6881#6882#0" expanded="false" />
+            <element signature="e#6910#6911#0" expanded="false" />
+            <element signature="e#6935#6936#0" expanded="false" />
+            <element signature="e#6967#6968#0" expanded="false" />
+            <element signature="e#6993#6994#0" expanded="false" />
+            <element signature="e#7020#7021#0" expanded="false" />
+            <element signature="e#7043#7044#0" expanded="false" />
+            <element signature="e#7070#7071#0" expanded="false" />
+            <element signature="e#7093#7094#0" expanded="false" />
+            <element signature="e#7454#7455#0" expanded="false" />
+            <element signature="e#7499#7500#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="480" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1794#1795#0" expanded="false" />
+            <element signature="e#4547#4548#0" expanded="false" />
+            <element signature="e#4621#4622#0" expanded="false" />
+            <element signature="e#4881#4882#0" expanded="false" />
+            <element signature="e#4906#4907#0" expanded="false" />
+            <element signature="e#5277#5278#0" expanded="false" />
+            <element signature="e#5323#5324#0" expanded="false" />
+            <element signature="e#5357#5358#0" expanded="false" />
+            <element signature="e#5383#5384#0" expanded="false" />
+            <element signature="e#5415#5416#0" expanded="false" />
+            <element signature="e#5439#5440#0" expanded="false" />
+            <element signature="e#5698#5699#0" expanded="false" />
+            <element signature="e#5724#5725#0" expanded="false" />
+            <element signature="e#5757#5758#0" expanded="false" />
+            <element signature="e#5781#5782#0" expanded="false" />
+            <element signature="e#6039#6040#0" expanded="false" />
+            <element signature="e#6067#6068#0" expanded="false" />
+            <element signature="e#6103#6104#0" expanded="false" />
+            <element signature="e#6129#6130#0" expanded="false" />
+            <element signature="e#6168#6169#0" expanded="false" />
+            <element signature="e#6196#6197#0" expanded="false" />
+            <element signature="e#6233#6234#0" expanded="false" />
+            <element signature="e#6259#6260#0" expanded="false" />
+            <element signature="e#6296#6297#0" expanded="false" />
+            <element signature="e#6322#6323#0" expanded="false" />
+            <element signature="e#6357#6358#0" expanded="false" />
+            <element signature="e#6381#6382#0" expanded="false" />
+            <element signature="e#6410#6411#0" expanded="false" />
+            <element signature="e#6435#6436#0" expanded="false" />
+            <element signature="e#6467#6468#0" expanded="false" />
+            <element signature="e#6493#6494#0" expanded="false" />
+            <element signature="e#6520#6521#0" expanded="false" />
+            <element signature="e#6543#6544#0" expanded="false" />
+            <element signature="e#6570#6571#0" expanded="false" />
+            <element signature="e#6593#6594#0" expanded="false" />
+            <element signature="e#6954#6955#0" expanded="false" />
+            <element signature="e#6999#7000#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round341div2/TaskE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="396" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#470#471#0" expanded="false" />
+            <element signature="e#499#500#0" expanded="false" />
+            <element signature="e#733#734#0" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#4820#4821#0" expanded="false" />
+            <element signature="e#4909#4910#0" expanded="false" />
+            <element signature="e#5277#5278#0" expanded="false" />
+            <element signature="e#5317#5318#0" expanded="false" />
+            <element signature="e#5844#5845#0" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="false" />
+            <element signature="e#5951#5952#0" expanded="false" />
+            <element signature="e#5992#5993#0" expanded="false" />
+            <element signature="e#6036#6037#0" expanded="false" />
+            <element signature="e#6075#6076#0" expanded="false" />
+            <element signature="e#6424#6425#0" expanded="false" />
+            <element signature="e#6465#6466#0" expanded="false" />
+            <element signature="e#6510#6511#0" expanded="false" />
+            <element signature="e#6549#6550#0" expanded="false" />
+            <element signature="e#6897#6898#0" expanded="false" />
+            <element signature="e#6940#6941#0" expanded="false" />
+            <element signature="e#6988#6989#0" expanded="false" />
+            <element signature="e#7029#7030#0" expanded="false" />
+            <element signature="e#7080#7081#0" expanded="false" />
+            <element signature="e#7123#7124#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7213#7214#0" expanded="false" />
+            <element signature="e#7262#7263#0" expanded="false" />
+            <element signature="e#7303#7304#0" expanded="false" />
+            <element signature="e#7350#7351#0" expanded="false" />
+            <element signature="e#7389#7390#0" expanded="false" />
+            <element signature="e#7430#7431#0" expanded="false" />
+            <element signature="e#7470#7471#0" expanded="false" />
+            <element signature="e#7514#7515#0" expanded="false" />
+            <element signature="e#7555#7556#0" expanded="false" />
+            <element signature="e#7594#7595#0" expanded="false" />
+            <element signature="e#7632#7633#0" expanded="false" />
+            <element signature="e#7671#7672#0" expanded="false" />
+            <element signature="e#7709#7710#0" expanded="false" />
+            <element signature="e#8193#8194#0" expanded="false" />
+            <element signature="e#8253#8254#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round341div2/TaskC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1309#1310#0" expanded="false" />
+            <element signature="e#1338#1339#0" expanded="false" />
+            <element signature="e#4091#4092#0" expanded="false" />
+            <element signature="e#4165#4166#0" expanded="false" />
+            <element signature="e#4425#4426#0" expanded="false" />
+            <element signature="e#4450#4451#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/implementation/PrimeFactorization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15866667">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Exams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="472" column="0" selection-start-line="472" selection-start-column="0" selection-end-line="482" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.544">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="class#InputReader#0;class#TaskB#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1266667">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/VasyaAndSocks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5466667">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#InputReader#0;class#VasyaAndSocks#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#VasyaAndSocks#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round342div2/TaskA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.116">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="class#InputReader#0;class#TaskA#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskA#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

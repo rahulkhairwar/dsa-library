@@ -1,121 +1,220 @@
-package com.a2onlinejudge.ladder.CodeforcesDiv2C;
+package com.codeforces.practice.easy.year2015;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.InputMismatchException;
 
-/**
- * Created by rahulkhairwar on 04/02/16.
- */
-public final class GivenLengthAndSumOfDigits
+public final class MrKitayutasGift
 {
-	static int length, sum;
-	static InputReader in;
-	static OutputWriter out;
+	private static InputReader reader;
+	private static OutputWriter writer;
 
 	public static void main(String[] args)
 	{
-		in = new InputReader(System.in);
-		out = new OutputWriter(System.out);
+		MrKitayutasGift gift = new MrKitayutasGift();
 
-		solve();
+		reader = gift.new InputReader(System.in);
+		writer = gift.new OutputWriter(System.out);
 
-		out.flush();
+		getAttributes();
 
-		in.close();
-		out.close();
+		writer.flush();
+
+		reader.close();
+		writer.close();
 	}
 
-	static void solve()
+	public static void getAttributes()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		String s = reader.next();
 
-		if (length == 1)
+		if (isPalindrome(s))
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
+			String answer = "";
+			int length = s.length();
+
+			for (int i = 0; i < length / 2; i++)
+				answer += s.charAt(i);
+
+			answer += s.charAt(length / 2);
+
+			for (int i = length / 2; i < length; i++)
+				answer += s.charAt(i);
+
+			writer.println(answer);
+
+			return;
 		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
+
+		String answer;
+		int length, count, pos;
+		boolean result;
+
+		answer = "";
+		length = s.length();
+		count = 0;
+		pos = 0;
+		result = false;
+
+		int i, j;
+
+		i = 0;
+		j = length - 1;
+
+		while (s.charAt(i) == s.charAt(j) && i < length / 2)
 		{
-			int[] min, max;
+			// System.out.println("current i : " + i + ", j : " + j);
 
-			min = new int[length];
-			max = new int[length];
+			i++;
+			j--;
+		}
 
-			int temp = sum;
-			boolean minExists = true;
+		while (true && i < length / 2)
+		{
+			// System.out.println("current i : " + i + ", j : " + j + ", count : " + count);
 
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
+			if (s.charAt(i) == s.charAt(j - 1))
 			{
-				if (i == 0)
+				// System.out.println("here");
+
+				if (isPalindrome(s.substring(i, j)))
 				{
-					if (temp <= 8)
+					pos = i;
+					
+					// System.out.println("postiion is : " + pos);
+					
+					break;
+				}
+				else if (s.charAt(i + 1) == s.charAt(j))
+				{
+					if (isPalindrome(s.substring(i + 1, j + 1)))
 					{
-						min[i] += temp;
-						temp = 0;
+						pos = j;
+						
+						// System.out.println("position is : " + pos);
+						
+						break;
 					}
 					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
+					{
+						writer.println("NA");
+						
+						return;
+					}
 				}
 				else
 				{
-					min[i] = temp;
-					temp = 0;
+					writer.println("NA");
+					
+					return;
 				}
-
-				if (temp == 0)
+			}
+			else if (s.charAt(i + 1) == s.charAt(j))
+			{
+				// System.out.println("yo!!");
+				
+				if (isPalindrome(s.substring(i + 1, j + 1)))
+				{
+					pos = j;
+					
+					// System.out.println("position is : " + pos);
+					
 					break;
-			}
-
-			if (minExists)
-			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
 				}
 				else
 				{
-					max[i] = temp;
-					temp = 0;
+					writer.println("NA");
+					
+					return;
 				}
 			}
-
-			if (temp > 0)
-				out.print(-1);
+			else if (s.charAt(i) != s.charAt(j))
+				count++;
 			else
 			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
+				writer.println("NA");
+				
+				return;
 			}
+
+			if (count > 1)
+				break;
+
+			// System.out.println("leaving i : " + i + ", j : " + j + ", count : " + count);
+
+			i++;
+			j--;
+		}
+
+		// System.out.println("count : " + count + ", pos : " + pos);
+
+		if (count <= 1)
+			result = true;
+
+		if (result == false)
+			writer.println("NA");
+		else
+		{
+			if (length % 2 != 0)
+			{
+				if (pos > length / 2)
+				{
+					if (s.charAt(length / 2) != s.charAt(length / 2 + 1))
+						result = false;
+				}
+				else if (s.charAt(length / 2) != s.charAt(length / 2 - 1))
+					result = false;
+			}
+
+			if (!result)
+			{
+				writer.println("NA");
+
+				return;
+			}
+
+			if (pos < length / 2)
+			{
+				for (int k = 0; k < pos; k++)
+					answer += s.charAt(k);
+
+				answer += s.charAt(length - 1 - pos);
+
+				for (int k = pos; k < length; k++)
+					answer += s.charAt(k);
+			}
+			else
+			{
+				for (int k = 0; k <= pos; k++)
+					answer += s.charAt(k);
+
+				answer += s.charAt(length - 1 - pos);
+				
+				for (int k = pos + 1; k < length; k++)
+					answer += s.charAt(k);
+			}
+
+			writer.println(answer);
 		}
 	}
 
-	static class InputReader
+	public static boolean isPalindrome(String s)
+	{
+		int length = s.length();
+
+		for (int i = 0; i < length / 2; i++)
+			if (s.charAt(i) != s.charAt(length - 1 - i))
+				return false;
+
+		return true;
+	}
+
+	class InputReader
 	{
 		private InputStream stream;
 		private byte[] buf = new byte[1024];
@@ -138,7 +237,8 @@ public final class GivenLengthAndSumOfDigits
 				try
 				{
 					numChars = stream.read(buf);
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -180,16 +280,6 @@ public final class GivenLengthAndSumOfDigits
 			return res * sgn;
 		}
 
-		public int[] nextIntArray(int arraySize)
-		{
-			int array[] = new int[arraySize];
-
-			for (int i = 0; i < arraySize; i++)
-				array[i] = nextInt();
-
-			return array;
-		}
-
 		public long nextLong()
 		{
 			int c = read();
@@ -220,16 +310,6 @@ public final class GivenLengthAndSumOfDigits
 			} while (!isSpaceChar(c));
 
 			return result * sign;
-		}
-
-		public long[] nextLongArray(int arraySize)
-		{
-			long array[] = new long[arraySize];
-
-			for (int i = 0; i < arraySize; i++)
-				array[i] = nextLong();
-
-			return array;
 		}
 
 		public float nextFloat() // problematic
@@ -316,33 +396,13 @@ public final class GivenLengthAndSumOfDigits
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
 
-		public String nextLine()
-		{
-			int c = read();
-
-			StringBuilder result = new StringBuilder();
-
-			do
-			{
-				result.appendCodePoint(c);
-
-				c = read();
-			} while (!isNewLine(c));
-
-			return result.toString();
-		}
-
-		public boolean isNewLine(int c)
-		{
-			return c == '\n';
-		}
-
 		public void close()
 		{
 			try
 			{
 				stream.close();
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -350,7 +410,7 @@ public final class GivenLengthAndSumOfDigits
 
 	}
 
-	static class OutputWriter
+	class OutputWriter
 	{
 		private PrintWriter writer;
 
@@ -461,26 +521,9 @@ public final class GivenLengthAndSumOfDigits
 
 	}
 
-	static class CMath
-	{
-		static long power(long number, int power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-	}
 }
+
+/*
+ * 
+ * reviive reviave
+ */

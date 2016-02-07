@@ -1,14 +1,16 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 07/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public final class Exams
 {
-	static int length, sum;
+	static int n;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,92 +29,72 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		n = in.nextInt();
 
-		if (length == 1)
+		Exam[] all = new Exam[n];
+
+		for (int i = 0; i < n; i++)
+			all[i] = new Exam(in.nextInt(), in.nextInt());
+
+		Arrays.sort(all, new Comparator<Exam>()
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
-		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
+			@Override
+			public int compare(Exam o1, Exam o2)
+			{
+				return Integer.compare(o1.actualDate, o2.actualDate);
+			}
+		});
+
+		for (int i = 0; i < n; i++)
 		{
-			int[] min, max;
+			int curr, from;
+			boolean entered = false;
 
-			min = new int[length];
-			max = new int[length];
+			curr = all[i].actualDate;
+			from = i;
 
-			int temp = sum;
-			boolean minExists = true;
-
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
+			while (i < n && all[i].actualDate == curr)
 			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
+				i++;
+				entered = true;
 			}
 
-			if (minExists)
+			Arrays.sort(all, from, i, new Comparator<Exam>()
 			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
+				@Override
+				public int compare(Exam o1, Exam o2)
 				{
-					max[i] = 9;
-					temp -= 9;
+					return Integer.compare(o1.earlyDate, o2.earlyDate);
 				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
+			});
 
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
-			}
+			if (entered)
+				i--;
 		}
+
+		int maxDate = 0;
+
+		for (int i = 0; i < n; i++)
+		{
+			if (maxDate <= all[i].actualDate && maxDate <= all[i].earlyDate)
+				maxDate = Math.min(all[i].actualDate, all[i].earlyDate);
+			else if (maxDate <= all[i].actualDate)
+				maxDate = all[i].actualDate;
+		}
+
+		out.println(maxDate);
+	}
+
+	static class Exam
+	{
+		int actualDate, earlyDate;
+
+		public Exam(int actualDate, int earlyDate)
+		{
+			this.actualDate = actualDate;
+			this.earlyDate = earlyDate;
+		}
+
 	}
 
 	static class InputReader
@@ -483,4 +465,21 @@ public final class GivenLengthAndSumOfDigits
 		}
 
 	}
+
 }
+
+/*
+
+10
+4 8
+4 3
+3 2
+2 1
+3 1
+5 4
+4 2
+4 1
+3 0
+3 9
+
+ */

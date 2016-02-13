@@ -11,7 +11,7 @@ import java.util.InputMismatchException;
 
 class MasterChef
 {
-	static int t, n, k, m, minCosts[];
+	static int t, n, k, m, minCosts[], finalValues[];
 	static long[] dishes;
 	static Node[] tree;
 	static InputReader in;
@@ -165,6 +165,15 @@ class MasterChef
 				out.println(totalRating - min);
 			//}
 		}
+	}
+
+	static long knapsack2()
+	{
+		long[][] dp = new long[n + 1][k + 1];
+
+
+
+		return 0;
 	}
 	
 	static long knapsack()

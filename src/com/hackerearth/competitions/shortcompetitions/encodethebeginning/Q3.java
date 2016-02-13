@@ -1,12 +1,6 @@
 package com.hackerearth.competitions.shortcompetitions.encodethebeginning;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.*;
 
 class Q3
@@ -14,19 +8,23 @@ class Q3
 	static int t, n, m;
 	static List<Pair>[] list;
 	static boolean[] visited;
-	static InputReader in;
+	static Scanner in;
+//	static InputReader in;
 	static OutputWriter out;
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws FileNotFoundException
 	{
-		in = new InputReader(System.in);
+//		in = new InputReader(System.in);
 		out = new OutputWriter(System.out);
+
+		in = new Scanner(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive " +
+			"Programming/src/com/test/input5.txt"));
 		
 		solve();
 		
 		out.flush();
 		
-		in.close();
+//		in.close();
 		out.close();
 	}
 
@@ -38,7 +36,9 @@ class Q3
 		{
 			n = in.nextInt();
 			m = in.nextInt();
-			
+
+			System.out.println("t : " + t + ", n : " + n + ", m : " + m);
+
 			createGraph(n, m);
 			
 			int town = in.nextInt() - 1;
@@ -100,8 +100,11 @@ class Q3
 	@SuppressWarnings("unchecked")
 	static void createGraph(int nodes, int edges)
 	{
-		list = new ArrayList[nodes];
-		visited = new boolean[nodes];
+//		list = new ArrayList[nodes];
+//		visited = new boolean[nodes];
+
+		list = new ArrayList[(int) 1e5 + 5];
+		visited = new boolean[(int) 1e5 + 5];
 		
 		for (int i = 0; i < edges; i++)
 		{

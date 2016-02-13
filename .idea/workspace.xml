@@ -94,52 +94,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IncreaseStackSize.template" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Boredom.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/TableDecorations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/medium/Flowers.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/common/tricks/IncreaseStackSize.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/test/Test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/test/input.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/test/input2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/test/input3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/test/input4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/test/input5.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/AntonAndCurrencyYouAllKnow$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/AntonAndCurrencyYouAllKnow$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/AntonAndCurrencyYouAllKnow.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CircularRMQ$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CircularRMQ$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CircularRMQ$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CircularRMQ.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CuttingBanner$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CuttingBanner$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/CuttingBanner.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/FlippingGame$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/FlippingGame$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/FlippingGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/MrKitayutasGift$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/MrKitayutasGift$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/MrKitayutasGift.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/PashaAndPixels$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/PashaAndPixels$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/PashaAndPixels.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/Puzzles$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/Puzzles$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/Puzzles.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/QuasiBinary$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/QuasiBinary$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/QuasiBinary.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/SoftDrinking$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/SoftDrinking$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/practice/easy/SoftDrinking.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Group.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Group.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Pair.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Pair.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantomarch/MasterChef.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantomarch/MasterChef.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/AntonAndCurrencyYouAllKnow.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/AntonAndCurrencyYouAllKnow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/CuttingBanner.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/CuttingBanner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/FlippingGame.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/FlippingGame.java" />
@@ -148,7 +103,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/Puzzles.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/Puzzles.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/QuasiBinary.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/QuasiBinary.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/SoftDrinking.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/SoftDrinking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.java" afterPath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.java" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -304,8 +258,8 @@
       <file leaf-file-name="DorseyThief.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/hackerrank/practice/medium/DorseyThief.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.45333335">
+              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -1011,7 +965,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454869856449</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added a few more files">
+      <created>1455377730758</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1455377730758</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1590,8 +1550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hackerrank/practice/medium/DorseyThief.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.45333335">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
           <folding />
         </state>
       </provider>

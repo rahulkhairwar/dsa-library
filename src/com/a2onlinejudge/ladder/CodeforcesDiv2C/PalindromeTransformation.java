@@ -1,14 +1,17 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 16/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public final class PalindromeTransformation
 {
-	static int length, sum;
+	static int n, pos;
+	static String s;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,92 +30,300 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		n = in.nextInt();
+		pos = in.nextInt() - 1;
 
-		if (length == 1)
+		s = in.next();
+
+		Integer[] leftCum, rightCum;
+
+		leftCum = new Integer[n];
+		rightCum = new Integer[n];
+
+		leftCum[0] = (s.charAt(0) == s.charAt(n - 1) ? 0 : 1);
+		rightCum[n - 1] = leftCum[0];
+
+		for (int i = 1; i < n / 2; i++)
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
+			leftCum[i] = leftCum[i - 1];
+
+			if (s.charAt(i) != s.charAt(n - i - 1))
+				leftCum[i]++;
 		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
+
+		rightCum = Arrays.copyOf(leftCum, n);
+		Collections.reverse(Arrays.asList(rightCum));
+
+		if (pos == n / 2 || (n % 2 == 0 && pos == n / 2 - 1))
+			out.println(Math.min(goLeft(), goRight()));
+		else if (pos > n / 2)
+			out.println(Math.min(goLeftThenRightR(), goRightThenLeftR()));
 		else
+			out.println(Math.min(goRightThenLeftL(), goLeftThenRightL()));
+	}
+
+	static int aToB(char a, char b)
+	{
+		return Math.min(Math.abs(a - b), 26 - Math.abs(a - b));
+	}
+
+	static int goLeft()
+	{
+		int count, i, pending;
+
+		count = 0;
+		i = pos;
+		pending = 0;
+
+		while (i >= 0)
 		{
-			int[] min, max;
+			char left, right;
 
-			min = new int[length];
-			max = new int[length];
+			left = s.charAt(i);
+			right = s.charAt(n - i - 1);
 
-			int temp = sum;
-			boolean minExists = true;
-
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
+			if (left != right)
 			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
+				count += aToB(left, right);
+				count += pending;
+				pending = 0;
 			}
 
-			if (minExists)
-			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
-
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
-			}
+			pending++;
+			i--;
 		}
+
+		return count;
+	}
+
+	static int goRight()
+	{
+		int count, i, pending;
+
+		count = 0;
+		i = pos;
+		pending = 0;
+
+		while (i < n)
+		{
+			char left, right;
+
+			left = s.charAt(n - i - 1);
+			right = s.charAt(i);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += pending;
+				pending = 0;
+			}
+
+			pending++;
+			i++;
+		}
+
+		return count;
+	}
+
+	static int goLeftThenRightL()
+	{
+		int count, i, pending;
+
+		count = 0;
+		i = pos;
+		pending = 0;
+
+		while (i >= 0)
+		{
+			char left, right;
+
+			left = s.charAt(i);
+			right = s.charAt(n - i - 1);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += 2 * pending;
+				pending = 0;
+			}
+
+			pending++;
+			i--;
+		}
+
+		i = pos + 1;
+		pending = 1;
+
+		while (i < n / 2)
+		{
+			char left, right;
+
+			left = s.charAt(i);
+			right = s.charAt(n - i - 1);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += pending;
+				pending = 0;
+			}
+
+			pending++;
+			i++;
+		}
+
+		return count;
+	}
+
+	static int goLeftThenRightR()
+	{
+		int count, i, pending;
+
+		count = 0;
+		i = pos;
+		pending = 0;
+
+		while (i >= n / 2)
+		{
+			char left, right;
+
+			left = s.charAt(n - i - 1);
+			right = s.charAt(i);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += 2 * pending;
+				pending = 0;
+			}
+
+			pending++;
+			i--;
+		}
+
+		i = pos + 1;
+		pending = 1;
+
+		while (i < n)
+		{
+			char left, right;
+
+			left = s.charAt(n - i - 1);
+			right = s.charAt(i);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += pending;
+				pending = 0;
+			}
+
+			pending++;
+			i++;
+		}
+
+		return count;
+	}
+
+	static int goRightThenLeftL()
+	{
+		int count, i, pending, limit;
+
+		count = 0;
+		i = pos;
+		pending = 0;
+		limit = (n % 2 == 0 ? n / 2 - 1 : n / 2);
+
+		while (i <= limit)
+		{
+			char left, right;
+
+			left = s.charAt(i);
+			right = s.charAt(n - i - 1);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += 2 * pending;
+				pending = 0;
+			}
+
+			pending++;
+			i++;
+		}
+
+		i = pos - 1;
+		pending = 1;
+
+		while (i >= 0)
+		{
+			char left, right;
+
+			left = s.charAt(i);
+			right = s.charAt(n - i - 1);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += pending;
+				pending = 0;
+			}
+
+			pending++;
+			i--;
+		}
+
+		return count;
+	}
+
+	static int goRightThenLeftR()
+	{
+		int count, i, pending;
+
+		count = 0;
+		i = pos;
+		pending = 0;
+
+		while (i < n)
+		{
+			char left, right;
+
+			left = s.charAt(n - i - 1);
+			right = s.charAt(i);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += 2 * pending;
+				pending = 0;
+			}
+
+			pending++;
+			i++;
+		}
+
+		i = pos - 1;
+		pending = 1;
+
+		while (i >= n / 2)
+		{
+			char left, right;
+
+			left = s.charAt(n - i - 1);
+			right = s.charAt(i);
+
+			if (left != right)
+			{
+				count += aToB(left, right);
+				count += pending;
+				pending = 0;
+			}
+
+			pending++;
+			i--;
+		}
+
+		return count;
 	}
 
 	static class InputReader

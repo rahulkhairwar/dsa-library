@@ -1,14 +1,18 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
+import javafx.util.Pair;
+
 import java.io.*;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 14/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public final class PrimeSwaps
 {
-	static int length, sum;
+	static int n, primesCount, primes[], arr[], pos[];
+	static boolean[] isComposite;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,90 +31,80 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		findPrimes();
 
-		if (length == 1)
+		n = in.nextInt();
+
+		arr = new int[n + 1];
+		pos = new int[n + 1];
+
+		Pair[] pairs = new Pair[5 * n];
+		int pairsCount = 0;
+
+		for (int i = 1; i <= n; i++)
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
+			arr[i] = in.nextInt();
+			pos[arr[i]] = i;
 		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
+
+		for (int i = 1; i <= n; i++)
 		{
-			int[] min, max;
+			if (pos[i] == i)
+				continue;
 
-			min = new int[length];
-			max = new int[length];
+			int index = Arrays.binarySearch(primes, 0, primesCount, Math.abs(pos[i] - i) + 1);
 
-			int temp = sum;
-			boolean minExists = true;
-
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
+			if (index < 0)
 			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
+				index++;
+				index *= -1;
+				index--;
 			}
 
-			if (minExists)
+			int diff, temp;
+
+			diff = pos[i] - primes[index];
+
+			if (diff < 0)
+				diff *= -1;
+
+			temp = arr[pos[i]];
+			arr[pos[i]] = arr[diff + 1];
+			arr[diff + 1] = temp;
+
+			temp = pos[i];
+			pos[i] = diff + 1;
+			pos[arr[temp]] = temp;
+
+			pairs[pairsCount++] = new Pair(pos[i], temp);
+
+			if (pos[i] != i)
+				i--;
+		}
+
+		out.println(pairsCount);
+
+		for (int i = 0; i < pairsCount; i++)
+			out.println(pairs[i].getKey() + " " + pairs[i].getValue());
+	}
+
+	static void findPrimes()
+	{
+		isComposite = new boolean[(int) 1e5 + 5];
+		primes = new int[(int) 1e4];
+
+		for (int i = 2; i <= (int) 1e5; i++)
+		{
+			if (isComposite[i])
+				continue;
+
+			int counter = 1;
+			primes[primesCount++] = i;
+
+			while (i * counter <= 1e5)
 			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
-
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
+				isComposite[i * counter] = true;
+				counter++;
 			}
 		}
 	}

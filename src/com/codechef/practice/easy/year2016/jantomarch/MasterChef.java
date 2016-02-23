@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
-import java.util.InputMismatchException;
+import java.util.*;
 
 class MasterChef
 {
@@ -22,7 +22,7 @@ class MasterChef
 		in = new InputReader(System.in);
 		out = new OutputWriter(System.out);
 		
-		solve();
+		solve2();
 		
 		out.flush();
 		
@@ -164,6 +164,110 @@ class MasterChef
 				
 				out.println(totalRating - min);
 			//}
+		}
+	}
+
+	static void solve2()
+	{
+		t = in.nextInt();
+
+		while (t-- > 0)
+		{
+			n = in.nextInt();
+			k = in.nextInt();
+			m = in.nextInt();
+
+			dishes = new long[n];
+
+			List<Long>[] negatives = new ArrayList[201];
+			long totalRating = 0;
+
+			for (int i = 0; i < n; i++)
+			{
+				dishes[i] = in.nextLong();
+				totalRating += dishes[i];
+			}
+
+			int log, treeSize;
+
+			log = (int) Math.ceil(Math.log(n) / Math.log(2));
+			treeSize = (1 << log) * 2;
+
+			tree = new Node[treeSize];
+
+			for (int i = 0; i < treeSize; i++)
+				tree[i] = new Node(1000, false);
+
+			for (int i = 0; i < m; i++)
+			{
+				int from, to, cost;
+
+				from = in.nextInt() - 1;
+				to = in.nextInt() - 1;
+				cost = in.nextInt();
+
+				updateTree(1, 0, n, from, to, cost);
+			}
+
+			minCosts = new int[n];
+
+			for (int i = 0; i <= 200; i++)
+				negatives[i] = new ArrayList<>();
+
+			for (int i = 0; i < n; i++)
+				minCosts[i] = queryTree(1, 0, n, i);
+
+			for (int i = 0; i < n; i++)
+			{
+				if (dishes[i] < 0 && minCosts[i] <= k)
+					negatives[minCosts[i]].add(-dishes[i]);
+			}
+
+/*			System.out.println("mincosts : ");
+
+			for (int i = 0; i < n; i++)
+				System.out.println("i : " + i + ", mincost[i] : " + minCosts[i] + ", dishes[i] : " + dishes[i]);
+
+			System.out.println("5 : " + negatives[5].toString());
+			System.out.println("10 : " + negatives[10].toString());
+			System.out.println("15 : " + negatives[15].toString());*/
+
+			long[] min = new long[k + 1];
+			Arrays.fill(min, Long.MAX_VALUE);
+
+			min[0] = 0;
+
+			for (int i = 1; i <= 200; i++)
+			{
+				List<Long> curr = negatives[i];
+				Collections.sort(curr);
+				Collections.reverse(curr);
+//				System.out.println("i : " + i + ", neg[i].size : " + curr.size());
+
+				for (int j = 0; (j + 1) * i <= k && j < curr.size(); j++)
+				{
+					long value = curr.get(j);
+
+					for (int l = k; l >= i; l--)
+					{
+/*						System.out.println("i : " + i + ", j : " + j + ", l : " + l + ", min[l - i] : " + min[l - i]
+								+ ", value : " + value);*/
+						if (min[l - i] != Long.MAX_VALUE)
+							min[l] = Math.min(min[l], min[l - i] + value);
+					}
+
+//					System.out.println(Arrays.toString(min));
+				}
+			}
+
+			long answer = Long.MAX_VALUE;
+
+			for (int i = 0; i <= k; i++)
+				if (min[i] < answer && min[i] != 0)
+					answer = min[i];
+
+//			System.out.println("totalRating : " + totalRating);
+			out.println(totalRating + answer);
 		}
 	}
 

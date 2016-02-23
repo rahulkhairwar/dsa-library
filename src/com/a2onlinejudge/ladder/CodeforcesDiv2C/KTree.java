@@ -1,14 +1,18 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 15/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public final class KTree
 {
-	static int length, sum;
+	static int n, k, d;
+	static long mod = (long) 1e9 + 7;
+	static long[][] dp;
+	static long[] allDP, invalidDP;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,92 +31,71 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		n = in.nextInt();
+		k = in.nextInt();
+		d = in.nextInt();
 
-		if (length == 1)
+		allDP = new long[n + 1];
+		invalidDP = new long[n + 1];
+
+		Arrays.fill(allDP, -1);
+		Arrays.fill(invalidDP, -1);
+		allDP[0] = 1;
+		invalidDP[0] = 1;
+
+		long total, invalid;
+
+		total = calculateAll(n, k);
+		invalid = calculateInvalid(n, d - 1);
+
+		long answer = total - invalid;
+
+		while (answer < 0)
+			answer += mod;
+
+		out.println(answer);
+	}
+
+	static long calculateAll(int sum, int max)
+	{
+		if (sum == 0)
+			return 1;
+
+		if (allDP[sum] != -1)
+			return allDP[sum];
+
+		long total = 0;
+
+		for (int i = 1; i <= max && sum - i >= 0; i++)
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
+			total += calculateAll(sum - i, max);
+			total = CMath.mod(total, mod);
 		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
+
+		allDP[sum] = total;
+
+		return total;
+	}
+
+	static long calculateInvalid(int sum, int max)
+	{
+		if (sum == 0)
+			return 1;
+
+		if (invalidDP[sum] != -1)
+			return invalidDP[sum];
+
+		long total = 0;
+
+		for (int i = 1; i <= max && sum - i >= 0; i++)
 		{
-			int[] min, max;
-
-			min = new int[length];
-			max = new int[length];
-
-			int temp = sum;
-			boolean minExists = true;
-
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
-			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
-			}
-
-			if (minExists)
-			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
-
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
-			}
+			total += calculateInvalid(sum - i, max);
+			total = CMath.mod(total, mod);
 		}
+
+		invalidDP[sum] = total;
+
+		return total;
 	}
 
 	static class InputReader
@@ -485,3 +468,25 @@ public final class GivenLengthAndSumOfDigits
 	}
 
 }
+
+/*
+
+4 5 2
+: 7
+
+4 3 2
+: 6
+
+3 3 3
+: 1
+
+3 3 2
+: 3
+
+5 5 3
+: 8
+
+5 5 2
+: 20
+
+ */

@@ -1,14 +1,16 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
+import java.util.Collections;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 16/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public final class ValeraAndTubes
 {
-	static int length, sum;
+	static int n, m, k;
+	static Node[] nodes;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,92 +29,69 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		n = in.nextInt();
+		m = in.nextInt();
+		k = in.nextInt();
 
-		if (length == 1)
+		nodes = new Node[n * m + 1];
+
+		int count = 1;
+
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < m; j++)
+				nodes[count] = new Node(count++, i + 1, j + 1);
+
+		for (int i = 1; i < n; i += 2)
 		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
+			if (i == n)
+				break;
+
+			Node.reverse(nodes, i * m + 1, (i + 1) * m);
 		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
+
+		int curr = 1;
+
+		while (k > 1)
 		{
-			int[] min, max;
+			out.println(2 + " " + nodes[curr].x + " " + nodes[curr].y + " " + nodes[curr + 1].x + " "
+					+ nodes[curr + 1].y);
 
-			min = new int[length];
-			max = new int[length];
+			curr += 2;
+			k--;
+		}
 
-			int temp = sum;
-			boolean minExists = true;
+		out.print(n * m - curr + 1 + " ");
 
-			min[0] = 1;
-			temp--;
+		while (curr <= n * m)
+		{
+			out.print(nodes[curr].x + " " + nodes[curr].y + " ");
+			curr++;
+		}
+	}
 
-			for (int i = length - 1; i >= 0; i--)
+	static class Node
+	{
+		int number, x, y;
+
+		public Node(int number, int x, int y)
+		{
+			this.number = number;
+			this.x = x;
+			this.y = y;
+		}
+
+		public static void reverse(Node[] nodes, int from, int to)
+		{
+			int size = to - from + 1;
+
+			for (int i = from, j = to; i < from + size / 2; i++, j--)
 			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
-			}
-
-			if (minExists)
-			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
-
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
+				Node temp = nodes[i];
+				nodes[i] = nodes[j];
+				nodes[j] = temp;
 			}
 		}
+
 	}
 
 	static class InputReader

@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
+ * Created by rahulkhairwar on 15/02/16.
  */
-public final class GivenLengthAndSumOfDigits
+public final class BeautifulSetsOfPoints
 {
-	static int length, sum;
+	static int n, m;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -27,92 +27,13 @@ public final class GivenLengthAndSumOfDigits
 
 	static void solve()
 	{
-		length = in.nextInt();
-		sum = in.nextInt();
+		n = in.nextInt();
+		m = in.nextInt();
 
-		if (length == 1)
-		{
-			if (sum < 10)
-				out.println(sum + " " + sum);
-			else
-				out.println(-1 + " " + -1);
-		}
-		else if (sum == 0 && length > 1)
-			out.println(-1 + " " + -1);
-		else
-		{
-			int[] min, max;
+		out.println(Math.min(n, m) + 1);
 
-			min = new int[length];
-			max = new int[length];
-
-			int temp = sum;
-			boolean minExists = true;
-
-			min[0] = 1;
-			temp--;
-
-			for (int i = length - 1; i >= 0; i--)
-			{
-				if (i == 0)
-				{
-					if (temp <= 8)
-					{
-						min[i] += temp;
-						temp = 0;
-					}
-					else
-						minExists = false;
-				}
-				else if (temp >= 9)
-				{
-					min[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					min[i] = temp;
-					temp = 0;
-				}
-
-				if (temp == 0)
-					break;
-			}
-
-			if (minExists)
-			{
-				for (int i = 0; i < length; i++)
-					out.print(min[i]);
-			}
-			else
-				out.print(-1);
-
-			out.print(" ");
-
-			temp = sum;
-
-			for (int i = 0; i < length; i++)
-			{
-				if (temp >= 9)
-				{
-					max[i] = 9;
-					temp -= 9;
-				}
-				else
-				{
-					max[i] = temp;
-					temp = 0;
-				}
-			}
-
-			if (temp > 0)
-				out.print(-1);
-			else
-			{
-				for (int i = 0; i < length; i++)
-					out.print(max[i]);
-			}
-		}
+		for (int i = Math.min(n, m), j = 0; i >= 0; i--, j++)
+			out.println(i + " " + j);
 	}
 
 	static class InputReader

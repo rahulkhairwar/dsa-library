@@ -1,6 +1,7 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -8,6 +9,7 @@ import java.util.InputMismatchException;
  */
 public final class ArithmeticProgression
 {
+	static int n, arr[];
 	static InputReader in;
 	static OutputWriter out;
 
@@ -26,6 +28,41 @@ public final class ArithmeticProgression
 
 	static void solve()
 	{
+		n = in.nextInt();
+
+		arr = new int[n];
+
+		for (int i = 0; i < n; i++)
+			arr[i] = in.nextInt();
+
+		Arrays.sort(arr);
+
+		int d = arr[1] - arr[0];
+		int count, pos;
+
+		count = 0;
+
+		for (int i = 2; i < n; i++)
+		{
+			int diff = arr[i] - arr[i - 1];
+
+			System.out.println("i : " + i + ", arr[i] : " + arr[i] + ", arr[i - 1] : " + arr[i - 1]);
+
+			if (diff != d)
+			{
+				count++;
+				pos = i - 1;
+
+				if (count > 1)
+				{
+					out.println(0);
+
+					return;
+				}
+			}
+		}
+
+
 	}
 
 	static class InputReader

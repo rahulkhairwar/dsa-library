@@ -1,16 +1,13 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 01/03/16.
+ * Created by rahulkhairwar on 03/03/16.
  */
-public final class LuckySumOfDigits
+public final class ArithmeticProgression
 {
-	static int n;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -29,68 +26,6 @@ public final class LuckySumOfDigits
 
 	static void solve()
 	{
-		n = in.nextInt();
-
-		Valid[] valid = new Valid[(int) 1e6 / 4];
-		int count = 0;
-
-		for (int i = (int) (1e6 / 4); i >= 0; i--)
-		{
-			if ((n - 4 * i) >= 0 && (n - 4 * i) % 7 == 0)
-			{
-				int fours, sevens;
-
-				fours = i;
-				sevens = (n - 4 * i) / 7;
-
-				valid[count++] = new Valid(fours, sevens);
-			}
-		}
-
-		if (count == 0)
-			out.println(-1);
-		else
-		{
-			Arrays.sort(valid, 0, count, new Comparator<Valid>()
-			{
-				@Override
-				public int compare(Valid first, Valid second)
-				{
-					int firstLength, secondLength;
-
-					firstLength = first.fours + first.sevens;
-					secondLength = second.fours + second.sevens;
-
-					if (firstLength < secondLength)
-						return -1;
-					else if (firstLength > secondLength)
-						return 1;
-					else
-						return Integer.compare(first.fours, second.fours);
-				}
-			});
-
-			Valid answer = valid[0];
-
-			for (int i = 0; i < answer.fours; i++)
-				out.print(4);
-
-			for (int i = 0; i < answer.sevens; i++)
-				out.print(7);
-		}
-	}
-
-	static class Valid
-	{
-		String number;
-		int fours, sevens;
-
-		public Valid(int fours, int sevens)
-		{
-			this.fours = fours;
-			this.sevens = sevens;
-		}
-
 	}
 
 	static class InputReader

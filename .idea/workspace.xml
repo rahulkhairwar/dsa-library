@@ -95,7 +95,6 @@
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.java" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/AntonAndCurrencyYouAllKnow.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/AntonAndCurrencyYouAllKnow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/CuttingBanner.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/CuttingBanner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/FlippingGame.java" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2015/FlippingGame.java" />
@@ -552,44 +551,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jantomarch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Competitive Programming" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Competitive Programming" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="codeforces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="competitions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="year2016" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jantomarch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aimtechrounddiv2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1460,7 +1421,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456950599881</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Deleted a package">
+      <created>1456962755980</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1456962755980</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1543,7 +1510,8 @@
     <MESSAGE value="Changed location of a file" />
     <MESSAGE value="Added few more files" />
     <MESSAGE value="Added a few more files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few more files" />
+    <MESSAGE value="Deleted a package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted a package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

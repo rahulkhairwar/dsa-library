@@ -1,0 +1,32 @@
+20 H - Fibonacci-ish II
+6 SINGLE
+8 STANDARD
+-1
+8 STANDARD
+-1
+1
+0
+25 5 10
+2 1 2 1 2
+2
+2 4
+4 5
+
+4 3
+3
+
+1
+67 src/com/codeforces/competitions/year2016/jantomarch/manthancodefest
+8 -Xmx512M
+4 Main
+69 com.codeforces.competitions.year2016.jantomarch.manthancodefest.TaskH
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.02.26
+20 Manthan, Codefest 16
+1
+0 
+0 
+0
+0

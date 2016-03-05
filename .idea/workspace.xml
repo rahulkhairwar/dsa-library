@@ -94,48 +94,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4$Prime.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskA$CMath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskA$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskA$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskA.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskA.task" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskB$CMath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskB$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskB$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskB.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/venturecupfinalrounddiv2/TaskB.task" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round9/TaskB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$Node.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PackageClass.template" afterPath="$PROJECT_DIR$/PackageClass.template" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PublicFinalClass.template" afterPath="$PROJECT_DIR$/PublicFinalClass.template" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chelper.properties" afterPath="$PROJECT_DIR$/chelper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.java" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -167,47 +126,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2817#2818#0" expanded="false" />
-                <element signature="e#2846#2847#0" expanded="false" />
-                <element signature="e#5599#5600#0" expanded="false" />
-                <element signature="e#5673#5674#0" expanded="false" />
-                <element signature="e#5933#5934#0" expanded="false" />
-                <element signature="e#5958#5959#0" expanded="false" />
-                <element signature="e#6329#6330#0" expanded="false" />
-                <element signature="e#6375#6376#0" expanded="false" />
-                <element signature="e#6409#6410#0" expanded="false" />
-                <element signature="e#6435#6436#0" expanded="false" />
-                <element signature="e#6467#6468#0" expanded="false" />
-                <element signature="e#6491#6492#0" expanded="false" />
-                <element signature="e#6750#6751#0" expanded="false" />
-                <element signature="e#6776#6777#0" expanded="false" />
-                <element signature="e#6809#6810#0" expanded="false" />
-                <element signature="e#6833#6834#0" expanded="false" />
-                <element signature="e#7091#7092#0" expanded="false" />
-                <element signature="e#7119#7120#0" expanded="false" />
-                <element signature="e#7155#7156#0" expanded="false" />
-                <element signature="e#7181#7182#0" expanded="false" />
-                <element signature="e#7220#7221#0" expanded="false" />
-                <element signature="e#7248#7249#0" expanded="false" />
-                <element signature="e#7285#7286#0" expanded="false" />
-                <element signature="e#7311#7312#0" expanded="false" />
-                <element signature="e#7348#7349#0" expanded="false" />
-                <element signature="e#7374#7375#0" expanded="false" />
-                <element signature="e#7409#7410#0" expanded="false" />
-                <element signature="e#7433#7434#0" expanded="false" />
-                <element signature="e#7462#7463#0" expanded="false" />
-                <element signature="e#7487#7488#0" expanded="false" />
-                <element signature="e#7519#7520#0" expanded="false" />
-                <element signature="e#7545#7546#0" expanded="false" />
-                <element signature="e#7572#7573#0" expanded="false" />
-                <element signature="e#7595#7596#0" expanded="false" />
-                <element signature="e#7622#7623#0" expanded="false" />
-                <element signature="e#7645#7646#0" expanded="false" />
-                <element signature="e#8006#8007#0" expanded="false" />
-                <element signature="e#8051#8052#0" expanded="false" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrimeSwaps.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.24933334">
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -245,10 +174,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Q4.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Q4.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.77066666">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding>
                 <element signature="class#InputReader#0;class#Q4#0" expanded="false" />
@@ -299,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/venturecupeliminationround/TaskA.java" />
         <option value="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantomarch/MasterChef.java" />
         <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/GivenLengthAndSumOfDigits.java" />
-        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java" />
         <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/BeautifulSetsOfPoints.java" />
         <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/KTree.java" />
         <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ValeraAndTubes.java" />
@@ -329,6 +257,7 @@
         <option value="$PROJECT_DIR$/PublicFinalClass.template" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round344div2/TaskA.java" />
+        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java" />
       </list>
     </option>
   </component>
@@ -1350,13 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.272">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Exams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.022666667">
@@ -1585,54 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2817#2818#0" expanded="false" />
-            <element signature="e#2846#2847#0" expanded="false" />
-            <element signature="e#5599#5600#0" expanded="false" />
-            <element signature="e#5673#5674#0" expanded="false" />
-            <element signature="e#5933#5934#0" expanded="false" />
-            <element signature="e#5958#5959#0" expanded="false" />
-            <element signature="e#6329#6330#0" expanded="false" />
-            <element signature="e#6375#6376#0" expanded="false" />
-            <element signature="e#6409#6410#0" expanded="false" />
-            <element signature="e#6435#6436#0" expanded="false" />
-            <element signature="e#6467#6468#0" expanded="false" />
-            <element signature="e#6491#6492#0" expanded="false" />
-            <element signature="e#6750#6751#0" expanded="false" />
-            <element signature="e#6776#6777#0" expanded="false" />
-            <element signature="e#6809#6810#0" expanded="false" />
-            <element signature="e#6833#6834#0" expanded="false" />
-            <element signature="e#7091#7092#0" expanded="false" />
-            <element signature="e#7119#7120#0" expanded="false" />
-            <element signature="e#7155#7156#0" expanded="false" />
-            <element signature="e#7181#7182#0" expanded="false" />
-            <element signature="e#7220#7221#0" expanded="false" />
-            <element signature="e#7248#7249#0" expanded="false" />
-            <element signature="e#7285#7286#0" expanded="false" />
-            <element signature="e#7311#7312#0" expanded="false" />
-            <element signature="e#7348#7349#0" expanded="false" />
-            <element signature="e#7374#7375#0" expanded="false" />
-            <element signature="e#7409#7410#0" expanded="false" />
-            <element signature="e#7433#7434#0" expanded="false" />
-            <element signature="e#7462#7463#0" expanded="false" />
-            <element signature="e#7487#7488#0" expanded="false" />
-            <element signature="e#7519#7520#0" expanded="false" />
-            <element signature="e#7545#7546#0" expanded="false" />
-            <element signature="e#7572#7573#0" expanded="false" />
-            <element signature="e#7595#7596#0" expanded="false" />
-            <element signature="e#7622#7623#0" expanded="false" />
-            <element signature="e#7645#7646#0" expanded="false" />
-            <element signature="e#8006#8007#0" expanded="false" />
-            <element signature="e#8051#8052#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PackageClass.template">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9546667">
@@ -1686,12 +1560,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.77066666">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
             <element signature="class#InputReader#0;class#Q4#0" expanded="false" />
             <element signature="class#OutputWriter#0;class#Q4#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/ArithmeticProgression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24933334">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

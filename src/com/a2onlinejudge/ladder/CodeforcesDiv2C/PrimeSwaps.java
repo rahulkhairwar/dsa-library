@@ -63,11 +63,7 @@ public final class PrimeSwaps
 
 			int diff, temp;
 
-			diff = pos[i] - primes[index];
-
-			if (diff < 0)
-				diff *= -1;
-
+			diff = Math.abs(pos[i] - primes[index]);
 			temp = arr[pos[i]];
 			arr[pos[i]] = arr[diff + 1];
 			arr[diff + 1] = temp;

@@ -1,8 +1,7 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.InputMismatchException;
+import java.util.*;
 
 /**
  * Created by rahulkhairwar on 03/03/16.
@@ -37,32 +36,129 @@ public final class ArithmeticProgression
 
 		Arrays.sort(arr);
 
-		int d = arr[1] - arr[0];
-		int count, pos;
+		if (n == 1)
+		{
+			out.println(-1);
 
-		count = 0;
+			return;
+		}
+		else if (n == 2)
+		{
+			int d = arr[1] - arr[0];
 
-		for (int i = 2; i < n; i++)
+			if (d >= 2 && d % 2 == 0)
+			{
+				out.println(3);
+				out.println((arr[0] - d) + " " + ((arr[1] + arr[0]) / 2) + " " + (arr[1] + d));
+			}
+			else if (d == 0)
+			{
+				out.println(1);
+				out.println(arr[0]);
+			}
+			else
+			{
+				out.println(2);
+				out.println((arr[0] - d) + " " + (arr[1] + d));
+			}
+
+			return;
+		}
+
+		Map<Integer, Integer> map = new HashMap<>(n);
+		int size;
+
+		for (int i = 1; i < n; i++)
 		{
 			int diff = arr[i] - arr[i - 1];
 
-			System.out.println("i : " + i + ", arr[i] : " + arr[i] + ", arr[i - 1] : " + arr[i - 1]);
+			if (map.containsKey(diff))
+				map.put(diff, map.get(diff) + 1);
+			else
+				map.put(diff, 1);
+		}
 
-			if (diff != d)
+		size = map.size();
+
+		if (size > 2)
+		{
+			out.println(0);
+
+			return;
+		}
+		else if (size == 1)
+		{
+			Iterator<Map.Entry<Integer, Integer>> iterator = map.entrySet().iterator();
+			int d = iterator.next().getKey();
+
+			if (d == 0)
 			{
-				count++;
-				pos = i - 1;
+				out.println(1);
+				out.println(arr[0]);
 
-				if (count > 1)
+				return;
+			}
+
+			out.println(2);
+			out.println((arr[0] - d) + " " + (arr[n - 1] + d));
+
+			return;
+		}
+		else
+		{
+			Iterator<Map.Entry<Integer, Integer>> iterator = map.entrySet().iterator();
+			Map.Entry<Integer, Integer> first, second;
+			int firstD, secondD, firstDCount, secondDCount;
+
+			first = iterator.next();
+			second = iterator.next();
+			firstD = first.getKey();
+			secondD = second.getKey();
+			firstDCount = first.getValue();
+			secondDCount = second.getValue();
+
+			if (firstDCount > 1 && secondDCount > 1)
+			{
+				out.println(0);
+
+				return;
+			}
+			else
+			{
+				int pos = 0;
+				int d;
+
+				if (firstDCount >= 1 && secondDCount == 1)
+					d = firstD;
+				else
 				{
-					out.println(0);
+					d = secondD;
+					secondD = firstD;
+				}
+
+				for (int i = 1; i < n; i++)
+				{
+					if (arr[i] - arr[i - 1] == secondD)
+					{
+						pos = i - 1;
+
+						break;
+					}
+				}
+
+				int middle = (arr[pos] + arr[pos + 1]) / 2;
+
+				if (middle - arr[pos] == d && arr[pos + 1] - middle == d)
+				{
+					out.println(1);
+					out.println(middle);
 
 					return;
 				}
+				else
+					out.println(0);
 			}
 		}
-
-
 	}
 
 	static class InputReader
@@ -435,3 +531,25 @@ public final class ArithmeticProgression
 	}
 
 }
+
+/*
+
+4
+1 3 5 9
+
+4
+1 2 5 6
+
+4
+1 2 6 7
+
+2
+1 3
+
+2
+1 4
+
+3
+1 4 2
+
+ */

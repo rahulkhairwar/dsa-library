@@ -21,12 +21,10 @@ public class SegmentTree
 
 	public static void main(String args[])
 	{
-		SegmentTree tree = new SegmentTree();
+		reader = new InputReader(System.in);
+		writer = new OutputWriter(System.out);
 
-		reader = tree.new InputReader(System.in);
-		writer = tree.new OutputWriter(System.out);
-
-		getAttributes();
+		solve();
 
 		writer.flush();
 
@@ -40,7 +38,7 @@ public class SegmentTree
 	 * {@code 2 * 2^(ceil(log2(n))) - 1}, then builds the tree, and then asks
 	 * for queries.
 	 */
-	public static void getAttributes()
+	static void solve()
 	{
 		System.out.println("Enter the size of the array : ");
 
@@ -119,7 +117,7 @@ public class SegmentTree
 	 *            the 0-based rightmost index of the range, which the current
 	 *            node stores value of
 	 */
-	public static void buildTree(int currentNode, int treeStart, int treeEnd)
+	static void buildTree(int currentNode, int treeStart, int treeEnd)
 	{
 		if (treeStart > treeEnd)
 			return;
@@ -164,7 +162,7 @@ public class SegmentTree
 	 * @return the maximum value in the range 
 	 *         [<code>queryRangeStart, queryRangeEnd</code>].
 	 */
-	public static int queryTree(int currentNode, int treeStart, int treeEnd,
+	static int queryTree(int currentNode, int treeStart, int treeEnd,
 			int queryRangeStart, int queryRangeEnd)
 	{
 		// if the query range is completely out of the range that this node
@@ -206,7 +204,7 @@ public class SegmentTree
 	 * @param updateValue
 	 *            the value with which the array element needs to be updated.
 	 */
-	public static void pointUpdate(int currentNode, int treeStart, int treeEnd,
+	static void pointUpdate(int currentNode, int treeStart, int treeEnd,
 			int updateNode, int updateValue)
 	{
 		if (treeStart > treeEnd || treeStart > updateNode
@@ -231,7 +229,7 @@ public class SegmentTree
 				tree[2 * currentNode + 1]);
 	}
 
-	class InputReader
+	static class InputReader
 	{
 		private InputStream stream;
 		private byte[] buf = new byte[1024];
@@ -365,7 +363,7 @@ public class SegmentTree
 
 	}
 
-	class OutputWriter
+	static class OutputWriter
 	{
 		private PrintWriter writer;
 
@@ -433,11 +431,3 @@ public class SegmentTree
 	}
 
 }
-
-/*
- * 
- * 6 5 9 2 4 7 1
- * 
- * 
- * 8 8 6 3 9 2 0 7 4
- */

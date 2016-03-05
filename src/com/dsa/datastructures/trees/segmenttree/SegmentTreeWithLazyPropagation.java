@@ -10,8 +10,7 @@ import java.io.Writer;
 import java.util.InputMismatchException;
 
 /**
- * Implementation of Segment Tree With Lazy Propagation, which does the Range
- * Minimum Query.
+ * Implementation of Segment Tree With Lazy Propagation, which does Range Minimum Query.
  */
 public class SegmentTreeWithLazyPropagation
 {
@@ -22,12 +21,10 @@ public class SegmentTreeWithLazyPropagation
 
 	public static void main(String[] args)
 	{
-		SegmentTreeWithLazyPropagation tree = new SegmentTreeWithLazyPropagation();
+		reader = new InputReader(System.in);
+		writer = new OutputWriter(System.out);
 
-		reader = tree.new InputReader(System.in);
-		writer = tree.new OutputWriter(System.out);
-
-		getAttributes();
+		solve();
 
 		writer.flush();
 
@@ -35,7 +32,7 @@ public class SegmentTreeWithLazyPropagation
 		writer.close();
 	}
 
-	public static void getAttributes()
+	static void solve()
 	{
 		System.out.println("Enter the size of the array : ");
 
@@ -103,7 +100,7 @@ public class SegmentTreeWithLazyPropagation
 		} while (ch != 3);
 	}
 
-	public static void buildTree(int currentNode, int treeRangeStart,
+	static void buildTree(int currentNode, int treeRangeStart,
 			int treeRangeEnd)
 	{
 		// out of range
@@ -114,7 +111,7 @@ public class SegmentTreeWithLazyPropagation
 		if (treeRangeStart == treeRangeEnd)
 		{
 			// initializing with appropriate data and not lazy
-			segmentTree[currentNode] = new Node(dataArray[treeRangeStart], 0);
+			segmentTree[currentNode] = new Node(dataArray[treeRangeStart]);
 
 			return;
 		}
@@ -126,10 +123,10 @@ public class SegmentTreeWithLazyPropagation
 
 		segmentTree[currentNode] = new Node(Math.min(
 				segmentTree[2 * currentNode].minimum,
-				segmentTree[2 * currentNode + 1].minimum), 0);
+				segmentTree[2 * currentNode + 1].minimum));
 	}
 
-	public static int queryTree(int currentNode, int treeRangeStart,
+	static int queryTree(int currentNode, int treeRangeStart,
 			int treeRangeEnd, int queryRangeStart, int queryRangeEnd)
 	{
 		Node tempNode = segmentTree[currentNode];
@@ -173,7 +170,7 @@ public class SegmentTreeWithLazyPropagation
 		return Math.min(leftChildMin, rightChildMin);
 	}
 
-	public static void updateTree(int currentNode, int treeRangeStart,
+	static void updateTree(int currentNode, int treeRangeStart,
 			int treeRangeEnd, int updateRangeStart, int updateRangeEnd,
 			int addValue)
 	{
@@ -244,7 +241,7 @@ public class SegmentTreeWithLazyPropagation
 		int minimum;
 		int update; // if lazy, this will be > 0, else, 0
 
-		public Node(int minimum, int update)
+		public Node(int minimum)
 		{
 			this.minimum = minimum;
 			this.update = 0;
@@ -252,7 +249,7 @@ public class SegmentTreeWithLazyPropagation
 
 	}
 
-	class InputReader
+	static class InputReader
 	{
 		private InputStream stream;
 		private byte[] buf = new byte[1024];
@@ -386,7 +383,7 @@ public class SegmentTreeWithLazyPropagation
 
 	}
 
-	class OutputWriter
+	static class OutputWriter
 	{
 		private PrintWriter writer;
 
@@ -454,10 +451,3 @@ public class SegmentTreeWithLazyPropagation
 	}
 
 }
-
-/*
-
-10
-1 1 1 1 1 1 1 1 1 1
-
-*/

@@ -1,11 +1,12 @@
-package %package%;
+package com.codeforces.competitions.year2016.jantomarch.round344div2;
 
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public final class TaskB
 {
-    static int n, arr[];
+    static int n, m, k, arr[][];
+	static boolean[] doneRow, doneColumn;
     static InputReader in;
     static OutputWriter out;
 
@@ -25,7 +26,86 @@ public final class %TaskClass%
     static void solve()
     {
     	n = in.nextInt();
+    	m = in.nextInt();
+		k = in.nextInt();
+
+		arr = new int[n][m];
+		Op[] operations = new Op[k];
+		int count = 0;
+
+		doneRow = new boolean[n];
+		doneColumn = new boolean[m];
+
+		for (int i = 0; i < k; i++)
+		{
+			int type, index, colour;
+
+			type = in.nextInt();
+			index = in.nextInt() - 1;
+			colour = in.nextInt();
+
+			operations[count++] = new Op(type, index, colour);
+		}
+
+		for (int i = k - 1; i >= 0; i--)
+		{
+			if (operations[i].type == 1)
+			{
+				if (doneRow[operations[i].index])
+					continue;
+				else
+				{
+					int index = operations[i].index;
+
+					for (int j = 0; j < m; j++)
+					{
+						if (arr[index][j] == 0)
+							arr[index][j] = operations[i].colour;
+					}
+
+					doneRow[operations[i].index] = true;
+				}
+			}
+			else
+			{
+				if (doneColumn[operations[i].index])
+					continue;
+				else
+				{
+					int index = operations[i].index;
+
+					for (int j = 0; j < n; j++)
+					{
+						if (arr[j][index] == 0)
+							arr[j][index] = operations[i].colour;
+					}
+
+					doneColumn[operations[i].index] = true;
+				}
+			}
+		}
+
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+				out.print(arr[i][j] + " ");
+
+			out.println();
+		}
     }
+
+	static class Op
+	{
+		int type, index, colour;
+
+		public Op(int type, int index, int colour)
+		{
+			this.type = type;
+			this.index = index;
+			this.colour = colour;
+		}
+
+	}
 
     static class InputReader
     {
@@ -373,50 +453,27 @@ public final class %TaskClass%
 
     }
 
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
+    static class CMath
+    {
+        static long power(long number, int power)
+        {
+            if (number == 1 || number == 0 || power == 0)
+                return 1;
 
-			if (power == 1)
-				return number;
+            if (power == 1)
+                return number;
 
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
+            if (power % 2 == 0)
+                return power(number * number, power / 2);
+            else
+                return power(number * number, power / 2) * number;
+        }
 
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
+        static long mod(long number, long mod)
+        {
+            return number - (number / mod) * mod;
+        }
 
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-	}
+    }
 
 }

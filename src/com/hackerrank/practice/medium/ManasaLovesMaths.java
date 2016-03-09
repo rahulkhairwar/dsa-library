@@ -1,12 +1,15 @@
-package com.codeforces.competitions.year2016.jantomarch.round344div2;
+package com.hackerrank.practice.medium;
 
 import java.io.*;
-import java.util.*;
+import java.util.InputMismatchException;
 
-public final class TaskC
+/**
+ * Created by rahulkhairwar on 09/03/16.
+ */
+public class ManasaLovesMaths
 {
-	static int n, m;
-	static int[] arr, state;
+	static String n, div[];
+	static int t, divCount;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -25,71 +28,87 @@ public final class TaskC
 
 	static void solve()
 	{
-		n = in.nextInt();
-		m = in.nextInt();
+		find();
 
-		arr = new int[n];
-		state = new int[n];
-		Manager[] managers = new Manager[m];
+		t = in.nextInt();
 
-		for (int i = 0; i < n; i++)
-			arr[i] = in.nextInt();
-
-		int max = -1;
-
-		for (int i = 0; i < m; i++)
+		while (t-- > 0)
 		{
-			managers[i] = new Manager(in.nextInt(), in.nextInt() - 1);
+			n = in.next();
 
-			if (managers[i].upto > max)
-				max = managers[i].upto;
-		}
-
-		Arrays.sort(arr, 0, max + 1);
-
-		int left, right, currMax;
-		int[] answer = new int[n];
-
-		left = 0;
-		right = max;
-		currMax = -1;
-
-		for (int i = m - 1; i >= 0; i--)
-		{
-			if (managers[i].upto > currMax)
+			if (n.length() == 1)
 			{
-				for (int j = managers[i].upto; j > currMax; j--)
-					state[j] = managers[i].type;
+				int num = Integer.parseInt(n);
 
-				currMax = managers[i].upto;
+				if (num % 8 == 0)
+					out.println("YES");
+				else
+					out.println("NO");
+
+				continue;
 			}
-		}
+			else if (n.length() == 2)
+			{
+				int num, reverse;
 
-		for (int i = max; i >= 0; i--)
-		{
-			if (state[i] == 1)
-				answer[i] = arr[right--];
+				num = Integer.parseInt(n);
+				reverse = Integer.parseInt("" + n.charAt(1) + n.charAt(0));
+
+				if (num % 8 == 0 || reverse % 8 == 0)
+					out.println("YES");
+				else
+					out.println("NO");
+
+				continue;
+			}
+
+			int[] count = new int[10];
+			int len = n.length();
+
+			for (int i = 0; i < len; i++)
+				count[n.charAt(i) - '0']++;
+
+			if (check(count))
+				out.println("YES");
 			else
-				answer[i] = arr[left++];
+				out.println("NO");
 		}
-
-		for (int i = 0; i <= max; i++)
-			out.print(answer[i] + " ");
-
-		for (int i = max + 1; i < n; i++)
-			out.print(arr[i] + " ");
 	}
 
-	static class Manager
+	static void find()
 	{
-		int type, upto;
+		div = new String[125];
 
-		public Manager(int type, int upto)
+		for (int i = 1; i * 8 < 1000; i++)
 		{
-			this.type = type;
-			this.upto = upto;
+			div[divCount] = "" + i * 8;
+
+			if (div[divCount].length() == 1)
+				div[divCount] = "00" + div[divCount];
+			else if (div[divCount].length() == 2)
+				div[divCount] = "0" + div[divCount];
+
+			divCount++;
+		}
+	}
+
+	static boolean check(int[] count)
+	{
+		outer : for (int i = 0; i < 124; i++)
+		{
+			int[] correctCount = new int[10];
+
+			for (int j = 0; j < 3; j++)
+				correctCount[div[i].charAt(j) - '0']++;
+
+			for (int j = 0; j < 10; j++)
+				if (correctCount[j] > count[j])
+					continue outer;
+
+			return true;
 		}
 
+		return false;
 	}
 
 	static class InputReader
@@ -440,7 +459,7 @@ public final class TaskC
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
@@ -452,6 +471,29 @@ public final class TaskC
 				return power(number * number, power / 2);
 			else
 				return power(number * number, power / 2) * number;
+		}
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
 		}
 
 		static long mod(long number, long mod)

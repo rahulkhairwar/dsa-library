@@ -1,12 +1,11 @@
-package com.codeforces.competitions.year2016.jantomarch.round344div2;
+package com.codeforces.competitions.year2016.jantomarch.round345div2;
 
 import java.io.*;
 import java.util.*;
 
-public final class TaskA
+public final class TaskB
 {
-    static int n;
-	static long a[], b[];
+    static int n, arr[];
     static InputReader in;
     static OutputWriter out;
 
@@ -23,31 +22,77 @@ public final class TaskA
         out.close();
     }
 
-    static void solve()
-    {
-    	n = in.nextInt();
+	static void solve()
+	{
+		n = in.nextInt();
 
-		a = new long[n];
-		b = new long[n];
-
-		for (int i = 0; i < n; i++)
-			a[i] = in.nextInt();
+		arr = new int[n];
 
 		for (int i = 0; i < n; i++)
-			b[i] = in.nextInt();
+			arr[i] = in.nextInt();
 
-		long orA, orB;
+		Arrays.sort(arr);
 
-		orA = orB = 0;
+		int left, right, count;
+		boolean[] used = new boolean[n];
+		int[] changed = new int[n];
+
+		left = 0;
+		right = 1;
+		count = 0;
+
+		while (true)
+		{
+			while (right < n && arr[right] <= arr[left])
+				right++;
+
+			if (right >= n)
+				break;
+
+			if (used[left])
+			{
+				left++;
+
+				continue;
+			}
+
+			if (used[right])
+			{
+				right++;
+
+				continue;
+			}
+
+			used[left] = true;
+			used[right] = true;
+
+			changed[count++] = arr[left];
+			changed[count++] = arr[right];
+
+			left++;
+			right++;
+		}
 
 		for (int i = 0; i < n; i++)
-			orA |= a[i];
+		{
+			if (!used[i])
+				changed[count++] = arr[i];
+		}
 
-		for (int i = 0; i < n; i++)
-			orB |= b[i];
+//		System.out.println("changed : " + Arrays.toString(changed));
 
-		out.println(orA + orB);
-    }
+		int answer = 0;
+
+		for (int i = 1; i < n; i++)
+		{
+			if (changed[i] > changed[i - 1])
+				answer++;
+		}
+
+//		System.out.println("answer : " + answer);
+
+		out.println(answer);
+	}
 
     static class InputReader
     {
@@ -395,27 +440,68 @@ public final class TaskA
 
     }
 
-    static class CMath
-    {
-        static long power(long number, int power)
-        {
-            if (number == 1 || number == 0 || power == 0)
-                return 1;
+	static class CMath
+	{
+		static long power(long number, long power)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
 
-            if (power == 1)
-                return number;
+			if (power == 1)
+				return number;
 
-            if (power % 2 == 0)
-                return power(number * number, power / 2);
-            else
-                return power(number * number, power / 2) * number;
-        }
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
+		}
 
-        static long mod(long number, long mod)
-        {
-            return number - (number / mod) * mod;
-        }
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
 
-    }
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
+
+	}
 
 }
+
+/*
+
+14
+1 1 1 1 2 2 2 2 2 2 3 4 5 6
+
+14
+1 1 1 1 1 1 2 2 3 3 3 4 5 6
+
+8
+1 2 1 3 1 4 5 6
+
+I think my solution to Div. 2 B is wrong :|
+For the following test case my code gives answer as 7 : 14 1 1 1 1 2 2 2 2 2 2 3 4 5 6
+while the correct answer is 8, as the array can be rearranged as : 1 2 1 2 1 2 1 2 2 3 2 4 5 6
+Zlobober please look into this
+
+ */

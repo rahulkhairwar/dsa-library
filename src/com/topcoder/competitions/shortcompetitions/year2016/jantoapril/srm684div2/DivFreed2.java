@@ -1,53 +1,15 @@
-package com.codeforces.competitions.year2016.jantomarch.round344div2;
+package com.topcoder.competitions.shortcompetitions.year2016.jantoapril.srm684div2;
 
 import java.io.*;
 import java.util.*;
 
-public final class TaskA
+public final class DivFreed2
 {
-    static int n;
-	static long a[], b[];
-    static InputReader in;
-    static OutputWriter out;
+    public int count(int n, int k)
+	{
 
-    public static void main(String[] args)
-    {
-        in = new InputReader(System.in);
-        out = new OutputWriter(System.out);
-
-        solve();
-
-        out.flush();
-
-        in.close();
-        out.close();
-    }
-
-    static void solve()
-    {
-    	n = in.nextInt();
-
-		a = new long[n];
-		b = new long[n];
-
-		for (int i = 0; i < n; i++)
-			a[i] = in.nextInt();
-
-		for (int i = 0; i < n; i++)
-			b[i] = in.nextInt();
-
-		long orA, orB;
-
-		orA = orB = 0;
-
-		for (int i = 0; i < n; i++)
-			orA |= a[i];
-
-		for (int i = 0; i < n; i++)
-			orB |= b[i];
-
-		out.println(orA + orB);
-    }
+		return -1;
+	}
 
     static class InputReader
     {
@@ -395,27 +357,50 @@ public final class TaskA
 
     }
 
-    static class CMath
-    {
-        static long power(long number, int power)
-        {
-            if (number == 1 || number == 0 || power == 0)
-                return 1;
+	static class CMath
+	{
+		static long power(long number, long power)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
 
-            if (power == 1)
-                return number;
+			if (power == 1)
+				return number;
 
-            if (power % 2 == 0)
-                return power(number * number, power / 2);
-            else
-                return power(number * number, power / 2) * number;
-        }
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
+		}
 
-        static long mod(long number, long mod)
-        {
-            return number - (number / mod) * mod;
-        }
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
 
-    }
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
+
+	}
 
 }

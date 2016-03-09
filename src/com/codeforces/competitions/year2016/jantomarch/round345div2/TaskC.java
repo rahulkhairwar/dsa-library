@@ -1,12 +1,13 @@
-package com.codeforces.competitions.year2016.jantomarch.round344div2;
+package com.codeforces.competitions.year2016.jantomarch.round345div2;
 
+import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-public final class TaskA
+public final class TaskC
 {
     static int n;
-	static long a[], b[];
+	static Point[] points, sortedX, sortedY;;
     static InputReader in;
     static OutputWriter out;
 
@@ -27,27 +28,260 @@ public final class TaskA
     {
     	n = in.nextInt();
 
-		a = new long[n];
-		b = new long[n];
+		points = new Point[n];
 
 		for (int i = 0; i < n; i++)
-			a[i] = in.nextInt();
+			points[i] = new Point(in.nextInt(), in.nextInt());
+
+		sortedX = Arrays.copyOf(points, n);
+		sortedY = Arrays.copyOf(points, n);
+
+		Arrays.sort(sortedX, new Comparator<Point>()
+		{
+			@Override
+			public int compare(Point o1, Point o2)
+			{
+				return Integer.compare(o1.x, o2.x);
+			}
+		});
+
+		Arrays.sort(sortedY, new Comparator<Point>()
+		{
+			@Override
+			public int compare(Point o1, Point o2)
+			{
+				return Integer.compare(o1.y, o2.y);
+			}
+		});
+
+		Arrays.sort(points, new Comparator<Point>()
+		{
+			@Override
+			public int compare(Point o1, Point o2)
+			{
+				if (o1.x < o2.x)
+					return -1;
+				else if (o1.x > o2.x)
+					return 1;
+				else
+					return Integer.compare(o1.y, o2.y);
+			}
+		});
+
+		long total = 0;
 
 		for (int i = 0; i < n; i++)
-			b[i] = in.nextInt();
+		{
+			int leftX, leftY, rightX, rightY, leftSame, rightSame;
 
-		long orA, orB;
+			leftX = searchLeftX(points[i].x);
+			leftY = searchLeftY(points[i].y);
+			rightX = searchRightX(points[i].x);
+			rightY = searchRightY(points[i].y);
+			leftSame = searchLeftBoth(points[i].x, points[i].y);
+			rightSame = searchRightBoth(points[i].x, points[i].y);
 
-		orA = orB = 0;
+			total += (rightX - leftX);
+			total += (rightY - leftY);
+			total -= (rightSame - leftSame);
+		}
 
-		for (int i = 0; i < n; i++)
-			orA |= a[i];
-
-		for (int i = 0; i < n; i++)
-			orB |= b[i];
-
-		out.println(orA + orB);
+		out.println(total / 2);
     }
+
+	static int searchLeftX(int value)
+	{
+		int first, last, middle;
+
+		first = 0;
+		last = n - 1;
+
+		while (first <= last)
+		{
+			middle = first + (last - first) / 2;
+
+			if (sortedX[middle].x == value)
+			{
+				if (middle == 0)
+					return middle;
+
+				if (sortedX[middle - 1].x < value)
+					return middle;
+
+				last = middle - 1;
+			}
+			else if (sortedX[middle].x < value)
+				first = middle + 1;
+			else
+				last = middle - 1;
+		}
+
+		return -1;
+	}
+
+	static int searchLeftY(int value)
+	{
+		int first, last, middle;
+
+		first = 0;
+		last = n - 1;
+
+		while (first <= last)
+		{
+			middle = first + (last - first) / 2;
+
+			if (sortedY[middle].y == value)
+			{
+				if (middle == 0)
+					return middle;
+
+				if (sortedY[middle - 1].y < value)
+					return middle;
+
+				last = middle - 1;
+			}
+			else if (sortedY[middle].y < value)
+				first = middle + 1;
+			else
+				last = middle - 1;
+		}
+
+		return -1;
+	}
+
+	static int searchRightX(int value)
+	{
+		int first, last, mid;
+
+		first = 0;
+		last = n - 1;
+
+		while (first <= last)
+		{
+			mid = first + (last - first) / 2;
+
+			if (sortedX[mid].x == value)
+			{
+				if (mid == n - 1)
+					return mid;
+
+				if (sortedX[mid + 1].x > value)
+					return mid;
+
+				first = mid + 1;
+			}
+			else if (sortedX[mid].x < value)
+				first = mid + 1;
+			else
+				last = mid - 1;
+		}
+
+		return -1;
+	}
+
+	static int searchRightY(int value)
+	{
+		int first, last, mid;
+
+		first = 0;
+		last = n - 1;
+
+		while (first <= last)
+		{
+			mid = first + (last - first) / 2;
+
+			if (sortedY[mid].y == value)
+			{
+				if (mid == n - 1)
+					return mid;
+
+				if (sortedY[mid + 1].y > value)
+					return mid;
+
+				first = mid + 1;
+			}
+			else if (sortedY[mid].y < value)
+				first = mid + 1;
+			else
+				last = mid - 1;
+		}
+
+		return -1;
+	}
+
+	static int searchLeftBoth(int x, int y)
+	{
+		int first, last, mid;
+
+		first = 0;
+		last = n - 1;
+
+		while (first <= last)
+		{
+			mid = first + (last - first) / 2;
+
+			if (points[mid].x == x && points[mid].y == y)
+			{
+				if (mid == 0)
+					return mid;
+
+				if (points[mid - 1].x != x || points[mid - 1].y != y)
+					return mid;
+
+				last = mid - 1;
+			}
+			else if (points[mid].x == x)
+			{
+				if (points[mid].y < y)
+					first = mid + 1;
+				else
+					last = mid - 1;
+			}
+			else if (points[mid].x < x)
+				first = mid + 1;
+			else
+				last = mid - 1;
+		}
+
+		return -1;
+	}
+
+	static int searchRightBoth(int x, int y)
+	{
+		int first, last, mid;
+
+		first = 0;
+		last = n - 1;
+
+		while (first <= last)
+		{
+			mid = first + (last - first) / 2;
+
+			if (points[mid].x == x)
+			{
+				if (points[mid].y == y)
+				{
+					if (mid == n - 1)
+						return mid;
+
+					if (points[mid + 1].x != x || points[mid + 1].y != y)
+						return mid;
+
+					first = mid + 1;
+				}
+				else if (points[mid].y < y)
+					first = mid + 1;
+				else
+					last = mid - 1;
+			}
+			else if (points[mid].x < x)
+				first = mid + 1;
+			else
+				last = mid - 1;
+		}
+
+		return -1;
+	}
 
     static class InputReader
     {
@@ -395,27 +629,50 @@ public final class TaskA
 
     }
 
-    static class CMath
-    {
-        static long power(long number, int power)
-        {
-            if (number == 1 || number == 0 || power == 0)
-                return 1;
+	static class CMath
+	{
+		static long power(long number, long power)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
 
-            if (power == 1)
-                return number;
+			if (power == 1)
+				return number;
 
-            if (power % 2 == 0)
-                return power(number * number, power / 2);
-            else
-                return power(number * number, power / 2) * number;
-        }
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
+		}
 
-        static long mod(long number, long mod)
-        {
-            return number - (number / mod) * mod;
-        }
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
 
-    }
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
+
+	}
 
 }

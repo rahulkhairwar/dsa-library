@@ -2,16 +2,14 @@ package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.InputMismatchException;
-import java.util.TreeSet;
 
 /**
- * Created by rahulkhairwar on 10/02/16.
+ * Created by rahulkhairwar on 13/03/16.
  */
-public final class TableDecorations
+public final class HexadecimalsNumbers
 {
-	static long[] colors;
+	static int n;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -30,11 +28,37 @@ public final class TableDecorations
 
 	static void solve()
 	{
-		colors = in.nextLongArray(3);
+		n = in.nextInt();
 
-		Arrays.sort(colors);
+		String num, converted;
 
-		long answer = Math.min((colors[0] + colors[1] + colors[2]) / 3, colors[0] + colors[1]);
+		num = "" + n;
+		converted = "";
+
+		for (int i = 0; i < num.length(); i++)
+		{
+			if (num.charAt(i) > '1')
+			{
+				for (int j = i; j < num.length(); j++)
+					converted += '1';
+
+				break;
+			}
+			else
+				converted += num.charAt(i);
+		}
+
+		int length, power, answer;
+
+		length = converted.length();
+		power = 1;
+		answer = 0;
+
+		for (int i = length - 1; i >= 0; i--)
+		{
+			answer += (power * (converted.charAt(i) - '0'));
+			power *= 2;
+		}
 
 		out.println(answer);
 	}
@@ -387,7 +411,7 @@ public final class TableDecorations
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
@@ -399,6 +423,29 @@ public final class TableDecorations
 				return power(number * number, power / 2);
 			else
 				return power(number * number, power / 2) * number;
+		}
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
 		}
 
 		static long mod(long number, long mod)

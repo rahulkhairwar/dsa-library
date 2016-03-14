@@ -76,10 +76,8 @@ public final class NumberOfWays
 		}
 
 		for (int i = 0; i < n; i++)
-		{
 			if (leftCum[i] == required)
 				leftRequiredPos[leftCount++] = i;
-		}
 
 		long answer = 0;
 
@@ -480,7 +478,7 @@ public final class NumberOfWays
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
@@ -494,12 +492,36 @@ public final class NumberOfWays
 				return power(number * number, power / 2) * number;
 		}
 
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
 		}
 
 	}
+
 }
 
 /*

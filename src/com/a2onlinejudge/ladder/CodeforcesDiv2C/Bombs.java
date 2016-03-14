@@ -4,14 +4,14 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.InputMismatchException;
-import java.util.TreeSet;
 
 /**
- * Created by rahulkhairwar on 10/02/16.
+ * Created by rahulkhairwar on 15/03/16.
  */
-public final class TableDecorations
+public final class Bombs
 {
-	static long[] colors;
+	static int n;
+	static Bomb[] all;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -30,13 +30,76 @@ public final class TableDecorations
 
 	static void solve()
 	{
-		colors = in.nextLongArray(3);
+		n = in.nextInt();
 
-		Arrays.sort(colors);
+		all = new Bomb[n];
 
-		long answer = Math.min((colors[0] + colors[1] + colors[2]) / 3, colors[0] + colors[1]);
+		for (int i = 0; i < n; i++)
+			all[i] = new Bomb(in.nextInt(), in.nextInt());
 
-		out.println(answer);
+		Arrays.sort(all, new Comparator<Bomb>()
+		{
+			@Override
+			public int compare(Bomb o1, Bomb o2)
+			{
+				return Integer.compare(o1.distance, o2.distance);
+			}
+		});
+
+		int steps = 0;
+		StringBuilder answer = new StringBuilder();
+
+		for (int i = 0; i < n; i++)
+		{
+			if (all[i].x > 0)
+				answer.append("1 " + all[i].x + " R\n");
+			else if (all[i].x < 0)
+				answer.append("1 " + (-all[i].x) + " L\n");
+
+			if (all[i].y > 0)
+				answer.append("1 " + all[i].y + " U\n");
+			else if (all[i].y < 0)
+				answer.append("1 " + (-all[i].y) + " D\n");
+
+			answer.append("2\n");
+
+			if (all[i].x > 0)
+				answer.append("1 " + all[i].x + " L\n");
+			else if (all[i].x < 0)
+				answer.append("1 " + (-all[i].x) + " R\n");
+
+			if (all[i].y > 0)
+				answer.append("1 " + all[i].y + " D\n");
+			else if (all[i].y < 0)
+				answer.append("1 " + (-all[i].y) + " U\n");
+
+			answer.append("3\n");
+
+			if (all[i].x != 0)
+				steps += 2;
+
+			if (all[i].y != 0)
+				steps += 2;
+
+			steps += 2;
+		}
+
+		out.println(steps);
+		out.println(answer.toString());
+	}
+
+	static class Bomb
+	{
+		int x, y, distance;
+
+		public Bomb(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
+
+			distance = Math.abs(x) + Math.abs(y);
+		}
+
 	}
 
 	static class InputReader
@@ -387,7 +450,7 @@ public final class TableDecorations
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
@@ -399,6 +462,29 @@ public final class TableDecorations
 				return power(number * number, power / 2);
 			else
 				return power(number * number, power / 2) * number;
+		}
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
 		}
 
 		static long mod(long number, long mod)

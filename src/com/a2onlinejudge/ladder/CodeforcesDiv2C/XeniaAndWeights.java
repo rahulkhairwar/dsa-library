@@ -1,17 +1,15 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.InputMismatchException;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
- * Created by rahulkhairwar on 10/02/16.
+ * Created by rahulkhairwar on 13/03/16.
  */
-public final class TableDecorations
+public final class XeniaAndWeights
 {
-	static long[] colors;
+	static String available;
+	static int m;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -30,13 +28,121 @@ public final class TableDecorations
 
 	static void solve()
 	{
-		colors = in.nextLongArray(3);
+		available = in.next();
+		m = in.nextInt();
 
-		Arrays.sort(colors);
+		TreeSet<Integer> treeSet = new TreeSet<>(new Comparator<Integer>()
+		{
+			@Override
+			public int compare(Integer o1, Integer o2)
+			{
+				return Integer.compare(o1, o2);
+			}
+		});
 
-		long answer = Math.min((colors[0] + colors[1] + colors[2]) / 3, colors[0] + colors[1]);
+		for (int i = 0; i < 10; i++)
+			if (available.charAt(i) == '1')
+				treeSet.add(i + 1);
 
-		out.println(answer);
+		if (treeSet.size() == 1)
+		{
+			if (m == 1)
+			{
+				out.println("YES");
+				out.println(treeSet.first());
+			}
+			else
+				out.println("NO");
+
+			return;
+		}
+
+		Iterator<Integer> iterator = treeSet.iterator();
+
+		while (iterator.hasNext())
+		{
+			TreeSet<Integer> temp = new TreeSet<>();
+			int start = iterator.next();
+			int[] answer;
+
+			temp.addAll(treeSet);
+			answer = check(start, temp);
+
+			if (answer[m] == 1)
+			{
+				out.println("YES");
+
+				for (int i = 0; i < m; i++)
+					out.print(answer[i] + " ");
+
+				return;
+			}
+		}
+
+		out.println("NO");
+	}
+
+	static int[] check(int start, TreeSet<Integer> treeSet)
+	{
+		long left, right;
+		int[] answer;
+		int previous, curr, count;
+		boolean possible = true;
+
+		left = right = 0;
+		answer = new int[m + 1];
+		previous = curr = count = 0;
+
+		for (int i = 0; i < m; i++)
+		{
+			if (i > 0)
+			{
+				if (i > 1)
+					treeSet.add(previous);
+
+				previous = curr;
+			}
+
+			SortedSet<Integer> tailSet;
+
+			if (i == 0)
+				tailSet = treeSet.tailSet(start, true);
+			else
+			{
+				long diff;
+
+				if (i % 2 == 0)
+					diff = right - left;
+				else
+					diff = left - right;
+
+				tailSet = treeSet.tailSet((int) diff, false);
+			}
+
+			if (tailSet.size() == 0)
+			{
+				possible = false;
+
+				break;
+			}
+
+			curr = tailSet.first();
+
+			if (i % 2 == 0)
+				left += curr;
+			else
+				right += curr;
+
+			answer[count++] = curr;
+			treeSet.remove(curr);
+		}
+
+		if (possible)
+			answer[m] = 1;
+		else
+			answer[m] = 0;
+
+		return answer;
 	}
 
 	static class InputReader
@@ -387,7 +493,7 @@ public final class TableDecorations
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
@@ -401,6 +507,29 @@ public final class TableDecorations
 				return power(number * number, power / 2) * number;
 		}
 
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
@@ -409,3 +538,10 @@ public final class TableDecorations
 	}
 
 }
+
+/*
+
+0110100000
+5
+
+*/

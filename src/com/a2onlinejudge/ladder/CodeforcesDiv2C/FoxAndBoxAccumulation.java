@@ -4,14 +4,16 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.InputMismatchException;
-import java.util.TreeSet;
+import java.util.Stack;
 
 /**
- * Created by rahulkhairwar on 10/02/16.
+ * Created by rahulkhairwar on 11/03/16.
  */
-public final class TableDecorations
+public final class FoxAndBoxAccumulation
 {
-	static long[] colors;
+	static int n;
+	static Integer[] arr;
+	static boolean[] used;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -30,13 +32,46 @@ public final class TableDecorations
 
 	static void solve()
 	{
-		colors = in.nextLongArray(3);
+		n = in.nextInt();
 
-		Arrays.sort(colors);
+		arr = new Integer[n];
+		used = new boolean[n];
 
-		long answer = Math.min((colors[0] + colors[1] + colors[2]) / 3, colors[0] + colors[1]);
+		for (int i = 0; i < n; i++)
+			arr[i] = in.nextInt();
 
-		out.println(answer);
+		Arrays.sort(arr);
+
+		int total = 0;
+
+		while (true)
+		{
+			int i, currOnTop;
+
+			i = 0;
+			currOnTop = 1;
+
+			while (i < n && used[i])
+				i++;
+
+			if (i == n)
+				break;
+
+			used[i] = true;
+
+			for (int j = i + 1; j < n; j++)
+			{
+				if (!used[j] && arr[j] >= currOnTop)
+				{
+					currOnTop++;
+					used[j] = true;
+				}
+			}
+
+			total++;
+		}
+
+		out.println(total);
 	}
 
 	static class InputReader
@@ -387,7 +422,7 @@ public final class TableDecorations
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
@@ -399,6 +434,29 @@ public final class TableDecorations
 				return power(number * number, power / 2);
 			else
 				return power(number * number, power / 2) * number;
+		}
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
 		}
 
 		static long mod(long number, long mod)

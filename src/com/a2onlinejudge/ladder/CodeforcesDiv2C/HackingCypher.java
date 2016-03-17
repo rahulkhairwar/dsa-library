@@ -1,9 +1,6 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
-import com.sun.javafx.charts.Legend;
-
 import java.io.*;
-import java.math.BigInteger;
 import java.util.InputMismatchException;
 
 /**

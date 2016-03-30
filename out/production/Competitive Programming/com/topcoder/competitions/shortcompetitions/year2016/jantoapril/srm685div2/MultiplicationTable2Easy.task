@@ -1,0 +1,21 @@
+24 MultiplicationTable2Easy
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+78 src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2
+16 -Xmx256m -Xss64m
+4 Main
+99 com.topcoder.competitions.shortcompetitions.year2016.jantoapril.srm685div2.MultiplicationTable2Easy
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.03.19
+0 
+1
+0 
+0 
+0
+0

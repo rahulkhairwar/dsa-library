@@ -5,16 +5,13 @@ import java.util.*;
 
 public final class %TaskClass%
 {
-    static int n, arr[];
-    static InputReader in;
-    static OutputWriter out;
-
     public static void main(String[] args)
     {
-        in = new InputReader(System.in);
-        out = new OutputWriter(System.out);
+        InputReader in = new InputReader(System.in);
+        OutputWriter out = new OutputWriter(System.out);
 
-        solve();
+		Solver solver = new Solver(in, out);
+		solver.solve(1);
 
         out.flush();
 
@@ -22,10 +19,24 @@ public final class %TaskClass%
         out.close();
     }
 
-    static void solve()
+    static class Solver
     {
-    	n = in.nextInt();
-    }
+        int n, arr[];
+        InputReader in;
+        OutputWriter out;
+
+        public Solver(InputReader in, OutputWriter out)
+        {
+        	this.in = in;
+        	this.out = out;
+        }
+
+		void solve(int testNumber)
+		{
+			n = in.nextInt();
+		}
+
+	}
 
     static class InputReader
     {

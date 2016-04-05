@@ -17,6 +17,15 @@
                 </node>
               </node>
             </node>
+            <node name="codeforces|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
+              <node name="competitions|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
+                <node name="year2016|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
+                  <node name="jantomarch|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
+                    <node name="round346div2|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node name="dsa|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
               <node name="datastructures|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
                 <node name="graph|com.intellij.ide.util.treeView.AbstractTreeUi$ElementNode|com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode|com.intellij.psi.impl.file.PsiJavaDirectoryImpl|">
@@ -40,25 +49,8 @@
         </node>
       </node>
     </srcTreeState2>
-    <nodeInfoState>
-      <child name="Competitive Programming">
-        <child name="src">
-          <child name="com">
-            <child name="dsa">
-              <child name="datastructures">
-                <child name="graph">
-                  <child name="traversal">
-                    <child name="ArticulationPoints" />
-                  </child>
-                </child>
-              </child>
-            </child>
-          </child>
-        </child>
-      </child>
-    </nodeInfoState>
     <treesState>
-      <tree order="0" ws="0" width2="447">
+      <tree order="0" ws="0" width2="433">
         <expand>
           <item val="" />
           <item val="Competitive Programming|" />
@@ -70,6 +62,11 @@
           <item val="Competitive Programming|src|com|codechef|competitions|shortcompetitions|year2015|" />
           <item val="Competitive Programming|src|com|codechef|competitions|shortcompetitions|year2015|december.cookoff|" />
           <item val="Competitive Programming|src|com|codechef|competitions|shortcompetitions|year2015|december.cookoff|Q2|" />
+          <item val="Competitive Programming|src|com|codeforces|" />
+          <item val="Competitive Programming|src|com|codeforces|competitions|" />
+          <item val="Competitive Programming|src|com|codeforces|competitions|year2016|" />
+          <item val="Competitive Programming|src|com|codeforces|competitions|year2016|jantomarch|" />
+          <item val="Competitive Programming|src|com|codeforces|competitions|year2016|jantomarch|round346div2|" />
           <item val="Competitive Programming|src|com|dsa|" />
           <item val="Competitive Programming|src|com|dsa|datastructures|" />
           <item val="Competitive Programming|src|com|dsa|datastructures|graph|" />
@@ -83,7 +80,7 @@
           <item val="Competitive Programming|src|com|hackerrank|practice|medium|DorseyThief|" />
         </expand>
         <select>
-          <item val="Competitive Programming|src|com|dsa|datastructures|graph|traversal|ArticulationPoints|dfs(int):void|" />
+          <item val="Competitive Programming|src|com|codechef|competitions|" />
         </select>
         <roots>
           <item val="Competitive Programming|" />
@@ -98,24 +95,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2$OutputWriter.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/HackingCypher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/facebookhackercup/practice/Autocomplete.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/facebookhackercup/practice/output.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/uva/practice/CriticalLinks.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/uva/practice/RevolCFaeLoN.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/february/TurboSort$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/february/TurboSort$InputReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/february/TurboSort.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/february/TurboSort.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity$CMath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity$InputReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity$OutputWriter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$CMath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$Friend.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$Friend.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$InputReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB$OutputWriter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints$CMath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints$InputReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints$OutputWriter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/traversal/ArticulationPoints.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TopCoderTaskClass.template" afterPath="$PROJECT_DIR$/TopCoderTaskClass.template" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Competitive Programming.iml" afterPath="$PROJECT_DIR$/Competitive Programming.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PublicFinalClass.template" afterPath="$PROJECT_DIR$/PublicFinalClass.template" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chelper.properties" afterPath="$PROJECT_DIR$/chelper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil.java" afterPath="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.java" afterPath="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/UVA Problem Submission Instructions" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/UVA Problem Submission Instructions" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/february/TurboSort.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/february/TurboSort.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/tricks/IncreaseStackSize.java" afterPath="$PROJECT_DIR$/src/com/common/tricks/IncreaseStackSize.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/uva/UVA Problem Submission Instructions" afterPath="$PROJECT_DIR$/src/com/uva/UVA Problem Submission Instructions" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/uva/practice/ModularFibonacci.java" afterPath="$PROJECT_DIR$/src/com/uva/practice/ModularFibonacci.java" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -146,18 +154,50 @@
         <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="526" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticulationPoints.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/graph/traversal/ArticulationPoints.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.18133333">
-              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-              <folding />
+              <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2341#2342#0" expanded="false" />
+                <element signature="e#2370#2371#0" expanded="false" />
+                <element signature="e#5123#5124#0" expanded="false" />
+                <element signature="e#5197#5198#0" expanded="false" />
+                <element signature="e#5457#5458#0" expanded="false" />
+                <element signature="e#5482#5483#0" expanded="false" />
+                <element signature="e#5853#5854#0" expanded="false" />
+                <element signature="e#5899#5900#0" expanded="false" />
+                <element signature="e#5933#5934#0" expanded="false" />
+                <element signature="e#5959#5960#0" expanded="false" />
+                <element signature="e#5991#5992#0" expanded="false" />
+                <element signature="e#6015#6016#0" expanded="false" />
+                <element signature="e#6274#6275#0" expanded="false" />
+                <element signature="e#6300#6301#0" expanded="false" />
+                <element signature="e#6333#6334#0" expanded="false" />
+                <element signature="e#6357#6358#0" expanded="false" />
+                <element signature="e#6615#6616#0" expanded="false" />
+                <element signature="e#6643#6644#0" expanded="false" />
+                <element signature="e#6679#6680#0" expanded="false" />
+                <element signature="e#6705#6706#0" expanded="false" />
+                <element signature="e#6744#6745#0" expanded="false" />
+                <element signature="e#6772#6773#0" expanded="false" />
+                <element signature="e#6809#6810#0" expanded="false" />
+                <element signature="e#6835#6836#0" expanded="false" />
+                <element signature="e#6872#6873#0" expanded="false" />
+                <element signature="e#6898#6899#0" expanded="false" />
+                <element signature="e#6933#6934#0" expanded="false" />
+                <element signature="e#6957#6958#0" expanded="false" />
+                <element signature="e#6986#6987#0" expanded="false" />
+                <element signature="e#7011#7012#0" expanded="false" />
+                <element signature="e#7043#7044#0" expanded="false" />
+                <element signature="e#7069#7070#0" expanded="false" />
+                <element signature="e#7096#7097#0" expanded="false" />
+                <element signature="e#7119#7120#0" expanded="false" />
+                <element signature="e#7146#7147#0" expanded="false" />
+                <element signature="e#7169#7170#0" expanded="false" />
+                <element signature="e#7927#7928#0" expanded="false" />
+                <element signature="e#7973#7974#0" expanded="false" />
+                <element signature="e#8019#8020#0" expanded="false" />
+                <element signature="e#8064#8065#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,18 +206,53 @@
         <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskD.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.java">
+      <file leaf-file-name="RevolCFaeLoN.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/uva/practice/RevolCFaeLoN.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
-              <folding />
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+              <folding>
+                <element signature="class#OutputWriter#0;class#RevolCFaeLoN#0" expanded="false" />
+                <element signature="class#CMath#0;class#RevolCFaeLoN#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Autocomplete.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/facebookhackercup/practice/Autocomplete.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.58459425">
+              <caret line="25" column="69" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#insert#0;class#Solver#0;class#Autocomplete#0" expanded="false" />
+                <element signature="method#check#0;class#Solver#0;class#Autocomplete#0" expanded="false" />
+                <element signature="e#2137#2138#0" expanded="true" />
+                <element signature="e#2167#2168#0" expanded="true" />
+                <element signature="class#OutputWriter#0;class#Autocomplete#0" expanded="false" />
+                <element signature="class#CMath#0;class#Autocomplete#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="class#InputReader#0;class#TaskF#0" expanded="false" />
+                <element signature="class#OutputWriter#0;class#TaskF#0" expanded="false" />
+                <element signature="class#CMath#0;class#TaskF#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,36 +262,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Istr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Istr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DoubleWeights.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/DoubleWeights.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DivFreed2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -243,26 +288,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PackageClass.template" />
-        <option value="$PROJECT_DIR$/PublicFinalClass.template" />
-        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java" />
-        <option value="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java" />
-        <option value="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/Ashwin.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/PCExpression.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/SubstitutionSet.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/Unifiable.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/Constant.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/Variable.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/SimpleSentence.java" />
-        <option value="$PROJECT_DIR$/src/com/ashwin/UnifyTester.java" />
-        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round344div2/TaskA.java" />
-        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round345div2/TaskB.java" />
-        <option value="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/TaskA.java" />
-        <option value="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/DivFreed2.java" />
-        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round345div2/TaskC.java" />
-        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round345div2/TaskA.java" />
-        <option value="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/Istr.java" />
-        <option value="$PROJECT_DIR$/src/com/common/javainbuiltstuff/LowerBound.java" />
         <option value="$PROJECT_DIR$/src/com/common/javainbuiltstuff/LowerUpperBound.java" />
         <option value="$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/Autohamil.java" />
         <option value="$PROJECT_DIR$/src/com/hackerrank/practice/medium/ManasaLovesMaths.java" />
@@ -294,6 +319,26 @@
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskA.java" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB.java" />
         <option value="$PROJECT_DIR$/src/com/dsa/datastructures/graph/traversal/ArticulationPoints.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskB.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskA.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskC.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskD.java" />
+        <option value="$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/february/TurboSort.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskF.java" />
+        <option value="$PROJECT_DIR$/src/com/uva/practice/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/uva/UVA Problem Submission Instructions" />
+        <option value="$PROJECT_DIR$/src/com/uva/practice/ModularFibonacci.java" />
+        <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskE.java" />
+        <option value="$PROJECT_DIR$/src/com/uva/practice/RevolCFaeLoN.java" />
+        <option value="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.java" />
+        <option value="$PROJECT_DIR$/src/com/uva/practice/CriticalLinks.java" />
+        <option value="$PROJECT_DIR$/src/com/dsa/datastructures/graph/traversal/Bridges.java" />
+        <option value="$PROJECT_DIR$/src/com/com/facebookhackercup/Autocomplete.java" />
+        <option value="$PROJECT_DIR$/src/com/facebookhackercup/practice/output.txt" />
+        <option value="$PROJECT_DIR$/PublicFinalClass.template" />
+        <option value="$PROJECT_DIR$/src/com/common/tricks/IncreaseStackSize.java" />
+        <option value="$PROJECT_DIR$/src/com/facebookhackercup/practice/Autocomplete.java" />
+        <option value="$PROJECT_DIR$/src/com/dsa/datastructures/trees/intervaltree/AlphabetTrie.java" />
       </list>
     </option>
   </component>
@@ -303,6 +348,9 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
@@ -353,8 +401,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -470,14 +516,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="practice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/PublicFinalClass.template" />
+    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/lib/hamcrest-core-1.3.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -485,20 +558,47 @@
       <recent name="$PROJECT_DIR$/src/com/uva" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/facebookhackercup/practice" />
       <recent name="$PROJECT_DIR$/src/com/hackerrank/competitions/year2016/hourrank5" />
       <recent name="$PROJECT_DIR$/src/com/dsa/datastructures/trees" />
       <recent name="$PROJECT_DIR$/src/com/dsa/algorithms" />
     </key>
   </component>
-  <component name="RunManager" selected="Task.DoubleWeights">
-    <configuration default="false" name="TaskD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Autocomplete">
+    <configuration default="false" name="TaskF.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.educational.year2016.jantomarch.round10.*" />
+          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.round346div2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.educational.year2016.jantomarch.round10.TaskD" />
+      <module name="Competitive Programming" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.codeforces.competitions.year2016.jantomarch.round346div2" />
+      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.round346div2.TaskF" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="TaskE" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.round346div2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.round346div2.TaskE" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -511,14 +611,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="ArticulationPoints" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="CriticalLinks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.dsa.datastructures.graph.traversal.*" />
+          <option name="PATTERN" value="com.uva.practice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.dsa.datastructures.graph.traversal.ArticulationPoints" />
+      <option name="MAIN_CLASS_NAME" value="com.uva.practice.CriticalLinks" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -531,14 +631,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="TaskA (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="AlphabetTrie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.vkcupround1div2.*" />
+          <option name="PATTERN" value="com.dsa.datastructures.trees.intervaltree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.vkcupround1div2.TaskA" />
+      <option name="MAIN_CLASS_NAME" value="com.dsa.datastructures.trees.intervaltree.AlphabetTrie" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -551,34 +651,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="TaskC (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Autocomplete" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.vkcupround1div2.*" />
+          <option name="PATTERN" value="com.facebookhackercup.practice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.vkcupround1div2.TaskC" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Competitive Programming" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="TaskB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.codeforces.competitions.year2016.jantomarch.vkcupround1div2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.codeforces.competitions.year2016.jantomarch.vkcupround1div2.TaskB" />
+      <option name="MAIN_CLASS_NAME" value="com.facebookhackercup.practice.Autocomplete" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -648,14 +728,6 @@
       <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
       <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
       <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -845,6 +917,10 @@
       <taskConf>src/com/codeforces/competitions/year2016/jantomarch/venturecupeliminationround/A - Robot Sequence.task</taskConf>
       <method />
     </configuration>
+    <configuration default="false" name="Autohamil" type="Task" factoryName="Task">
+      <taskConf />
+      <method />
+    </configuration>
     <configuration default="false" name="B - A Trivial Problem" type="Task" factoryName="Task">
       <taskConf>src/com/codeforces/competitions/year2016/jantomarch/manthancodefest/B - A Trivial Problem.task</taskConf>
       <method />
@@ -867,6 +943,14 @@
     </configuration>
     <configuration default="false" name="D - Jerry's Protest" type="Task" factoryName="Task">
       <taskConf>src/com/codeforces/competitions/year2016/jantomarch/venturecupeliminationround/D - Jerry's Protest.task</taskConf>
+      <method />
+    </configuration>
+    <configuration default="false" name="DivFreed2" type="Task" factoryName="Task">
+      <taskConf />
+      <method />
+    </configuration>
+    <configuration default="false" name="DoubleWeights" type="Task" factoryName="Task">
+      <taskConf>src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/DoubleWeights.task</taskConf>
       <method />
     </configuration>
     <configuration default="false" name="E - Simple Skewness" type="Task" factoryName="Task">
@@ -897,80 +981,78 @@
       <taskConf />
       <method />
     </configuration>
-    <configuration default="false" name="TaskE" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round341div2/TaskE.task</taskConf>
-      <method />
-    </configuration>
-    <configuration default="false" name="DivFreed2" type="Task" factoryName="Task">
-      <taskConf />
-      <method />
-    </configuration>
-    <configuration default="false" name="Autohamil" type="Task" factoryName="Task">
-      <taskConf />
-      <method />
-    </configuration>
     <configuration default="false" name="MultiplicationTable2Easy" type="Task" factoryName="Task">
       <taskConf>src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/MultiplicationTable2Easy.task</taskConf>
       <method />
     </configuration>
-    <configuration default="false" name="DoubleWeights" type="Task" factoryName="Task">
-      <taskConf>src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/DoubleWeights.task</taskConf>
-      <method />
-    </configuration>
-    <configuration default="false" name="TaskD" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.task</taskConf>
-      <method />
-    </configuration>
     <configuration default="false" name="TaskA" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskA.task</taskConf>
-      <method />
-    </configuration>
-    <configuration default="false" name="TaskC" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskC.task</taskConf>
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskA.task</taskConf>
       <method />
     </configuration>
     <configuration default="false" name="TaskB" type="Task" factoryName="Task">
-      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB.task</taskConf>
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskB.task</taskConf>
       <method />
     </configuration>
-    <list size="29">
+    <configuration default="false" name="TaskC" type="Task" factoryName="Task">
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskC.task</taskConf>
+      <method />
+    </configuration>
+    <configuration default="false" name="TaskD" type="Task" factoryName="Task">
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskD.task</taskConf>
+      <method />
+    </configuration>
+    <configuration default="false" name="TaskE" type="Task" factoryName="Task">
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskE.task</taskConf>
+      <method />
+    </configuration>
+    <configuration default="false" name="Task" type="Task" factoryName="Task">
+      <taskConf />
+      <method />
+    </configuration>
+    <configuration default="false" name="TaskF" type="Task" factoryName="Task">
+      <taskConf>src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskF.task</taskConf>
+      <method />
+    </configuration>
+    <list size="31">
       <item index="0" class="java.lang.String" itemvalue="Task.A - Ebony and Ivory" />
       <item index="1" class="java.lang.String" itemvalue="Task.A - Robot Sequence" />
-      <item index="2" class="java.lang.String" itemvalue="Task.B - A Trivial Problem" />
-      <item index="3" class="java.lang.String" itemvalue="Task.B - Cards" />
-      <item index="4" class="java.lang.String" itemvalue="Task.C - Block Towers" />
-      <item index="5" class="java.lang.String" itemvalue="Task.C - Spy Syndrome 2" />
-      <item index="6" class="java.lang.String" itemvalue="Task.D - Fibonacci-ish" />
-      <item index="7" class="java.lang.String" itemvalue="Task.D - Jerry's Protest" />
-      <item index="8" class="java.lang.String" itemvalue="Task.E - Simple Skewness" />
-      <item index="9" class="java.lang.String" itemvalue="Task.E - Startup Funding" />
-      <item index="10" class="java.lang.String" itemvalue="Task.F - Group Projects" />
-      <item index="11" class="java.lang.String" itemvalue="Task.F - The Chocolate Spree" />
-      <item index="12" class="java.lang.String" itemvalue="Task.G - Raffles" />
-      <item index="13" class="java.lang.String" itemvalue="Task.G - Yash And Trees" />
-      <item index="14" class="java.lang.String" itemvalue="Task.H - Fibonacci-ish II" />
-      <item index="15" class="java.lang.String" itemvalue="Task.TaskE" />
-      <item index="16" class="java.lang.String" itemvalue="Task.DivFreed2" />
-      <item index="17" class="java.lang.String" itemvalue="Task.Autohamil" />
+      <item index="2" class="java.lang.String" itemvalue="Task.Autohamil" />
+      <item index="3" class="java.lang.String" itemvalue="Task.B - A Trivial Problem" />
+      <item index="4" class="java.lang.String" itemvalue="Task.B - Cards" />
+      <item index="5" class="java.lang.String" itemvalue="Task.C - Block Towers" />
+      <item index="6" class="java.lang.String" itemvalue="Task.C - Spy Syndrome 2" />
+      <item index="7" class="java.lang.String" itemvalue="Task.D - Fibonacci-ish" />
+      <item index="8" class="java.lang.String" itemvalue="Task.D - Jerry's Protest" />
+      <item index="9" class="java.lang.String" itemvalue="Task.DivFreed2" />
+      <item index="10" class="java.lang.String" itemvalue="Task.DoubleWeights" />
+      <item index="11" class="java.lang.String" itemvalue="Task.E - Simple Skewness" />
+      <item index="12" class="java.lang.String" itemvalue="Task.E - Startup Funding" />
+      <item index="13" class="java.lang.String" itemvalue="Task.F - Group Projects" />
+      <item index="14" class="java.lang.String" itemvalue="Task.F - The Chocolate Spree" />
+      <item index="15" class="java.lang.String" itemvalue="Task.G - Raffles" />
+      <item index="16" class="java.lang.String" itemvalue="Task.G - Yash And Trees" />
+      <item index="17" class="java.lang.String" itemvalue="Task.H - Fibonacci-ish II" />
       <item index="18" class="java.lang.String" itemvalue="Task.MultiplicationTable2Easy" />
-      <item index="19" class="java.lang.String" itemvalue="Task.DoubleWeights" />
-      <item index="20" class="java.lang.String" itemvalue="Task.TaskD" />
-      <item index="21" class="java.lang.String" itemvalue="Task.TaskA" />
-      <item index="22" class="java.lang.String" itemvalue="Application.TaskD" />
-      <item index="23" class="java.lang.String" itemvalue="Application.ArticulationPoints" />
-      <item index="24" class="java.lang.String" itemvalue="Application.TaskA (1)" />
-      <item index="25" class="java.lang.String" itemvalue="Application.TaskC (1)" />
-      <item index="26" class="java.lang.String" itemvalue="Task.TaskC" />
-      <item index="27" class="java.lang.String" itemvalue="Task.TaskB" />
-      <item index="28" class="java.lang.String" itemvalue="Application.TaskB" />
+      <item index="19" class="java.lang.String" itemvalue="Task.TaskA" />
+      <item index="20" class="java.lang.String" itemvalue="Task.TaskB" />
+      <item index="21" class="java.lang.String" itemvalue="Task.TaskC" />
+      <item index="22" class="java.lang.String" itemvalue="Task.TaskD" />
+      <item index="23" class="java.lang.String" itemvalue="Task.TaskE" />
+      <item index="24" class="java.lang.String" itemvalue="Task.Task" />
+      <item index="25" class="java.lang.String" itemvalue="Task.TaskF" />
+      <item index="26" class="java.lang.String" itemvalue="JUnit.TaskF.test" />
+      <item index="27" class="java.lang.String" itemvalue="Application.TaskE" />
+      <item index="28" class="java.lang.String" itemvalue="Application.CriticalLinks" />
+      <item index="29" class="java.lang.String" itemvalue="Application.AlphabetTrie" />
+      <item index="30" class="java.lang.String" itemvalue="Application.Autocomplete" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.TaskB" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TaskC (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TaskA (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ArticulationPoints" />
-        <item index="4" class="java.lang.String" itemvalue="Application.TaskD" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Autocomplete" />
+        <item index="1" class="java.lang.String" itemvalue="Application.AlphabetTrie" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CriticalLinks" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TaskE" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TaskF.test" />
       </list>
     </recent_temporary>
   </component>
@@ -1072,6 +1154,26 @@
     <option name="localTasksCounter" value="15" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TaskF_setUp - 2016.03.31 at 21h 32m 31s.xml">
+      <configuration name="TaskF.setUp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TaskF_setUp - 2016.03.31 at 21h 34m 23s.xml">
+      <configuration name="TaskF.setUp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TaskF_setUp - 2016.03.31 at 21h 36m 13s.xml">
+      <configuration name="TaskF.setUp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TaskF_setUp - 2016.03.31 at 21h 36m 20s.xml">
+      <configuration name="TaskF.setUp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TaskF_setUp - 2016.03.31 at 21h 36m 22s.xml">
+      <configuration name="TaskF.setUp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TaskF_test - 2016.03.31 at 21h 37m 47s.xml">
+      <configuration name="TaskF.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
@@ -1081,17 +1183,17 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.50277776" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.344473" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38013244" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Armory" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Armory" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1103,6 +1205,34 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575835" sideWeight="0.50277776" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Armory" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38013244" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.template" />
@@ -1133,7 +1263,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="31" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1142,167 +1272,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/UnifyTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/SimpleSentence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/PCExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/Unifiable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ashwin/SubstitutionSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round344div2/TaskB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round344div2/TaskA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PrimeSwaps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="250" column="24" selection-start-line="250" selection-start-column="24" selection-end-line="250" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round345div2/TaskC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round345div2/TaskA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Autohamil.task">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.task">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/TaskA.task">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hackerrank/practice/medium/ManasaLovesMaths.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/NumberOfWays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="479" column="4" selection-start-line="479" selection-start-column="4" selection-end-line="479" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Boredom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/venturecupeliminationround/TaskD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="291" column="0" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round344div2/TaskC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/FoxAndBoxAccumulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/TableDecorations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/HexadecimalsNumbers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1380,13 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PublicFinalClass.template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="419" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/MultiplicationTable2Easy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43066666">
@@ -1422,10 +1384,271 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9293333">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.708">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Istr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chelper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.564">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/chelper/lib/chelper.jar!/net/egork/chelper/parser/CodeChefParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4343015">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/chelper/lib/chelper.jar!/net/egork/chelper/parser/CodeforcesParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14107884">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1106666">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0426667">
+          <caret line="460" column="0" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
+          <folding>
+            <element signature="class#InputReader#0;class#TaskA#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskA#0" expanded="false" />
+            <element signature="class#CMath#0;class#TaskA#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27466667">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="class#InputReader#0;class#TaskC#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskC#0" expanded="false" />
+            <element signature="class#CMath#0;class#TaskC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/DoubleWeights.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="e#2523#2524#0" expanded="false" />
+            <element signature="e#2569#2570#0" expanded="false" />
+            <element signature="e#2615#2616#0" expanded="false" />
+            <element signature="e#2660#2661#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#923#924#0" expanded="false" />
+            <element signature="e#969#970#0" expanded="false" />
+            <element signature="e#1015#1016#0" expanded="false" />
+            <element signature="e#1060#1061#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="class#InputReader#0;class#TaskD#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskD#0" expanded="false" />
+            <element signature="class#CMath#0;class#TaskD#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/february/TurboSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36266667">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskClass.template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/uva/UVA Problem Submission Instructions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.068">
+          <caret line="3" column="101" selection-start-line="3" selection-start-column="101" selection-end-line="3" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="526" selection-end-column="5" />
+          <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2341#2342#0" expanded="false" />
+            <element signature="e#2370#2371#0" expanded="false" />
+            <element signature="e#5123#5124#0" expanded="false" />
+            <element signature="e#5197#5198#0" expanded="false" />
+            <element signature="e#5457#5458#0" expanded="false" />
+            <element signature="e#5482#5483#0" expanded="false" />
+            <element signature="e#5853#5854#0" expanded="false" />
+            <element signature="e#5899#5900#0" expanded="false" />
+            <element signature="e#5933#5934#0" expanded="false" />
+            <element signature="e#5959#5960#0" expanded="false" />
+            <element signature="e#5991#5992#0" expanded="false" />
+            <element signature="e#6015#6016#0" expanded="false" />
+            <element signature="e#6274#6275#0" expanded="false" />
+            <element signature="e#6300#6301#0" expanded="false" />
+            <element signature="e#6333#6334#0" expanded="false" />
+            <element signature="e#6357#6358#0" expanded="false" />
+            <element signature="e#6615#6616#0" expanded="false" />
+            <element signature="e#6643#6644#0" expanded="false" />
+            <element signature="e#6679#6680#0" expanded="false" />
+            <element signature="e#6705#6706#0" expanded="false" />
+            <element signature="e#6744#6745#0" expanded="false" />
+            <element signature="e#6772#6773#0" expanded="false" />
+            <element signature="e#6809#6810#0" expanded="false" />
+            <element signature="e#6835#6836#0" expanded="false" />
+            <element signature="e#6872#6873#0" expanded="false" />
+            <element signature="e#6898#6899#0" expanded="false" />
+            <element signature="e#6933#6934#0" expanded="false" />
+            <element signature="e#6957#6958#0" expanded="false" />
+            <element signature="e#6986#6987#0" expanded="false" />
+            <element signature="e#7011#7012#0" expanded="false" />
+            <element signature="e#7043#7044#0" expanded="false" />
+            <element signature="e#7069#7070#0" expanded="false" />
+            <element signature="e#7096#7097#0" expanded="false" />
+            <element signature="e#7119#7120#0" expanded="false" />
+            <element signature="e#7146#7147#0" expanded="false" />
+            <element signature="e#7169#7170#0" expanded="false" />
+            <element signature="e#7927#7928#0" expanded="false" />
+            <element signature="e#7973#7974#0" expanded="false" />
+            <element signature="e#8019#8020#0" expanded="false" />
+            <element signature="e#8064#8065#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.38533333">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <folding>
+            <element signature="class#InputReader#0;class#TaskE#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskE#0" expanded="false" />
+            <element signature="class#CMath#0;class#TaskE#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15866667">
+          <caret line="101" column="58" selection-start-line="101" selection-start-column="58" selection-end-line="101" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/rt.jar!/java/util/Iterator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/uva/practice/ModularFibonacci.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.38533333">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="class#OutputWriter#0;class#FibonacciNumber#0" expanded="false" />
+            <element signature="class#CMath#0;class#FibonacciNumber#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/graph/traversal/ArticulationPoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.022666667">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/graph/traversal/Bridges.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1306667">
+          <caret line="105" column="9" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/uva/practice/CriticalLinks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6546667">
+          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+          <folding>
+            <element signature="class#OutputWriter#0;class#CriticalLinks#0" expanded="false" />
+            <element signature="class#CMath#0;class#CriticalLinks#0" expanded="false" />
+            <element signature="method#power#0;class#CMath#0;class#CriticalLinks#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1438,95 +1661,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskA.java">
+    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round346div2/TaskF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9293333">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="25" selection-end-column="5" />
           <folding>
-            <element signature="class#InputReader#0;class#TaskA#0" expanded="false" />
-            <element signature="class#OutputWriter#0;class#TaskA#0" expanded="false" />
-            <element signature="class#CMath#0;class#TaskA#0" expanded="false" />
+            <element signature="class#InputReader#0;class#TaskF#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#TaskF#0" expanded="false" />
+            <element signature="class#CMath#0;class#TaskF#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskC.java">
+    <entry file="file://$PROJECT_DIR$/src/com/uva/practice/RevolCFaeLoN.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding>
-            <element signature="class#InputReader#0;class#TaskC#0" expanded="false" />
-            <element signature="class#OutputWriter#0;class#TaskC#0" expanded="false" />
-            <element signature="class#CMath#0;class#TaskC#0" expanded="false" />
+            <element signature="class#OutputWriter#0;class#RevolCFaeLoN#0" expanded="false" />
+            <element signature="class#CMath#0;class#RevolCFaeLoN#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.java">
+    <entry file="file://$PROJECT_DIR$/src/com/facebookhackercup/practice/autocomplete.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/vkcupround1div2/TaskB.java">
+    <entry file="file://$PROJECT_DIR$/src/com/facebookhackercup/practice/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.708">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.3741403">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PublicFinalClass.template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61210454">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/intervaltree/AlphabetTrie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1980743">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="class#InputReader#0;class#TaskB#0" expanded="false" />
-            <element signature="class#OutputWriter#0;class#TaskB#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="class#Node#0;class#Solver#0;class#AlphabetTrie#0" expanded="false" />
+            <element signature="e#2065#2066#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.java">
+    <entry file="file://$PROJECT_DIR$/src/com/common/tricks/IncreaseStackSize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7950481">
+          <caret line="34" column="116" selection-start-line="34" selection-start-column="116" selection-end-line="34" selection-end-column="116" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/Istr.java">
+    <entry file="file://$PROJECT_DIR$/src/com/facebookhackercup/practice/Autocomplete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm684div2/DivFreed2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/topcoder/competitions/shortcompetitions/year2016/jantoapril/srm685div2/DoubleWeights.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/graph/traversal/ArticulationPoints.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.18133333">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
+        <state vertical-scroll-proportion="0.58459425">
+          <caret line="25" column="69" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#insert#0;class#Solver#0;class#Autocomplete#0" expanded="false" />
+            <element signature="method#check#0;class#Solver#0;class#Autocomplete#0" expanded="false" />
+            <element signature="e#2137#2138#0" expanded="true" />
+            <element signature="e#2167#2168#0" expanded="true" />
+            <element signature="class#OutputWriter#0;class#Autocomplete#0" expanded="false" />
+            <element signature="class#CMath#0;class#Autocomplete#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="Copyright.UI">
         <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>chelper2.41</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Competitive Programming</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1539,6 +1822,18 @@
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>CHelper</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

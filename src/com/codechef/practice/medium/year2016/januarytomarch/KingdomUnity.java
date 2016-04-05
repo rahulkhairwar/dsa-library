@@ -8,137 +8,121 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
 
 class KingdomUnity
 {
-	static int t, n, m, k;
-	static List<Integer>[] list;
+	static int t, n, m, k, articulationPoints, currTime;
+	static int[] parent, visitingTime, low;
+	static List<Integer>[] adj;
 	static boolean[] visited;
 	static InputReader in;
 	static OutputWriter out;
-	
+
 	public static void main(String[] args)
 	{
 		in = new InputReader(System.in);
 		out = new OutputWriter(System.out);
-		
+
 		solve();
-		
+
 		out.flush();
-		
+
 		in.close();
 		out.close();
 	}
-	
+
 	static void solve()
 	{
 		t = in.nextInt();
-		
+
 		while (t-- > 0)
 		{
 			n = in.nextInt();
 			m = in.nextInt();
 			k = in.nextInt();
-			
+
+			articulationPoints = 0;
+			currTime = 1;
+			parent = new int[n];
+			visitingTime = new int[n];
+			low = new int[n];
+			adj = new List[n];
+			visited = new boolean[n];
+
+			parent[0] = -1;
+
 			createGraph();
-			
-			int totalShields = 0;
-			
+			dfs(0);
+
+			int count = 0;
+
 			for (int i = 0; i < n; i++)
-			{
-				//System.out.println("i : " + i + ", dfs(i) : " + dfs(i));
-				totalShields += dfs(i);
-			}
-			
-			out.println(totalShields * k);
+				if (parent[i] == 0)
+					count++;
+
+			if (count < 2)
+				articulationPoints--;
+
+			out.println(articulationPoints * k);
 		}
 	}
-	
+
 	static void createGraph()
 	{
-		list = new ArrayList[n];
-		
 		for (int i = 0; i < m; i++)
 		{
 			int from, to;
-			
+
 			from = in.nextInt();
 			to = in.nextInt();
-			
-			if (list[from] == null)
-				list[from] = new ArrayList<Integer>();
-			
-			list[from].add(to);
-			
-			if (list[to] == null)
-				list[to] = new ArrayList<Integer>();
-			
-			list[to].add(from);
+
+			if (adj[from] == null)
+				adj[from] = new ArrayList<>();
+
+			adj[from].add(to);
+
+			if (adj[to] == null)
+				adj[to] = new ArrayList<>();
+
+			adj[to].add(from);
 		}
 	}
-	
-	static int dfs(int node)
+
+	static void dfs(int node)
 	{
-		visited = new boolean[n];
-		
-		int visit = (node == n - 1 ? 0 : node + 1);
-		Stack<Integer> stack = new Stack<Integer>();
-		int visitedCount = 1;
-		
-		visited[visit] = true;
-		stack.push(visit);
-		
-		Iterator<Integer> iterator = list[visit].iterator();
-		
+		visited[node] = true;
+		visitingTime[node] = low[node] = currTime++;
+
+		if (adj[node] == null)
+			return;
+
+		Iterator<Integer> iterator = adj[node].iterator();
+		boolean isArticulationPoint = false;
+
 		while (iterator.hasNext())
 		{
 			int curr = iterator.next();
-			
-			if (curr == node)
-				continue;
-			
+
 			if (!visited[curr])
-				stack.push(curr);
-		}
-		
-		while (stack.size() > 1)
-		{
-			int top = stack.pop();
-			
-			if (visited[top])
-				continue;
-			
-			visited[top] = true;
-			visitedCount++;
-			
-			iterator = list[top].iterator();
-			
-			while (iterator.hasNext())
 			{
-				int curr = iterator.next();
-				
-				if (curr == node)
-					continue;
-				
-				if (!visited[curr])
-					stack.push(curr);
+				parent[curr] = node;
+
+				dfs(curr);
+
+				low[node] = Math.min(low[node], low[curr]);
+
+				if (visitingTime[node] <= low[curr])
+					isArticulationPoint = true;
 			}
+			else if (curr != parent[node])
+				low[node] = Math.min(low[node], visitingTime[curr]);
 		}
-		
-		stack.pop();
-		
-/*		System.out.println("node : " + node + ", visitedCount : " + visitedCount);
-		System.out.println("and the visited array is : " + Arrays.toString(visited));*/
-		
-		if (visitedCount == n - 1)
-			return 0;
-		else
-			return 1;
+
+		if (isArticulationPoint)
+			articulationPoints++;
 	}
 
 	static class InputReader
@@ -164,8 +148,7 @@ class KingdomUnity
 				try
 				{
 					numChars = stream.read(buf);
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -206,14 +189,14 @@ class KingdomUnity
 
 			return res * sgn;
 		}
-		
+
 		public int[] nextIntArray(int arraySize)
 		{
 			int array[] = new int[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
-			
+
 			return array;
 		}
 
@@ -248,14 +231,14 @@ class KingdomUnity
 
 			return result * sign;
 		}
-		
+
 		public long[] nextLongArray(int arraySize)
 		{
 			long array[] = new long[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
-			
+
 			return array;
 		}
 
@@ -342,23 +325,23 @@ class KingdomUnity
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
-		
+
 		public String nextLine()
 		{
 			int c = read();
-			
+
 			StringBuilder result = new StringBuilder();
-			
+
 			do
 			{
 				result.appendCodePoint(c);
-				
+
 				c = read();
 			} while (!isNewLine(c));
-			
+
 			return result.toString();
 		}
-		
+
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -369,8 +352,7 @@ class KingdomUnity
 			try
 			{
 				stream.close();
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -488,28 +470,28 @@ class KingdomUnity
 		}
 
 	}
-	
+
 	static class CMath
 	{
 		static long power(long number, int power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
-			
+
 			if (power == 1)
 				return number;
-			
+
 			if (power % 2 == 0)
 				return power(number * number, power / 2);
 			else
 				return power(number * number, power / 2) * number;
 		}
-		
+
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
 		}
-		
+
 	}
-	
+
 }

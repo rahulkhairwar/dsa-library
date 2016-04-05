@@ -1,106 +1,109 @@
 package com.codechef.practice.easy.year2015.february;
 
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 class TurboSort
 {
-	private static int t, n, array[];
-	private static OutputStream outputStream;
-	private static BufferedOutputStream bufferedOutputStream;
-	
+	static InputReader in;
+	static OutputWriter out;
+
 	public static void main(String[] args)
 	{
-		array = new int[1000001];
-		outputStream = System.out;
-		
-		bufferedOutputStream = new BufferedOutputStream(System.out);
-		
-		start();
-		
-		try
+		in = new InputReader(System.in);
+		out = new OutputWriter(System.out);
+
+//		solve();
+//		solve2();
+		solve3();
+
+		out.flush();
+
+		in.close();
+		out.close();
+	}
+
+	/**
+	 * Sorting the array using Counting Sort.
+	 */
+	static void solve()
+	{
+		int t = in.nextInt();
+
+		Integer[] integers = new Integer[(int) (1e6 + 1)];
+
+		while (t-- > 0)
 		{
-			//outputStream.flush();
-			//outputStream.close();
-			
-			bufferedOutputStream.flush();
-			bufferedOutputStream.close();
+			int num = in.nextInt();
+
+			if (integers[num] == null)
+				integers[num] = new Integer(0);
+
+			integers[num]++;
 		}
-		catch (IOException e)
+
+		for (int i = 0; i <= 1e6; i++)
 		{
-			e.printStackTrace();
+			if (integers[i] == null)
+				continue;
+
+			int count = integers[i];
+
+			while (count-- > 0)
+				out.println(i);
 		}
 	}
 
-	public static void start()
+	/**
+	 * Sorting the array using the built-in Arrays#sort(Object[] array) of Java JDK.
+	 */
+	static void solve2()
 	{
-		InputReader reader = new InputReader(System.in);
-		
-		t = reader.readInt();
-		
+		int t = in.nextInt();
+
+		Integer[] integers = new Integer[t];
+
 		for (int i = 0; i < t; i++)
-		{
-			n = reader.readInt();
-			
-			array[n] += 1;
-		}
-		
-		printArray();
-		
-		reader.close();
+			integers[i] = in.nextInt();
+
+		Arrays.sort(integers);
+
+		for (int i = 0; i < t; i++)
+			out.println(integers[i]);
 	}
 
-	public static void printArray()
+	/**
+	 * Sorting the array using the built-in Arrays#parallelSort(Object[] array) of Java JDK.
+	 */
+	static void solve3()
 	{
-		int count;
-		
-		for (int i = 0; i < 1000001; i++)
-		{
-			count = array[i];
-			
-			while(count > 0)
-			{
-				//System.out.println(i);
-				
-/*				try
-				{
-					outputStream.write(i);
-				}
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				}*/
-				
-				try
-				{
-					bufferedOutputStream.write(i);
-				}
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				}
-				
-				count--;
-			}
-		}
+		int t = in.nextInt();
+
+		Integer[] integers = new Integer[t];
+
+		for (int i = 0; i < t; i++)
+			integers[i] = in.nextInt();
+
+		Arrays.parallelSort(integers);
+
+		for (int i = 0; i < t; i++)
+			out.println(integers[i]);
 	}
 
 	static class InputReader
 	{
 		private InputStream stream;
-		private byte[] buf = new byte[102400]; //a byte buffer to store the characters in 
-		private int curChar; //to hold the count of current character
-		private int numChars; //number of characters
+		private byte[] buf = new byte[1024];
+		private int curChar;
+		private int numChars;
 
 		public InputReader(InputStream stream)
-		{ //pass the inputstream class
+		{
 			this.stream = stream;
 		}
 
-		public final int read()
+		public int read()
 		{
 			if (numChars == -1)
 				throw new InputMismatchException();
@@ -108,119 +111,330 @@ class TurboSort
 			if (curChar >= numChars)
 			{
 				curChar = 0;
-
 				try
 				{
-					numChars = stream.read(buf); //this is the implicit function present in the inputStream which reads a Character into a temporary buffer
-				}
-				catch (IOException e)
+					numChars = stream.read(buf);
+				} catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
-
 				if (numChars <= 0)
 					return -1;
 			}
 
 			return buf[curChar++];
 		}
-		public final int readInt()
-		{ //a function to read nextInteger skipping the newlines and empty spaces
-			int c = read();
 
-			while (isSpaceChar(c)) //
-				c = read();
-
-			int sgn = 1;
-
-			if (c == '-')
-			{ //if the number is negative
-				sgn = -1;
-				c = read();
-			}
-
-			int res = 0; //integer variable to hold the number
-
-			do
-			{
-				if (c < '0' || c > '9')
-					throw new InputMismatchException();
-				res *= 10;
-				res += c - '0';
-				c = read();
-			} while (!isSpaceChar(c));
-
-			return res * sgn;
-		}
-
-		public final long readLong()
-		{ // similar as Integer
-			int c = read();
-
-			while (isSpaceChar(c))
-				c = read();
-
-			int sgn = 1;
-
-			if (c == '-')
-			{
-				sgn = -1;
-				c = read();
-			}
-
-			long res = 0;
-
-			do
-			{
-				if (c < '0' || c > '9')
-					throw new InputMismatchException();
-				res *= 10;
-				res += c - '0';
-				c = read();
-			} while (!isSpaceChar(c));
-
-			return res * sgn;
-		}
-
-		public final String readString()
+		public int nextInt()
 		{
-			int c = read(); //read function returns one character at a time and the unicode value of the character is returned
+			int c = read();
 
 			while (isSpaceChar(c))
 				c = read();
 
-			StringBuilder res = new StringBuilder(); //using a String Builder to build the String
+			int sgn = 1;
+
+			if (c == '-')
+			{
+				sgn = -1;
+				c = read();
+			}
+
+			int res = 0;
 
 			do
 			{
-				res.appendCodePoint(c); // appendCodePoint function to append the character from its unicode value
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
+
+				res *= 10;
+				res += c & 15;
+
+				c = read();
+			} while (!isSpaceChar(c));
+
+			return res * sgn;
+		}
+
+		public int[] nextIntArray(int arraySize)
+		{
+			int array[] = new int[arraySize];
+
+			for (int i = 0; i < arraySize; i++)
+				array[i] = nextInt();
+
+			return array;
+		}
+
+		public long nextLong()
+		{
+			int c = read();
+
+			while (isSpaceChar(c))
+				c = read();
+
+			int sign = 1;
+
+			if (c == '-')
+			{
+				sign = -1;
+
+				c = read();
+			}
+
+			long result = 0;
+
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
+
+				result *= 10;
+				result += c & 15;
+
+				c = read();
+			} while (!isSpaceChar(c));
+
+			return result * sign;
+		}
+
+		public long[] nextLongArray(int arraySize)
+		{
+			long array[] = new long[arraySize];
+
+			for (int i = 0; i < arraySize; i++)
+				array[i] = nextLong();
+
+			return array;
+		}
+
+		public float nextFloat() // problematic
+		{
+			float result, div;
+			byte c;
+
+			result = 0;
+			div = 1;
+			c = (byte) read();
+
+			while (c <= ' ')
+				c = (byte) read();
+
+			boolean isNegative = (c == '-');
+
+			if (isNegative)
+				c = (byte) read();
+
+			do
+			{
+				result = result * 10 + c - '0';
+			} while ((c = (byte) read()) >= '0' && c <= '9');
+
+			if (c == '.')
+				while ((c = (byte) read()) >= '0' && c <= '9')
+					result += (c - '0') / (div *= 10);
+
+			if (isNegative)
+				return -result;
+
+			return result;
+		}
+
+		public double nextDouble() // not completely accurate
+		{
+			double ret = 0, div = 1;
+			byte c = (byte) read();
+
+			while (c <= ' ')
+				c = (byte) read();
+
+			boolean neg = (c == '-');
+
+			if (neg)
+				c = (byte) read();
+
+			do
+			{
+				ret = ret * 10 + c - '0';
+			} while ((c = (byte) read()) >= '0' && c <= '9');
+
+			if (c == '.')
+				while ((c = (byte) read()) >= '0' && c <= '9')
+					ret += (c - '0') / (div *= 10);
+
+			if (neg)
+				return -ret;
+
+			return ret;
+		}
+
+		public String next()
+		{
+			int c = read();
+
+			while (isSpaceChar(c))
+				c = read();
+
+			StringBuilder res = new StringBuilder();
+
+			do
+			{
+				res.appendCodePoint(c);
+
 				c = read();
 			} while (!isSpaceChar(c));
 
 			return res.toString();
 		}
 
-		public final static boolean isSpaceChar(int c)
+		public boolean isSpaceChar(int c)
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
 
-		public final String next()
+		public String nextLine()
 		{
-			return readString();
+			int c = read();
+
+			StringBuilder result = new StringBuilder();
+
+			do
+			{
+				result.appendCodePoint(c);
+
+				c = read();
+			} while (!isNewLine(c));
+
+			return result.toString();
 		}
 
-		public final void close()
+		public boolean isNewLine(int c)
+		{
+			return c == '\n';
+		}
+
+		public void close()
 		{
 			try
 			{
-				this.stream.close();
-			}
-			catch (IOException e)
+				stream.close();
+			} catch (IOException e)
 			{
 				e.printStackTrace();
 			}
 		}
 
 	}
+
+	static class OutputWriter
+	{
+		private PrintWriter writer;
+
+		public OutputWriter(OutputStream stream)
+		{
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+					stream)));
+		}
+
+		public OutputWriter(Writer writer)
+		{
+			this.writer = new PrintWriter(writer);
+		}
+
+		public void println(int x)
+		{
+			writer.println(x);
+		}
+
+		public void print(int x)
+		{
+			writer.print(x);
+		}
+
+		public void println(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i] + " ");
+		}
+
+		public void println(long x)
+		{
+			writer.println(x);
+		}
+
+		public void print(long x)
+		{
+			writer.print(x);
+		}
+
+		public void println(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i]);
+		}
+
+		public void println(float num)
+		{
+			writer.println(num);
+		}
+
+		public void print(float num)
+		{
+			writer.print(num);
+		}
+
+		public void println(double num)
+		{
+			writer.println(num);
+		}
+
+		public void print(double num)
+		{
+			writer.print(num);
+		}
+
+		public void println(String s)
+		{
+			writer.println(s);
+		}
+
+		public void print(String s)
+		{
+			writer.print(s);
+		}
+
+		public void println()
+		{
+			writer.println();
+		}
+
+		public void printSpace()
+		{
+			writer.print(" ");
+		}
+
+		public void flush()
+		{
+			writer.flush();
+		}
+
+		public void close()
+		{
+			writer.close();
+		}
+
+	}
+
 }

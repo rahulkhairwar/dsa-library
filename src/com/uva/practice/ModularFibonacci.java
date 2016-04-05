@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Question on Matrix Exponentiation for nth Fibonacci Number.
  * <br /><br />
- * Question Link : <b>https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1170</b>
+ * <a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1170">Question Link</a>
  */
 class FibonacciNumber
 {

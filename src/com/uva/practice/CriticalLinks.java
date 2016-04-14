@@ -134,21 +134,21 @@ public class CriticalLinks
 			}
 		}
 
-	}
-
-	static class Node
-	{
-		int parent, visitingTime, low;
-		List<Integer> adj;
-		boolean visited;
-
-		public Node(int parent, int visitingTime, int low, List<Integer> adj, boolean visited)
+		static class Node
 		{
-			this.parent = parent;
-			this.visitingTime = visitingTime;
-			this.low = low;
-			this.adj = adj;
-			this.visited = visited;
+			int parent, visitingTime, low;
+			List<Integer> adj;
+			boolean visited;
+
+			public Node(int parent, int visitingTime, int low, List<Integer> adj, boolean visited)
+			{
+				this.parent = parent;
+				this.visitingTime = visitingTime;
+				this.low = low;
+				this.adj = adj;
+				this.visited = visited;
+			}
+
 		}
 
 	}

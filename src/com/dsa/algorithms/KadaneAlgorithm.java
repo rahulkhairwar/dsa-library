@@ -17,36 +17,36 @@ public class KadaneAlgorithm
 {
 	static InputReader reader;
 	static OutputWriter writer;
-	
+
 	public static void main(String[] args)
 	{
 		KadaneAlgorithm kadane = new KadaneAlgorithm();
-		
+
 		reader = kadane.new InputReader(System.in);
 		writer = kadane.new OutputWriter(System.out);
-		
+
 		getAttributes();
-		
+
 		writer.flush();
-		
+
 		reader.close();
 		writer.close();
 	}
-	
+
 	static void getAttributes()
 	{
 		System.out.println("Enter the size of the array : ");
-		
+
 		int size, array[], answer[];
-		
+
 		size = reader.nextInt();
 		array = new int[size];
-		
+
 		System.out.println("Enter the array : ");
-		
+
 		for (int i = 0; i < size; i++)
 			array[i] = reader.nextInt();
-		
+
 		answer = findMaxSum(array, size);
 
 		writer.println("The maximum sum of contiguous elements in the array is : "
@@ -55,20 +55,18 @@ public class KadaneAlgorithm
 				+ answer[1]
 				+ " and ending at index " + answer[2]);
 	}
-	
+
 	/**
 	 * Finds the maximum sum of contiguous elements in the array using Kandane's
 	 * Algorithm.
-	 * 
-	 * @param array
-	 *            the array whose maximum sum of contiguous elements need to be
-	 *            found.
-	 * @param size
-	 *            the size of the array.
+	 *
+	 * @param array the array whose maximum sum of contiguous elements need to be
+	 *              found.
+	 * @param size  the size of the array.
 	 * @return an array of size 3, having : <br/>
-	 *         maximum sum of contiguous elements at index 0,<br/>
-	 *         the left index of the contiguous sub-array at index 1, and<br/>
-	 *         the right index of the contiguous sub-array at index 2.
+	 * maximum sum of contiguous elements at index 0,<br/>
+	 * the left index of the contiguous sub-array at index 1, and<br/>
+	 * the right index of the contiguous sub-array at index 2.
 	 */
 	static int[] findMaxSum(int array[], int size)
 	{
@@ -100,9 +98,9 @@ public class KadaneAlgorithm
 		}
 
 		return new int[]
-		{ maxSum, maxSumLeftIndex, maxSumRightIndex };
+				{maxSum, maxSumLeftIndex, maxSumRightIndex};
 	}
-	
+
 	class InputReader
 	{
 		private InputStream stream;

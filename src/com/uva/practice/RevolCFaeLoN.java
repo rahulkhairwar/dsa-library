@@ -28,10 +28,10 @@ public class RevolCFaeLoN
 
 	static class Solver
 	{
-		int n, m;
-		List<Integer>[] adj;
-		boolean[] visited;
-		int connectedComponentCount, cycleCount;
+		int n, m, currentTime, bridges;
+		Node[] nodes;
+		int[] bridgeCount;
+		int connectedComponents;
 		Scanner in;
 		OutputWriter out;
 
@@ -45,27 +45,45 @@ public class RevolCFaeLoN
 				n = in.nextInt();
 				m = in.nextInt();
 
+				currentTime = 0;
+				bridges = 0;
+				bridgeCount = new int[n];
+				connectedComponents = 0;
+
 				createGraph();
-				visited = new boolean[n];
 
 				for (int i = 0; i < n; i++)
 				{
-					if (!visited[i])
+					if (!nodes[i].visited)
 					{
-						connectedComponentCount++;
-
-						if (dfs(i, -1, false))
-							cycleCount++;
+						dfs(i);
+						connectedComponents++;
 					}
 				}
 
-				out.println(connectedComponentCount - cycleCount);
+				for (int i = 0; i < connectedComponents; i++)
+					bridgeCount[i] -= 2;
+
+				int answer = connectedComponents;
+				int remaining = 0;
+
+				for (int i = 0; i < connectedComponents; i++)
+				{
+					if (bridgeCount[i] > 0)
+						remaining += bridgeCount[i];
+				}
+
+				answer += Math.ceil(remaining / 2d);
+				out.println(answer);
 			}
 		}
 
 		void createGraph()
 		{
-			adj = new ArrayList[n];
+			nodes = new Node[n];
+
+			for (int i = 0; i < n; i++)
+				nodes[i] = new Node();
 
 			for (int i = 0; i < m; i++)
 			{
@@ -74,38 +92,65 @@ public class RevolCFaeLoN
 				from = in.nextInt() - 1;
 				to = in.nextInt() - 1;
 
-				if (adj[from] == null)
-					adj[from] = new ArrayList<>();
-
-				adj[from].add(to);
-
-				if (adj[to] == null)
-					adj[to] = new ArrayList<>();
-
-				adj[to].add(from);
+				nodes[from].adj.add(to);
+				nodes[to].adj.add(from);
 			}
 		}
 
-		boolean dfs(int node, int parent, boolean hasCycle)
+		public void dfs(int node)
 		{
-			visited[node] = true;
+			Node temp = nodes[node];
 
-			if (adj[node] == null)
-				return hasCycle;
+//			System.out.println("node : " + node);
+			temp.visited = true;
+			temp.visitingTime = temp.low = currentTime++;
 
-			Iterator<Integer> iterator = adj[node].iterator();
+			Iterator<Integer> iterator = temp.adj.iterator();
+			boolean isArticulationPoint = false;
 
 			while (iterator.hasNext())
 			{
 				int curr = iterator.next();
 
-				if (visited[curr] && curr != parent)
-					hasCycle = true;
-				else if (!visited[curr])
-					hasCycle |= dfs(curr, node, hasCycle);
+				if (!nodes[curr].visited)
+				{
+					temp.childCount++;
+					nodes[curr].parent = node;
+
+					dfs(curr);
+
+					temp.low = Math.min(temp.low, nodes[curr].low);
+
+					if (temp.visitingTime < nodes[curr].low)
+					{
+						if (nodes[curr].bridges == 0)
+						{
+							temp.bridges++;
+							bridges++;
+							isArticulationPoint = true;
+							bridgeCount[connectedComponents]++;
+						}
+					}
+				}
+				else if (temp.parent != curr)
+					temp.low = Math.min(temp.low, nodes[curr].visitingTime);
 			}
 
-			return hasCycle;
+//			System.out.println("** leaving node : " + node);
+		}
+
+		static class Node
+		{
+			int parent, visitingTime, low, childCount, bridges;
+			boolean visited;
+			List<Integer> adj;
+
+			public Node()
+			{
+				parent = -1;
+				adj = new ArrayList<>();
+			}
+
 		}
 
 	}
@@ -268,3 +313,28 @@ public class RevolCFaeLoN
 	}
 
 }
+
+/*
+
+9 8
+1 2
+1 3
+2 3
+2 9
+3 4
+4 5
+6 7
+6 8
+
+
+
+0 1
+0 2
+1 2
+1 8
+2 3
+3 4
+5 6
+5 7
+
+ */

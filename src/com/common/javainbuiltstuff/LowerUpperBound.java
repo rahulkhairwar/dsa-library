@@ -1,9 +1,7 @@
 package com.common.javainbuiltstuff;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Simple lower and upper bound Binary Search program in 2 ways :<br />
@@ -19,9 +17,31 @@ public class LowerUpperBound
 
 	public static void main(String[] args)
 	{
-		solve();
+		solve2();
 
-		in.close();
+//		in.close();
+	}
+
+	static void solve2()
+	{
+		TreeSet<Integer> treeSet = new TreeSet<Integer>(new Comparator<Integer>()
+		{
+			@Override public int compare(Integer o1, Integer o2)
+			{
+				if (o1 < o2)
+					return -1;
+
+				return 1;
+			}
+		});
+
+		for (int i = 0; i < 5000; i++)
+			treeSet.add(5);
+
+		System.out.println("tS.tailSet(5, true).size() : " + treeSet.tailSet(5, true).size());
+		System.out.println("tS.tailSet(5, false).size() : " + treeSet.tailSet(5, false).size());
+		System.out.println("tS.tailSet(4, true).size() : " + treeSet.tailSet(4, true).size());
+		System.out.println("tS.tailSet(4, false).size() : " + treeSet.tailSet(4, false).size());
 	}
 
 	static void solve()

@@ -16,29 +16,30 @@ public class Autocomplete
 		{
 			in = new Scanner(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive " +
 					"Programming/src/com/facebookhackercup/practice/autocomplete.txt"));
+			OutputWriter out = new OutputWriter(System.out);
+			Thread thread = new Thread(null, new Solver(in, out), "Solver", 1 << 28);
+
+			thread.start();
+
+			try
+			{
+				thread.join();
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+
+			out.flush();
+
+			in.close();
+			out.close();
 		}
 		catch (FileNotFoundException e)
 		{
 			e.printStackTrace();
 		}
 
-		OutputWriter out = new OutputWriter(System.out);
-		Thread thread = new Thread(null, new Solver(in, out), "Solver", 1 << 28);
-
-		thread.start();
-		try
-		{
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-
-		out.flush();
-
-		in.close();
-		out.close();
 	}
 
 	static class Solver implements Runnable

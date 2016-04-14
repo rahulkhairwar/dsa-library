@@ -10,7 +10,7 @@ public class Test
 {
 	public static void main(String[] args) throws IOException
 	{
-		Scanner reader = new Scanner(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive Programming/src/com/test/input.txt"));
+		Scanner reader = new Scanner(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive Programming/src/com/test/inputA.txt"));
 
 		long count = 0;
 

@@ -1,4 +1,4 @@
-package com.dsa.datastructures.trees.intervaltree;
+package com.dsa.datastructures.trees.trie;
 
 import net.egork.chelper.util.OutputWriter;
 

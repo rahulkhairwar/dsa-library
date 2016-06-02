@@ -1,6 +1,6 @@
 package com.dsa.datastructures.graph.traversal;
 
-import java.awt.*;
+import java.awt.Point;
 import java.io.*;
 import java.util.*;
 import java.util.List;
@@ -35,7 +35,7 @@ public class Bridges
 	{
 		static int n, currTime;
 		static Node[] nodes;
-		static List<Point> criticalLinks;
+		static List<Point> criticalLinks;    // bridges.
 		Scanner in;
 		OutputWriter out;
 
@@ -82,7 +82,6 @@ public class Bridges
 				out.println(criticalLinks.get(i).x + " - " + criticalLinks.get(i).y);
 
 			out.println();
-			out.flush();
 		}
 
 		void createGraph()
@@ -138,21 +137,21 @@ public class Bridges
 			}
 		}
 
-	}
-
-	static class Node
-	{
-		int parent, visitingTime, low;
-		List<Integer> adj;
-		boolean visited;
-
-		public Node(int parent, int visitingTime, int low, List<Integer> adj, boolean visited)
+		class Node
 		{
-			this.parent = parent;
-			this.visitingTime = visitingTime;
-			this.low = low;
-			this.adj = adj;
-			this.visited = visited;
+			int parent, visitingTime, low;
+			List<Integer> adj;
+			boolean visited;
+
+			public Node(int parent, int visitingTime, int low, List<Integer> adj, boolean visited)
+			{
+				this.parent = parent;
+				this.visitingTime = visitingTime;
+				this.low = low;
+				this.adj = adj;
+				this.visited = visited;
+			}
+
 		}
 
 	}

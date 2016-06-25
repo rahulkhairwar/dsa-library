@@ -12,7 +12,6 @@ import java.util.InputMismatchException;
 class TheBestBox
 {
 	private static int t, p, area;
-	private static double side, height, a;
 	private static InputReader reader;
 	private static OutputWriter writer;
 	
@@ -39,39 +38,19 @@ class TheBestBox
 		{
 			p = reader.nextInt();
 			area = reader.nextInt();
-			
-			a = findRoot();
-			side = (double) p / (4 * (2 + a));
-			
-			height = a * side;
-			
-			// writer.println(side * side * height);
-			
-			// System.out.printf("%.2f\n", (side * side * height));
-			
-			writer.println(String.format("%.2f", (side * side * height)));
+
+			double constant, x1, y1, x2, y2;
+
+			constant = 2 * Math.sqrt(p * p - 24d * area);
+			y1 = (p + constant) / 12;
+			x1 = (p - 4d * y1) / 8;
+			y2 = (p - constant) / 12;
+			x2 = (p - 4d * y2) / 8;
+
+			System.out.printf("%.2f\n", Math.max(x1 * x1 * y1, x2 * x2 * y2));
 		}
 	}
-	
-	public static double findRoot()
-	{
-		double a32, b, discriminant, root1, root2;
-		
-		a32 = 32 * area - p * p;
-		b = 32 * area - 2 * p * p;
-		
-		discriminant = Math.sqrt(b * b - 4 * 8 * area * a32);
-		
-		double temp;
-		
-		temp = 2 * 8 * area;
-		
-		root1 = (- b + discriminant) / temp; 
-		root2 = (- b - discriminant) / temp;
-		
-		return Math.max(root1, root2);
-	}
-	
+
 	class InputReader
 	{
 		private InputStream stream;

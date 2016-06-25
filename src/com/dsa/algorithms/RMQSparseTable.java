@@ -6,17 +6,17 @@ import java.util.InputMismatchException;
 
 class RMQSparseTable
 {
-	int array[], logTable[], rmq[][];
-	static InputReader reader;
+	static int array[], logTable[], rmq[][];
+	static InputReader in;
 	
 	public static void main(String[] args)
 	{
 		//int array[] = {1, 5, -2, 3};
-		int array[] = {1, 5, -2, 3, 1, 0, 8, 9, 4, 3};
+		array = new int[]{1, 5, -2, 3, 1, 0, 8, 9, 4, 3};
 		
-		RMQSparseTable st = new RMQSparseTable(array);
+		RMQSparseTable st = new RMQSparseTable();
 		
-		reader = st.new InputReader(System.in);
+		in = st.new InputReader(System.in);
 		
 		int from, to, minPos;
 		boolean doAsk = true;
@@ -24,27 +24,24 @@ class RMQSparseTable
 		while (doAsk)
 		{
 			System.out.println("Range starting index(0-based) : ");
-			from = reader.nextInt();
+			from = in.nextInt();
 			System.out.println("Range ending index(0-based) : ");
-			to = reader.nextInt();
+			to = in.nextInt();
 
 			minPos = st.minPos(from, to);
 
-			System.out.println("The minimum number in the range [" + from
-					+ ", " + to + "] is " + array[minPos] + " at position "
-					+ minPos);
+			System.out.println("The minimum number in the range [" + from + ", " + to + "] is " + array[minPos]
+					+ " at position " + minPos);
 
 			System.out.println("\nDo you want to ask another query? (y/n) : ");
 
-			if (reader.read() != 'y')
+			if (in.read() != 'y')
 				doAsk = false;
 		}
 	}
 	
-	public RMQSparseTable(int array[])
+	public RMQSparseTable()
 	{
-		this.array = array;
-		
 		int n = array.length;
 		
 		logTable = new int[n + 1];
@@ -67,22 +64,21 @@ class RMQSparseTable
 				
 				x = rmq[i - 1][j];
 				// y = rmq[prev. row][2^(i - 1) + j]
-				y = rmq[i - 1][(1 << i - 1) + j];
+				y = rmq[i - 1][(1 << (i - 1)) + j];
 				
 				rmq[i][j] = array[x] <= array[y] ? x : y;
 			}
 		}
 	}
 	
-	public int minPos(int i, int j)
+	public int minPos(int left, int right)
 	{
 		int k, x, y;
 		
-		// to find the size of the 2 intervals which completely cover
-		// the required interval
-		k = logTable[j - i];
-		x = rmq[k][i];
-		y = rmq[k][j - (1 << k) + 1];	// y = rmq[k][j - 2^k + 1]
+		// to find the size of the 2 intervals which completely cover the required interval
+		k = logTable[right - left];
+		x = rmq[k][left];
+		y = rmq[k][right - (1 << k) + 1];	// y = rmq[k][right - 2^k + 1]
 		
 		return array[x] <= array[y] ? x : y;
 	}

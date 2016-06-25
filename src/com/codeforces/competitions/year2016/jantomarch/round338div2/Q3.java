@@ -1,108 +1,314 @@
 package com.codeforces.competitions.year2016.jantomarch.round338div2;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.Arrays;
+import java.awt.*;
+import java.io.*;
 import java.util.InputMismatchException;
 
 public final class Q3
 {
-	static int n, tasks[];
-	static InputReader in;
-	static OutputWriter out;
-	
 	public static void main(String[] args)
 	{
-		in = new InputReader(System.in);
-		out = new OutputWriter(System.out);
-		
-		solve();
-		
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
+
+		Solver solver = new Solver(in, out);
+
+		solver.solve(1);
+
 		out.flush();
-		
+
 		in.close();
 		out.close();
 	}
 
-	static void solve()
+	static class Solver
 	{
-		n = in.nextInt();
-		
-		tasks = new int[n];
-		
-		long total = 0;
-		
-		for (int i = 0; i < n; i++)
+		String s, t;
+		Node tree, reverseTree;
+		int endIndex;
+		InputReader in;
+		OutputWriter out;
+
+		void solve(int testNumber)
 		{
-			tasks[i] = in.nextInt();
-			total += tasks[i];
-		}
-		
-		if (total % n == 0)
-		{
-			int target = (int) (total / n);
-			long seconds = 0;
-			
-			for (int i = 0; i < n; i++)
-			{
-				if (tasks[i] != target)
-					seconds += (long) Math.abs(target - tasks[i]);
-			}
-			
-			out.println(seconds / 2l);
-		}
-		else
-		{
-			int x, xPlusOne, neededX, neededXPlusOne;
-			long seconds = 0;
-			
-			x = (int) (total / n);
-			xPlusOne = x + 1;
-			neededXPlusOne = (int) (total % n);
-			neededX = n - neededXPlusOne;
-			
-			Arrays.sort(tasks);
-			
-			for (int i = 0; i < n; i++)
-			{
-				if (tasks[i] == x)
+			s = in.next();
+			t = in.next();
+
+			int sLength, tLength;
+
+			sLength = s.length();
+			tLength = t.length();
+
+			int[] countS, countT;
+
+			countS = new int[26];
+			countT = new int[26];
+
+			for (int i = 0; i < sLength; i++)
+				countS[s.charAt(i) - 'a']++;
+
+			for (int i = 0; i < tLength; i++)
+				countT[t.charAt(i) - 'a']++;
+
+			for (int i = 0; i < 26; i++)
+				if (countT[i] > 0 && countS[i] == 0)
 				{
-					if (neededX > 0)
-						neededX--;
-					else
-						seconds++;
+					out.println(-1);
+
+					return;
 				}
-				else if (tasks[i] == xPlusOne)
+
+			String reverse = new StringBuilder(s).reverse().toString();
+			Point[] answer = new Point[tLength];
+			int count, doneUpto;
+
+			count = 0;
+			doneUpto = -1;
+
+			for (int i = 0; i < tLength; i++)
+			{
+				if (doneUpto >= tLength - 1)
+					break;
+
+				int len, revLen, tempOne, tempTwo;
+
+				len = matchesUpto(s, t, doneUpto + 1);
+				tempOne = endIndex;
+
+				endIndex = -1;
+				revLen = matchesUpto(reverse, t, doneUpto + 1);
+
+				if (len >= revLen)
 				{
-					if (neededXPlusOne > 0)
-						neededXPlusOne--;
-					else
-						seconds++;
+					answer[count++] = new Point(tempOne - len + 1, tempOne);
+					doneUpto += len;
 				}
 				else
 				{
-					if (neededX > 0)
-					{
-						seconds += (long) Math.abs(x - tasks[i]);
-						neededX--;
-					}
-					else
-					{
-						seconds += (long) Math.abs(xPlusOne - tasks[i]);
-						neededXPlusOne--;
-					}
+					answer[count++] = new Point(sLength - (endIndex - revLen + 1) + 1, sLength - endIndex + 1);
+					doneUpto += revLen;
 				}
 			}
-			
-			out.println(seconds / 2l);
+
+			out.println(count);
+
+			for (int i = 0; i < count; i++)
+				out.println(answer[i].x + " " + answer[i].y);
 		}
+
+		int matchesUpto(String word, String check, int checkFrom)
+		{
+			int wordLength, checkLength, max;
+
+			wordLength = word.length();
+			checkLength = check.length();
+			max = 0;
+
+			for (int i = 0, j, k; i < wordLength; i++)
+			{
+				j = checkFrom;
+
+				while (i < wordLength && word.charAt(i) != check.charAt(j))
+					i++;
+
+				if (i == wordLength)
+					break;
+
+				k = i;
+
+				while (k < wordLength && j < checkLength && word.charAt(k) == check.charAt(j))
+				{
+					k++;
+					j++;
+				}
+
+				int currLength = k - i;
+
+				if (currLength > max)
+				{
+					max = currLength;
+					endIndex = k;
+				}
+
+				if (k == wordLength || j == checkLength)
+					break;
+			}
+
+			return max;
+		}
+
+		/**
+		 * Solution using Trie, but it's too slow (getting TLE on test #20 :( ).
+		 */
+		void solveWithTrie(int testNumber)
+		{
+			s = in.next();
+			t = in.next();
+			tree = new Node(0);
+			reverseTree = new Node(0);
+
+			int sLength, tLength;
+
+			sLength = s.length();
+			tLength = t.length();
+
+			int[] countS, countT;
+
+			countS = new int[26];
+			countT = new int[26];
+
+			for (int i = 0; i < sLength; i++)
+				countS[s.charAt(i) - 'a']++;
+
+			for (int i = 0; i < tLength; i++)
+				countT[t.charAt(i) - 'a']++;
+
+			for (int i = 0; i < 26; i++)
+				if (countT[i] > 0 && countS[i] == 0)
+				{
+					out.println(-1);
+
+					return;
+				}
+
+			for (int i = 0; i < sLength; i++)
+			{
+				String temp = s.substring(i, sLength);
+				int tempLength = temp.length();
+
+				if (!contains(tree, temp, tempLength, 0))
+					tree = insert(tree, temp, tempLength, 0, i);
+			}
+
+			String reverse = new StringBuilder(s).reverse().toString();
+
+			for (int i = 0; i < sLength; i++)
+			{
+				String temp = reverse.substring(i, sLength);
+
+				reverseTree = insert(reverseTree, temp, temp.length(), 0, i);
+			}
+
+			Point[] answer = new Point[tLength];
+			int count, doneUpto;
+
+			count = 0;
+			doneUpto = -1;
+
+			for (int i = 0; i < tLength; i++)
+			{
+				if (doneUpto >= tLength - 1)
+					break;
+
+				Point one, two;
+				int x, y;
+				int oneLength, twoLength;
+
+				x = matchUpto(tree, t, tLength, doneUpto + 1);
+				oneLength = x - doneUpto;
+				one = new Point(endIndex - oneLength + 2, endIndex + 1);
+
+				endIndex = -1;
+				y = matchUpto(reverseTree, t, tLength, doneUpto + 1);
+				twoLength = y - doneUpto;
+				two = new Point(sLength - (endIndex - twoLength + 1), sLength - endIndex);
+
+				if (oneLength >= twoLength)
+				{
+					answer[count++] = new Point(one.x, one.y);
+					doneUpto += oneLength;
+				}
+				else
+				{
+					answer[count++] = new Point(two.x, two.y);
+					doneUpto += twoLength;
+				}
+			}
+
+			out.println(count);
+
+			for (int i = 0; i < count; i++)
+				out.println(answer[i].x + " " + answer[i].y);
+		}
+
+		Node insert(Node node, String word, int length, int index, int wordIndex)
+		{
+			int pos = word.charAt(index) - 'a';
+			Node temp = node.next[pos];
+
+			if (temp == null)
+				temp = new Node(wordIndex);
+
+			if (index < length - 1)
+				temp = insert(temp, word, length, index + 1, wordIndex + 1);
+
+			node.next[pos] = temp;
+
+			return node;
+		}
+
+		int matchUpto(Node node, String word, int length, int index)
+		{
+			int pos = word.charAt(index) - 'a';
+			Node temp = node.next[pos];
+
+			if (temp == null)
+				return index - 1;
+
+			if (index == length - 1)
+			{
+				endIndex = temp.wordIndex;
+
+				return index;
+			}
+			else
+			{
+				if (temp.next[word.charAt(index + 1) - 'a'] == null)
+				{
+					endIndex = temp.wordIndex;
+
+					return index;
+				}
+
+				return matchUpto(temp, word, length, index + 1);
+			}
+		}
+
+		boolean contains(Node node, String word, int length, int index)
+		{
+			int pos = word.charAt(index) - 'a';
+			Node temp = node.next[pos];
+
+			if (temp == null)
+				return false;
+
+			if (index == length - 1)
+				return true;
+			else
+				return contains(temp, word, length, index + 1);
+		}
+
+		class Node
+		{
+			Node[] next;
+			int wordIndex;
+
+			public Node(int wordIndex)
+			{
+				next = new Node[26];
+				this.wordIndex = wordIndex;
+			}
+
+		}
+
+		public Solver(InputReader in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
+
 	}
-	
+
 	static class InputReader
 	{
 		private InputStream stream;
@@ -168,14 +374,14 @@ public final class Q3
 
 			return res * sgn;
 		}
-		
+
 		public int[] nextIntArray(int arraySize)
 		{
 			int array[] = new int[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
-			
+
 			return array;
 		}
 
@@ -210,14 +416,14 @@ public final class Q3
 
 			return result * sign;
 		}
-		
+
 		public long[] nextLongArray(int arraySize)
 		{
 			long array[] = new long[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
-			
+
 			return array;
 		}
 
@@ -304,23 +510,23 @@ public final class Q3
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
-		
+
 		public String nextLine()
 		{
 			int c = read();
-			
+
 			StringBuilder result = new StringBuilder();
-			
+
 			do
 			{
 				result.appendCodePoint(c);
-				
+
 				c = read();
 			} while (!isNewLine(c));
-			
+
 			return result.toString();
 		}
-		
+
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -455,7 +661,10 @@ public final class Q3
 
 /*
 
-5
-4 4 4 5 7
+aaabrytaaa
+ayrat
+
+aaabrytaab
+ayrat
 
 */

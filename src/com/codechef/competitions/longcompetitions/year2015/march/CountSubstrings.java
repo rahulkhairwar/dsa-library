@@ -20,14 +20,14 @@ class CountSubstrings
 		inputStream = new BufferedInputStream(System.in);
 
 		reader = new InputReader(System.in);
-		
+
 		//getAttributes();
-		
+
 		n = 10;
 		System.out.println(readString());
 		System.out.println("count 0 : " + count0);
 		System.out.println("count 1 : " + count1);
-		
+
 		System.out.println(readString());
 		System.out.println("count 0 : " + count0);
 		System.out.println("count 1 : " + count1);
@@ -46,7 +46,7 @@ class CountSubstrings
 			q = reader.readInt();
 			System.out.println("read q : " + q);
 			array0 = array1 = new int[n];
-			
+
 			//reader.read();
 			//readString();
 			System.out.println("read char");
@@ -66,7 +66,7 @@ class CountSubstrings
 	public static void countSubstrings()
 	{
 		int j;
-		
+
 		for (int i = l - 1; i <= r - k - 1; i++)
 		{
 			j = i + k + 1;
@@ -77,13 +77,13 @@ class CountSubstrings
 	{
 		String s = "";
 		char c = 0;
-		
+
 		try
 		{
 			for (int i = 0; i < n; i++)
 			{
 				c = (char) inputStream.read();
-				
+
 				if (c == ' ' || c == '\n')
 					break;
 				else if(c == '0')
@@ -94,21 +94,21 @@ class CountSubstrings
 				{
 					count1++;
 				}
-				
+
 				s += c;
 				System.out.println("string currently : " + s);
 			}
 			/*do
 			{
 				c = (char) inputStream.read();
-				
+
 				if (c == ' ' || c == '\n')
 					break;
 				else if(c == '0')
 					count0++;
 				else if (c == '1')
 					count1++;
-				
+
 				s += c;
 			} while (c != ' ' || c != '\n');*/
 		}
@@ -116,152 +116,152 @@ class CountSubstrings
 		{
 			e.printStackTrace();
 		}
-		
+
 		return s;
 	}
 
-}
-
-class InputReader
-{
-	private InputStream stream;
-	private byte[] buf = new byte[102400]; // a byte buffer to store the
-											// characters in
-	private int curChar; // to hold the count of current character
-	private int numChars; // number of characters
-
-	public InputReader(InputStream stream)
-	{ // pass the inputstream class
-		this.stream = stream;
-	}
-
-	public final int read()
+	static class InputReader
 	{
-		if (numChars == -1)
-			throw new InputMismatchException();
+		private InputStream stream;
+		private byte[] buf = new byte[102400]; // a byte buffer to store the
+		// characters in
+		private int curChar; // to hold the count of current character
+		private int numChars; // number of characters
 
-		if (curChar >= numChars)
+		public InputReader(InputStream stream)
+		{ // pass the inputstream class
+			this.stream = stream;
+		}
+
+		public final int read()
 		{
-			curChar = 0;
-
-			try
-			{
-				numChars = stream.read(buf); // this is the implicit function
-												// present in the inputStream
-												// which reads a Character into
-												// a temporary buffer
-			} catch (IOException e)
-			{
+			if (numChars == -1)
 				throw new InputMismatchException();
+
+			if (curChar >= numChars)
+			{
+				curChar = 0;
+
+				try
+				{
+					numChars = stream.read(buf); // this is the implicit function
+					// present in the inputStream
+					// which reads a Character into
+					// a temporary buffer
+				} catch (IOException e)
+				{
+					throw new InputMismatchException();
+				}
+
+				if (numChars <= 0)
+					return -1;
 			}
 
-			if (numChars <= 0)
-				return -1;
+			return buf[curChar++];
 		}
 
-		return buf[curChar++];
-	}
+		public final int readInt()
+		{ // a function to read nextInteger skipping the
+			// newlines and empty spaces
+			int c = read();
 
-	public final int readInt()
-	{ // a function to read nextInteger skipping the
-		// newlines and empty spaces
-		int c = read();
+			while (isSpaceChar(c))
+				//
+				c = read();
 
-		while (isSpaceChar(c))
-			//
-			c = read();
+			int sgn = 1;
 
-		int sgn = 1;
+			if (c == '-')
+			{ // if the number is negative
+				sgn = -1;
+				c = read();
+			}
 
-		if (c == '-')
-		{ // if the number is negative
-			sgn = -1;
-			c = read();
+			int res = 0; // integer variable to hold the number
+
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
+				res *= 10;
+				res += c - '0';
+				c = read();
+			} while (!isSpaceChar(c));
+
+			return res * sgn;
 		}
 
-		int res = 0; // integer variable to hold the number
+		public final long readLong()
+		{ // similar as Integer
+			int c = read();
 
-		do
-		{
-			if (c < '0' || c > '9')
-				throw new InputMismatchException();
-			res *= 10;
-			res += c - '0';
-			c = read();
-		} while (!isSpaceChar(c));
+			while (isSpaceChar(c))
+				c = read();
 
-		return res * sgn;
-	}
+			int sgn = 1;
 
-	public final long readLong()
-	{ // similar as Integer
-		int c = read();
+			if (c == '-')
+			{
+				sgn = -1;
+				c = read();
+			}
 
-		while (isSpaceChar(c))
-			c = read();
+			long res = 0;
 
-		int sgn = 1;
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
+				res *= 10;
+				res += c - '0';
+				c = read();
+			} while (!isSpaceChar(c));
 
-		if (c == '-')
-		{
-			sgn = -1;
-			c = read();
+			return res * sgn;
 		}
 
-		long res = 0;
-
-		do
+		public final String readString()
 		{
-			if (c < '0' || c > '9')
-				throw new InputMismatchException();
-			res *= 10;
-			res += c - '0';
-			c = read();
-		} while (!isSpaceChar(c));
+			int c = read(); // read function returns one character at a time and the
+			// unicode value of the character is returned
 
-		return res * sgn;
-	}
+			while (isSpaceChar(c))
+				c = read();
 
-	public final String readString()
-	{
-		int c = read(); // read function returns one character at a time and the
-						// unicode value of the character is returned
+			StringBuilder res = new StringBuilder(); // using a String Builder to
+			// build the String
 
-		while (isSpaceChar(c))
-			c = read();
+			do
+			{
+				res.appendCodePoint(c); // appendCodePoint function to append the
+				// character from its unicode value
+				c = read();
+			} while (!isSpaceChar(c));
 
-		StringBuilder res = new StringBuilder(); // using a String Builder to
-													// build the String
-
-		do
-		{
-			res.appendCodePoint(c); // appendCodePoint function to append the
-									// character from its unicode value
-			c = read();
-		} while (!isSpaceChar(c));
-
-		return res.toString();
-	}
-
-	public final static boolean isSpaceChar(int c)
-	{
-		return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-	}
-
-	public final String next()
-	{
-		return readString();
-	}
-
-	public final void close()
-	{
-		try
-		{
-			this.stream.close();
-		} catch (IOException e)
-		{
-			e.printStackTrace();
+			return res.toString();
 		}
+
+		public final static boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
+		public final String next()
+		{
+			return readString();
+		}
+
+		public final void close()
+		{
+			try
+			{
+				this.stream.close();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 }

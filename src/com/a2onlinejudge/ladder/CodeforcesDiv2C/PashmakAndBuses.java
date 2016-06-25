@@ -1,6 +1,7 @@
 package com.a2onlinejudge.ladder.CodeforcesDiv2C;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -8,7 +9,7 @@ import java.util.InputMismatchException;
  */
 public final class PashmakAndBuses
 {
-	static int n, k, d, arr[][];
+	static int n, k, d;
 	static InputReader in;
 	static OutputWriter out;
 
@@ -31,107 +32,52 @@ public final class PashmakAndBuses
 		k = in.nextInt();
 		d = in.nextInt();
 
-		if (d == 1 && k < n)
+		long temp = 1;
+		boolean possible = false;
+
+		for (int i = 0; i < d; i++)
 		{
-			out.println(-1);
+			temp *= k;
 
-			return;
-		}
-
-		arr = new int[n / k + 1][k];
-
-		int student, minHeight, mod, temp, flag;
-		boolean possible = true;
-
-		student = 1;
-		minHeight = n / k;
-		mod = n % k;
-		temp = minHeight;
-		flag = 0;
-
-//		System.out.println("minHeight : " + minHeight + ", mod : " + mod);
-
-		for (int i = minHeight; i >= 0; i--)
-		{
-			if (flag == k)
+			if (temp >= n)
 			{
-				possible = false;
+				possible = true;
 
 				break;
 			}
-
-			for (int j = flag; j < k && student <= n; j++)
-			{
-				arr[i][j] = student;
-
-				student++;
-			}
-
-			for (int j = 0; j < flag && student <= n; j++)
-			{
-				arr[i][j] = student;
-
-				student++;
-			}
-
-			flag++;
-			temp = minHeight;
 		}
 
 		if (!possible)
 		{
-			out.println(-1);
+			out.println("-1");
 
 			return;
 		}
 
-		int[] rotated, unchanged;
+		int[][] answer = new int[n][d];
 
-		rotated = new int[n + 1];
-		unchanged = new int[n + 1];
-
-		for (int i = minHeight; i >= 0; i--)
+		for (int i = 1; i < n; i++)
 		{
-			for (int j = 0; j < k; j++)
+			for (int j = 0; j < d; j++)
+				answer[i][j] = answer[i - 1][j];
+
+			answer[i][d - 1]++;
+
+			for (int j = d - 1; j > 0; j--)
 			{
-//				System.out.println("i : " + i + ", j : " + j + ", arr[i][j] : " + arr[i][j]);
-				if (arr[i][j] != 0)
-					rotated[arr[i][j]] = j + 1;
+				if (answer[i][j] >= k)
+				{
+					answer[i][j] = 0;
+					answer[i][j - 1]++;
+				}
+				else
+					break;
 			}
 		}
 
-		temp = 1;
-
-		for (int i = 1; i <= n; i++)
-		{
-//			System.out.println("setting unch[" + i + "] : " + temp);
-			unchanged[i] = temp;
-			temp++;
-
-			if (temp == k + 1)
-				temp = 1;
-		}
-
-		for (int i = 1; i <= n; i++)
-			out.print(rotated[i] + " ");
-
-		out.println();
-
-		for (int i = 0; i < d - 1; i++)
-			for (int j = 1; j <= n; j++)
-				out.print(unchanged[j] + " ");
-
-/*		System.out.println("arr : ");
-
-		for (int i = 0; i <= minHeight; i++)
-		{
-			for (int j = 0; j < k; j++)
-			{
-				System.out.print(arr[i][j] + " ");
-			}
-
-			System.out.println();
-		}*/
+		for (int i = 0; i < d; i++, out.println())
+			for (int j = 0; j < n; j++)
+				out.print((answer[j][i] + 1) + " ");
 	}
 
 	static class InputReader

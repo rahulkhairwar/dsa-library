@@ -298,6 +298,16 @@ public final class %TaskClass%
             writer.print(x);
         }
 
+		public void println(char x)
+		{
+			writer.println(x);
+		}
+
+		public void print(char x)
+		{
+			writer.print(x);
+		}
+
         public void println(int array[], int size)
         {
             for (int i = 0; i < size; i++)
@@ -426,6 +436,14 @@ public final class %TaskClass%
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
+		}
+
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
 		}
 
 	}

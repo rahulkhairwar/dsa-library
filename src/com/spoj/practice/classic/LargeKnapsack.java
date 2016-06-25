@@ -2,14 +2,16 @@ package com.spoj.practice.classic;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 
 /**
  * Created by rahulkhairwar on 02/02/16.
  */
-public class LargeKnapsack
+class LargeKnapsack
 {
 	static int k, n;
+	static long[][] dp;
 	static Item[] items;
 	static InputReader in;
 	static OutputWriter out;
@@ -27,6 +29,52 @@ public class LargeKnapsack
 		out.close();
 	}
 
+	static void solve2()
+	{
+		k = in.nextInt();
+		n = in.nextInt();
+
+		items = new Item[n];
+		dp = new long[n][k + 1];
+
+		for (int i = 0; i < n; i++)
+		{
+			items[i] = new Item(in.nextInt(), in.nextInt());
+			Arrays.fill(dp[i], -1);
+		}
+
+		Arrays.sort(items, new Comparator<Item>()
+		{
+			@Override public int compare(Item o1, Item o2)
+			{
+				return Long.compare(o1.weight, o2.weight);
+			}
+		});
+
+		out.println(findMaxValue(0, k));
+	}
+
+	static long findMaxValue(int item, int leftWeight)
+	{
+		if (item == n)
+			return 0;
+
+		if (dp[item][leftWeight] != -1)
+			return dp[item][leftWeight];
+
+		if (items[item].weight > leftWeight)
+		{
+			dp[item][leftWeight] = 0;
+
+			return 0;
+		}
+
+		dp[item][leftWeight] = Math.max(findMaxValue(item + 1, leftWeight), items[item].value + findMaxValue(item + 1,
+				leftWeight - items[item].weight));
+
+		return dp[item][leftWeight];
+	}
+
 	static void solve()
 	{
 		k = in.nextInt();
@@ -35,77 +83,52 @@ public class LargeKnapsack
 		items = new Item[n];
 
 		for (int i = 0; i < n; i++)
-			items[i] = new Item(in.nextLong(), in.nextLong());
+			items[i] = new Item(in.nextInt(), in.nextInt());
 
 		out.println(knapsack2(n, k));
 	}
 
-	static long knapsack(int numberOfItems, Item[] items, int capacity)
-	{
-		long[][] dp = new long[numberOfItems + 1][capacity + 1];
-
-		for (int i = 1; i <= numberOfItems; i++)
-		{
-			for (int j = 1; j <= capacity; j++)
-			{
-				if (items[i - 1].weight <= j)
-				{
-					dp[i][j] = Math.max(dp[i - 1][j], items[i - 1].value + dp[i - 1][(int) (j - items[i - 1].weight)]);
-				}
-				else
-					dp[i][j] = dp[i - 1][j];
-			}
-		}
-
-/*		System.out.println("**dp : ");
-
-		for (int i = 0; i <= numberOfItems; i++)
-		{
-			for (int j = 0; j <= capacity; j++)
-			{
-				System.out.print(dp[i][j] + " ");
-			}
-
-			System.out.println();
-		}*/
-
-		return dp[numberOfItems][capacity];
-	}
-
 	static long knapsack2(int numberOfItems, int capacity)
 	{
-		long[] prev, curr;
+		int[] prev, curr;
 
-		prev = new long[capacity + 1];
-		curr = new long[capacity + 1];
+		prev = new int[capacity + 1];
+		curr = new int[capacity + 1];
 
-		int max = 0;
+		int max;
 
 		for (int i = 1; i <= numberOfItems; i++)
 		{
-			//max = (int) Math.min(capacity, max + items[i - 1].weight);
 			max = capacity;
 
 			for (int j = 1; j <= max; j++)
 			{
-				if (items[i - 1].weight <= j)
-					curr[j] = Math.max(prev[j], items[i - 1].value + prev[(int) (j - items[i - 1].weight)]);
+				if (i % 2 == 1)
+				{
+					if (items[i - 1].weight <= j)
+						curr[j] = Math.max(prev[j], items[i - 1].value + prev[j - items[i - 1].weight]);
+					else
+						curr[j] = prev[j];
+				}
 				else
-					curr[j] = prev[j];
+				{
+					if (items[i - 1].weight <= j)
+						prev[j] = Math.max(curr[j], items[i - 1].value + curr[j - items[i - 1].weight]);
+					else
+						prev[j] = curr[j];
+				}
 			}
-
-			prev = curr;
-			curr = new long[capacity + 1];
 		}
 
-		return prev[capacity];
+		return numberOfItems % 2 == 1 ? curr[capacity] : prev[capacity];
 	}
 
 	static class Item
 	{
-		long value, weight;
+		int value;
+		int weight;
 
-		public Item(long value, long weight)
+		public Item(int value, int weight)
 		{
 			this.value = value;
 			this.weight = weight;
@@ -136,7 +159,8 @@ public class LargeKnapsack
 				try
 				{
 					numChars = stream.read(buf);
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -340,7 +364,8 @@ public class LargeKnapsack
 			try
 			{
 				stream.close();
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				e.printStackTrace();
 			}

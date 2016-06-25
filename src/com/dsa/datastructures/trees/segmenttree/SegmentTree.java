@@ -47,7 +47,7 @@ public class SegmentTree
 		int log = (int) Math.ceil((Math.log(numberOfElements) / Math.log(2)));
 
 		array = new int[numberOfElements];
-		tree = new int[2 * (int) Math.pow(2, log)];
+		tree = new int[2 * (1 << log)];
 
 		System.out.println("Enter the array : ");
 
@@ -160,7 +160,7 @@ public class SegmentTree
 	 *            this method returns the maximum value in the range which ends
 	 *            at this index
 	 * @return the maximum value in the range 
-	 *         [<code>queryRangeStart, queryRangeEnd</code>].
+	 *         [queryRangeStart, queryRangeEnd].
 	 */
 	static int queryTree(int currentNode, int treeStart, int treeEnd,
 			int queryRangeStart, int queryRangeEnd)

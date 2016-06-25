@@ -119,7 +119,8 @@ public class ChefAndGraphQueries
 				try
 				{
 					numChars = stream.read(buf);
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -323,7 +324,8 @@ public class ChefAndGraphQueries
 			try
 			{
 				stream.close();
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -484,6 +486,14 @@ public class ChefAndGraphQueries
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
+		}
+
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
 		}
 
 	}

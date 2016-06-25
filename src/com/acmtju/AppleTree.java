@@ -58,7 +58,7 @@ public class AppleTree
 
 				for (int i = 0; i < size; i++)
 				{
-					Point point = ((Point) fallingValues.get(i));
+					Point point = (Point) fallingValues.get(i);
 					int temp = nodes[point.x].fallingValue;
 
 					if (temp > max)

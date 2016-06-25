@@ -12,7 +12,7 @@ import java.util.InputMismatchException;
 /**
  * A very nice question, from Codeforces Round 338 Div. 2 : Multipliers
  * <br />
- * Question Link : <b>http://codeforces.com/contest/615/problem/D</b>
+ * Question <a href="http://codeforces.com/contest/615/problem/D">link</a>
  */
 public final class Q4
 {

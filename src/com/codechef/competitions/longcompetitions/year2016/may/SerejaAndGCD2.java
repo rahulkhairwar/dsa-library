@@ -44,7 +44,7 @@ class SerejaAndGCD2
 
 //			sieve();
 			primes = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79,
-					83, 89, 97};	// 25 primes
+					83, 89, 97};    // 25 primes
 
 			max = (int) CMath.power(2, 25);
 
@@ -86,9 +86,9 @@ class SerejaAndGCD2
 					next += i;
 				}*/
 
-				if((i*i) <= max)
+				if ((i * i) <= max)
 				{
-					for(long j = i*i;j <= max;j += i)
+					for (long j = i * i; j <= max; j += i)
 					{
 						isComposite[(int) j] = true;
 					}
@@ -270,7 +270,8 @@ class SerejaAndGCD2
 
 /*					System.out.println("count : " + count);
 					System.out.println("n : " + n + ", ones : " + ones + ", others : " + others + ", ncr[][oth] : " +
-							nCR[count][others] + ", n! / ones! : " + temp + ", adding : " + (temp * nCR[count][others]));*/
+							nCR[count][others] + ", n! / ones! : " + temp + ", adding : " + (temp *
+							nCR[count][others]));*/
 					answer += CMath.mod(temp * nCR[count][others], mod);
 					answer = CMath.mod(answer, mod);
 					temp = CMath.mod(temp * i, mod);
@@ -672,6 +673,14 @@ class SerejaAndGCD2
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
+		}
+
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
 		}
 
 	}

@@ -108,136 +108,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/IceSkating.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/LittleElephantAndProblem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/Maze.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmtimus/KBasedNumbers.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/ChefAndArrayAndK.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/ChefAndBinaryOperation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/ChefAndCities.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/ChefAndCoinsGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/ChefAndRectangleArray.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/ChefAndTheHiringEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/june/DevuAndAnArray.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/KissesAndHugs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/ChefAndProblems.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/FedorAndNewGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/KefaAndPark.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/PreparingOlympiad.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/practice/easy/year2016/RaisingBacteria.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/Assignments.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/Assignments.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/BuyingApples.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/Histogram.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/RangeMinimumQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/TheKnapsackProblem.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/AdditionAndMultiplication$CMath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/AdditionAndMultiplication$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/AdditionAndMultiplication$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/AdditionAndMultiplication$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/AdditionAndMultiplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/FireEscapeRoutes$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/FireEscapeRoutes$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/FireEscapeRoutes.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/MasterChef$CMath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/MasterChef$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/MasterChef$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/MasterChef$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/MasterChef$Select.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2016/jantomarch/MasterChef.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Fifth$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Fifth$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Fifth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/First$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/First$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/First.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Fourth$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Fourth$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Fourth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Second$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Second$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Second.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Third$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Third$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Third$Vector$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Third$Vector$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Third$Vector.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round1/Third.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q1$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q1$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q2$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q2$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q3$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q3$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2015/novtodec/round3/Q3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2015/julytoseptember/round321div2/Third$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2015/julytoseptember/round321div2/Third$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2015/julytoseptember/round321div2/Third.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/march/ChefAndProblems.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2015/julytoseptember/round321div2/Third.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantomarch/AdditionAndMultiplication.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantoapril/AdditionAndMultiplication.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantomarch/FireEscapeRoutes.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantoapril/FireEscapeRoutes.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantomarch/MasterChef.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/jantoapril/MasterChef.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KingdomUnity.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/KingdomUnity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/KnapsackProblem.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/KnapsackProblem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/januarytomarch/TywinsTactics.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/TywinsTactics.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round1/Fifth.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round1/Fifth.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round1/First.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round1/First.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round1/Fourth.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round1/Fourth.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round1/Second.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round1/Second.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round1/Third.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round1/Third.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round3/Q1.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round3/Q1.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round3/Q2.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round3/Q2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/novtodec/round3/Q3.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2015/round3/Q3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/todo/TheBestBox$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/todo/TheBestBox$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/todo/TheBestBox$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/todo/TheBestBox$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/todo/TheBestBox.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/todo/TheBestBox.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/hard/ChefAndGraphQueries.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/apriltojune/round355div2/TaskC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/algorithms/RMQSparseTable$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/algorithms/RMQSparseTable$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/algorithms/RMQSparseTable.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/algorithms/RMQSparseTable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$Item.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/LargeKnapsack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PackageClass.template" afterPath="$PROJECT_DIR$/PackageClass.template" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PublicFinalClass.template" afterPath="$PROJECT_DIR$/PublicFinalClass.template" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chelper.properties" afterPath="$PROJECT_DIR$/chelper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.java" afterPath="$PROJECT_DIR$/src/com/a2onlinejudge/ladder/CodeforcesDiv2C/PashmakAndBuses.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmtju/AppleTree.java" afterPath="$PROJECT_DIR$/src/com/acmtju/AppleTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/march/CountSubstrings.java" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2015/march/CountSubstrings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2.java" afterPath="$PROJECT_DIR$/src/com/codechef/competitions/longcompetitions/year2016/may/SerejaAndGCD2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/todo/TheBestBox.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/todo/TheBestBox.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/practice/hard/ChefAndGraphQueries.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/hard/ChefAndGraphQueries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/round338div2/Q4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/algorithms/RMQSparseTable.java" afterPath="$PROJECT_DIR$/src/com/dsa/algorithms/RMQSparseTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/spoj/practice/classic/LargeKnapsack.java" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/LargeKnapsack.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/Constant.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/PCExpression.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/SimpleSentence.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/SubstitutionSet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/Unifiable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/UnifyTester.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/Variable.java" afterPath="" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -417,8 +294,8 @@
       <file leaf-file-name="ChefAndProblems.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/ChefAndProblems.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28060523">
-              <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.07015131">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#main#0;class#ChefAndProblems#0" expanded="false" />
@@ -1389,7 +1266,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1401,7 +1278,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40794703" sideWeight="0.49427754" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847682" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2030,8 +1907,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/ChefAndProblems.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28060523">
-          <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.07015131">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#ChefAndProblems#0" expanded="false" />

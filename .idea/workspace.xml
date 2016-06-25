@@ -108,13 +108,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/Constant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/PCExpression.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/SimpleSentence.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/SubstitutionSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/Unifiable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/UnifyTester.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ashwin/Variable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/archive/unsorted/2016.04/2016.04.09 - Educational Codeforces Round 11/D - Number of Parallelograms.task" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/archive/unsorted/2016.04/2016.04.09 - Educational Codeforces Round 11/TaskD.java" afterPath="" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />

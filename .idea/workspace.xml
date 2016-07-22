@@ -120,151 +120,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d3fee5-1e9d-43a2-a2f4-7291c58adf20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/Gravel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/JohnnyAndTheBeanstalk.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/LittleElephantAndPermutations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/LuckyLong.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/Matrix.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/SubarrayGCD.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/SubtractionGame1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/SurajGoesShopping.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/TheMinimumNumberOfMoves.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/Walk.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/WalkOnTheAxis.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/EgorKChefAndProblems.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/MultiplesOf3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/StolisChefAndProblem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/apriltojune/round13/TaskE.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/apriltojune/round360div2/TaskD.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/google/apac17/round1a/TaskA.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/google/apac17/round1a/TaskB.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/google/apac17/round1a/TaskC.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/google/apac17/round1a/inputA.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/google/apac17/round1a/inputB.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/google/apac17/round1a/inputC.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/amazonhiringchallenge/TaskA.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/amazonhiringchallenge/TaskB.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/amazonhiringchallenge/package-info.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/BeAwesomeAsBarneyStinson.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/CanYouAnswerTheseQueries4.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/FoxlingFeedingFrenzy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/HaybaleStacking.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/Japan.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/KQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/MakeThemEqual.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/UpdateTheArray.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/algolibrary/util/ArrayUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/algolibrary/util/NumberUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/may/JohnnyAndTheBeanstalk$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/may/JohnnyAndTheBeanstalk$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/easy/year2015/may/JohnnyAndTheBeanstalk.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$Foe.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$Interval.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC$CMath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC$CMath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$OutputWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$InputReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/AppliedCS.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/Test.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/input.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/input2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/input3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/input4.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/test/input5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/codechef/practice/easy/year2015/may/JohnnyAndTheBeanstalk.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/test/AppliedCS.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/test/Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/test/input.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/test/input2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/test/input3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/test/input4.txt" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/algolibrary/util/ArrayUtils.java" afterPath="$PROJECT_DIR$/src/com/rahul/algolibrary/util/ArrayUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/algolibrary/util/NumberUtils.java" afterPath="$PROJECT_DIR$/src/com/rahul/algolibrary/util/NumberUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/test/input5.txt" afterPath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/encodethebeginning/input5.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/uva/practice/ModularFibonacci.java" afterPath="$PROJECT_DIR$/src/com/uva/practice/FibonacciNumber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver$1.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver$Query.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver$Query.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codechef/practice/medium/year2016/ChefAndProblems.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/croc/TaskC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/graph/shortestpath/BellmanFord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$Solver$Node.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$Solver$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/sets/DisjointSet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$Node.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/trie/AlphabetTrie$Solver$Node.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/trie/AlphabetTrie$Solver$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/trie/AlphabetTrie$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/dsa/datastructures/trees/trie/AlphabetTrie$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$1.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Group.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Group.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Pair.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3$Pair.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerrank/practice/easy/TheMaximumSubarray$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerrank/practice/easy/TheMaximumSubarray$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerrank/practice/easy/TheMaximumSubarray$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerrank/practice/easy/TheMaximumSubarray$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerrank/practice/easy/TheMaximumSubarray.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/hackerrank/practice/easy/TheMaximumSubarray.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/spoj/practice/classic/Histogram.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/FibonacciNumber$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/FibonacciNumber$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/FibonacciNumber$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/FibonacciNumber$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/FibonacciNumber.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/FibonacciNumber.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$CMath.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$CMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$InputReader.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$InputReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$OutputWriter.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$OutputWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$Solver$1.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$Solver$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$Solver$Node.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$Solver$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$Solver.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections$Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections.class" afterPath="$PROJECT_DIR$/out/production/Competitive Programming/com/uva/practice/StreetDirections.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chelper.properties" afterPath="$PROJECT_DIR$/chelper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/ChefAndProblems.java" afterPath="$PROJECT_DIR$/src/com/codechef/practice/medium/year2016/ChefAndProblems.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/croc/TaskC.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/croc/TaskC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD.java" afterPath="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/jantomarch/manthancodefest/TaskD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/graph/shortestpath/BellmanFord.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/graph/shortestpath/BellmanFord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/sets/DisjointSet.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/sets/DisjointSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTreeWithLazyPropagation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/trie/AlphabetTrie.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/trie/AlphabetTrie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.java" afterPath="$PROJECT_DIR$/src/com/hackerearth/competitions/shortcompetitions/encodethebeginning/Q3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hackerrank/practice/easy/TheMaximumSubarray.java" afterPath="$PROJECT_DIR$/src/com/hackerrank/practice/easy/TheMaximumSubarray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/spoj/practice/classic/Histogram.java" afterPath="$PROJECT_DIR$/src/com/spoj/practice/classic/Histogram.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/uva/practice/StreetDirections.java" afterPath="$PROJECT_DIR$/src/com/uva/practice/StreetDirections.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java" afterPath="$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java" />
     </list>
     <ignored path="Competitive Programming.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -443,10 +299,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KQuery.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KQuery.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/spoj/practice/classic/KQuery.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3741403">
+            <state vertical-scroll-proportion="0.0">
               <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -456,6 +312,16 @@
                 <element signature="class#CMath#0;class#KQuery#0" expanded="false" />
                 <element signature="method#power#0;class#CMath#0;class#KQuery#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BIT.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35075653">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -518,7 +384,6 @@
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/apriltojune/round361div2/TaskA.java" />
         <option value="$PROJECT_DIR$/src/com/dsa/datastructures/trees/segmenttree/SegmentTree.java" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskD.java" />
-        <option value="$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/educational/year2016/jantomarch/round10/TaskC.java" />
         <option value="$PROJECT_DIR$/src/com/google/apac17/round1a/TaskA.java" />
         <option value="$PROJECT_DIR$/src/com/google/apac17/round1a/inputA.txt" />
@@ -550,6 +415,7 @@
         <option value="$PROJECT_DIR$/src/com/codechef/practice/easy/year2016/maytoaugust/Gravel.java" />
         <option value="$PROJECT_DIR$/src/com/codeforces/competitions/year2016/julytoseptember/round363div2/TaskD.java" />
         <option value="$PROJECT_DIR$/src/com/spoj/practice/classic/HaybaleStacking.java" />
+        <option value="$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java" />
       </list>
     </option>
   </component>
@@ -799,6 +665,118 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="practice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datastructures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datastructures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="binaryindextree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datastructures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Competitive Programming" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsa" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1722,7 +1700,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40397352" sideWeight="0.49427754" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847682" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1883,13 +1861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="76" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -2312,7 +2283,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/spoj/practice/classic/KQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3741403">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2322,6 +2293,14 @@
             <element signature="class#CMath#0;class#KQuery#0" expanded="false" />
             <element signature="method#power#0;class#CMath#0;class#KQuery#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dsa/datastructures/trees/binaryindextree/BIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35075653">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

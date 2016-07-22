@@ -13,11 +13,11 @@ public class BIT
 	static int[] arr, bit;
 	static Scanner in;
 
-	// I'll just leave this here.. :P
+	// Learning bitmasks :P
 	static void test()
 	{
 		int a = 10;
-
+		
 		System.out.println("a : " + Integer.toBinaryString(a));
 		System.out.println("-a : " + Integer.toBinaryString(-a));
 		System.out.println("a & -a : " + Integer.toBinaryString(a & -a));

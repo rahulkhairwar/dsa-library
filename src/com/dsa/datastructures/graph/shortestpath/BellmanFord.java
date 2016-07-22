@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by rahulkhairwar on 04/02/16.
  * <br /><br />
- * Hackerrank Question Link : <b>https://www.hackerrank.com/challenges/dijkstrashortreach</b>
+ * Hackerrank Question <a href="https://www.hackerrank.com/challenges/dijkstrashortreach">link</a>
  * <br />
  * Just to check. And, storing the Graph as a Graph object with edges having an in-a relationship
  * with the graph is much faster than storing the graph as Adjacency List of edges.
@@ -28,8 +28,8 @@ public class BellmanFord
 
 		while (t-- > 0)
 		{
-			list();
-//			graph();
+//			list();
+			graph();
 
 			System.out.println();
 		}

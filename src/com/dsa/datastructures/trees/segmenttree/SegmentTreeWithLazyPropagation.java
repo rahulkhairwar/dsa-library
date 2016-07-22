@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
  */
 public class SegmentTreeWithLazyPropagation
 {
-	private static int dataArray[];
+	private static int data[];
 	private static Node segmentTree[];
 	private static InputReader reader;
 	private static OutputWriter writer;
@@ -42,11 +42,11 @@ public class SegmentTreeWithLazyPropagation
 		log = (int) (Math.ceil(Math.log(sizeOfDataArray) / Math.log(2)));
 		sizeOfTree = (int) (2 * Math.pow(2, log));
 
-		dataArray = new int[sizeOfDataArray];
+		data = new int[sizeOfDataArray];
 		segmentTree = new Node[sizeOfTree];
 
 		for (int i = 0; i < sizeOfDataArray; i++)
-			dataArray[i] = reader.nextInt();
+			data[i] = reader.nextInt();
 
 		buildTree(1, 0, sizeOfDataArray - 1);
 
@@ -100,36 +100,34 @@ public class SegmentTreeWithLazyPropagation
 		} while (ch != 3);
 	}
 
-	static void buildTree(int currentNode, int treeRangeStart,
-			int treeRangeEnd)
+	static void buildTree(int node, int treeStart, int treeEnd)
 	{
 		// out of range
-		if (treeRangeStart > treeRangeEnd)
+		if (treeStart > treeEnd)
 			return;
 
 		// leaf node
-		if (treeRangeStart == treeRangeEnd)
+		if (treeStart == treeEnd)
 		{
 			// initializing with appropriate data and not lazy
-			segmentTree[currentNode] = new Node(dataArray[treeRangeStart]);
+			segmentTree[node] = new Node(data[treeStart]);
 
 			return;
 		}
 
-		int mid = (treeRangeStart + treeRangeEnd) / 2;
+		int mid = (treeStart + treeEnd) / 2;
 
-		buildTree(2 * currentNode, treeRangeStart, mid);
-		buildTree(2 * currentNode + 1, mid + 1, treeRangeEnd);
+		buildTree(2 * node, treeStart, mid);
+		buildTree(2 * node + 1, mid + 1, treeEnd);
 
-		segmentTree[currentNode] = new Node(Math.min(
-				segmentTree[2 * currentNode].minimum,
-				segmentTree[2 * currentNode + 1].minimum));
+		segmentTree[node] = new Node(Math.min(
+				segmentTree[2 * node].minimum,
+				segmentTree[2 * node + 1].minimum));
 	}
 
-	static int queryTree(int currentNode, int treeRangeStart,
-			int treeRangeEnd, int queryRangeStart, int queryRangeEnd)
+	static int queryTree(int node, int treeStart, int treeEnd, int rangeStart, int rangeEnd)
 	{
-		Node tempNode = segmentTree[currentNode];
+		Node tempNode = segmentTree[node];
 
 		// i.e., lazy
 		if (tempNode.update > 0)
@@ -137,12 +135,12 @@ public class SegmentTreeWithLazyPropagation
 			tempNode.minimum += tempNode.update;
 
 			// not a leaf node
-			if (treeRangeStart != treeRangeEnd)
+			if (treeStart != treeEnd)
 			{
 				int update = tempNode.update;
 
-				segmentTree[2 * currentNode].update = update;
-				segmentTree[2 * currentNode + 1].update = update;
+				segmentTree[2 * node].update = update;
+				segmentTree[2 * node + 1].update = update;
 			}
 
 			tempNode.update = 0;
@@ -150,31 +148,29 @@ public class SegmentTreeWithLazyPropagation
 		
 		// if the asked for range is completely out of the range that this node
 		// stores information of
-		if (treeRangeStart > treeRangeEnd || treeRangeStart > queryRangeEnd
-				|| treeRangeEnd < queryRangeStart)
+		if (treeStart > treeEnd || treeStart > rangeEnd
+				|| treeEnd < rangeStart)
 			return Integer.MAX_VALUE;
 
 		// if the range that the tree holds is completely inside of the qeury
 		// range
-		if (treeRangeStart >= queryRangeStart && treeRangeEnd <= queryRangeEnd)
+		if (treeStart >= rangeStart && treeEnd <= rangeEnd)
 			return tempNode.minimum;
 
 		int mid, leftChildMin, rightChildMin;
 
-		mid = (treeRangeStart + treeRangeEnd) / 2;
-		leftChildMin = queryTree(2 * currentNode, treeRangeStart, mid,
-				queryRangeStart, queryRangeEnd);
-		rightChildMin = queryTree(2 * currentNode + 1, mid + 1, treeRangeEnd,
-				queryRangeStart, queryRangeEnd);
+		mid = (treeStart + treeEnd) / 2;
+		leftChildMin = queryTree(2 * node, treeStart, mid,
+				rangeStart, rangeEnd);
+		rightChildMin = queryTree(2 * node + 1, mid + 1, treeEnd,
+				rangeStart, rangeEnd);
 
 		return Math.min(leftChildMin, rightChildMin);
 	}
 
-	static void updateTree(int currentNode, int treeRangeStart,
-			int treeRangeEnd, int updateRangeStart, int updateRangeEnd,
-			int addValue)
+	static void updateTree(int node, int treeStart, int treeEnd, int rangeStart, int rangeEnd, int addValue)
 	{
-		Node tempNode = segmentTree[currentNode];
+		Node tempNode = segmentTree[node];
 
 		// i.e., lazy
 		if (tempNode.update > 0)
@@ -182,10 +178,10 @@ public class SegmentTreeWithLazyPropagation
 			tempNode.minimum += tempNode.update;
 
 			// not a leaf node
-			if (treeRangeStart != treeRangeEnd)
+			if (treeStart != treeEnd)
 			{
-				segmentTree[2 * currentNode].update += tempNode.update;
-				segmentTree[2 * currentNode + 1].update += tempNode.update;
+				segmentTree[2 * node].update += tempNode.update;
+				segmentTree[2 * node + 1].update += tempNode.update;
 			}
 
 			tempNode.update = 0;
@@ -193,34 +189,34 @@ public class SegmentTreeWithLazyPropagation
 
 		// if the update range is completely out of the range that this node
 		// stores information of
-		if (treeRangeStart > treeRangeEnd || treeRangeStart > updateRangeEnd
-				|| treeRangeEnd < updateRangeStart)
+		if (treeStart > treeEnd || treeStart > rangeEnd
+				|| treeEnd < rangeStart)
 			return;
 
 		// if the range this node holds is completely inside of the update range
-		if (treeRangeStart >= updateRangeStart && treeRangeEnd <= updateRangeEnd)
+		if (treeStart >= rangeStart && treeEnd <= rangeEnd)
 		{
 			tempNode.minimum += addValue;
 
 			// not a leaf node
-			if (treeRangeStart != treeRangeEnd)
+			if (treeStart != treeEnd)
 			{
-				segmentTree[2 * currentNode].update += addValue;
-				segmentTree[2 * currentNode + 1].update += addValue;
+				segmentTree[2 * node].update += addValue;
+				segmentTree[2 * node + 1].update += addValue;
 			}
 
 			return;
 		}
 
-		int mid = (treeRangeStart + treeRangeEnd) / 2;
+		int mid = (treeStart + treeEnd) / 2;
 
-		updateTree(2 * currentNode, treeRangeStart, mid, updateRangeStart,
-				updateRangeEnd, addValue);
-		updateTree(2 * currentNode + 1, mid + 1, treeRangeEnd, updateRangeStart,
-				updateRangeEnd, addValue);
+		updateTree(2 * node, treeStart, mid, rangeStart,
+				rangeEnd, addValue);
+		updateTree(2 * node + 1, mid + 1, treeEnd, rangeStart,
+				rangeEnd, addValue);
 
-		tempNode.minimum = Math.min(segmentTree[2 * currentNode].minimum,
-				segmentTree[2 * currentNode + 1].minimum);
+		tempNode.minimum = Math.min(segmentTree[2 * node].minimum,
+				segmentTree[2 * node + 1].minimum);
 	}
 
 	/**
@@ -233,13 +229,13 @@ public class SegmentTreeWithLazyPropagation
 	 * <b>minimum</b> the minimum value in the range of this node<br/>
 	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	 * <b>update</b> the update value of all nodes in this node the node is lazy
-	 * if this value is > 0, and not otherwise
+	 * if this value is != 0, and not otherwise
 	 * </p>
 	 */
 	static class Node
 	{
 		int minimum;
-		int update; // if lazy, this will be > 0, else, 0
+		int update; // if lazy, this will be != 0, else, 0
 
 		public Node(int minimum)
 		{

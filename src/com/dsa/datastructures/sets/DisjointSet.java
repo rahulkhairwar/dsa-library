@@ -54,7 +54,7 @@ public class DisjointSet
 				switch (choice)
 				{
 					case 1:
-						System.out.print("Enter key : ");
+						System.out.print("Enter a key : ");
 						int key = in.nextInt();
 						System.out.println();
 						makeSet(key);
@@ -110,6 +110,10 @@ public class DisjointSet
 
 			parentOne = findParent(one);
 			parentTwo = findParent(two);
+
+			// already connected.
+			if (parentOne.parent.key == parentTwo.parent.key)
+				return;
 
 			if (parentOne.height > parentTwo.height)
 				parentTwo.parent = parentOne;

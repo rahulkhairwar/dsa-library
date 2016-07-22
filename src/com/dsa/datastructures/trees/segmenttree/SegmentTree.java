@@ -1,35 +1,23 @@
 package com.dsa.datastructures.trees.segmenttree;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.InputMismatchException;
 
 /**
- * A basic implementation of Segment tree, which does Range Maximum Query and
- * point updation.
+ * A basic implementation of Segment tree, which does Range Maximum Query and point updation.
  */
 public class SegmentTree
 {
 	private static int numberOfElements, array[], tree[];
-	private static InputReader reader;
-	private static OutputWriter writer;
+	private static InputReader in;
 
 	public static void main(String args[])
 	{
-		reader = new InputReader(System.in);
-		writer = new OutputWriter(System.out);
+		in = new InputReader(System.in);
 
 		solve();
-
-		writer.flush();
-
-		reader.close();
-		writer.close();
+		in.close();
 	}
 
 	/**
@@ -42,17 +30,17 @@ public class SegmentTree
 	{
 		System.out.println("Enter the size of the array : ");
 
-		numberOfElements = reader.nextInt();
+		numberOfElements = in.nextInt();
 
 		int log = (int) Math.ceil((Math.log(numberOfElements) / Math.log(2)));
 
 		array = new int[numberOfElements];
-		tree = new int[2 * (1 << log)];
+		tree = new int[1 << (log + 1)];    // 1 << (log + 1) = 2 * (2 ^ log)
 
 		System.out.println("Enter the array : ");
 
 		for (int i = 0; i < numberOfElements; i++)
-			array[i] = reader.nextInt();
+			array[i] = in.nextInt();
 
 		buildTree(1, 0, numberOfElements - 1);
 
@@ -63,38 +51,33 @@ public class SegmentTree
 
 		System.out.print("\nHow many operations do you want to perform? : ");
 
-		int q = reader.nextInt();
+		int q = in.nextInt();
 
 		for (int i = 0; i < q; i++)
 		{
-			System.out
-					.print("\n*******\n1. Query.\n2. Point Update.\n\nEnter your choice : ");
+			System.out.print("\n*******\n1. Query.\n2. Point Update.\n\nEnter your choice : ");
 
-			if (reader.nextInt() == 1)
+			if (in.nextInt() == 1)
 			{
 				System.out.println("start of range(1-based) : ");
-				int start = reader.nextInt();
+				int start = in.nextInt();
 				System.out.println("end of range(1-based) : ");
-				int end = reader.nextInt();
+				int end = in.nextInt();
 
-				System.out.println("The maximum number in the range is : "
-						+ queryTree(1, 0, numberOfElements - 1, start - 1,
+				System.out.println(
+						"The maximum number in the range is : " + queryTree(1, 0, numberOfElements - 1, start - 1,
 								end - 1));
 			}
 			else
 			{
-				System.out
-						.println("Enter the array index(1-based) you want to update : ");
-
 				int arrayIndex, updateValue;
 
-				arrayIndex = reader.nextInt();
-				System.out
-						.println("Enter the value you want to the update the index with : ");
-				updateValue = reader.nextInt();
+				System.out.println("Enter the array index(1-based) you want to update : ");
+				arrayIndex = in.nextInt();
+				System.out.println("Enter the value you want to the update the index with : ");
+				updateValue = in.nextInt();
 
-				pointUpdate(1, 0, numberOfElements - 1, arrayIndex - 1,
-						updateValue);
+				pointUpdate(1, 0, numberOfElements - 1, arrayIndex - 1, updateValue);
 
 				System.out.println("The index has been updated.");
 				System.out.println("The built tree looks like : ");
@@ -107,17 +90,14 @@ public class SegmentTree
 
 	/**
 	 * This method builds the tree recursively.
-	 * 
-	 * @param currentNode
-	 *            the 1-based index of the current node of the tree
-	 * @param treeStart
-	 *            the 0-based leftmost index of the range, which the current
-	 *            node stores value of
-	 * @param treeEnd
-	 *            the 0-based rightmost index of the range, which the current
-	 *            node stores value of
+	 *
+	 * @param node      the 1-based index of the current node of the tree
+	 * @param treeStart the 0-based leftmost index of the range, which the current
+	 *                  node stores value of
+	 * @param treeEnd   the 0-based rightmost index of the range, which the current
+	 *                  node stores value of
 	 */
-	static void buildTree(int currentNode, int treeStart, int treeEnd)
+	static void buildTree(int node, int treeStart, int treeEnd)
 	{
 		if (treeStart > treeEnd)
 			return;
@@ -125,7 +105,7 @@ public class SegmentTree
 		// i.e., leaf node
 		if (treeStart == treeEnd)
 		{
-			tree[currentNode] = array[treeStart];
+			tree[node] = array[treeStart];
 
 			return;
 		}
@@ -133,100 +113,79 @@ public class SegmentTree
 		int mid = (treeStart + treeEnd) / 2;
 
 		// left child
-		buildTree(2 * currentNode, treeStart, mid);
+		buildTree(2 * node, treeStart, mid);
 		// right child
-		buildTree(2 * currentNode + 1, mid + 1, treeEnd);
+		buildTree(2 * node + 1, mid + 1, treeEnd);
 
-		tree[currentNode] = Math.max(tree[2 * currentNode],
-				tree[2 * currentNode + 1]);
+		tree[node] = Math.max(tree[2 * node], tree[2 * node + 1]);
 	}
 
 	/**
 	 * This method finds the maximum value in
 	 * {@code [queryRangeStart, queryRangeEnd]} range.
-	 * 
-	 * @param currentNode
-	 *            the 1-based index of the current node of the tree
-	 * @param treeStart
-	 *            the 0-based leftmost index of the range, which the current
-	 *            node stores value of
-	 * @param treeEnd
-	 *            the 0-based rightmost index of the range, which the current
-	 *            node stores value of
-	 * @param queryRangeStart
-	 *            this method returns the maximum value in the range which
-	 *            starts at this index
-	 * @param queryRangeEnd
-	 *            this method returns the maximum value in the range which ends
-	 *            at this index
-	 * @return the maximum value in the range 
-	 *         [queryRangeStart, queryRangeEnd].
+	 *
+	 * @param node       the 1-based index of the current node of the tree
+	 * @param treeStart  the 0-based leftmost index of the range, which the current
+	 *                   node stores value of
+	 * @param treeEnd    the 0-based rightmost index of the range, which the current
+	 *                   node stores value of
+	 * @param rangeStart this method returns the maximum value in the range which
+	 *                   starts at this index
+	 * @param rangeEnd   this method returns the maximum value in the range which ends
+	 *                   at this index
+	 * @return the maximum value in the range
+	 * [queryRangeStart, queryRangeEnd].
 	 */
-	static int queryTree(int currentNode, int treeStart, int treeEnd,
-			int queryRangeStart, int queryRangeEnd)
+	static int queryTree(int node, int treeStart, int treeEnd, int rangeStart, int rangeEnd)
 	{
-		// if the query range is completely out of the range that this node
-		// stores information of
-		if (treeStart > treeEnd || treeStart > queryRangeEnd
-				|| treeEnd < queryRangeStart)
+		// if the query range is completely out of the range that this node stores information of
+		if (treeStart > treeEnd || treeStart > rangeEnd || treeEnd < rangeStart)
 			return Integer.MIN_VALUE;
 
-		// if the range that this node holds is completely inside of the qeury
-		// range
-		if (treeStart >= queryRangeStart && treeEnd <= queryRangeEnd)
-			return tree[currentNode];
+		// if the range that this node holds is completely inside of the qeury range
+		if (treeStart >= rangeStart && treeEnd <= rangeEnd)
+			return tree[node];
 
 		int mid, leftChildMax, rightChildMax;
 
 		mid = (treeStart + treeEnd) / 2;
-		leftChildMax = queryTree(2 * currentNode, treeStart, mid,
-				queryRangeStart, queryRangeEnd);
-		rightChildMax = queryTree(2 * currentNode + 1, mid + 1, treeEnd,
-				queryRangeStart, queryRangeEnd);
+		leftChildMax = queryTree(2 * node, treeStart, mid, rangeStart, rangeEnd);
+		rightChildMax = queryTree(2 * node + 1, mid + 1, treeEnd, rangeStart, rangeEnd);
 
 		return Math.max(leftChildMax, rightChildMax);
 	}
 
 	/**
 	 * Update a particular index of the array with another value.
-	 * 
-	 * @param currentNode
-	 *            the current node of the tree.
-	 * @param treeStart
-	 *            the starting index of the range that the current node(tree)
-	 *            holds.
-	 * @param treeEnd
-	 *            the ending index of the range that the current node(tree)
-	 *            holds.
-	 * @param updateNode
-	 *            the 0-based index of the array element which needs to be
-	 *            updated.
-	 * @param updateValue
-	 *            the value with which the array element needs to be updated.
+	 *
+	 * @param node        the current node of the tree.
+	 * @param treeStart   the starting index of the range that the current node(tree)
+	 *                    holds.
+	 * @param treeEnd     the ending index of the range that the current node(tree)
+	 *                    holds.
+	 * @param updateNode  the 0-based index of the array element which needs to be
+	 *                    updated.
+	 * @param updateValue the value with which the array element needs to be updated.
 	 */
-	static void pointUpdate(int currentNode, int treeStart, int treeEnd,
-			int updateNode, int updateValue)
+	static void pointUpdate(int node, int treeStart, int treeEnd, int updateNode, int updateValue)
 	{
-		if (treeStart > treeEnd || treeStart > updateNode
-				|| treeEnd < updateNode)
+		if (treeStart > treeEnd || treeStart > updateNode || treeEnd < updateNode)
 			return;
 
 		// i.e., treeStart = treeEnd = updateNode
 		if (treeStart == treeEnd)
 		{
-			tree[currentNode] = updateValue;
+			tree[node] = updateValue;
 
 			return;
 		}
 
 		int mid = (treeStart + treeEnd) / 2;
 
-		pointUpdate(2 * currentNode, treeStart, mid, updateNode, updateValue);
-		pointUpdate(2 * currentNode + 1, mid + 1, treeEnd, updateNode,
-				updateValue);
+		pointUpdate(2 * node, treeStart, mid, updateNode, updateValue);
+		pointUpdate(2 * node + 1, mid + 1, treeEnd, updateNode, updateValue);
 
-		tree[currentNode] = Math.max(tree[2 * currentNode],
-				tree[2 * currentNode + 1]);
+		tree[node] = Math.max(tree[2 * node], tree[2 * node + 1]);
 	}
 
 	static class InputReader
@@ -359,73 +318,6 @@ public class SegmentTree
 			{
 				e.printStackTrace();
 			}
-		}
-
-	}
-
-	static class OutputWriter
-	{
-		private PrintWriter writer;
-
-		public OutputWriter(OutputStream stream)
-		{
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					stream)));
-		}
-
-		public OutputWriter(Writer writer)
-		{
-			this.writer = new PrintWriter(writer);
-		}
-
-		public void println(int x)
-		{
-			writer.println(x);
-		}
-
-		public void println(long x)
-		{
-			writer.println(x);
-		}
-
-		public void print(int x)
-		{
-			writer.print(x);
-		}
-
-		public void print(long x)
-		{
-			writer.println(x);
-		}
-
-		public void println(String s)
-		{
-			writer.println(s);
-		}
-
-		public void print(String s)
-		{
-			writer.print(s);
-		}
-
-		public void println()
-		{
-			writer.println();
-		}
-
-		public void printSpace()
-		{
-			writer.print(" ");
-		}
-
-		public void flush()
-		{
-			writer.flush();
-		}
-
-		public void close()
-		{
-			writer.close();
 		}
 
 	}

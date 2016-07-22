@@ -6,11 +6,7 @@ import java.util.*;
 import java.util.List;
 
 /**
- * Something weird happened. Have an array of all edges (u, v) and in the algorithm I searched if an edge (a, b)
- * exists in the list of edges, and if that didn't exist, then (b, a) definitely must exist. So, in one place, I didn't
- * check for the positivity of the index of the edge (b, a) if edge (a, b) wasn't present in the list of edges, but
- * got Runtime Error because of that, and got Accepted if I checked for that condition. WEIRD.
- * <br />
+ * Good question on finding the bridges.
  * Question <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=8&page=show_problem&problem=551">link</a>
  */
 public class StreetDirections
@@ -162,11 +158,7 @@ public class StreetDirections
 				if (!nodes[curr].visited)
 				{
 					nodes[curr].parent = node;
-					temp.outgoingCount++;
-					nodes[curr].incomingCount++;
-
 					dfs(curr);
-
 					temp.low = Math.min(temp.low, nodes[curr].low);
 
 					if (temp.visitingTime < nodes[curr].low)
@@ -193,7 +185,7 @@ public class StreetDirections
 
 		static class Node
 		{
-			int parent, visitingTime, low, incomingCount, outgoingCount;
+			int parent, visitingTime, low;
 			List<Integer> adj;
 			boolean visited;
 

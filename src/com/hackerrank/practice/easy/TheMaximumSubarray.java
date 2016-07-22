@@ -12,33 +12,33 @@ import java.util.InputMismatchException;
 public class TheMaximumSubarray
 {
 	static int t, n, array[];
-	static InputReader reader;
-	static OutputWriter writer;
+	static InputReader in;
+	static OutputWriter out;
 	
 	public static void main(String args[])
 	{
 		TheMaximumSubarray subarray = new TheMaximumSubarray();
 		
-		reader = subarray.new InputReader(System.in);
-		writer = subarray.new OutputWriter(System.out);
+		in = subarray.new InputReader(System.in);
+		out = subarray.new OutputWriter(System.out);
 		
-		getAttributes();
+		solve();
 		
-		writer.flush();
+		out.flush();
 		
-		reader.close();
-		writer.close();
+		in.close();
+		out.close();
 	}
 	
-	static void getAttributes()
+	static void solve()
 	{
 		int positiveSum;
 		
-		t = reader.nextInt();
+		t = in.nextInt();
 		
 		for (int i = 0; i < t; i++)
 		{
-			n = reader.nextInt();
+			n = in.nextInt();
 			
 			array = new int[n];
 			
@@ -46,7 +46,7 @@ public class TheMaximumSubarray
 			
 			for (int j = 0; j < n; j++)
 			{
-				array[j] = reader.nextInt();
+				array[j] = in.nextInt();
 				
 				if (array[j] >= 0)
 					positiveSum += array[j];
@@ -57,21 +57,20 @@ public class TheMaximumSubarray
 				int max = array[0];
 				
 				for (int j = 1; j < n; j++)
-					if (array[j] > max)
-						max = array[j];
+					max = Math.max(max, array[j]);
 				
 				positiveSum = max;
 			}
 			
-			writer.println(contiguousMaxSum() + " " + positiveSum);
+			out.println(contiguousMaxSum() + " " + positiveSum);
 		}
 	}
-	
+
 	static int contiguousMaxSum()
 	{
 		int currentSum, maxSum, value;
 		
-		currentSum = value = 0;
+		currentSum = 0;
 		maxSum = Integer.MIN_VALUE;
 		
 		for (int i = 0; i < n; i++)

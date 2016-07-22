@@ -26,6 +26,8 @@ class Histogram
 	static class Solver
 	{
 		int n, heights[], heightSumCount[];
+		int total;
+		long[][] dp, counter;
 		InputReader in;
 		OutputWriter out;
 
@@ -34,76 +36,80 @@ class Histogram
 			while (true)
 			{
 				n = in.nextInt();
+				total = (1 << n) - 1;
+				heights = new int[n];
 
 				if (n == 0)
 					break;
 
-				heights = new int[n];
-
 				for (int i = 0; i < n; i++)
 					heights[i] = in.nextInt();
 
-				heightSumCount = new int[2200];
 
-				count(0, 0, 0);
+				heightSumCount = new int[3500];
+				dp = new long[(1 << n) + 1][n + 1];
+				counter = new long[(1 << n) + 1][n + 1];
 
-				for (int i = 2100; i >= 0; i--)
-				{
-					if (heightSumCount[i] > 0)
-					{
-						out.println((i + 2 * n) + " " + heightSumCount[i]);
+				for (int i = 0; i <= (1 << n); i++)
+					for (int j = 0; j <= n; j++)
+						dp[i][j] = -1;
 
-						break;
-					}
-				}
-			}
-		}
-
-		long count(int prevHeight, int heightSum, int mask)
-		{
-			int usedCount = usedCount(mask);
-
-			if (usedCount == n - 1)
-			{
-				int temp = 1;
+				long max = 0;
+				int count = 0;
 
 				for (int i = 0; i < n; i++)
 				{
-					if ((mask & temp) == 0)
-						heightSumCount[heightSum + Math.abs(heights[n - i - 1] - prevHeight) + heights[n - i - 1]]++;
+					long value = count(1 << i, i) + heights[i];
 
-					temp <<= 1;
+					if (value > max)
+					{
+						max = value;
+						count = 0;
+					}
+
+					if (value == max)
+						count += counter[1 << i][i];
 				}
 
-				return 1;
+				max += (n << 1);
+				out.println(max + " " + count);
+			}
+		}
+
+		long count(int mask, int index)
+		{
+			if (mask == (1 << n) - 1)
+			{
+				counter[mask][index] = 1;	// why?
+
+				return heights[index];
 			}
 
-			long count = 0;
-			int temp = 1;
+			if (dp[mask][index] != -1)
+				return dp[mask][index];
+
+			long max = 0;
 
 			for (int i = 0; i < n; i++)
 			{
-				if ((mask & temp) == 0)
-					count += count(heights[n - i - 1], heightSum + Math.abs(heights[n - i - 1] - prevHeight), mask |
-							temp);
+				if ((mask & (1 << i)) == 0)
+				{
+					long value = count(mask | (1 << i), i) + Math.abs(heights[i] - heights[index]);
 
-				temp <<= 1;
+					if (value > max)
+					{
+						max = value;
+						counter[mask][index] = 0;
+					}
+
+					if (value == max)
+						counter[mask][index] += counter[mask | (1 << i)][i];
+				}
 			}
 
-			return count;
-		}
+			dp[mask][index] = max;
 
-		int usedCount(int mask)
-		{
-			int count = 0;
-
-			while (mask != 0)
-			{
-				count += mask & 1;
-				mask /= 2;
-			}
-
-			return count;
+			return max;
 		}
 
 		public Solver(InputReader in, OutputWriter out)

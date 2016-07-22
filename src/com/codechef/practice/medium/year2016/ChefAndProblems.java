@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Created by rahulkhairwar on 25/06/16.
  */
-public class ChefAndProblems
+class ChefAndProblems
 {
 	public static void main(String[] args)
 	{
@@ -25,8 +25,8 @@ public class ChefAndProblems
 
 	static class Solver
 	{
-		int n, m, k, sqrtN, growth[], growthCount[];
-		SortedMap<Integer, Integer> map;
+		int n, m, k, sqrtN, growth[], answers[];
+		TreeSet<Integer>[] treeSets;
 		Query[] queries;
 		InputReader in;
 		OutputWriter out;
@@ -39,22 +39,18 @@ public class ChefAndProblems
 			sqrtN = (int) Math.sqrt(n);
 
 			growth = new int[n];
-			growthCount = new int[m + 1];
+			answers = new int[k];
+			treeSets = new TreeSet[m + 1];
 
-			map = new TreeMap<>(new Comparator<Integer>()
-			{
-				@Override public int compare(Integer o1, Integer o2)
-				{
-					return Integer.compare(o1, o2);
-				}
-			});
+			for (int i = 0; i <= m; i++)
+				treeSets[i] = new TreeSet<>();
 
 			queries = new Query[k];
 
 			for (int i = 0; i < n; i++)
 			{
 				growth[i] = in.nextInt();
-				growthCount[growth[i]]++;
+				treeSets[growth[i]].add(i);
 			}
 
 			for (int i = 0; i < k; i++)
@@ -78,6 +74,91 @@ public class ChefAndProblems
 				}
 			});
 
+			int left, right;
+
+			left = right = -1;
+
+			for (int i = 0; i < k; i++)
+			{
+/*				System.out.println("queryNumber : " + queries[i].queryNumber + ", q.left : " + queries[i].left + ", "
+						+ "q.right : " + queries[i].right + ", left : " + left + ", right : " + right);*/
+
+				while (right < queries[i].right)
+				{
+					right++;
+					add(right);
+				}
+
+				while (left > queries[i].left)
+				{
+					left--;
+					add(left);
+				}
+
+				while (left < queries[i].left)
+				{
+					remove(left);
+					left++;
+				}
+
+				while (right > queries[i].right)
+				{
+					remove(right);
+					right--;
+				}
+
+				int maxRange = 0;
+
+				for (int j = 1; j <= m; j++)
+				{
+					if (treeSets[j].size() < 2)
+						continue;
+
+//					System.out.println("i : " + i + ", j : " + j + ", treeSet[j] : " + treeSets[j].toString());
+					int min, max;
+
+					min = treeSets[j].first();
+					max = treeSets[j].last();
+
+					if (max - min > maxRange)
+						maxRange = max - min;
+				}
+
+				answers[queries[i].queryNumber] = maxRange;
+//				out.println(maxRange);
+			}
+
+			for (int i = 0; i < k; i++)
+				out.println(answers[i]);
+		}
+
+		void add(int index)
+		{
+			if (index < 0 || index >= n)
+				return;
+
+			treeSets[growth[index]].add(index);
+		}
+
+		void remove(int index)
+		{
+			if (index < 0 || index >= n)
+				return;
+
+			treeSets[growth[index]].remove(index);
+		}
+
+		class Range
+		{
+			int growth, minLeft, maxRight, maxSizeRange;
+
+			public Range(int growth, int minLeft, int maxRight)
+			{
+				this.growth = growth;
+				this.minLeft = minLeft;
+				this.maxRight = maxRight;
+				maxSizeRange = maxRight - minLeft + 1;
+			}
 
 		}
 

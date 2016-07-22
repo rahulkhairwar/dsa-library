@@ -88,12 +88,7 @@ public class AlphabetTrie
 				return false;
 
 			if (index == length - 1)
-			{
-				if (temp.isWord)
-					return true;
-
-				return false;
-			}
+				return temp.isWord;
 			else
 				return contains(temp, word, length, index + 1);
 		}

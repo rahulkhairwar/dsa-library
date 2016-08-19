@@ -1,15 +1,8 @@
 package com.spoj.practice.classic;
 
-import java.awt.*;
 import java.io.*;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.InputMismatchException;
-import java.util.Iterator;
+import java.util.*;
 
-/**
- * Created by rahulkhairwar on 22/07/16.
- */
 class HaybaleStacking
 {
 	public static void main(String[] args)
@@ -18,7 +11,7 @@ class HaybaleStacking
 		OutputWriter out = new OutputWriter(System.out);
 
 		Solver solver = new Solver(in, out);
-		solver.solve(1);
+		solver.solve();
 
 		out.flush();
 
@@ -39,11 +32,10 @@ class HaybaleStacking
 			this.out = out;
 		}
 
-		void solve(int testNumber)
+		void solve()
 		{
 			n = in.nextInt();
 			k = in.nextInt();
-
 			bit = new int[n + 1];
 
 			for (int i = 0; i < k; i++)
@@ -52,48 +44,17 @@ class HaybaleStacking
 
 				a = in.nextInt();
 				b = in.nextInt();
-
 				add(a, 1);
 				add(b + 1, -1);
 			}
 
-			int[] count = new int[(int) 1e6 + 1];
+			int[] ans = new int[n];
 
 			for (int i = 1; i <= n; i++)
-				count[query(i)]++;
+				ans[i - 1] = query(i);
 
-			int pos = n / 2;
-			int cum = 0;
-
-			Deque<Point> deque = new ArrayDeque<>(n);
-
-			for (int i = 1; i <= 1e6; i++)
-			{
-				if (count[i] == 0)
-					continue;
-
-				cum += count[i];
-				deque.addLast(new Point(i, count[i]));
-			}
-
-			if (cum < n)
-				deque.addFirst(new Point(0, n - cum));
-
-			Iterator<Point> iterator = deque.iterator();
-			cum = 0;
-
-			while (iterator.hasNext())
-			{
-				Point curr = iterator.next();
-				cum += curr.y;
-
-				if (cum > pos)
-				{
-					out.println(curr.x);
-
-					break;
-				}
-			}
+			Arrays.sort(ans);
+			out.println(ans[n / 2]);
 		}
 
 		void add(int index, int value)
@@ -472,60 +433,6 @@ class HaybaleStacking
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
 		}
 
 	}

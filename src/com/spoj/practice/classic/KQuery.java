@@ -1,12 +1,16 @@
 package com.spoj.practice.classic;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 
 /**
- * Created by rahulkhairwar on 21/07/16.
+ * Good Question.
+ * <br />Java code gets TLE, so submitted the same code in C++(file : KQuery.cpp).
  */
-public class KQuery
+class KQuery
 {
 	public static void main(String[] args)
 	{
@@ -24,21 +28,114 @@ public class KQuery
 
 	static class Solver
 	{
-		int n, q, arr[];
+		int n, q;
+		Element[] elements;
+		Query[] queries;
+		int[] bit;
 		InputReader in;
 		OutputWriter out;
+
+		void solve(int testNumber)
+		{
+			n = in.nextInt();
+			elements = new Element[n + 1];
+			bit = new int[n + 1];
+
+			for (int i = 1; i <= n; i++)
+				elements[i] = new Element(i, in.nextInt());
+
+			Arrays.sort(elements, 1, n + 1, new Comparator<Element>()
+			{
+				@Override public int compare(Element o1, Element o2)
+				{
+					return Integer.compare(o2.value, o1.value);
+				}
+			});
+
+			q = in.nextInt();
+			queries = new Query[q];
+
+			for (int i = 0; i < q; i++)
+				queries[i] = new Query(i, in.nextInt(), in.nextInt(), in.nextInt());
+
+			Arrays.sort(queries, new Comparator<Query>()
+			{
+				@Override public int compare(Query o1, Query o2)
+				{
+					return Integer.compare(o2.k, o1.k);
+				}
+			});
+
+			int[] ans = new int[q];
+			int i = 1;
+
+			for (int j = 0; j < q; j++)
+			{
+				while (i <= n && elements[i].value > queries[j].k)
+				{
+					add(elements[i].pos);
+					i++;
+				}
+
+				ans[queries[j].pos] = query(queries[j].right) - query(queries[j].left - 1);
+			}
+
+			for (int j = 0; j < q; j++)
+				out.println(ans[j]);
+		}
+
+		void add(int index)
+		{
+			while (index <= n)
+			{
+				bit[index]++;
+				index += index & -index;
+			}
+		}
+
+		int query(int index)
+		{
+			int answer = 0;
+
+			while (index > 0)
+			{
+				answer += bit[index];
+				index -= index & -index;
+			}
+
+			return answer;
+		}
+
+		class Element
+		{
+			int pos, value;
+
+			public Element(int pos, int value)
+			{
+				this.pos = pos;
+				this.value = value;
+			}
+
+		}
+
+		class Query
+		{
+			int pos, left, right, k;
+
+			public Query(int pos, int left, int right, int k)
+			{
+				this.pos = pos;
+				this.left = left;
+				this.right = right;
+				this.k = k;
+			}
+
+		}
 
 		public Solver(InputReader in, OutputWriter out)
 		{
 			this.in = in;
 			this.out = out;
-		}
-
-		void solve(int testNumber)
-		{
-			n = in.nextInt();
-
-
 		}
 
 	}
@@ -395,60 +492,6 @@ public class KQuery
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
 		}
 
 	}

@@ -382,6 +382,11 @@ public final class %TaskClass%
             writer.print(" ");
         }
 
+		public void printf(String format, Object args)
+		{
+			writer.printf(format, args);
+		}
+
         public void flush()
         {
             writer.flush();

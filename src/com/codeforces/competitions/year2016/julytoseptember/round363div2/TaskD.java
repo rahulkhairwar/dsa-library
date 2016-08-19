@@ -21,7 +21,9 @@ public final class TaskD
 
     static class Solver
     {
-        int n, parent[], childrenCount[];
+        int n;
+		List<Integer> isRoot, isInCycle;
+		Node[] nodes;
         InputReader in;
         OutputWriter out;
 
@@ -34,17 +36,80 @@ public final class TaskD
 		void solve(int testNumber)
 		{
 			n = in.nextInt();
+			isRoot = new ArrayList<>();
+			isInCycle = new ArrayList<>();
+			nodes = new Node[n + 1];
 
-			parent = new int[n + 1];
-			childrenCount = new int[n + 1];
+			for (int i = 1; i <= n; i++)
+				nodes[i] = new Node(i, in.nextInt());
 
-			for (int i = 0; i < n; i++)
+			for (int i = 1; i <= n; i++)
+				if (!nodes[i].visited)
+					dfs(i, new HashSet<>());
+
+			int count = 0;
+			int size = isInCycle.size();
+
+			if (isRoot.size() == 0)
 			{
-				int x = in.nextInt();
+				nodes[isInCycle.get(0)].parent = isInCycle.get(0);
+				count++;
 
-				parent[i + 1] = x;
-				childrenCount[x]++;
+				for (int i = 1; i < size; i++)
+				{
+					nodes[isInCycle.get(i)].parent = nodes[isInCycle.get(0)].index;
+					count++;
+				}
 			}
+			else
+			{
+				int rootsSize = isRoot.size();
+
+				for (int i = 1; i < rootsSize; i++)
+				{
+					nodes[isRoot.get(i)].parent = isRoot.get(0);
+					count++;
+				}
+
+				for (int i = 0; i < size; i++)
+				{
+					nodes[isInCycle.get(i)].parent = isRoot.get(0);
+					count++;
+				}
+			}
+
+			out.println(count);
+
+			for (int i = 1; i <= n; i++)
+				out.print(nodes[i].parent + " ");
+		}
+
+		void dfs(int index, Set<Integer> currChain)
+		{
+			Node temp = nodes[index];
+
+			temp.visited = true;
+			currChain.add(index);
+
+			if (temp.parent == index)
+				isRoot.add(index);
+			else if (!nodes[temp.parent].visited)
+				dfs(temp.parent, currChain);
+			else if (currChain.contains(temp.parent))
+				isInCycle.add(temp.parent);
+		}
+
+		class Node
+		{
+			int index, parent;
+			boolean visited;
+
+			public Node(int index, int parent)
+			{
+				this.index = index;
+				this.parent = parent;
+			}
+
 		}
 
 	}
@@ -404,59 +469,5 @@ public final class TaskD
         }
 
     }
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-	}
 
 }

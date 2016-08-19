@@ -1,26 +1,18 @@
 package com.codeforces.competitions.year2015.octobertodecember.round335div2;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.InputMismatchException;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
 
 public final class Q4
 {
-	static int t, n, arr[];
-	static InputReader in;
-	static OutputWriter out;
-	
 	public static void main(String[] args)
 	{
-		in = new InputReader(System.in);
-		out = new OutputWriter(System.out);
-		
-		solve();
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
+
+		Solver solver = new Solver(in, out);
+		solver.solve();
 		
 		out.flush();
 		
@@ -28,14 +20,120 @@ public final class Q4
 		out.close();
 	}
 
-	static void solve()
+	static class Solver
 	{
-		t = in.nextInt();
-		
-		for (int i = 0; i < t; i++)
+		int n, m;
+		Edge[] edges, copy;
+		InputReader in;
+		OutputWriter out;
+
+		void solve()
 		{
-			
+			n = in.nextInt();
+			m = in.nextInt();
+			edges = new Edge[m];
+			copy = new Edge[m];
+
+			for (int i = 0; i < m; i++)
+			{
+				int weight, used;
+
+				weight = in.nextInt();
+				used = in.nextInt();
+				edges[i] = new Edge(i, weight, used);
+				copy[i] = new Edge(i, weight, used);
+			}
+
+			Arrays.sort(edges, new Comparator<Edge>()
+			{
+				@Override public int compare(Edge o1, Edge o2)
+				{
+					if (o1.weight == o2.weight)
+						return Integer.compare(o2.used, o1.used);
+
+					return Integer.compare(o1.weight, o2.weight);
+				}
+			});
+
+			int[] weight = new int[n + 1];
+			int counter = 2;
+
+			for (int i = 0; i < m; i++)
+				if (edges[i].used == 1)
+					weight[counter++] = edges[i].weight;
+
+			Deque<Point> pointDeque = new ArrayDeque<>();
+			counter = 1;
+
+			for (int i = 0; i < m; i++)
+			{
+				if (edges[i].used == 0)
+				{
+					if (pointDeque.size() == 0)
+					{
+						out.println(-1);
+
+						return;
+					}
+
+					Point first = pointDeque.pollFirst();
+
+					if (edges[i].weight < weight[first.y])
+					{
+						out.println(-1);
+
+						return;
+					}
+
+					edges[i].from = first.x;
+					edges[i].to = first.y;
+					first.x++;
+
+					if (first.x < first.y - 1)
+						pointDeque.addFirst(first);
+				}
+				else
+				{
+					edges[i].from = counter;
+					edges[i].to = ++counter;
+
+					if (i > 0)
+						pointDeque.addLast(new Point(1, counter));
+				}
+			}
+
+			Arrays.sort(edges, new Comparator<Edge>()
+			{
+				@Override public int compare(Edge o1, Edge o2)
+				{
+					return Integer.compare(o1.index, o2.index);
+				}
+			});
+
+			for (int i = 0; i < m; i++)
+				out.println(edges[i].from + " " + edges[i].to);
 		}
+
+		class Edge
+		{
+			int index, weight, from, to;
+			int used;
+
+			public Edge(int index, int weight, int used)
+			{
+				this.index = index;
+				this.weight = weight;
+				this.used = used;
+			}
+
+		}
+
+		public Solver(InputReader in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
+
 	}
 	
 	static class InputReader
@@ -387,3 +485,36 @@ public final class Q4
 	}
 
 }
+
+/*
+
+4 4
+4 1
+5 1
+7 0
+8 1
+
+4 4
+4 1
+5 0
+7 1
+8 1
+
+10 15
+900000012 1
+900000010 1
+900000007 0
+900000005 0
+900000014 1
+900000000 1
+900000004 0
+900000006 1
+900000009 0
+900000002 0
+900000008 0
+900000001 1
+900000011 1
+900000003 1
+900000013 1
+
+*/

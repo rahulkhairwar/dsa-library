@@ -1,38 +1,98 @@
 package com.codeforces.competitions.year2016.jantomarch.round340div2;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.InputMismatchException;
-import java.util.Queue;
+import java.io.*;
+import java.util.*;
 
 public final class Q3
 {
-	static int n, arr[];
-	static InputReader in;
-	static OutputWriter out;
-	
 	public static void main(String[] args)
 	{
-		in = new InputReader(System.in);
-		out = new OutputWriter(System.out);
-		
-		solve();
-		
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
+
+		Solver solver = new Solver(in, out);
+		solver.solve(1);
+
 		out.flush();
-		
+
 		in.close();
 		out.close();
 	}
 
-	static void solve()
+	static class Solver
 	{
+		int n, x1, y1, x2, y2;
+		Flower[] flowers;
+		InputReader in;
+		OutputWriter out;
+
+		public Solver(InputReader in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
+
+		void solve(int testNumber)
+		{
+			n = in.nextInt();
+			x1 = in.nextInt();
+			y1 = in.nextInt();
+			x2 = in.nextInt();
+			y2 = in.nextInt();
+			flowers = new Flower[n];
+
+			for (int i = 0; i < n; i++)
+				flowers[i] = new Flower(i, in.nextInt(), in.nextInt());
+
+			Arrays.sort(flowers, new Comparator<Flower>()
+			{
+				@Override public int compare(Flower o1, Flower o2)
+				{
+					return Long.compare(o1.distFromA, o2.distFromA);
+				}
+			});
+
+			long min = Long.MAX_VALUE;
+
+			for (int i = n - 1; i >= 0; i--)
+			{
+				long r1, r2;
+
+				r1 = flowers[i].distFromA;
+				r2 = 0;
+
+				for (int j = i + 1; j < n; j++)
+					r2 = Math.max(r2, flowers[j].distFromB);
+
+				min = Math.min(min, r1 + r2);
+			}
+
+			long r2 = 0;
+
+			for (int i = 0; i < n; i++)
+				r2 = Math.max(r2, flowers[i].distFromB);
+
+			out.println(Math.min(min, r2));
+		}
+
+		class Flower
+		{
+			int index, x, y;
+			long distFromA, distFromB;
+
+			public Flower(int index, int x, int y)
+			{
+				this.index = index;
+				this.x = x;
+				this.y = y;
+				distFromA = (long) (Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
+				distFromB = (long) (Math.pow(x2 - x, 2) + Math.pow(y2 - y, 2));
+			}
+
+		}
+
 	}
-	
+
 	static class InputReader
 	{
 		private InputStream stream;
@@ -56,8 +116,7 @@ public final class Q3
 				try
 				{
 					numChars = stream.read(buf);
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -98,14 +157,14 @@ public final class Q3
 
 			return res * sgn;
 		}
-		
+
 		public int[] nextIntArray(int arraySize)
 		{
 			int array[] = new int[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
-			
+
 			return array;
 		}
 
@@ -140,14 +199,14 @@ public final class Q3
 
 			return result * sign;
 		}
-		
+
 		public long[] nextLongArray(int arraySize)
 		{
 			long array[] = new long[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
-			
+
 			return array;
 		}
 
@@ -234,23 +293,23 @@ public final class Q3
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
-		
+
 		public String nextLine()
 		{
 			int c = read();
-			
+
 			StringBuilder result = new StringBuilder();
-			
+
 			do
 			{
 				result.appendCodePoint(c);
-				
+
 				c = read();
 			} while (!isNewLine(c));
-			
+
 			return result.toString();
 		}
-		
+
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -261,8 +320,7 @@ public final class Q3
 			try
 			{
 				stream.close();
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -291,6 +349,16 @@ public final class Q3
 		}
 
 		public void print(int x)
+		{
+			writer.print(x);
+		}
+
+		public void println(char x)
+		{
+			writer.println(x);
+		}
+
+		public void print(char x)
 		{
 			writer.print(x);
 		}
@@ -383,25 +451,56 @@ public final class Q3
 
 	static class CMath
 	{
-		static long power(long number, int power)
+		static long power(long number, long power)
 		{
 			if (number == 1 || number == 0 || power == 0)
 				return 1;
-			
+
 			if (power == 1)
 				return number;
-			
+
 			if (power % 2 == 0)
 				return power(number * number, power / 2);
 			else
 				return power(number * number, power / 2) * number;
 		}
-		
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
 		}
-		
+
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
+		}
+
 	}
 	
 }

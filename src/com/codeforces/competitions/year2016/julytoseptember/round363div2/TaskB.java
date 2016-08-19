@@ -21,7 +21,7 @@ public final class TaskB
 
 	static class Solver
 	{
-		int n, m, arr[];
+		int n, m;
 		InputReader in;
 		OutputWriter out;
 
@@ -52,10 +52,8 @@ public final class TaskB
 				int curr = 0;
 
 				for (int j = 0; j < m; j++)
-				{
 					if (board[i].charAt(j) == '*')
 						curr++;
-				}
 
 				total += curr;
 				rows[i] = curr;
@@ -66,10 +64,8 @@ public final class TaskB
 				int curr = 0;
 
 				for (int j = 0; j < n; j++)
-				{
 					if (board[j].charAt(i) == '*')
 						curr++;
-				}
 
 				cols[i] = curr;
 			}
@@ -450,60 +446,6 @@ public final class TaskB
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
 		}
 
 	}

@@ -1,0 +1,21 @@
+19 BearAndPrimeNumbers
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+44 src/com/a2onlinejudge/ladder/CodeforcesDiv2C
+16 -Xmx256m -Xss64m
+4 Main
+60 com.a2onlinejudge.ladder.CodeforcesDiv2C.BearAndPrimeNumbers
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.08.05
+0 
+1
+0 
+0 
+0
+0

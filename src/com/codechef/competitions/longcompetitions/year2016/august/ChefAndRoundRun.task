@@ -1,0 +1,21 @@
+15 ChefAndRoundRun
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+62 src/com/codechef/competitions/longcompetitions/year2016/august
+16 -Xmx256m -Xss64m
+4 Main
+74 com.codechef.competitions.longcompetitions.year2016.august.ChefAndRoundRun
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.08.13
+0 
+1
+0 
+0 
+0
+0

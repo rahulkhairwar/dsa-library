@@ -1,16 +1,28 @@
 package com.hackerearth.practice.easy.year2016;
 
+import java.awt.*;
 import java.io.*;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.InputMismatchException;
+import java.util.*;
+import java.util.List;
 
-/**
- * Created by rahulkhairwar on 23/05/16.
- */
-public class FightInNinjaWorld
+public class FightInNinjaWorld implements Runnable
 {
 	public static void main(String[] args)
+	{
+		try
+		{
+			Thread thread = new Thread(null, new FightInNinjaWorld(), "FightInNinjaWorld", 1 << 28);
+
+			thread.start();
+			thread.join();
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public FightInNinjaWorld()
 	{
 		InputReader in = new InputReader(System.in);
 		OutputWriter out = new OutputWriter(System.out);
@@ -24,10 +36,16 @@ public class FightInNinjaWorld
 		out.close();
 	}
 
+	@Override public void run()
+	{
+
+	}
+
 	static class Solver
 	{
 		int t, n;
-		HashMap<Integer, Node> disjointSets;
+		int one, two;
+		Node[] nodes;
 		InputReader in;
 		OutputWriter out;
 
@@ -41,292 +59,94 @@ public class FightInNinjaWorld
 		{
 			t = in.nextInt();
 
-			while (t-- > 0)
-			{
+			int total = (int) (2 * 1e4 + 5);
 
+			for (int test = 1; test <= t; test++)
+			{
+				n = in.nextInt();
+				nodes = new Node[total];
+
+				for (int i = 0; i < total; i++)
+					nodes[i] = new Node();
+
+				for (int i = 0; i < n; i++)
+				{
+					int from, to;
+
+					from = in.nextInt() - 1;
+					to = in.nextInt() - 1;
+
+					nodes[from].adj.add(to);
+					nodes[to].adj.add(from);
+				}
+
+				int answer = 0;
+
+				for (int i = 0; i < total; i++)
+				{
+					if (nodes[i].adj.size() == 0)
+						continue;
+
+					if (!nodes[i].visited)
+					{
+						one = two = 0;
+						dfs(i);
+						answer += Math.max(one, two);
+					}
+				}
+
+				out.println("Case " + test + ": " + answer);
 			}
 		}
 
-		void getFights()
+		void dfs(int node)
 		{
-			for (int i = 1; i <= n; i++)
+			Stack<Point> stack = new Stack<>();
+			stack.push(new Point(node, 1));
+
+			while (stack.size() > 0)
 			{
-				int from, to;
+				Point point = stack.pop();
+				Node temp = nodes[point.x];
 
-				from = in.nextInt();
-				to = in.nextInt();
+				if (temp.visited)
+					continue;
 
+				temp.visited = true;
 
-			}
-		}
+				if (point.y == 1)
+					one++;
+				else
+					two++;
 
-		void makeSet(int key)
-		{
-			disjointSets.put(key, new Node(key));
-		}
+				Iterator<Integer> iterator = temp.adj.iterator();
 
-		Node findParent(Node node)
-		{
-			if (node.key == node.parent.key)
-				return node;
-			else
-			{
-				Node parent = findParent(node.parent);
-				node.parent = parent;
+				while (iterator.hasNext())
+				{
+					int curr = iterator.next();
 
-				return parent;
-			}
-		}
-
-		void union(Node first, Node second)
-		{
-			if (first.parent.key == second.parent.key)
-				return;
-
-			Node firstParent, secondParent;
-
-			firstParent = findParent(first);
-			secondParent = findParent(second);
-
-			if (firstParent.height > secondParent.height)
-			{
-				secondParent.parent = firstParent;
-				firstParent.size += secondParent.size;
-			}
-			else if (firstParent.height < secondParent.height)
-			{
-				firstParent.parent = secondParent;
-				secondParent.size += firstParent.size;
-			}
-			else
-			{
-				secondParent.parent = firstParent;
-				firstParent.size += secondParent.size;
-				firstParent.height++;
+					if (!nodes[curr].visited)
+						stack.push(new Point(curr, point.y == 1 ? 2 : 1));
+				}
 			}
 		}
 
 		class Node
 		{
-			int key, height, size;
-			Node parent;
+			int set;
+			boolean visited;
+			List<Integer> adj;
 
-			public Node(int key)
+			public Node()
 			{
-				this.key = key;
-				height = 0;
-				size = 1;
-				parent = this;
-			}
-
-		}
-
-		class Pair
-		{
-			Node left, right;
-			int connectIndex;
-			boolean isConnectedToLeft;
-
-			public Pair()
-			{
-				connectIndex = -1;
+				set = -1;
+				adj = new ArrayList<>();
 			}
 
 		}
 
 	}
 
-/*	static class Solver
-	{
-		int t, n, count;
-		//		int[] used;
-		Used[] used;
-		Pair[] pairs;
-		HashMap<Integer, Node>[] disjointSets;
-		InputReader in;
-		OutputWriter out;
-
-		public Solver(InputReader in, OutputWriter out)
-		{
-			this.in = in;
-			this.out = out;
-		}
-
-		void solve(int testNumber)
-		{
-			t = in.nextInt();
-
-			while (t-- > 0)
-			{
-				n = in.nextInt();
-				count = 0;
-
-				used = new Used[(int) (2 * 1e4 + 5)];
-				pairs = new Pair[n + 1];
-
-				Arrays.fill(used, -1);
-				getFights();
-			}
-		}
-
-		void getFights()
-		{
-			for (int i = 0; i < n; i++)
-			{
-				int a, b;
-
-				a = in.nextInt();
-				b = in.nextInt();
-
-				if (used[a] == null && used[b] == null)
-				{
-					makePair(new Node(a), new Node(b));
-					used[a] = new Used(count, true, true);
-					used[b] = new Used(count, true, false);
-					count++;
-				}
-				else if (used[a] == null)
-				{
-					if (used[b].isInFirst)
-					{
-						used[a] = new Used(used[b].index, true, false);
-						union(new Node(a), pairs[used[b].index].second);
-					}
-					else
-					{
-						used[a] = new Used(used[b].index, true, true);
-						union(new Node(a), pairs[used[b].index].first);
-					}
-				}
-				else if (used[b] == null)
-				{
-					if (used[a].isInFirst)
-					{
-						used[b] = new Used(used[a].index, true, false);
-						union(new Node(b), pairs[used[a].index].second);
-					}
-					else
-					{
-						used[b] = new Used(used[a].index, true, true);
-						union(new Node(b), pairs[used[a].index].first);
-					}
-				}
-				else
-				{
-					if (used[a].isInFirst)
-					{
-						if (used[b].isInFirst)
-						{
-							union(pairs[used[a].index].first, pairs[used[b].index].first);
-							pairs[used[a].index].firstConnectedTo = used[b].index;
-							pairs[used[b].index].firstConnectedTo = used[a].index;
-						}
-						else
-						{
-							union(pairs[used[a].index].first, pairs[used[b].index].second);
-							pairs[used[a].index].firstConnectedTo = used[b].index;
-							pairs[used[b].index].secondConnectedTo = used[a].index;
-						}
-					}
-					else
-					{
-
-					}
-				}
-			}
-		}
-
-		void makePair(Node first, Node second)
-		{
-			pairs[count] = new Pair(first, second);
-		}
-
-		Node findParent(Node node)
-		{
-			if (node.key == node.parent.key)
-				return node;
-			else
-			{
-				Node parent = findParent(node.parent);
-				node.parent = parent;
-
-				return parent;
-			}
-		}
-
-		void union(Node first, Node second)
-		{
-			if (first.parent.key == second.parent.key)
-				return;
-
-			Node firstParent, secondParent;
-
-			firstParent = findParent(first);
-			secondParent = findParent(second);
-
-			if (firstParent.height > secondParent.height)
-			{
-				secondParent.parent = firstParent;
-				firstParent.size += secondParent.size;
-			}
-			else if (firstParent.height < secondParent.height)
-			{
-				firstParent.parent = secondParent;
-				secondParent.size += firstParent.size;
-			}
-			else
-			{
-				secondParent.parent = firstParent;
-				firstParent.size += secondParent.size;
-				firstParent.height++;
-			}
-		}
-
-		class Node
-		{
-			int key, height, size;
-			Node parent;
-
-			public Node(int key)
-			{
-				this.key = key;
-				height = 0;
-				size = 1;
-				parent = this;
-			}
-
-		}
-
-		class Used
-		{
-			int index;
-			boolean used, isInFirst;
-
-			public Used(int index, boolean used, boolean isInFirst)
-			{
-				this.used = used;
-				this.isInFirst = isInFirst;
-			}
-
-		}
-
-		class Pair
-		{
-			Node first, second;
-			int firstParent, secondParent, firstConnectedTo, secondConnectedTo;
-
-			public Pair(Node first, Node second)
-			{
-				this.first = first;
-				this.second = second;
-				firstParent = first.key;
-				secondParent = second.key;
-				firstConnectedTo = secondConnectedTo = -1;
-			}
-
-		}
-
-	}*/
 
 	static class InputReader
 	{
@@ -571,8 +391,7 @@ public class FightInNinjaWorld
 
 		public OutputWriter(OutputStream stream)
 		{
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					stream)));
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)));
 		}
 
 		public OutputWriter(Writer writer)
@@ -676,50 +495,15 @@ public class FightInNinjaWorld
 
 	}
 
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-	}
-
 }
+
+/*
+
+1
+4
+1 2
+2 3
+3 4
+1 4
+
+ */

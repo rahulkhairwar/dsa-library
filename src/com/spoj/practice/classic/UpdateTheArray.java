@@ -14,7 +14,7 @@ class UpdateTheArray
 		OutputWriter out = new OutputWriter(System.out);
 
 		Solver solver = new Solver(in, out);
-		solver.solve(1);
+		solver.solve();
 
 		out.flush();
 
@@ -32,7 +32,7 @@ class UpdateTheArray
 		/**
 		 * An O(n) solution. This can be used because there are no queries between updates.
 		 */
-		void solve(int testNumber)
+		void solve()
 		{
 			t = in.nextInt();
 
@@ -73,7 +73,7 @@ class UpdateTheArray
 		/**
 		 * Soluting using BIT. This solution has a complexity of O(n log n).
 		 */
-		void solve2(int testNumber)
+		void solve2()
 		{
 			t = in.nextInt();
 

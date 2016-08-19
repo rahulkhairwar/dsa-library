@@ -1,0 +1,21 @@
+5 TaskA
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+69 src/com/codeforces/competitions/year2016/julytoseptember/round364div2
+16 -Xmx256m -Xss64m
+4 Main
+71 com.codeforces.competitions.year2016.julytoseptember.round364div2.TaskA
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.07.22
+0 
+1
+0 
+0 
+0
+0

@@ -1,106 +1,82 @@
 package com.codeforces.competitions.year2015.octobertodecember.round323div2;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.Arrays;
-import java.util.InputMismatchException;
+import java.io.*;
+import java.util.*;
 
 public final class Third
 {
 	static int n, arr[];
-	static InputReader reader;
-	static OutputWriter writer;
-	
+	static InputReader in;
+	static OutputWriter out;
+
 	public static void main(String[] args)
 	{
 		Third third = new Third();
-		
-		reader = third.new InputReader(System.in);
-		writer = third.new OutputWriter(System.out);
-		
+
+		in = third.new InputReader(System.in);
+		out = third.new OutputWriter(System.out);
+
 		getAttributes();
-		
-		writer.flush();
-		
-		reader.close();
-		writer.close();
+
+		out.flush();
+
+		in.close();
+		out.close();
 	}
-	
+
 	static void getAttributes()
 	{
-		n = reader.nextInt();
-		
-		int nS = n * n;
-		
-		arr = new int[nS];
-		
-		for (int i = 0; i < nS; i++)
+		n = in.nextInt();
+
+		int total = n * n;
+		arr = new int[total];
+
+		TreeMap<Integer, Integer> map = new TreeMap<>(new Comparator<Integer>()
 		{
-			arr[i] = reader.nextInt();
-		}
-		
-		Arrays.sort(arr);
-		
-		int count = 0;
-		
-		Number num[] = new Number[nS];
-		
-		//System.out.println(Arrays.toString(arr));
-		
-		int i = 0;
-		while (i < nS)
-		{
-			num[count] = new Number(arr[i], 1);
-			//System.out.println("i : " + i + ", n[count].val : " + num[count].val + ", count : " + num[count].count);
-			
-			while (i < nS - 1 && arr[i] == arr[i + 1])
+			@Override public int compare(Integer o1, Integer o2)
 			{
-				i++;
-				num[count].count++;
+				return Integer.compare(o2, o1);
 			}
-			
-			i++;
-			count++;
-		}
-		
-/*		for (j = 0; j < count; j++)
-			System.out.println("n.val : " + num[j].val + ", n.count : " + num[j].count);
-		*/
-		//System.out.println(count);
-		
-		for (i = count - 1; i >= 0; i--)
+		});
+
+		for (int i = 0; i < total; i++)
 		{
-			if (num[i].count % 2 == 1)
+			arr[i] = in.nextInt();
+			Integer count = map.get(arr[i]);
+
+			if (count == null)
+				map.put(arr[i], 1);
+			else
+				map.put(arr[i], count + 1);
+		}
+
+		List<Integer> removed = new ArrayList<>();
+
+		for (int i = 0; i < n; i++)
+		{
+			Map.Entry<Integer, Integer> max = map.firstEntry();
+
+			if (max.getValue() > 1)
+				map.put(max.getKey(), max.getValue() - 1);
+			else
+				map.remove(max.getKey());
+
+			int size = removed.size();
+
+			for (int j = 0; j < size; j++)
 			{
-				writer.print(num[i].val + " ");
-				
-				count--;
-				n--;
+				int gcd = CMath.gcd(max.getKey(), removed.get(j));
+				Integer count = map.get(gcd);
+
+				if (count > 2)
+					map.put(gcd, count - 2);
+				else
+					map.remove(gcd);
 			}
+
+			removed.add(max.getKey());
+			out.print(max.getKey() + " ");
 		}
-		
-		while (n > 0)
-		{
-			writer.print(1 + " ");
-			n--;
-		}
-	}
-	
-	static class Number
-	{
-		int val, count;
-		
-		public Number(int val, int count)
-		{
-			this.val = val;
-			this.count = count;
-		}
-		
 	}
 
 	class InputReader
@@ -168,14 +144,14 @@ public final class Third
 
 			return res * sgn;
 		}
-		
+
 		public int[] nextIntArray(int arraySize)
 		{
 			int array[] = new int[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
-			
+
 			return array;
 		}
 
@@ -210,14 +186,14 @@ public final class Third
 
 			return result * sign;
 		}
-		
+
 		public long[] nextLongArray(int arraySize)
 		{
 			long array[] = new long[arraySize];
-			
+
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
-			
+
 			return array;
 		}
 
@@ -304,23 +280,23 @@ public final class Third
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
-		
+
 		public String nextLine()
 		{
 			int c = read();
-			
+
 			StringBuilder result = new StringBuilder();
-			
+
 			do
 			{
 				result.appendCodePoint(c);
-				
+
 				c = read();
 			} while (!isNewLine(c));
-			
+
 			return result.toString();
 		}
-		
+
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -346,8 +322,7 @@ public final class Third
 
 		public OutputWriter(OutputStream stream)
 		{
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					stream)));
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)));
 		}
 
 		public OutputWriter(Writer writer)
@@ -447,6 +422,60 @@ public final class Third
 		public void close()
 		{
 			writer.close();
+		}
+
+	}
+
+	static class CMath
+	{
+		static long power(long number, long power)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			if (power == 1)
+				return number;
+
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
+		}
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
+
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
 		}
 
 	}

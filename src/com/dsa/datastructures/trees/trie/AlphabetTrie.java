@@ -1,11 +1,12 @@
 package com.dsa.datastructures.trees.trie;
 
-import net.egork.chelper.util.OutputWriter;
-
+import java.io.*;
 import java.util.Scanner;
 
 /**
- * Created by rahulkhairwar on 04/04/16.
+ * An implementation of Alphabet Trie.
+ * <br />Complexity for adding a word : O(length(word)).
+ * <br />Complexity for checking whether a word exists in the trie : O(length(word)).
  */
 public class AlphabetTrie
 {
@@ -14,9 +15,8 @@ public class AlphabetTrie
 		Scanner in = new Scanner(System.in);
 		OutputWriter out = new OutputWriter(System.out);
 
-		Solver solver = new Solver();
-
-		solver.solve(1, in, out);
+		Solver solver = new Solver(in, out);
+		solver.solve();
 	}
 
 	static class Solver
@@ -25,11 +25,8 @@ public class AlphabetTrie
 		Scanner in;
 		OutputWriter out;
 
-		public void solve(int testNumber, Scanner in, OutputWriter out)
+		public void solve()
 		{
-			this.in = in;
-			this.out = out;
-
 			root = new Node();
 
 			one:
@@ -89,8 +86,8 @@ public class AlphabetTrie
 
 			if (index == length - 1)
 				return temp.isWord;
-			else
-				return contains(temp, word, length, index + 1);
+
+			return contains(temp, word, length, index + 1);
 		}
 
 		static class Node
@@ -103,6 +100,138 @@ public class AlphabetTrie
 				next = new Node[26];
 			}
 
+		}
+
+		public Solver(Scanner in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
+
+	}
+
+	static class OutputWriter
+	{
+		private PrintWriter writer;
+
+		public OutputWriter(OutputStream stream)
+		{
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+					stream)));
+		}
+
+		public OutputWriter(Writer writer)
+		{
+			this.writer = new PrintWriter(writer);
+		}
+
+		public void println(int x)
+		{
+			writer.println(x);
+		}
+
+		public void print(int x)
+		{
+			writer.print(x);
+		}
+
+		public void println(char x)
+		{
+			writer.println(x);
+		}
+
+		public void print(char x)
+		{
+			writer.print(x);
+		}
+
+		public void println(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i] + " ");
+		}
+
+		public void println(long x)
+		{
+			writer.println(x);
+		}
+
+		public void print(long x)
+		{
+			writer.print(x);
+		}
+
+		public void println(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i]);
+		}
+
+		public void println(float num)
+		{
+			writer.println(num);
+		}
+
+		public void print(float num)
+		{
+			writer.print(num);
+		}
+
+		public void println(double num)
+		{
+			writer.println(num);
+		}
+
+		public void print(double num)
+		{
+			writer.print(num);
+		}
+
+		public void println(String s)
+		{
+			writer.println(s);
+		}
+
+		public void print(String s)
+		{
+			writer.print(s);
+		}
+
+		public void println()
+		{
+			writer.println();
+		}
+
+		public void printSpace()
+		{
+			writer.print(" ");
+		}
+
+		public void printf(String format, Object args)
+		{
+			writer.printf(format, args);
+		}
+
+		public void flush()
+		{
+			writer.flush();
+		}
+
+		public void close()
+		{
+			writer.close();
 		}
 
 	}

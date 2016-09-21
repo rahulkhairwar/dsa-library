@@ -3,87 +3,99 @@ package com.dsa.datastructures.graph.traversal;
 import java.util.*;
 
 /**
- * Created by rahulkhairwar on 28/01/16.
+ * Program to perform a Breadth First Search on a graph.
+ * <br />Running time : O(V + E) where V : number of vertices, E : number of edges.
  */
 public class BFS
 {
-	static int nodes, edges;
-	static List<Integer>[] list;
-	static boolean[] visited;
-	static Scanner in = new Scanner(System.in);
-
 	public static void main(String[] args)
 	{
-		System.out.println("Enter the number of nodes in the graph : ");
-		nodes = in.nextInt();
+		Scanner in = new Scanner(System.in);
+		Solver solver = new Solver(in);
 
-		System.out.println("Enter the number of edges : ");
-		edges = in.nextInt();
-
-		createGraph();
-
-		bfs(0);
+		solver.solve();
+		in.close();
 	}
 
-	static void createGraph()
+	static class Solver
 	{
-		list = new ArrayList[nodes];
+		int v, e;
+		Node[] nodes;
+		Scanner in;
 
-		for (int i = 0; i < edges; i++)
+		void solve()
 		{
-			//System.out.println("Enter the details for edge " + (i + 1));
+			System.out.println("Enter the number of vertices in the graph :");
+			v = in.nextInt();
+			System.out.println("Enter the number of edges in the graph :");
+			e = in.nextInt();
 
-			int from, to;
-
-			from = in.nextInt() - 1;
-			to = in.nextInt() - 1;
-
-			if (list[from] == null)
-				list[from] = new ArrayList<>();
-
-			list[from].add(to);
-
-			if (list[to] == null)
-				list[to] = new ArrayList<>();
-
-			list[to].add(from);
-		}
-	}
-
-	static void bfs(int node)
-	{
-		if (list[node] == null)
-		{
-			System.out.print(node + " ");
-
-			return;
+			createGraph();
+			bfs(0);
 		}
 
-		visited = new boolean[nodes];
-		Queue<Integer> queue = new LinkedList<>();
-
-		queue.add(node);
-
-		while (queue.size() > 0)
+		void createGraph()
 		{
-			int front = queue.poll();
+			nodes = new Node[v];
 
-			if (visited[front])
-				continue;
+			for (int i = 0; i < v; i++)
+				nodes[i] = new Node();
 
-			System.out.print(front + " ");
-
-			visited[front] = true;
-			Iterator<Integer> iterator = list[front].iterator();
-
-			while (iterator.hasNext())
+			for (int i = 0; i < e; i++)
 			{
-				int curr = iterator.next();
+				int from, to;
 
-				if (!visited[curr])
-					queue.add(curr);
+				from = in.nextInt() - 1;
+				to = in.nextInt() - 1;
+				nodes[from].adj.add(to);
+				nodes[to].adj.add(from);
 			}
 		}
+
+		void bfs(int node)
+		{
+			Queue<Integer> queue = new LinkedList<>();
+
+			nodes[node].visited = true;
+			queue.add(node);
+
+			while (queue.size() > 0)
+			{
+				int curr = queue.poll();
+				Iterator<Integer> iterator = nodes[curr].adj.iterator();
+
+				System.out.print((curr + 1) + " ");
+
+				while (iterator.hasNext())
+				{
+					int next = iterator.next();
+
+					if (!nodes[next].visited)
+					{
+						nodes[next].visited = true;
+						queue.add(next);
+					}
+				}
+			}
+		}
+
+		class Node
+		{
+			List<Integer> adj;
+			boolean visited;
+
+			public Node()
+			{
+				adj = new ArrayList<>();
+			}
+
+		}
+
+		public Solver(Scanner in)
+		{
+			this.in = in;
+		}
+
 	}
 
 }
@@ -107,5 +119,6 @@ public class BFS
 5 10
 5 11
 5 12
+: 1 2 3 9 14 4 15 8 5 13 7 6 10 11 12
 
- */
+*/

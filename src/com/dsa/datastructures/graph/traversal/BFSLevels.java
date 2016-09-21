@@ -15,10 +15,10 @@ public class BFSLevels
 
 	public static void main(String[] args)
 	{
-		System.out.print("Enter the number of nodes you want in the graph : ");
+		System.out.print("Enter the number of v you want in the graph : ");
 		nodes = in.nextInt();
 
-		System.out.print("\nEnter the number of edges : ");
+		System.out.print("\nEnter the number of e : ");
 		edges = in.nextInt();
 
 		createGraph();

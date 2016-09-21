@@ -11,7 +11,7 @@ public final class %TaskClass%
         OutputWriter out = new OutputWriter(System.out);
 
 		Solver solver = new Solver(in, out);
-		solver.solve(1);
+		solver.solve();
 
         out.flush();
 
@@ -25,16 +25,16 @@ public final class %TaskClass%
         InputReader in;
         OutputWriter out;
 
+		void solve()
+		{
+			n = in.nextInt();
+		}
+
         public Solver(InputReader in, OutputWriter out)
         {
         	this.in = in;
         	this.out = out;
         }
-
-		void solve(int testNumber)
-		{
-			n = in.nextInt();
-		}
 
 	}
 

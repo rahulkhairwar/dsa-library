@@ -13,13 +13,10 @@ public class KBasedNumbers
 	{
 		InputReader in = new InputReader(System.in);
 		OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver(in, out);
 
-		solver.solve(1);
-
+		solver.solve();
 		out.flush();
-
 		in.close();
 		out.close();
 	}
@@ -31,7 +28,7 @@ public class KBasedNumbers
 		InputReader in;
 		OutputWriter out;
 
-		void solve(int testNumber)
+		void solve()
 		{
 			n = in.nextInt();
 			k = in.nextInt();

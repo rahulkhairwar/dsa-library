@@ -15,7 +15,7 @@ public class Maze
 
 		Solver solver = new Solver(in, out);
 
-		solver.solve(1);
+		solver.solve();
 
 		out.flush();
 
@@ -31,14 +31,14 @@ public class Maze
 		InputReader in;
 		OutputWriter out;
 
-		void solve(int testNumber)
+		void solve()
 		{
 			n = in.nextInt();
 			m = in.nextInt();
 			k = in.nextInt();
-
 			maze = new Cell[n][m];
 			nodes = new Node[n * m];
+
 			int counter = 0;
 			int nodesCount = 0;
 
@@ -72,7 +72,6 @@ public class Maze
 
 					row = nodes[i].row;
 					column = nodes[i].column;
-
 					maze[row][column].ch = 'X';
 				}
 			}
@@ -116,7 +115,6 @@ public class Maze
 		void dfs(int node)
 		{
 			Node temp = nodes[node];
-
 			temp.visited = true;
 
 			Iterator<Integer> iterator = temp.adj.iterator();
@@ -129,13 +127,9 @@ public class Maze
 			{
 				int curr = iterator.next();
 
-				if (curr == temp.parent)
-					continue;
-
 				if (!nodes[curr].visited)
 				{
 					entered = true;
-					nodes[curr].parent = node;
 					dfs(curr);
 
 					if (!nodes[curr].delete)
@@ -156,10 +150,10 @@ public class Maze
 			char ch;
 			boolean isEmpty;
 
-			public Cell(int index, int nodeNumber, char ch)
+			public Cell(int index, int nodeIndex, char ch)
 			{
 				this.index = index;
-				this.nodeIndex = nodeNumber;
+				this.nodeIndex = nodeIndex;
 				this.ch = ch;
 				isEmpty = (ch == '.');
 			}
@@ -168,7 +162,6 @@ public class Maze
 
 		class Node
 		{
-			int parent;
 			int index, row, column;
 			List<Integer> adj;
 			boolean visited, delete;
@@ -545,60 +538,6 @@ public class Maze
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
 		}
 
 	}

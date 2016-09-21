@@ -1,0 +1,10 @@
+You need to change the input and output streams from System.in and System.out to the file names mentioned in the
+question.
+It can be done in 2 ways :
+1. Obviously, will be very slow because of Scanner.
+Scanner in = new Scanner(new File("lucky.in"));
+PrintWriter out = new PrintWriter("lucky.out");
+
+2. Much faster.
+BufferedReader in = new BufferedReader(new FileReader("lucky.in"));
+PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("lucky.out")));

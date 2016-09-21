@@ -4,8 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Getting TLE :/
- * SPOJ sucks for Java I guess :/
+ * Very good BIT question. Another solution exists which uses Mo's Algorithm, but is much slower than the BIT one.
  */
 class DQuery
 {
@@ -14,8 +13,11 @@ class DQuery
 		InputReader in = new InputReader(System.in);
 		OutputWriter out = new OutputWriter(System.out);
 
-		Solver solver = new Solver(in, out);
-		solver.solve(1);
+//		Solver solver = new Solver(in, out);
+//		solver.solve();
+
+		BITSolver bitSolver = new BITSolver(in, out);
+		bitSolver.solve();
 
 		out.flush();
 
@@ -23,6 +25,111 @@ class DQuery
 		out.close();
 	}
 
+	/**
+	 * Solution using BIT. Much faster than Mo's Algorithm.
+	 */
+	static class BITSolver
+	{
+		int n, q, arr[], bit[];
+		Query[] queries;
+		InputReader in;
+		OutputWriter out;
+
+		void solve()
+		{
+			n = in.nextInt();
+			arr = new int[n + 1];
+			bit = new int[n + 1];
+
+			for (int i = 1; i <= n; i++)
+				arr[i] = in.nextInt();
+
+			q = in.nextInt();
+			queries = new Query[q];
+
+			for (int i = 0; i < q; i++)
+				queries[i] = new Query(i, in.nextInt(), in.nextInt());
+
+			Arrays.sort(queries, new Comparator<Query>()
+			{
+				@Override public int compare(Query o1, Query o2)
+				{
+					return Integer.compare(o1.right, o2.right);
+				}
+			});
+
+			int[] pos = new int[(int) 1e6 + 5];
+			int[] ans = new int[q];
+			int counter = 0;
+
+			Arrays.fill(pos, -1);
+
+			for (int i = 1; i <= n; i++)
+			{
+				// this element has already occurced in the array
+				if (pos[arr[i]] != -1)
+					update(pos[arr[i]], -1);
+
+				pos[arr[i]] = i;
+				update(i, 1);
+
+				while (counter < q && i == queries[counter].right)
+				{
+					ans[queries[counter].index] = query(i) - query(queries[counter].left - 1);
+					counter++;
+				}
+			}
+
+			for (int i = 0; i < q; i++)
+				out.println(ans[i]);
+		}
+
+		void update(int index, int value)
+		{
+			while (index <= n)
+			{
+				bit[index] += value;
+				index += index & -index;
+			}
+		}
+
+		int query(int index)
+		{
+			int answer = 0;
+
+			while (index > 0)
+			{
+				answer += bit[index];
+				index -= index & -index;
+			}
+
+			return answer;
+		}
+
+		class Query
+		{
+			int index, left, right;
+
+			public Query(int index, int left, int right)
+			{
+				this.index = index;
+				this.left = left;
+				this.right = right;
+			}
+
+		}
+
+		public BITSolver(InputReader in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
+
+	}
+
+	/**
+	 * Solution using Mo's Algorithm.
+	 */
 	static class Solver
 	{
 		int n, q, sqrtN, size;
@@ -37,7 +144,7 @@ class DQuery
 			this.out = out;
 		}
 
-		void solve(int testNumber)
+		void solve()
 		{
 			n = in.nextInt();
 			arr = new int[n + 1];
@@ -494,52 +601,6 @@ class DQuery
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
 		}
 
 	}

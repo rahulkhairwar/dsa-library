@@ -3,141 +3,143 @@ package com.dsa.datastructures.graph.traversal;
 import java.util.*;
 
 /**
- * Program to find all the Strongly Connected Components (SCC) in a directed graph.
+ * Program to find all the Strongly Connected Components (SCC's) in a directed graph.
+ * <br />Running Time : O(V log V + E) where V : number of vertices, E : number of edges.
  */
 public class SCC
 {
-	static int numberOfNodes, numberOfEdges, currentTime, sCCCount;
-	static Node[] nodes, reverse;
-	static List<Set<Integer>> sCC;
-	static Scanner in;
-
 	public static void main(String[] args)
 	{
-		in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in);
+		Solver solver = new Solver(in);
 
-		System.out.println("Enter the number of nodes : ");
-		numberOfNodes = in.nextInt();
-		System.out.println("Enter the number of edges : ");
-		numberOfEdges = in.nextInt();
+		solver.solve();
+		in.close();
+	}
 
-		createGraph();
+	static class Solver
+	{
+		int v, e, currTime;
+		Node[] nodes, reverse;
+		List<List<Integer>> sCC;
+		Scanner in;
 
-		for (int i = 0; i < numberOfNodes; i++)
-			if (!nodes[i].visited)
-				dfs(i);
-
-		Arrays.sort(nodes, new Comparator<Node>()
+		void solve()
 		{
-			@Override public int compare(Node o1, Node o2)
+			System.out.println("Enter the number of vertices :");
+			v = in.nextInt();
+			System.out.println("Enter the number of edges :");
+			e = in.nextInt();
+			currTime = 1;
+			nodes = new Node[v];
+			reverse = new Node[v];
+			sCC = new ArrayList<>();
+
+			for (int i = 0; i < v; i++)
 			{
-				return Integer.compare(o2.leavingTime, o1.leavingTime);
+				nodes[i] = new Node(i);
+				reverse[i] = new Node(i);
 			}
-		});
 
-		sCC = new ArrayList<>();
+			System.out.println("Enter the e edges(0-based) :");
 
-		for (int i = 0; i < numberOfNodes; i++)
-		{
-			if (!reverse[i].visited)
+			for (int i = 0; i < e; i++)
 			{
-				sCC.add(new HashSet<>());
-				sCC.get(sCCCount).add(i);
-				findSCCs(i);
-				sCCCount++;
+				int from, to;
+
+				from = in.nextInt();
+				to = in.nextInt();
+				nodes[from].adj.add(to);
+				reverse[to].adj.add(from);
+			}
+
+			for (int i = 0; i < v; i++)
+				if (!nodes[i].visited)
+					dfs(i);
+
+			Arrays.sort(nodes, new Comparator<Node>()
+			{
+				@Override
+				public int compare(Node one, Node two)
+				{
+					return Integer.compare(two.leavingTime, one.leavingTime);
+				}
+			});
+
+			for (int i = 0; i < v; i++)
+			{
+				int curr = nodes[i].index;
+
+				if (!reverse[curr].visited)
+				{
+					List<Integer> list = new ArrayList<>();
+
+					findSCC(curr, list);
+					sCC.add(list);
+				}
+			}
+
+			System.out.println("All the Strongly Connected Components are :");
+
+			int size = sCC.size();
+
+			for (int i = 0; i < size; i++)
+				System.out.println(sCC.get(i));
+		}
+
+		void dfs(int node)
+		{
+			Node temp = nodes[node];
+			Iterator<Integer> iterator = temp.adj.iterator();
+
+			temp.visited = true;
+			temp.visitingTime = currTime++;
+
+			while (iterator.hasNext())
+			{
+				int curr = iterator.next();
+
+				if (!nodes[curr].visited)
+					dfs(curr);
+			}
+
+			temp.leavingTime = currTime++;
+		}
+
+		void findSCC(int node, List<Integer> list)
+		{
+			Node temp = reverse[node];
+			Iterator<Integer> iterator = temp.adj.iterator();
+
+			temp.visited = true;
+			list.add(node);
+
+			while (iterator.hasNext())
+			{
+				int curr = iterator.next();
+
+				if (!reverse[curr].visited)
+					findSCC(curr, list);
 			}
 		}
 
-		System.out.println("The number of SCCs in the graph are : " + sCCCount + ", and they are : ");
-
-		for (int i = 0; i < sCCCount; i++)
-			System.out.println(sCC.get(i).toString());
-	}
-
-	static void createGraph()
-	{
-		nodes = new Node[numberOfNodes];
-		reverse = new Node[numberOfNodes];
-		System.out.println("Enter the edges : ");
-
-		for (int i = 0; i < numberOfEdges; i++)
+		class Node
 		{
-			int from, to;
+			int index, visitingTime, leavingTime;
+			boolean visited;
+			List<Integer> adj;
 
-			from = in.nextInt();
-			to = in.nextInt();
-
-			if (nodes[from] == null)
-				nodes[from] = new Node();
-
-			nodes[from].adj.add(to);
-
-			if (nodes[to] == null)
-				nodes[to] = new Node();
-
-			if (reverse[to] == null)
-				reverse[to] = new Node();
-
-			reverse[to].adj.add(from);
-
-			if (reverse[from] == null)
-				reverse[from] = new Node();
-		}
-	}
-
-	static void dfs(int node)
-	{
-		Node temp = nodes[node];
-
-		temp.visited = true;
-		temp.visitingTime = currentTime++;
-
-		Iterator<Integer> iterator = temp.adj.iterator();
-
-		while (iterator.hasNext())
-		{
-			int curr = iterator.next();
-
-			if (!nodes[curr].visited)
+			public Node(int index)
 			{
-				nodes[curr].parent = node;
-
-				dfs(curr);
+				this.index = index;
+				this.adj = new ArrayList<>();
 			}
+
 		}
 
-		temp.leavingTime = currentTime++;
-	}
-
-	static void findSCCs(int node)
-	{
-		Node temp = reverse[node];
-		Iterator<Integer> iterator = temp.adj.iterator();
-
-		temp.visited = true;
-
-		while (iterator.hasNext())
+		public Solver(Scanner in)
 		{
-			int curr = iterator.next();
-
-			if (!reverse[curr].visited)
-			{
-				sCC.get(sCCCount).add(curr);
-				findSCCs(curr);
-			}
-		}
-	}
-
-	static class Node
-	{
-		int parent, visitingTime, leavingTime;
-		boolean visited;
-		List<Integer> adj;
-
-		public Node()
-		{
-			parent = -1;
-			adj = new ArrayList<>();
+			this.in = in;
 		}
 
 	}
@@ -161,5 +163,6 @@ public class SCC
 3 7
 7 3
 6 7
+: {0}, {1, 4, 5}, {2, 6}, {7, 3}
 
  */

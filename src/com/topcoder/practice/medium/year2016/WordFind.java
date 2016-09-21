@@ -1,245 +1,176 @@
 package com.topcoder.practice.medium.year2016;
 
-import java.awt.*;
-import java.util.HashMap;
-
-/**
- * Created by rahulkhairwar on 06/04/16.
- */
 public class WordFind
 {
-	static int rows, columns;
-	static char[][] box;
 	static Node root;
-	static Point foundPosition;
-	static String[] answer;
 
 	public static void main(String[] args)
 	{
-		String[] grid = {"rahul", "abort", "hello", "urock", "lions", "sucks"};
-		String[] wordList = {"rahul", "he", "ock", "ion", "rahuls", "hel", "rlcn", "ltokss", "lu", "aolk", "l",
-				"rahool"};
+		String[] grid = {"RAHUL", "ABORT", "HELLO", "UROCK", "LIONS", "SUCKS"};
+		String[] wordList =
+				{"RAHUL", "HE", "OCK", "ION", "RAHULS", "HEL", "RLCN", "LTOKSS", "LU", "AOLK", "L", "RAHOOL"};
 
-		findWords(grid, wordList);
+		String[] answers = findWords(grid, wordList);
+
+		for (int i = 0; i < answers.length; i++)
+			System.out.println("i : " + i + ", word : " + wordList[i] + ", pos : " + answers[i]);
 	}
 
-	static String[] findWords(String[] grid, String[] wordList)
+	public static String[] findWords(String[] grid, String[] wordList)
 	{
-		rows = grid.length;
-		columns = grid[0].length();
-		box = new char[rows][];
-		root = new Node(new HashMap<>());
-
-		for (int i = 0; i < rows; i++)
-			box[i] = grid[i].toCharArray();
-
-		for (int i = 0; i < rows; i++)
-		{
-			String curr = "";
-
-			for (int j = columns - 1; j >= 0; j--)
-			{
-				curr = "" + box[i][j] + curr;
-//				System.out.println("**** calling insert on word : " + curr);
-				root = insertWord(root, curr, curr.length(), 0, i, j, 2);
-			}
-		}
-
-		for (int i = 0; i < columns; i++)
-		{
-			String curr = "";
-
-			for (int j = rows - 1; j >= 0; j--)
-			{
-				curr = "" + box[j][i] + curr;
-//				System.out.println("$$$$ calling insert on word : " + curr);
-				root = insertWord(root, curr, curr.length(), 0, j, i, 1);
-			}
-		}
-
-		int j, k;
-
-		for (int i = 0; i < columns; i++)
-		{
-			String curr = "";
-
-			for (j = i, k = rows - 1; j >= 0 && k >= 0; j--, k--)
-			{
-				curr = "" + box[k][j] + curr;
-
-//				System.out.println("@@@@ calling insert on word : " + curr);
-				root = insertWord(root, curr, curr.length(), 0, k, j, 3);
-			}
-		}
-
-		for (int i = 0; i < rows - 1; i++)
-		{
-			String curr = "";
-
-			for (j = rows - 2 - i, k = columns - 1; j >= 0 && k >= 0; j--, k--)
-			{
-				curr = "" + box[j][k] + curr;
-//				System.out.println("%%%% calling insert on word : " + curr);
-				root = insertWord(root, curr, curr.length(), 0, j, k, 3);
-			}
-		}
+		insertWords(grid);
 
 		int len = wordList.length;
-		answer = new String[len];
+		Triplet[] triplets = new Triplet[len];
+
+		for (int i = 0; i < len; i++)
+			triplets[i] = find(root, wordList[i], wordList[i].length(), 0);
+
+		String[] answers = new String[len];
 
 		for (int i = 0; i < len; i++)
 		{
-			answer[i] = "";
-			if (contains(root, wordList[i], wordList[i].length(), 0))
-			{
-				if (foundPosition == null)
-					System.out.println("******** " + wordList[i] + " found but null!!");
-				else
-					answer[i] = "" + foundPosition.x + " " + foundPosition.y;
-			}
+			if (triplets[i].type == 1)
+				answers[i] = "" + triplets[i].row + " " + (triplets[i].col - wordList[i].length() + 1);
+			else if (triplets[i].type == 2)
+				answers[i] = "" + (triplets[i].row - wordList[i].length() + 1) + " " + triplets[i].col;
+			else if (triplets[i].type == 3)
+				answers[i] = "" + (triplets[i].row - wordList[i].length() + 1) + " " + (triplets[i].col - wordList[i]
+						.length() + 1);
 			else
-				answer[i] = "";
-
-			System.out.println("i : " + i + ", word : " + wordList[i] + ", answer[i] : " + answer[i]);
+				answers[i] = "";
 		}
 
-		return answer;
+		return answers;
 	}
 
-	static boolean contains(Node node, String word, int length, int index)
+	public static void insertWords(String[] grid)
 	{
-		int pos = word.charAt(index) - 'a';
-		Node temp = node.next[pos];
+		int n = grid.length;
+		int len = grid[0].length();
+		root = new Node();
 
-		if (index == length - 1 && temp.isWord)
-			return true;
-
-		if (temp == null)
-			return false;
-		else
+		// right
+		for (int i = 0; i < n; i++)
 		{
-			boolean containsWord = contains(temp, word, length, index + 1);
+			for (int j = 0; j < len; j++)
+				root = insert(root, grid[i].substring(j, len), len - j, 0, 1, i, j);
+		}
 
-			if (containsWord)
+		// down
+		for (int i = 0; i < len; i++)
+		{
+			String curr = "";
+
+			for (int j = 0; j < n; j++)
+				curr += grid[j].charAt(i);
+
+			for (int j = 0; j < n; j++)
+				root = insert(root, curr.substring(j, n), n - j, 0, 2, j, i);
+		}
+
+		// down-right
+		for (int i = 0; i < n; i++)
+		{
+			String curr = "";
+
+			for (int j = i, k = 0; j < n && k < len; j++, k++)
+				curr += grid[j].charAt(k);
+
+			int length = curr.length();
+
+			for (int j = 0; j < length; j++)
+				root = insert(root, curr.substring(j, length), length - j, 0, 3, i + j, j);
+		}
+
+		for (int i = 1; i < n; i++)
+		{
+			String curr = "";
+
+			for (int j = 0, k = i; j < n && k < len; j++, k++)
+				curr += grid[j].charAt(k);
+
+			if (curr.length() > 0)
 			{
-//				System.out.println("word : " + word + ", index : " + index);
-				if (index == 0)
-					foundPosition = temp.positionsAt.get(word);
+				int length = curr.length();
 
-				return true;
+				for (int j = 0; j < length; j++)
+					root = insert(root, curr.substring(j, length), length - j, 0, 3, j, i + j);
 			}
-			else
-				return false;
 		}
 	}
 
-	/**
-	 * @param node the node into which the word has to be added
-	 * @param word the word to be added to the trie
-	 * @param length the length of the word
-	 * @param index the index of the current letter to be added
-	 * @param row the row where the current letter occurs
-	 * @param column the column where the current letter occurs
-	 * @param type   <br />1 => row<br /> 2 => column<br /> 3 => diagonal
-	 * @return the changed node
-	 */
-	static Node insertWord(Node node, String word, int length, int index, int row, int column, int type)
+	// types :
+	// 1 = right
+	// 2 = down
+	// 3 = down-right
+	public static Node insert(Node node, String word, int length, int index, int type, int row, int col)
 	{
-//		System.out.println("word : " + word + ", row : " + row + ", col : " + column);
-		int pos = word.charAt(index) - 'a';
+		int pos = word.charAt(index) - 'A';
 		Node temp = node.next[pos];
 
 		if (temp == null)
-			temp = new Node(new HashMap<>());
+			temp = new Node();
 
 		temp.isWord = true;
+		temp.row = row;
+		temp.col = col;
+		temp.type = type;
 
-		Point prevPos = temp.positionsAt.get(word);
-
-		if (prevPos == null)
-			temp.positionsAt.put(word, new Point(row, column));
+		if (type == 1)
+			col++;
+		else if (type == 2)
+			row++;
 		else
 		{
-			if (row == prevPos.x)
-			{
-				if (column < prevPos.y)
-					temp.positionsAt.put(word, new Point(row, column));
-			}
-			else if (row < prevPos.x)
-				temp.positionsAt.put(word, new Point(row, column));
+			row++;
+			col++;
 		}
 
 		if (index < length - 1)
-		{
-			if (type == 1) // column
-				temp = insertWord(temp, word, length, index + 1, row + 1, column, 1);
-			else if (type == 2) // row
-				temp = insertWord(temp, word, length, index + 1, row, column + 1, 2);
-			else // diagonal
-				temp = insertWord(temp, word, length, index + 1, row + 1, column + 1, 3);
-		}
+			temp = insert(temp, word, length, index + 1, type, row, col);
 
 		node.next[pos] = temp;
 
 		return node;
 	}
 
+	public static Triplet find(Node node, String word, int length, int index)
+	{
+		int pos = word.charAt(index) - 'A';
+		Node temp = node.next[pos];
+
+		if (temp == null)
+			return new Triplet(-1, -1, -1);
+
+		if (index == length - 1 && temp.isWord)
+			return new Triplet(temp.type, temp.row, temp.col);
+
+		return find(temp, word, length, index + 1);
+	}
+
 	static class Node
 	{
-		Node[] next;
 		boolean isWord;
-		HashMap<String, Point> positionsAt;
+		int row, col, type;
+		Node[] next;
 
-		public Node(HashMap<String, Point> positionsAt)
+		public Node()
 		{
-			this.positionsAt = positionsAt;
 			next = new Node[26];
 		}
 
 	}
 
-	static class CMath
+	static class Triplet
 	{
-		static long power(long number, long power)
+		int type, row, col;
+
+		public Triplet(int type, int row, int col)
 		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
+			this.type = type;
+			this.row = row;
+			this.col = col;
 		}
 
 	}

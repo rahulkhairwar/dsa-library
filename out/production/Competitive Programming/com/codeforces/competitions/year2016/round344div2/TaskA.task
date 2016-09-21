@@ -1,0 +1,21 @@
+5 TaskA
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+64 src/com/codeforces/competitions/year2016/jantomarch/round344div2
+16 -Xmx256m -Xss64m
+4 Main
+66 TaskA
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.03.03
+0 
+1
+0 
+0 
+0
+0

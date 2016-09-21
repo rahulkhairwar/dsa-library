@@ -14,7 +14,7 @@ class Japan
 		OutputWriter out = new OutputWriter(System.out);
 
 		Solver solver = new Solver(in, out);
-		solver.solve(1);
+		solver.solve();
 
 		out.flush();
 
@@ -35,7 +35,7 @@ class Japan
 			this.out = out;
 		}
 
-		void solve(int testNumber)
+		void solve()
 		{
 			t = in.nextInt();
 
@@ -484,58 +484,54 @@ class Japan
 
 	}
 
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-	}
-
 }
+
+/*
+
+1
+4 5 4
+2 4
+2 4
+3 1
+2 5
+
+1
+6 5 12
+6 2
+6 2
+3 4
+6 2
+6 2
+3 4
+3 1
+3 5
+3 5
+3 1
+3 1
+3 5
+
+1
+5 5 10
+2 5
+3 1
+3 2
+3 3
+3 4
+3 5
+4 5
+5 1
+5 4
+5 5
+
+1
+3 3 8
+1 1
+1 1
+1 1
+2 1
+3 1
+1 2
+1 3
+1 3
+
+ */

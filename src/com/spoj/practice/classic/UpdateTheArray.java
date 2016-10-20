@@ -71,7 +71,7 @@ class UpdateTheArray
 		}
 
 		/**
-		 * Soluting using BIT. This solution has a complexity of O(n log n).
+		 * Soluting using BIT. This solution has arr complexity of O(n log n).
 		 */
 		void solve2()
 		{

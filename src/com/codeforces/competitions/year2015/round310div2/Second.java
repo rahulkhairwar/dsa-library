@@ -12,34 +12,33 @@ import java.util.InputMismatchException;
 public final class Second
 {
 	private static int n, a[];
-	private static InputReader reader;
-	private static OutputWriter writer;
+	private static InputReader in;
+	private static OutputWriter out;
 	
 	public static void main(String[] args)
 	{
 		Second second = new Second();
 		
-		reader = second.new InputReader(System.in);
-		writer = second.new OutputWriter(System.out);
+		in = second.new InputReader(System.in);
+		out = second.new OutputWriter(System.out);
 		
 		getAttributes();
 		
-		writer.flush();
+		out.flush();
 		
-		reader.close();
-		writer.close();
+		in.close();
+		out.close();
 	}
 	
 	public static void getAttributes()
 	{
-		n = reader.nextInt();
-		
+		n = in.nextInt();
 		a = new int[n];
 		
 		boolean isReal = true;
 		
 		for (int i = 0; i < n; i++)
-			a[i] = reader.nextInt();
+			a[i] = in.nextInt();
 		
 		int r = n - a[0];
 		int cmp;
@@ -77,9 +76,9 @@ public final class Second
 		}
 		
 		if (isReal)
-			writer.println("Yes");
+			out.println("Yes");
 		else
-			writer.println("No");
+			out.println("No");
 	}
 	
 	class InputReader

@@ -39,7 +39,7 @@ public final class Matrix
 			for (int i = 0; i < n; i++)
 				arr[i] = in.nextInt();
 
-			System.out.println("Enter the range [a, b] : ");
+			System.out.println("Enter the range [arr, b] : ");
 			a = in.nextInt();
 			b = in.nextInt();
 
@@ -66,7 +66,7 @@ public final class Matrix
 				{
 					int y = x[j] - (i > 0 ? x[i - 1] : 0);
 
-					if (a <= y && y <= b)
+					if (arr <= y && y <= b)
 						ans++;
 				}
 			}

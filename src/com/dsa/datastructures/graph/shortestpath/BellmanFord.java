@@ -3,11 +3,11 @@ package com.dsa.datastructures.graph.shortestpath;
 import java.util.*;
 
 /**
- * Created by rahulkhairwar on 04/02/16.
- * <br /><br />
+ * An implementation of Bellman Ford Algorithm.
+ * <br />
  * Hackerrank Question <a href="https://www.hackerrank.com/challenges/dijkstrashortreach">link</a>
  * <br />
- * Just to check. And, storing the Graph as a Graph object with edges having an in-a relationship
+ * P.S. : Storing the Graph as a Graph object with edges having an in-a relationship
  * with the graph is much faster than storing the graph as Adjacency List of edges.
  */
 public class BellmanFord
@@ -49,7 +49,7 @@ public class BellmanFord
 		for (int i = 0; i < nodes; i++)
 		{
 			if (i == start)
-				continue;
+				;
 			else
 			{
 				if (distance[i] == INFINITY)

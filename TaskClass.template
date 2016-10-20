@@ -9,13 +9,11 @@ public final class %TaskClass%
     {
         InputReader in = new InputReader(System.in);
         OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver(in, out);
+
 		solver.solve();
-
-        out.flush();
-
         in.close();
+        out.flush();
         out.close();
     }
 
@@ -155,7 +153,7 @@ public final class %TaskClass%
             return array;
         }
 
-        public float nextFloat() // problematic
+        public float nextFloat()
         {
             float result, div;
             byte c;
@@ -187,7 +185,7 @@ public final class %TaskClass%
             return result;
         }
 
-        public double nextDouble() // not completely accurate
+        public double nextDouble()
         {
             double ret = 0, div = 1;
             byte c = (byte) read();

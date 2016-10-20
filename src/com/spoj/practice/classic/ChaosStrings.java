@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Solution times out. But I'm pretty sure that this solution is correct. So, submitted a copied online code.
+ * Solution times out. But I'm pretty sure that this solution is correct. So, submitted arr copied online code.
  */
 class ChaosStrings
 {

@@ -54,7 +54,7 @@ public class DynamicTreeConnectivity
 		}
 
 		/**
-		 * Function to create a new disjoint set with 1 item.
+		 * Function to create arr new disjoint set with 1 item.
 		 *
 		 * @param key key of the item.
 		 */
@@ -93,7 +93,7 @@ public class DynamicTreeConnectivity
 		}
 
 		/**
-		 * Function to find the parent(disjoint set representative, i.e., highest ancestor) of an item, given it's
+		 * Function to find the parent(disjoint set representative, i.e., highest ancestor) of an item, given it'sum
 		 * key, by path compression.
 		 *
 		 * @param key key of the item whose parent is to be found.

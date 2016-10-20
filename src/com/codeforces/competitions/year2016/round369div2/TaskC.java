@@ -3,6 +3,9 @@ package com.codeforces.competitions.year2016.round369div2;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Really good 3D DP question. Not too tough really, but I struggled a lot with it :P.
+ */
 public final class TaskC
 {
 	public static void main(String[] args)
@@ -21,10 +24,10 @@ public final class TaskC
 
 	static class Solver
 	{
-		static final int INFINITY = Integer.MAX_VALUE;
+		static final long INFINITY = (long) 1e16;
 		int n, m, k;
 		int[] colour;
-		int[][] price;
+		int[][] cost;
 		long[][][] dp;
 		InputReader in;
 		OutputWriter out;
@@ -34,95 +37,63 @@ public final class TaskC
 			n = in.nextInt();
 			m = in.nextInt();
 			k = in.nextInt();
-			colour = new int[n + 1];
-			price = new int[n + 1][m + 1];
+			colour = new int[n];
+			cost = new int[n][m + 1];
 			dp = new long[n + 1][k + 1][m + 1];
 
-			for (int i = 1; i <= n; i++)
+			for (int i = 0; i < n; i++)
 				colour[i] = in.nextInt();
 
-			for (int i = 1; i <= n; i++)
+			for (int i = 0; i < n; i++)
 				for (int j = 1; j <= m; j++)
-					price[i][j] = in.nextInt();
+					cost[i][j] = in.nextInt();
 
 			for (int i = 0; i <= n; i++)
 				for (int j = 0; j <= k; j++)
-					Arrays.fill(dp[i][j], INFINITY);
+					Arrays.fill(dp[i][j], -1);
+
+			long min = find(0, 0, 0);
+
+			if (min == INFINITY)
+				out.println(-1);
+			else
+				out.println(min);
 		}
 
 		long find(int index, int blocks, int prev)
 		{
-			if (index == 0)
-			{
-				if (colour[0] == 0)
-				{
+			if (blocks > k)
+				return INFINITY;
 
+			if (index == n)
+				return blocks == k ? 0 : INFINITY;
+
+			if (dp[index][blocks][prev] != -1)
+				return dp[index][blocks][prev];
+
+			if (colour[index] == 0)
+			{
+				long min = INFINITY;
+
+				for (int i = 1; i <= m; i++)
+				{
+					if (prev == i)
+						min = Math.min(min, cost[index][i] + find(index + 1, blocks, i));
+					else
+						min = Math.min(min, cost[index][i] + find(index + 1, blocks + 1, i));
 				}
+
+				dp[index][blocks][prev] = min;
+			}
+			else
+			{
+				if (prev == colour[index])
+					dp[index][blocks][prev] = find(index + 1, blocks, prev);
+				else
+					dp[index][blocks][prev] = find(index + 1, blocks + 1, colour[index]);
 			}
 
-			return 0;
-		}
-
-		void solve2()
-		{
-			n = in.nextInt();
-			m = in.nextInt();
-			k = in.nextInt();
-			colour = new int[n + 1];
-			price = new int[n + 1][m + 1];
-			dp = new long[n + 1][k + 1][m + 1];
-			// dp[i][j][k] stores the minimum cost to colour the first i trees such that they have beauty(blocks) j, and
-			// the i-th tree is coloured with colour k.
-
-			for (int i = 1; i <= n; i++)
-				colour[i] = in.nextInt();
-
-			for (int i = 1; i <= n; i++)
-				for (int j = 1; j <= m; j++)
-					price[i][j] = in.nextInt();
-
-			for (int i = 0; i <= n; i++)
-				for (int j = 0; j <= k; j++)
-					Arrays.fill(dp[i][j], INFINITY);
-
-			Arrays.fill(dp[0][0], 0);
-
-			for (int i = 1; i <= n; i++)
-			{
-				for (int j = 1; j <= k; j++)
-				{
-					if (colour[i] == 0)
-					{
-						for (int p = 1; p <= m; p++)
-						{
-							dp[i][j][p] = Math.min(dp[i][j][p], dp[i - 1][j][p] + price[i][p]);
-
-							for (int q = 1; q <= m; q++)
-							{
-//								if (q != )
-							}
-						}
-					}
-				}
-			}
-
-			System.out.println("dp :");
-
-			for (int i = 0; i <= n; i++)
-			{
-				System.out.println("i : " + i);
-
-				for (int j = 0; j <= k; j++)
-				{
-					System.out.print("\tj : " + j + "\n\t");
-
-					for (int l = 0; l <= m; l++)
-					{
-						System.out.print(dp[i][j][l] + " ");
-					}
-					System.out.println();
-				}
-			}
+			return dp[index][blocks][prev];
 		}
 
 		public Solver(InputReader in, OutputWriter out)
@@ -490,60 +461,6 @@ public final class TaskC
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
 		}
 
 	}

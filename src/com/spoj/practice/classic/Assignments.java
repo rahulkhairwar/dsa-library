@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 
 /**
  * Got TLE in Java (SPOJ, why you do this? :( ). Solved in C++ (same folder > Assignments.cpp).
- * Question <a href="http://www.spoj.com/problems/ASSIGN/">link</a>
+ * Question <arr href="http://www.spoj.com/problems/ASSIGN/">link</arr>
  */
 class Assignments
 {

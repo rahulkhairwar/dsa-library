@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 
-/**
- * Created by rahulkhairwar on 08/02/16.
- */
 public final class Flowers
 {
 	static int t, k, a, b;

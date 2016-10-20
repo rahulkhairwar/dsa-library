@@ -13,28 +13,28 @@ public final class First
 {
 	private static int n, c0, c1;
 	private static String s;
-	private static InputReader reader;
-	private static OutputWriter writer;
+	private static InputReader in;
+	private static OutputWriter out;
 	
 	public static void main(String[] args)
 	{
 		First first = new First();
 		
-		reader = first.new InputReader(System.in);
-		writer = first.new OutputWriter(System.out);
+		in = first.new InputReader(System.in);
+		out = first.new OutputWriter(System.out);
 		
 		getAttributes();
 		
-		writer.flush();
+		out.flush();
 		
-		reader.close();
-		writer.close();
+		in.close();
+		out.close();
 	}
 	
 	public static void getAttributes()
 	{
-		n = reader.nextInt();
-		s = reader.next();
+		n = in.nextInt();
+		s = in.next();
 		
 		for (int i = 0; i < n; i++)
 		{
@@ -44,9 +44,9 @@ public final class First
 				c1++;
 		}
 		
-		int small = (int) Math.min(c0, c1);
+		int small = Math.min(c0, c1);
 		
-		writer.println(n - (2 * small));
+		out.println(n - (2 * small));
 	}
 	
 	class InputReader

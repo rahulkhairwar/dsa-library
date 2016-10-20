@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.InputMismatchException;
 
 /**
- * Question <a href="http://www.spoj.com/problems/RMQSQ/">link</a>
+ * Question <arr href="http://www.spoj.com/problems/RMQSQ/">link</arr>
  */
 class RangeMinimumQuery
 {

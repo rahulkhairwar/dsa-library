@@ -5,298 +5,451 @@ import java.util.*;
 
 public final class TaskD
 {
-    public static void main(String[] args)
-    {
-        InputReader in = new InputReader(System.in);
-        OutputWriter out = new OutputWriter(System.out);
-
+	public static void main(String[] args)
+	{
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
 		Solver solver = new Solver(in, out);
+
 		solver.solve();
+		out.flush();
+		in.close();
+		out.close();
+	}
 
-        out.flush();
-
-        in.close();
-        out.close();
-    }
-
-    static class Solver
-    {
-        int n, arr[];
-        InputReader in;
-        OutputWriter out;
+	static class Solver
+	{
+		static final long INFINITY = (long) 1e12;
+		int v, e, l, s, t;
+		long need;
+		Edge[] edges;
+		long[] dist1, dist2;
+		List<Integer>[] adj;
+		InputReader in;
+		OutputWriter out;
 
 		void solve()
 		{
-			n = in.nextInt();
+			v = in.nextInt();
+			e = in.nextInt();
+			l = in.nextInt();
+			s = in.nextInt();
+			t = in.nextInt();
+			edges = new Edge[e];
+			dist1 = new long[v];
+			dist2 = new long[v];
+			adj = new ArrayList[v];
+
+			for (int i = 0; i < v; i++)
+				adj[i] = new ArrayList<>();
+
+			for (int i = 0; i < e; i++)
+			{
+				int from, to, weight;
+
+				from = in.nextInt();
+				to = in.nextInt();
+				weight = in.nextInt();
+
+				if (weight == 0)
+					edges[i] = new Edge(from, to, 1, true);
+				else
+					edges[i] = new Edge(from, to, weight, false);
+
+				adj[from].add(i);
+				adj[to].add(i);
+			}
+
+			dijkstra();
+
+			if (dist1[t] > l)
+				out.println("NO");
+			else
+			{
+				need = l - dist1[t];
+				dijkstra2();
+
+				if (dist2[t] < l)
+					out.println("NO");
+				else
+				{
+					out.println("YES");
+
+					for (int i = 0; i < e; i++)
+						out.println(edges[i].from + " " + edges[i].to + " " + edges[i].weight);
+				}
+			}
 		}
 
-        public Solver(InputReader in, OutputWriter out)
-        {
-        	this.in = in;
-        	this.out = out;
-        }
+		void dijkstra()
+		{
+			TreeSet<Integer> set = new TreeSet<>(new Comparator<Integer>()
+			{
+				@Override public int compare(Integer one, Integer two)
+				{
+					if (one.equals(two))
+						return 0;
+
+					if (dist1[one] == dist1[two])
+						return Integer.compare(one, two);
+
+					return Long.compare(dist1[one], dist1[two]);
+				}
+			});
+
+			Arrays.fill(dist1, INFINITY);
+
+			dist1[s] = 0;
+			set.add(s);
+
+			while (set.size() > 0)
+			{
+				int curr = set.pollFirst();
+
+				for (int ed : adj[curr])
+				{
+					int to = edges[ed].getTo(curr);
+
+					if (dist1[to] > dist1[curr] + edges[ed].weight)
+					{
+						dist1[to] = dist1[curr] + edges[ed].weight;
+						set.add(to);
+					}
+				}
+			}
+		}
+
+		void dijkstra2()
+		{
+			TreeSet<Integer> set = new TreeSet<>(new Comparator<Integer>()
+			{
+				@Override public int compare(Integer one, Integer two)
+				{
+					if (one.equals(two))
+						return 0;
+
+					if (dist2[one] == dist2[two])
+						return Integer.compare(one, two);
+
+					return Long.compare(dist2[one], dist2[two]);
+				}
+			});
+
+			Arrays.fill(dist2, INFINITY);
+
+			dist2[s] = 0;
+			set.add(s);
+
+			while (set.size() > 0)
+			{
+				int curr = set.pollFirst();
+
+				for (int ed : adj[curr])
+				{
+					int to = edges[ed].getTo(curr);
+
+					if (edges[ed].erased && dist2[to] > dist2[curr] + edges[ed].weight
+							&& dist1[to] + need > dist2[curr] + edges[ed].weight)
+						edges[ed].weight = dist1[to] + need - dist2[curr];
+
+					if (dist2[to] > dist2[curr] + edges[ed].weight)
+					{
+						dist2[to] = dist2[curr] + edges[ed].weight;
+						set.add(to);
+					}
+				}
+			}
+		}
+
+		class Edge
+		{
+			int from, to;
+			long weight;
+			boolean erased;
+
+			public Edge(int from, int to, long weight, boolean erased)
+			{
+				this.from = from;
+				this.to = to;
+				this.weight = weight;
+				this.erased = erased;
+			}
+
+			int getTo(int from)
+			{
+				return this.from + to - from;
+			}
+
+		}
+
+		public Solver(InputReader in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
 
 	}
 
-    static class InputReader
-    {
-        private InputStream stream;
-        private byte[] buf = new byte[1024];
-        private int curChar;
-        private int numChars;
-
-        public InputReader(InputStream stream)
-        {
-            this.stream = stream;
-        }
+	static class InputReader
+	{
+		private InputStream stream;
+		private byte[] buf = new byte[1024];
+		private int curChar;
+		private int numChars;
+
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
+
+		public int read()
+		{
+			if (numChars == -1)
+				throw new InputMismatchException();
 
-        public int read()
-        {
-            if (numChars == -1)
-                throw new InputMismatchException();
+			if (curChar >= numChars)
+			{
+				curChar = 0;
+				try
+				{
+					numChars = stream.read(buf);
+				}
+				catch (IOException e)
+				{
+					throw new InputMismatchException();
+				}
+				if (numChars <= 0)
+					return -1;
+			}
 
-            if (curChar >= numChars)
-            {
-                curChar = 0;
-                try
-                {
-                    numChars = stream.read(buf);
-                } catch (IOException e)
-                {
-                    throw new InputMismatchException();
-                }
-                if (numChars <= 0)
-                    return -1;
-            }
+			return buf[curChar++];
+		}
 
-            return buf[curChar++];
-        }
+		public int nextInt()
+		{
+			int c = read();
 
-        public int nextInt()
-        {
-            int c = read();
+			while (isSpaceChar(c))
+				c = read();
 
-            while (isSpaceChar(c))
-                c = read();
+			int sgn = 1;
 
-            int sgn = 1;
+			if (c == '-')
+			{
+				sgn = -1;
+				c = read();
+			}
 
-            if (c == '-')
-            {
-                sgn = -1;
-                c = read();
-            }
+			int res = 0;
 
-            int res = 0;
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
 
-            do
-            {
-                if (c < '0' || c > '9')
-                    throw new InputMismatchException();
+				res *= 10;
+				res += c & 15;
 
-                res *= 10;
-                res += c & 15;
+				c = read();
+			} while (!isSpaceChar(c));
 
-                c = read();
-            } while (!isSpaceChar(c));
+			return res * sgn;
+		}
 
-            return res * sgn;
-        }
+		public int[] nextIntArray(int arraySize)
+		{
+			int array[] = new int[arraySize];
 
-        public int[] nextIntArray(int arraySize)
-        {
-            int array[] = new int[arraySize];
+			for (int i = 0; i < arraySize; i++)
+				array[i] = nextInt();
 
-            for (int i = 0; i < arraySize; i++)
-                array[i] = nextInt();
+			return array;
+		}
 
-            return array;
-        }
+		public long nextLong()
+		{
+			int c = read();
 
-        public long nextLong()
-        {
-            int c = read();
+			while (isSpaceChar(c))
+				c = read();
 
-            while (isSpaceChar(c))
-                c = read();
+			int sign = 1;
 
-            int sign = 1;
+			if (c == '-')
+			{
+				sign = -1;
 
-            if (c == '-')
-            {
-                sign = -1;
+				c = read();
+			}
 
-                c = read();
-            }
+			long result = 0;
 
-            long result = 0;
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
 
-            do
-            {
-                if (c < '0' || c > '9')
-                    throw new InputMismatchException();
+				result *= 10;
+				result += c & 15;
 
-                result *= 10;
-                result += c & 15;
+				c = read();
+			} while (!isSpaceChar(c));
 
-                c = read();
-            } while (!isSpaceChar(c));
+			return result * sign;
+		}
 
-            return result * sign;
-        }
+		public long[] nextLongArray(int arraySize)
+		{
+			long array[] = new long[arraySize];
 
-        public long[] nextLongArray(int arraySize)
-        {
-            long array[] = new long[arraySize];
+			for (int i = 0; i < arraySize; i++)
+				array[i] = nextLong();
 
-            for (int i = 0; i < arraySize; i++)
-                array[i] = nextLong();
+			return array;
+		}
 
-            return array;
-        }
+		public float nextFloat() // problematic
+		{
+			float result, div;
+			byte c;
 
-        public float nextFloat() // problematic
-        {
-            float result, div;
-            byte c;
+			result = 0;
+			div = 1;
+			c = (byte) read();
 
-            result = 0;
-            div = 1;
-            c = (byte) read();
+			while (c <= ' ')
+				c = (byte) read();
 
-            while (c <= ' ')
-                c = (byte) read();
+			boolean isNegative = (c == '-');
 
-            boolean isNegative = (c == '-');
+			if (isNegative)
+				c = (byte) read();
 
-            if (isNegative)
-                c = (byte) read();
+			do
+			{
+				result = result * 10 + c - '0';
+			} while ((c = (byte) read()) >= '0' && c <= '9');
 
-            do
-            {
-                result = result * 10 + c - '0';
-            } while ((c = (byte) read()) >= '0' && c <= '9');
+			if (c == '.')
+				while ((c = (byte) read()) >= '0' && c <= '9')
+					result += (c - '0') / (div *= 10);
 
-            if (c == '.')
-                while ((c = (byte) read()) >= '0' && c <= '9')
-                    result += (c - '0') / (div *= 10);
+			if (isNegative)
+				return -result;
 
-            if (isNegative)
-                return -result;
+			return result;
+		}
 
-            return result;
-        }
+		public double nextDouble() // not completely accurate
+		{
+			double ret = 0, div = 1;
+			byte c = (byte) read();
 
-        public double nextDouble() // not completely accurate
-        {
-            double ret = 0, div = 1;
-            byte c = (byte) read();
+			while (c <= ' ')
+				c = (byte) read();
 
-            while (c <= ' ')
-                c = (byte) read();
+			boolean neg = (c == '-');
 
-            boolean neg = (c == '-');
+			if (neg)
+				c = (byte) read();
 
-            if (neg)
-                c = (byte) read();
+			do
+			{
+				ret = ret * 10 + c - '0';
+			} while ((c = (byte) read()) >= '0' && c <= '9');
 
-            do
-            {
-                ret = ret * 10 + c - '0';
-            } while ((c = (byte) read()) >= '0' && c <= '9');
+			if (c == '.')
+				while ((c = (byte) read()) >= '0' && c <= '9')
+					ret += (c - '0') / (div *= 10);
 
-            if (c == '.')
-                while ((c = (byte) read()) >= '0' && c <= '9')
-                    ret += (c - '0') / (div *= 10);
+			if (neg)
+				return -ret;
 
-            if (neg)
-                return -ret;
+			return ret;
+		}
 
-            return ret;
-        }
+		public String next()
+		{
+			int c = read();
 
-        public String next()
-        {
-            int c = read();
+			while (isSpaceChar(c))
+				c = read();
 
-            while (isSpaceChar(c))
-                c = read();
+			StringBuilder res = new StringBuilder();
 
-            StringBuilder res = new StringBuilder();
+			do
+			{
+				res.appendCodePoint(c);
 
-            do
-            {
-                res.appendCodePoint(c);
+				c = read();
+			} while (!isSpaceChar(c));
 
-                c = read();
-            } while (!isSpaceChar(c));
+			return res.toString();
+		}
 
-            return res.toString();
-        }
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
 
-        public boolean isSpaceChar(int c)
-        {
-            return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-        }
+		public String nextLine()
+		{
+			int c = read();
 
-        public String nextLine()
-        {
-            int c = read();
+			StringBuilder result = new StringBuilder();
 
-            StringBuilder result = new StringBuilder();
+			do
+			{
+				result.appendCodePoint(c);
 
-            do
-            {
-                result.appendCodePoint(c);
+				c = read();
+			} while (!isNewLine(c));
 
-                c = read();
-            } while (!isNewLine(c));
+			return result.toString();
+		}
 
-            return result.toString();
-        }
+		public boolean isNewLine(int c)
+		{
+			return c == '\n';
+		}
 
-        public boolean isNewLine(int c)
-        {
-            return c == '\n';
-        }
+		public void close()
+		{
+			try
+			{
+				stream.close();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
 
-        public void close()
-        {
-            try
-            {
-                stream.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
+	}
 
-    }
+	static class OutputWriter
+	{
+		private PrintWriter writer;
 
-    static class OutputWriter
-    {
-        private PrintWriter writer;
+		public OutputWriter(OutputStream stream)
+		{
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)));
+		}
 
-        public OutputWriter(OutputStream stream)
-        {
-            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-                    stream)));
-        }
+		public OutputWriter(Writer writer)
+		{
+			this.writer = new PrintWriter(writer);
+		}
 
-        public OutputWriter(Writer writer)
-        {
-            this.writer = new PrintWriter(writer);
-        }
+		public void println(int x)
+		{
+			writer.println(x);
+		}
 
-        public void println(int x)
-        {
-            writer.println(x);
-        }
-
-        public void print(int x)
-        {
-            writer.print(x);
-        }
+		public void print(int x)
+		{
+			writer.print(x);
+		}
 
 		public void println(char x)
 		{
@@ -308,147 +461,93 @@ public final class TaskD
 			writer.print(x);
 		}
 
-        public void println(int array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                println(array[i]);
-        }
+		public void println(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
 
-        public void print(int array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                print(array[i] + " ");
-        }
+		public void print(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i] + " ");
+		}
 
-        public void println(long x)
-        {
-            writer.println(x);
-        }
+		public void println(long x)
+		{
+			writer.println(x);
+		}
 
-        public void print(long x)
-        {
-            writer.print(x);
-        }
+		public void print(long x)
+		{
+			writer.print(x);
+		}
 
-        public void println(long array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                println(array[i]);
-        }
+		public void println(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
 
-        public void print(long array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                print(array[i]);
-        }
+		public void print(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i]);
+		}
 
-        public void println(float num)
-        {
-            writer.println(num);
-        }
+		public void println(float num)
+		{
+			writer.println(num);
+		}
 
-        public void print(float num)
-        {
-            writer.print(num);
-        }
+		public void print(float num)
+		{
+			writer.print(num);
+		}
 
-        public void println(double num)
-        {
-            writer.println(num);
-        }
+		public void println(double num)
+		{
+			writer.println(num);
+		}
 
-        public void print(double num)
-        {
-            writer.print(num);
-        }
+		public void print(double num)
+		{
+			writer.print(num);
+		}
 
-        public void println(String s)
-        {
-            writer.println(s);
-        }
+		public void println(String s)
+		{
+			writer.println(s);
+		}
 
-        public void print(String s)
-        {
-            writer.print(s);
-        }
+		public void print(String s)
+		{
+			writer.print(s);
+		}
 
-        public void println()
-        {
-            writer.println();
-        }
+		public void println()
+		{
+			writer.println();
+		}
 
-        public void printSpace()
-        {
-            writer.print(" ");
-        }
+		public void printSpace()
+		{
+			writer.print(" ");
+		}
 
 		public void printf(String format, Object args)
 		{
 			writer.printf(format, args);
 		}
 
-        public void flush()
-        {
-            writer.flush();
-        }
-
-        public void close()
-        {
-            writer.close();
-        }
-
-    }
-
-	static class CMath
-	{
-		static long power(long number, long power)
+		public void flush()
 		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
+			writer.flush();
 		}
 
-		static long modPower(long number, long power, long mod)
+		public void close()
 		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
+			writer.close();
 		}
 
 	}

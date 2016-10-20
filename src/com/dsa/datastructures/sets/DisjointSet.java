@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created by rahulkhairwar on 21/05/16.
+ * An implementation of Disjoint Set Union data structure.
  */
 public class DisjointSet
 {
@@ -12,14 +12,11 @@ public class DisjointSet
 	{
 		Scanner in = new Scanner(System.in);
 		OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver();
 
-		solver.solve(1, in, out);
-
-		out.flush();
-
+		solver.solve(in, out);
 		in.close();
+		out.flush();
 		out.close();
 	}
 
@@ -29,7 +26,7 @@ public class DisjointSet
 		Scanner in;
 		OutputWriter out;
 
-		void solve(int testNumber, Scanner in, OutputWriter out)
+		void solve(Scanner in, OutputWriter out)
 		{
 			this.in = in;
 			this.out = out;
@@ -128,7 +125,8 @@ public class DisjointSet
 
 		/**
 		 * Function to find the parent(disjoint set representative, i.e., highest ancestor) of an item, given it's
-		 * key, by path compression.
+		 * key. Also, while finding the parent, this function does path compression for all items on the way to the
+		 * parent.
 		 *
 		 * @param key key of the item whose parent is to be found.
 		 * @return the found parent of the item.
@@ -146,6 +144,14 @@ public class DisjointSet
 
 				return parent;
 			}
+		}
+
+		Node findParent(Node node)
+		{
+			if (node.parent == node)
+				return node;
+			else
+				return node.parent = findParent(node.parent);
 		}
 
 		class Node
@@ -271,52 +277,6 @@ public class DisjointSet
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
 		}
 
 	}

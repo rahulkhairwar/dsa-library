@@ -3,177 +3,178 @@ package com.codechef.practice.medium.year2016;
 import java.io.*;
 import java.util.*;
 
-/**
- * Created by rahulkhairwar on 25/06/16.
- */
 class ChefAndProblems
 {
 	public static void main(String[] args)
 	{
-		InputReader in = new InputReader(System.in);
+        InputReader in = new InputReader(System.in);
 		OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver(in, out);
 
-		solver.solve(1);
-
-		out.flush();
-
+		solver.solve();
 		in.close();
+		out.flush();
 		out.close();
 	}
 
 	static class Solver
 	{
-		int n, m, k, sqrtN, growth[], answers[];
-		TreeSet<Integer>[] treeSets;
-		Query[] queries;
+		int n, m, k;
+		int[] arr;
+		int[][] memo;
 		InputReader in;
 		OutputWriter out;
 
-		void solve(int testNumber)
+		void solve()
 		{
 			n = in.nextInt();
 			m = in.nextInt();
 			k = in.nextInt();
-			sqrtN = (int) Math.sqrt(n);
+			arr = new int[n];
 
-			growth = new int[n];
-			answers = new int[k];
-			treeSets = new TreeSet[m + 1];
+			List<Integer>[] pos = new List[m + 1];
 
 			for (int i = 0; i <= m; i++)
-				treeSets[i] = new TreeSet<>();
-
-			queries = new Query[k];
+				pos[i] = new ArrayList<>();
 
 			for (int i = 0; i < n; i++)
 			{
-				growth[i] = in.nextInt();
-				treeSets[growth[i]].add(i);
+				arr[i] = in.nextInt();
+				pos[arr[i]].add(i);
 			}
 
-			for (int i = 0; i < k; i++)
+			// keeping block size as sqrt(n) is slower than keeping it as 100. Probably because of the edge blocks
+			// that we have to iterate through completely. So, by this logic, block size of 10 would be even better,
+			// but then the pre computation cost and storage cost will be greater.
+//			int blockSize = (int) Math.sqrt(n);
+			int blockSize = 100;
+			int blocks = (n + blockSize - 1) / blockSize;
+			int[] found = new int[m + 1];
+
+			memo = new int[blocks + 1][blocks + 1];
+
+			for (int i = 0; i < n; i += blockSize)
 			{
-				int left, right;
+				Arrays.fill(found, -1);
+
+				int max = 0;
+				int x = i / blockSize;
+
+				for (int j = i; j < n; j++)
+				{
+					if (j % blockSize == 0)
+						memo[x][j / blockSize] = max;
+
+					if (found[arr[j]] == -1)
+						found[arr[j]] = j;
+					else
+						max = Math.max(max, j - found[arr[j]]);
+				}
+
+				memo[x][blocks] = max;
+			}
+
+			while (k-- > 0)
+			{
+				int left, right, s, t;
 
 				left = in.nextInt() - 1;
-				right = in.nextInt() - 1;
+				right = in.nextInt();
+				s = (left + blockSize - 1) / blockSize;
+				t = right / blockSize;
 
-				queries[i] = new Query(i, left, right);
-			}
+				int answer = memo[s][t];
 
-			Arrays.sort(queries, new Comparator<Query>()
-			{
-				@Override public int compare(Query o1, Query o2)
+				s *= blockSize;
+				t *= blockSize;
+
+				if (s > t)
+					s = t;
+
+				for (int i = left; i < s; i++)
 				{
-					if (o1.blockNumber == o2.blockNumber)
-						return Integer.compare(o1.left, o2.left);
+					int x = searchRight(pos[arr[i]], right - 1);
 
-					return Integer.compare(o1.blockNumber, o2.blockNumber);
-				}
-			});
-
-			int left, right;
-
-			left = right = -1;
-
-			for (int i = 0; i < k; i++)
-			{
-/*				System.out.println("queryNumber : " + queries[i].queryNumber + ", q.left : " + queries[i].left + ", "
-						+ "q.right : " + queries[i].right + ", left : " + left + ", right : " + right);*/
-
-				while (right < queries[i].right)
-				{
-					right++;
-					add(right);
-				}
-
-				while (left > queries[i].left)
-				{
-					left--;
-					add(left);
-				}
-
-				while (left < queries[i].left)
-				{
-					remove(left);
-					left++;
-				}
-
-				while (right > queries[i].right)
-				{
-					remove(right);
-					right--;
-				}
-
-				int maxRange = 0;
-
-				for (int j = 1; j <= m; j++)
-				{
-					if (treeSets[j].size() < 2)
+					if (x == -1)
 						continue;
 
-//					System.out.println("i : " + i + ", j : " + j + ", treeSet[j] : " + treeSets[j].toString());
-					int min, max;
-
-					min = treeSets[j].first();
-					max = treeSets[j].last();
-
-					if (max - min > maxRange)
-						maxRange = max - min;
+					answer = Math.max(answer, pos[arr[i]].get(x) - i);
 				}
 
-				answers[queries[i].queryNumber] = maxRange;
-//				out.println(maxRange);
+				for (int i = right - 1; i >= t; i--)
+				{
+					int x = searchLeft(pos[arr[i]], left);
+
+					if (x == -1)
+						continue;
+
+					answer = Math.max(answer, i - pos[arr[i]].get(x));
+				}
+
+				out.println(answer);
 			}
-
-			for (int i = 0; i < k; i++)
-				out.println(answers[i]);
 		}
 
-		void add(int index)
+		int searchRight(List<Integer> pos, int val)
 		{
-			if (index < 0 || index >= n)
-				return;
+			int low, high, mid;
 
-			treeSets[growth[index]].add(index);
-		}
+			low = 0;
+			high = pos.size() - 1;
 
-		void remove(int index)
-		{
-			if (index < 0 || index >= n)
-				return;
-
-			treeSets[growth[index]].remove(index);
-		}
-
-		class Range
-		{
-			int growth, minLeft, maxRight, maxSizeRange;
-
-			public Range(int growth, int minLeft, int maxRight)
+			while (low <= high)
 			{
-				this.growth = growth;
-				this.minLeft = minLeft;
-				this.maxRight = maxRight;
-				maxSizeRange = maxRight - minLeft + 1;
+				mid = low + high >> 1;
+
+				if (pos.get(mid) == val)
+					return mid;
+
+				if (pos.get(mid) < val)
+				{
+					if (mid == pos.size() - 1)
+						return mid;
+
+					if (pos.get(mid + 1) > val)
+						return mid;
+
+					low = mid + 1;
+				}
+				else
+					high = mid - 1;
 			}
 
+			return -1;
 		}
 
-		class Query
+		int searchLeft(List<Integer> pos, int val)
 		{
-			int queryNumber, blockNumber, left, right;
+			int low, high, mid;
 
-			public Query(int queryNumber, int left, int right)
+			low = 0;
+			high = pos.size() - 1;
+
+			while (low <= high)
 			{
-				this.queryNumber = queryNumber;
-				this.left = left;
-				this.right = right;
-				blockNumber = left / sqrtN;
+				mid = low + high >> 1;
+
+				if (pos.get(mid) == val)
+					return mid;
+
+				if (pos.get(mid) > val)
+				{
+					if (mid == 0)
+						return mid;
+
+					if (pos.get(mid - 1) < val)
+						return mid;
+
+					high = mid - 1;
+				}
+				else
+					low = mid + 1;
 			}
 
+			return -1;
 		}
 
 		public Solver(InputReader in, OutputWriter out)
@@ -427,8 +428,7 @@ class ChefAndProblems
 
 		public OutputWriter(OutputStream stream)
 		{
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					stream)));
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)));
 		}
 
 		public OutputWriter(Writer writer)
@@ -532,58 +532,20 @@ class ChefAndProblems
 
 	}
 
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-	}
-
 }
+
+/*
+
+7 7 5
+4 5 6 6 5 7 4
+6 6
+5 6
+3 5
+3 7
+1 7
+
+7 7 1
+4 5 6 6 5 7 4
+3 5
+
+*/

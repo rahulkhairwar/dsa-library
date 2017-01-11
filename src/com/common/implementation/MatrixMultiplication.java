@@ -3,7 +3,7 @@ package com.common.implementation;
 import java.util.Scanner;
 
 /**
- * Created by rahulkhairwar on 03/02/16.
+ *
  */
 public class MatrixMultiplication
 {

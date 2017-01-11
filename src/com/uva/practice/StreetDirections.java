@@ -15,13 +15,10 @@ public class StreetDirections
 	{
 		InputReader in = new InputReader(System.in);
 		OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver(in, out);
 
 		solver.solve(1);
-
 		out.flush();
-
 		in.close();
 		out.close();
 	}
@@ -69,9 +66,7 @@ public class StreetDirections
 				};
 
 				createGraph();
-
 				Arrays.sort(allRoads, comparator);
-
 				dfs(0);
 
 				out.println(testNumber++ + "\n");

@@ -26,7 +26,7 @@ public class CanYouAnswerTheseQueries4
 	static class Solver
 	{
 		int t, n;
-//		InputReader in;
+//		IR in;
 //		OutputWriter out;
 //		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));

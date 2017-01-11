@@ -19,15 +19,14 @@ public final class First
 	public static void main(String[] args)
 	{
 		First first = new First();
-		
+
 		reader = first.new InputReader(System.in);
 		writer = first.new OutputWriter(System.out);
 		
 		getAttributes();
-		
-		writer.flush();
-		
+
 		reader.close();
+		writer.flush();
 		writer.close();
 	}
 	
@@ -42,20 +41,14 @@ public final class First
 			a[i] = reader.nextInt();
 		
 		b = Arrays.copyOf(a, a.length);
-		
 		Arrays.sort(b);
-		
-/*		System.out.println(Arrays.toString(a));
-		System.out.println(Arrays.toString(b));*/
-		
+
 		for (int i = 0; i < n; i++)
 		{
 			int place = binarySearch(a[i]);
 			int count = 0;
 			
-			// System.out.println(" jhdsgjk "+ place);
-			
-			while (place < n/* && b[place] == a[i]*/)
+			while (place < n)
 			{
 				if (b[place] > a[i])
 					count++;

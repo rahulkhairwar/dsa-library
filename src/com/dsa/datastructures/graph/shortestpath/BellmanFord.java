@@ -14,7 +14,7 @@ public class BellmanFord
 {
 	static final int INFINITY = Integer.MAX_VALUE;
 	static int nodes, edges;
-	static int[] distance, parent;
+	static int[] dist, par;
 	static Graph graph;
 	static List<Edge>[] list;
 	static Scanner in;
@@ -52,10 +52,10 @@ public class BellmanFord
 				;
 			else
 			{
-				if (distance[i] == INFINITY)
+				if (dist[i] == INFINITY)
 					System.out.print(-1 + " ");
 				else
-					System.out.print(distance[i] + " ");
+					System.out.print(dist[i] + " ");
 			}
 		}
 	}
@@ -77,10 +77,10 @@ public class BellmanFord
 				continue;
 			else
 			{
-				if (distance[i] == INFINITY)
+				if (dist[i] == INFINITY)
 					System.out.print(-1 + " ");
 				else
-					System.out.print(distance[i] + " ");
+					System.out.print(dist[i] + " ");
 			}
 		}
 	}
@@ -156,12 +156,12 @@ public class BellmanFord
 
 	static void calculateShortestPathsUsingList(int start)
 	{
-		distance = new int[nodes];
-		parent = new int[nodes];
+		dist = new int[nodes];
+		par = new int[nodes];
 
-		Arrays.fill(distance, INFINITY);
-		Arrays.fill(parent, -1);
-		distance[start] = 0;
+		Arrays.fill(dist, INFINITY);
+		Arrays.fill(par, -1);
+		dist[start] = 0;
 
 		for (int i = nodes - 1; i >= 0; i--)
 		{
@@ -176,10 +176,10 @@ public class BellmanFord
 				{
 					Edge curr = iterator.next();
 
-					if (distance[j] < INFINITY && distance[j] + curr.weight < distance[curr.toNode])
+					if (dist[j] < INFINITY && dist[j] + curr.weight < dist[curr.toNode])
 					{
-						distance[curr.toNode] = distance[j] + curr.weight;
-						parent[curr.toNode] = j;
+						dist[curr.toNode] = dist[j] + curr.weight;
+						par[curr.toNode] = j;
 					}
 				}
 			}
@@ -188,19 +188,19 @@ public class BellmanFord
 
 	static void calculateShortestPathsUsingGraph(int start)
 	{
-		distance = new int[nodes];
+		dist = new int[nodes];
 
-		Arrays.fill(distance, INFINITY);
-		distance[start] = 0;
+		Arrays.fill(dist, INFINITY);
+		dist[start] = 0;
 
 		for (int i = 1; i < nodes; i++)
 		{
 			for (int j = 0; j < 2 * edges; j++)
 			{
-				if (distance[graph.edges[j].from] < INFINITY && distance[graph.edges[j].from] + graph.edges[j].weight <
-						distance[graph.edges[j].to])
+				if (dist[graph.edges[j].from] < INFINITY && dist[graph.edges[j].from] + graph.edges[j].weight <
+						dist[graph.edges[j].to])
 				{
-					distance[graph.edges[j].to] = distance[graph.edges[j].from] + graph.edges[j].weight;
+					dist[graph.edges[j].to] = dist[graph.edges[j].from] + graph.edges[j].weight;
 					graph.parent[graph.edges[j].to] = graph.edges[j].from;
 				}
 			}

@@ -82,8 +82,7 @@ public class MaxSum
 		// in most cases, the maximum value of any combination shall be
 		// provided, and we might have to check if that particular maximum sum
 		// is possible or not, or some other variation of this concept.
-		boolean dp[][] = new boolean[countPositive + 1][countPositive
-				* maxValue + 1];
+		boolean dp[][] = new boolean[countPositive + 1][countPositive * maxValue + 1];
 
 		dp[0][0] = true;
 

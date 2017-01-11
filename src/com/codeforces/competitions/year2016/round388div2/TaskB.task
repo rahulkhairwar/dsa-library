@@ -1,0 +1,21 @@
+5 TaskB
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+53 src/com/codeforces/competitions/year2016/round388div2
+16 -Xmx256m -Xss64m
+4 Main
+55 com.codeforces.competitions.year2016.round388div2.TaskB
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2016.12.19
+0 
+1
+0 
+0 
+0
+0

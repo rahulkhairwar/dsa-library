@@ -26,9 +26,8 @@ public class SegmentTreeWithLazyPropagation
 
 		solve();
 
-		writer.flush();
-
 		reader.close();
+		writer.flush();
 		writer.close();
 	}
 
@@ -50,7 +49,7 @@ public class SegmentTreeWithLazyPropagation
 
 		buildTree(1, 0, sizeOfDataArray - 1);
 
-		int ch = 0;
+		int ch;
 
 		do
 		{
@@ -222,15 +221,6 @@ public class SegmentTreeWithLazyPropagation
 	/**
 	 * A class to store the minimum value in a particular node of the Segment
 	 * Tree, and if it is lazy or not.
-	 * 
-	 * <p>
-	 * <b>Attributes</b><br/>
-	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 * <b>minimum</b> the minimum value in the range of this node<br/>
-	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 * <b>update</b> the update value of all nodes in this node the node is lazy
-	 * if this value is != 0, and not otherwise
-	 * </p>
 	 */
 	static class Node
 	{

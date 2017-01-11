@@ -57,17 +57,13 @@ class InternetBandwidth
 					from = in.nextInt() - 1;
 					to = in.nextInt() - 1;
 					weight = in.nextInt();
-					edges[counter] = new Edge(to, weight);
-					edges[counter].oppEdge = counter + 2;
+					edges[counter] = new Edge(to, weight, counter + 2);
 					adj[from].add(counter++);
-					edges[counter] = new Edge(from, 0);
-					edges[counter].oppEdge = counter + 2;
+					edges[counter] = new Edge(from, 0, -1);
 					adj[to].add(counter++);
-					edges[counter] = new Edge(from, weight);
-					edges[counter].oppEdge = counter - 2;
+					edges[counter] = new Edge(from, weight, counter - 2);
 					adj[to].add(counter++);
-					edges[counter] = new Edge(to, 0);
-					edges[counter].oppEdge = counter - 2;
+					edges[counter] = new Edge(to, 0, -1);
 					adj[from].add(counter++);
 				}
 
@@ -92,11 +88,8 @@ class InternetBandwidth
 						if (curr == t)
 							break;
 
-						Iterator<Integer> iterator = adj[curr].iterator();
-
-						while (iterator.hasNext())
+						for (int ed : adj[curr])
 						{
-							int ed = iterator.next();
 							int to = edges[ed].to;
 							int weight = edges[ed].weight;
 
@@ -135,18 +128,11 @@ class InternetBandwidth
 
 				augment(par[node], Math.min(minEdge, weight));
 
-				if (ed % 2 == 0)
-				{
-					edges[ed].weight -= flow;
-					edges[ed + 1].weight += flow;
+				edges[ed].weight -= flow;
+				edges[ed ^ 1].weight += flow;
+
+				if (oppEdge >= 0)
 					edges[oppEdge].weight -= flow;
-				}
-				else
-				{
-					edges[ed].weight -= flow;
-					edges[ed - 1].weight += flow;
-					edges[oppEdge].weight -= flow;
-				}
 			}
 		}
 
@@ -154,10 +140,11 @@ class InternetBandwidth
 		{
 			int to, weight, oppEdge;
 
-			public Edge(int to, int weight)
+			public Edge(int to, int weight, int oppEdge)
 			{
 				this.to = to;
 				this.weight = weight;
+				this.oppEdge = oppEdge;
 			}
 
 		}

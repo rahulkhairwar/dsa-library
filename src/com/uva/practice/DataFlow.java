@@ -77,6 +77,7 @@ class DataFlow
 				cost = 0;
 
 				for (int i = 0; i < (e << 1); i++)
+//					edges[i].weight = k;
 					edges[i].flow = k;
 
 				while (true)
@@ -170,7 +171,10 @@ class DataFlow
 
 				removeEdges(par[node], Math.min(minEdge, edges[ed].flow));
 				edges[ed].flow -= flow;
-				edges[ed ^ 1].flow -= flow;
+				edges[ed ^ 1].flow += flow;
+//				removeEdges(par[node], Math.min(minEdge, edges[ed].weight));
+//				edges[ed].weight -= flow;
+//				edges[ed ^ 1].weight += flow;
 			}
 		}
 

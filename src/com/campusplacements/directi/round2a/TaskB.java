@@ -14,12 +14,10 @@ public final class TaskB
     {
         InputReader in = new InputReader(System.in);
         OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver(in, out);
-		solver.solve(1);
 
+		solver.solve();
         out.flush();
-
         in.close();
         out.close();
     }
@@ -31,13 +29,7 @@ public final class TaskB
         InputReader in;
         OutputWriter out;
 
-        public Solver(InputReader in, OutputWriter out)
-        {
-        	this.in = in;
-        	this.out = out;
-        }
-
-		void solve(int testNumber)
+		void solve()
 		{
 			lenOne = in.nextInt();
 			lenTwo = in.nextInt();
@@ -76,6 +68,12 @@ public final class TaskB
 			dp[index][used] = Math.max(temp, temp1);
 
 			return dp[index][used];
+		}
+
+		public Solver(InputReader in, OutputWriter out)
+		{
+			this.in = in;
+			this.out = out;
 		}
 
 	}
@@ -440,60 +438,6 @@ public final class TaskB
         }
 
     }
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-	}
 
 }
 

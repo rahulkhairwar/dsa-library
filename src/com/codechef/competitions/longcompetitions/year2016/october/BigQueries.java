@@ -7,7 +7,7 @@ class BigQueries
 {
 	public static void main(String[] args)
 	{
-/*		InputReader in = new InputReader(System.in);
+/*		IR in = new IR(System.in);
 		OutputWriter out = new OutputWriter(System.out);
 		Solver solver = new Solver(in, out);
 

@@ -48,16 +48,13 @@ public class ArticulationPoints
 			parent = new int[n];
 			visitingTime = new int[n];
 			low = new int[n];
-			adj = new List[n];
 			visited = new boolean[n];
 
 			parent[0] = -1;
-
 			createGraph();
 			dfs(0);
 
 			int count = 0;
-
 			for (int i = 0; i < n; i++)
 				if (parent[i] == 0)
 					count++;
@@ -71,21 +68,17 @@ public class ArticulationPoints
 
 	static void createGraph()
 	{
+		adj = new List[n];
+
+		for (int i = 0; i < n; i++)	adj[i] = new ArrayList<>();
+
 		for (int i = 0; i < m; i++)
 		{
 			int from, to;
 
 			from = in.nextInt();
 			to = in.nextInt();
-
-			if (adj[from] == null)
-				adj[from] = new ArrayList<>();
-
 			adj[from].add(to);
-
-			if (adj[to] == null)
-				adj[to] = new ArrayList<>();
-
 			adj[to].add(from);
 		}
 	}
@@ -94,9 +87,6 @@ public class ArticulationPoints
 	{
 		visited[node] = true;
 		visitingTime[node] = low[node] = currTime++;
-
-		if (adj[node] == null)
-			return;
 
 		Iterator<Integer> iterator = adj[node].iterator();
 		boolean isArticulationPoint = false;
@@ -108,9 +98,7 @@ public class ArticulationPoints
 			if (!visited[curr])
 			{
 				parent[curr] = node;
-
 				dfs(curr);
-
 				low[node] = Math.min(low[node], low[curr]);
 
 				if (visitingTime[node] <= low[curr])
@@ -466,52 +454,6 @@ public class ArticulationPoints
 		public void close()
 		{
 			writer.close();
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
 		}
 
 	}

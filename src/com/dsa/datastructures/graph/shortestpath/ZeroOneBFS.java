@@ -12,7 +12,7 @@ public class ZeroOneBFS
 {
 	static final int infinity = Integer.MAX_VALUE;
 	static int nodes, edges;
-	static int[] distance;
+	static int[] dist;
 	static ArrayList<Edge>[] list;
 	static Scanner in = new Scanner(System.in);
 
@@ -30,12 +30,15 @@ public class ZeroOneBFS
 		System.out.println("The shortest path to all nodes from node 0 is : ");
 
 		for (int i = 0; i < nodes; i++)
-			System.out.println(i + " : " + distance[i]);
+			System.out.println(i + " : " + dist[i]);
 	}
 
 	static void createGraph()
 	{
 		list = new ArrayList[nodes];
+
+		for (int i = 0; i < nodes; i++)
+			list[i] = new ArrayList<>();
 
 		for (int i = 0; i < edges; i++)
 		{
@@ -44,47 +47,28 @@ public class ZeroOneBFS
 			from = in.nextInt();
 			to = in.nextInt();
 			weight = in.nextInt();
-
-			if (list[from] == null)
-				list[from] = new ArrayList<>();
-
 			list[from].add(new Edge(to, weight));
-
-			if (list[to] == null)
-				list[to] = new ArrayList<>();
-
 			list[to].add(new Edge(from, weight));
 		}
 	}
 
-	static void zeroOneBFS(int node)
+	static void zeroOneBFS(int source)
 	{
-		distance = new int[nodes];
-
+		dist = new int[nodes];
 		for (int i = 0; i < nodes; i++)
-			distance[i] = infinity;
-
-		distance[node] = 0;
-
-		if (list[node] == null)
-			return;
-
+			dist[i] = infinity;
+		dist[source] = 0;
 		Deque<Integer> deque = new ArrayDeque<>();
-		deque.add(node);
+		deque.add(source);
 
 		while (deque.size() > 0)
 		{
 			int front = deque.poll();
-			Iterator<Edge> iterator = list[front].iterator();
-
-			while (iterator.hasNext())
+			for (Edge curr : list[front])
 			{
-				Edge curr = iterator.next();
-
-				if (distance[front] + curr.weight < distance[curr.to])
+				if (dist[front] + curr.weight < dist[curr.to])
 				{
-					distance[curr.to] = distance[front] + curr.weight;
-
+					dist[curr.to] = dist[front] + curr.weight;
 					if (curr.weight == 0)
 						deque.addFirst(curr.to);
 					else

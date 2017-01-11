@@ -85,17 +85,7 @@ public class First
 		{
 			return Integer.parseInt(in.readLine());
 		}
-		
-		int nextInt(String s)
-		{
-			return Integer.parseInt(s);
-		}
-		
-		long nextLong(String s)
-		{
-			return Long.parseLong(s);
-		}
-		
+
 	}
 
 }

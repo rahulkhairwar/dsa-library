@@ -26,7 +26,7 @@ class ChefAndArrayAndK
 	static class Solver
 	{
 		int t, n, k;
-		long[] factorials, inverseFactorials;
+		long[] fact, invFact;
 		long mod = (long) (1e9 + 7);
 		InputReader in;
 		OutputWriter out;
@@ -84,26 +84,26 @@ class ChefAndArrayAndK
 
 		void pre()
 		{
-			factorials = new long[(int) (1e5 + 5)];
-			inverseFactorials = new long[(int) (1e5 + 5)];
+			fact = new long[(int) (1e5 + 5)];
+			invFact = new long[(int) (1e5 + 5)];
 
-			factorials[0] = 1;
+			fact[0] = 1;
 
 			for (int i = 1; i <= 1e5; i++)
-				factorials[i] = CMath.mod(factorials[i - 1] * i, mod);
+				fact[i] = CMath.mod(fact[i - 1] * i, mod);
 
-			inverseFactorials[(int) 1e5] = CMath.moduloInverse(factorials[(int) 1e5], mod);
+			invFact[(int) 1e5] = CMath.moduloInverse(fact[(int) 1e5], mod);
 
 			for (int i = (int) 1e5; i > 0; i--)
-				inverseFactorials[i - 1] = CMath.mod(inverseFactorials[i] * i, mod);
+				invFact[i - 1] = CMath.mod(invFact[i] * i, mod);
 		}
 
 		long nCR(int n, int r)
 		{
-			long answer = factorials[n];
+			long answer = fact[n];
 
-			answer = CMath.mod(answer * inverseFactorials[n - r], mod);
-			answer = CMath.mod(answer * inverseFactorials[r], mod);
+			answer = CMath.mod(answer * invFact[n - r], mod);
+			answer = CMath.mod(answer * invFact[r], mod);
 
 			return answer;
 		}

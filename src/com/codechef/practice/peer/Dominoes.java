@@ -10,10 +10,9 @@ import java.util.InputMismatchException;
  */
 class Dominoes
 {
-	static int t;
-	static long n, mod = (long) 1e9 + 7;
-	static InputReader in;
-	static OutputWriter out;
+	private static long mod = (long) 1e9 + 7;
+	private static InputReader in;
+	private static OutputWriter out;
 
 	public static void main(String[] args)
 	{
@@ -21,22 +20,19 @@ class Dominoes
 		out = new OutputWriter(System.out);
 
 		solve();
-
 		out.flush();
-
 		in.close();
 		out.close();
 	}
 
-	static void solve()
+	private static void solve()
 	{
-		t = in.nextInt();
-
+		int t = in.nextInt();
 		long[] f = {1, 2};
 
 		while (t-- > 0)
 		{
-			n = in.nextLong();
+			long n = in.nextLong();
 
 			if (n == 1)
 			{
@@ -67,7 +63,7 @@ class Dominoes
 		}
 	}
 
-	static long[][] multiply(long[][] a, long[][] b)
+	private static long[][] multiply(long[][] a, long[][] b)
 	{
 		long[][] product = new long[2][2];
 
@@ -90,7 +86,7 @@ class Dominoes
 		return product;
 	}
 
-	static long[][] power(long[][] matrix, long power)
+	private static long[][] power(long[][] matrix, long power)
 	{
 		if (power == 1)
 			return matrix;
@@ -451,20 +447,6 @@ class Dominoes
 
 	static class CMath
 	{
-		static long power(long number, int power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;

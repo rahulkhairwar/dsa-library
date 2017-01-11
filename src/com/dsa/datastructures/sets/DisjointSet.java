@@ -146,14 +146,6 @@ public class DisjointSet
 			}
 		}
 
-		Node findParent(Node node)
-		{
-			if (node.parent == node)
-				return node;
-			else
-				return node.parent = findParent(node.parent);
-		}
-
 		class Node
 		{
 			int key, height;

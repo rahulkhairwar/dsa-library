@@ -12,13 +12,6 @@ import java.util.InputMismatchException;
 
 class First
 {
-	private static int t, n, d[];
-	
-	private static int charC[];
-	private static String s;
-	
-	private static int f[], r[];
-	private static boolean called[];
 	private static InputReader reader;
 	private static OutputWriter writer;
 	
@@ -39,13 +32,12 @@ class First
 	
 	public static void getAttributes()
 	{
-		t = reader.nextInt();
+		int t = reader.nextInt();
 		
 		for (int i = 0; i < t; i++)
 		{
-			n = reader.nextInt();
-			
-			d = new int[101];
+			int n = reader.nextInt();
+			int[] d = new int[101];
 			
 			for (int j = 0; j < n; j++)
 				d[reader.nextInt()]++;
@@ -59,47 +51,7 @@ class First
 			writer.println(count);
 		}
 	}
-	
-	// the third question
-	public static void getAttributes3()
-	{
-		t = reader.nextInt();
-		
-		for (int i = 0; i < t; i++)
-		{
-			n = reader.nextInt();
-			
-			f = new int[n + 1];
-			r = new int[n + 1];
-			called = new boolean[n + 1];
-			
-			for (int j = 1; j <= n; j++)
-			{
-				f[j] = reader.nextInt();
-			}
-			
-			for (int j = 1; j <= n; j++)
-			{
-				r[j] = reader.nextInt();
-			}
-			
-			long tot = 0;
-			
-			for (int j = 1; j <= n; j++)
-			{
-				if (r[i] >= r[f[i]])
-				{
-					tot += r[i] + r[f[i]];
-					
-					System.out.println("add : " + i + ", r[i] : " + r[i] + ", r[f[i]] : " + r[f[i]]);
-				}
-				
-			}
-			
-			writer.println(tot);
-		}
-	}
-	
+
 	class InputReader
 	{
 		private InputStream stream;

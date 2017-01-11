@@ -94,11 +94,6 @@ public class Second
 			return Integer.parseInt(s);
 		}
 		
-		long nextLong(String s)
-		{
-			return Long.parseLong(s);
-		}
-		
 	}
 
 }

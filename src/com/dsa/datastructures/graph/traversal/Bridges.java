@@ -35,7 +35,7 @@ public class Bridges
 	{
 		static int n, currTime;
 		static Node[] nodes;
-		static List<Point> criticalLinks;    // bridges.
+		static List<Point> bridges;    // bridges.
 		Scanner in;
 		OutputWriter out;
 
@@ -55,18 +55,18 @@ public class Bridges
 
 			createGraph();
 
-			criticalLinks = new ArrayList<>();
+			bridges = new ArrayList<>();
 			currTime = 1;
 
 			for (int i = 0; i < n; i++)
 				if (!nodes[i].visited)
 					dfs(i);
 
-			int size = criticalLinks.size();
+			int size = bridges.size();
 
 			out.println(size + " critical links");
 
-			criticalLinks.sort(new Comparator<Point>()
+			bridges.sort(new Comparator<Point>()
 			{
 				@Override
 				public int compare(Point one, Point two)
@@ -79,7 +79,7 @@ public class Bridges
 			});
 
 			for (int i = 0; i < size; i++)
-				out.println(criticalLinks.get(i).x + " - " + criticalLinks.get(i).y);
+				out.println(bridges.get(i).x + " - " + bridges.get(i).y);
 
 			out.println();
 		}
@@ -127,9 +127,9 @@ public class Bridges
 					if (temp.visitingTime < nodes[curr].low)
 					{
 						if (node < curr)
-							criticalLinks.add(new Point(node, curr));
+							bridges.add(new Point(node, curr));
 						else
-							criticalLinks.add(new Point(curr, node));
+							bridges.add(new Point(curr, node));
 					}
 				}
 				else if (temp.parent != curr)

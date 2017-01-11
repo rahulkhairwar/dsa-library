@@ -8,13 +8,10 @@ class TaskD
 {
 	public static void main(String[] args)
 	{
-		BufferedReader in = null;
-		PrintWriter out = null;
-
 		try
 		{
-			in = new BufferedReader(new InputStreamReader(System.in));
-			out = new PrintWriter(System.out);
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			PrintWriter out = new PrintWriter(System.out);
 			Solver solver = new Solver(in, out);
 
 			solver.solve();
@@ -122,20 +119,6 @@ class TaskD
 
 	static class CMath
 	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
 		static long modPower(long number, long power, long mod)
 		{
 			if (number == 1 || number == 0 || power == 0)
@@ -154,22 +137,9 @@ class TaskD
 				return mod(modPower(square, power / 2, mod) * number, mod);
 		}
 
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
 		static long mod(long number, long mod)
 		{
 			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
 		}
 
 	}

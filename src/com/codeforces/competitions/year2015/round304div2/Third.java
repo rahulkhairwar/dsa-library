@@ -33,8 +33,8 @@ public final class Third
 	{
 		Stack<Integer> one, two;
 		
-		one = new Stack<Integer>();
-		two = new Stack<Integer>();
+		one = new Stack<>();
+		two = new Stack<>();
 		
 		int[] a, b;
 		
@@ -55,8 +55,8 @@ public final class Third
 		
 		Stack<Integer> oneTemp, twoTemp;
 		
-		oneTemp = new Stack<Integer>();
-		twoTemp = new Stack<Integer>();
+		oneTemp = new Stack<>();
+		twoTemp = new Stack<>();
 		
 		while ((one.size() > 0 || oneTemp.size() > 0)
 				&& (two.size() > 0 || twoTemp.size() > 0))

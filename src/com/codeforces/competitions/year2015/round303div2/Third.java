@@ -50,45 +50,6 @@ public final class Third
 		// fell[n - 1] = 1;
 		count += 2;
 		
-		// why doesn't this code work, I have no idea!
-/*		for (int i = 1; i < n - 1; i++)
-		{
-			if (fell[i - 1] == 1)
-			{
-				if (h[i - 1] + h[i] <= x[i] - x[i - 1])
-				{
-					count++;
-					
-					fell[i] = -1;
-				}
-				else if (h[i] <= x[i + 1] - x[i])
-				{
-					count++;
-					
-					fell[i] = 1;
-				}
-				else
-					fell[i] = 0;
-			}
-			else
-			{
-				if (h[i] < x[i] - x[i - 1])
-				{
-					count++;
-					
-					fell[i] = -1;
-				}
-				else if (h[i] < x[i + 1] - x[i])
-				{
-					count++;
-					
-					fell[i] = 1;
-				}
-				else
-					fell[i] = 0;
-			}
-		}*/
-		
 		for (int i = 1; i < n - 1; i++)
 			if (x[i] - x[i - 1] > h[i])
 				count++;
@@ -103,8 +64,6 @@ public final class Third
 			writer.println(n);
 		else
 			writer.println(count);
-		
-		// System.out.println(Arrays.toString(fell));
 	}
 	
 	class InputReader

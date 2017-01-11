@@ -58,15 +58,10 @@ public final class Second
 			{
 				if (s.charAt(i) != t.charAt(i))
 				{
-					// System.out.println(s.charAt(i) + ", " + t.charAt(i));
 					if (a % 2 == 0)
-					{
 						ans.setCharAt(i, t.charAt(i));
-						// System.out.println("a : " + a + ", i : " + i + ", char : " + t.charAt(i));
-					}
-					
+
 					a++;
-					// System.out.println("a : " + a + ", count : " + count);
 				}
 			}
 			

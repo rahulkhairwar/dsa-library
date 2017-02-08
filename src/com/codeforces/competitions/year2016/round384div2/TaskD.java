@@ -8,7 +8,7 @@ public final class TaskD
     public static void main(String[] args)
     {
         InputReader in = new InputReader(System.in);
-        OutputWriter out = new OutputWriter(System.out);
+        PrintWriter out = new PrintWriter(System.out);
 		Solver solver = new Solver(in, out);
 
 		solver.solve();
@@ -23,7 +23,7 @@ public final class TaskD
         int n, arr[];
         Node[] nodes;
         InputReader in;
-        OutputWriter out;
+        PrintWriter out;
 
 		void solve()
 		{
@@ -43,139 +43,61 @@ public final class TaskD
 				nodes[u].adj.add(v);
 				nodes[v].adj.add(u);
 
-//				System.out.println(u + "-" + v);
+//				System.out.println(u + "->" + v);
 			}
 
-			dfs(0);
+			boolean poss = false;
 
 			for (int i = 0; i < n; i++)
-				nodes[i].vis = false;
-
-			dfs2(0);
-
-			for (int i = 0; i < n; i++)
-				nodes[i].vis = false;
-
-			int par = -1;
-			int x = 0;
-
-			while (true)
 			{
-				if (/*(x == 0 && nodes[x].adj.size() == 0) || */(x > 0 && nodes[x].adj.size() == 2 && nodes[nodes[x]
-						.adj.get(0)].vis && nodes[nodes[x].adj.get(1)].vis))
-					break;
-
-//				System.out.println("x : " + x);
-				if ((x > 0 && nodes[x].adj.size() == 2) || (x == 0 && nodes[x].adj.size() == 1))
-				{
-					nodes[x].vis = true;
-					par = x;
-
-					if (nodes[x].adj.size() == 1)
-						x = nodes[x].adj.get(0);
-					else
-					{
-						int a, b;
-
-						a = nodes[x].adj.get(0);
-						b = nodes[x].adj.get(1);
-
-						if (!nodes[a].vis)
-							x = a;
-						else if (!nodes[b].vis)
-							x = b;
-						else
-							break;
-					}
-//					System.out.println("\tchanged x to : " + x);
-				}
-				else
-				{
-					PriorityQueue<Long> queue = new PriorityQueue<>(Collections.reverseOrder());
-
-//					System.out.println("****x : " + x);
-					for (int ad : nodes[x].adj)
-					{
-						if (ad == par)
-							continue;
-
-						queue.add(nodes[ad].max);
-					}
-
-					if (queue.size() < 2)
-					{
-						out.println("Impossible");
-
-						return;
-					}
-
-					long f, s;
-
-					f = queue.poll();
-					s = queue.poll();
-					out.println(f + s);
-
-					return;
-				}
+				if (i == 0 && nodes[i].adj.size() > 1)
+					poss = true;
+				else if (i > 0 && nodes[i].adj.size() > 2)
+					poss = true;
 			}
 
-			out.println("Impossible");
-		}
-
-		void dfs(int node)
-		{
-			Node temp = nodes[node];
-
-			if (temp.vis)
-				return;
-
-			temp.vis = true;
-
-			for (int x : temp.adj)
+			if (!poss)
+				out.println("Impossible");
+			else
 			{
-				if (!nodes[x].vis)
-				{
-					dfs(x);
-					temp.total += nodes[x].total;
-				}
 			}
 		}
 
-		void dfs2(int node)
+		void dfs(int node, int par)
 		{
 			Node temp = nodes[node];
+			long max, tot;
 
-			if (temp.vis)
-				return;
-
-			temp.vis = true;
-			temp.max = temp.total;
+			max = temp.tot;
+			tot = 0;
 
 			for (int x : temp.adj)
 			{
-				if (!nodes[x].vis)
-				{
-					dfs2(x);
-					temp.max = Math.max(temp.max, nodes[x].max);
-				}
+				if (x == par)
+					continue;
+
+				max = Math.max(max, nodes[x].max);
+				tot += nodes[x].tot;
 			}
+
+			temp.max = max;
+			temp.tot = tot;
 		}
 
 		class Node
 		{
-			long total, max;
+			long tot, max;
 			List<Integer> adj;
-			boolean vis;
 
 			public Node(int val)
 			{
-				this.total = val;
+				this.tot = val;
 				adj = new ArrayList<>();
 			}
 
 		}
 
-        public Solver(InputReader in, OutputWriter out)
+        public Solver(InputReader in, PrintWriter out)
         {
         	this.in = in;
         	this.out = out;
@@ -418,130 +340,98 @@ public final class TaskD
 
     }
 
-    static class OutputWriter
-    {
-        private PrintWriter writer;
-
-        public OutputWriter(OutputStream stream)
-        {
-            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-                    stream)));
-        }
-
-        public OutputWriter(Writer writer)
-        {
-            this.writer = new PrintWriter(writer);
-        }
-
-        public void println(int x)
-        {
-            writer.println(x);
-        }
-
-        public void print(int x)
-        {
-            writer.print(x);
-        }
-
-		public void println(char x)
+	static class CMath
+	{
+		static long power(long number, long power)
 		{
-			writer.println(x);
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			if (power == 1)
+				return number;
+
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
 		}
 
-		public void print(char x)
+		static long modPower(long number, long power, long mod)
 		{
-			writer.print(x);
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
 		}
 
-        public void println(int array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                println(array[i]);
-        }
-
-        public void print(int array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                print(array[i] + " ");
-        }
-
-        public void println(long x)
-        {
-            writer.println(x);
-        }
-
-        public void print(long x)
-        {
-            writer.print(x);
-        }
-
-        public void println(long array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                println(array[i]);
-        }
-
-        public void print(long array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                print(array[i]);
-        }
-
-        public void println(float num)
-        {
-            writer.println(num);
-        }
-
-        public void print(float num)
-        {
-            writer.print(num);
-        }
-
-        public void println(double num)
-        {
-            writer.println(num);
-        }
-
-        public void print(double num)
-        {
-            writer.print(num);
-        }
-
-        public void println(String s)
-        {
-            writer.println(s);
-        }
-
-        public void print(String s)
-        {
-            writer.print(s);
-        }
-
-        public void println()
-        {
-            writer.println();
-        }
-
-        public void printSpace()
-        {
-            writer.print(" ");
-        }
-
-		public void printf(String format, Object args)
+		static long moduloInverse(long number, long mod)
 		{
-			writer.printf(format, args);
+			return modPower(number, mod - 2, mod);
 		}
 
-        public void flush()
-        {
-            writer.flush();
-        }
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
 
-        public void close()
-        {
-            writer.close();
-        }
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
+		}
 
-    }
+		static long min(long... arr)
+		{
+			long min = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				min = Math.min(min, arr[i]);
+
+			return min;
+		}
+
+		static long max(long... arr)
+		{
+			long max = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				max = Math.max(max, arr[i]);
+
+			return max;
+		}
+
+		static int min(int... arr)
+		{
+			int min = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				min = Math.min(min, arr[i]);
+
+			return min;
+		}
+
+		static int max(int... arr)
+		{
+			int max = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				max = Math.max(max, arr[i]);
+
+			return max;
+		}
+
+	}
 
 }

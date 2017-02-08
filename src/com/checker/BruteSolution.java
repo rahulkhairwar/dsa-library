@@ -34,92 +34,81 @@ public final class BruteSolution
 
 	static class Solver
 	{
-		int n, f;
-		int[] arr;
-		int[][] pos, neg;
-		boolean[][] sign;
+		int t, l, r, lim;
+		boolean[] isComp;
+		List<Integer> primes;
 		InputReader in;
 		PrintWriter out;
 
 		void solve()
 		{
-			arr = new int[41];
-			pos = new int[41][(int) 16e3 + 5];
-			neg = new int[41][(int) 16e3 + 5];
-			sign = new boolean[2][41];
+			pre();
+			t = in.nextInt();
 
-			while (true)
+			while (t-- > 0)
 			{
-				n = in.nextInt();
-				f = in.nextInt();
+				l = in.nextInt();
+				r = in.nextInt();
 
-				if (n == 0 && f == 0)
-					break;
-
-				for (int i = 0; i < n; i++)
-					arr[i] = in.nextInt();
-
-				String zeroes = "0000000000000000000000000000";
-				boolean possible = false;
-
-				for (int i = 0; i < (1 << n); i++)
+				for (int i = l; i <= r; i++)
 				{
-					String bin = Integer.toBinaryString(i);
-
-					bin = zeroes.substring(0, n - bin.length()) + bin;
-
-//					System.out.println("bin : " + bin);
-
-					boolean check = check(bin);
-
-					if (check)
-					{
-						possible = true;
-
-						for (int j = 0; j < n; j++)
-						{
-							if (bin.charAt(j) == '0')
-								sign[0][j] = true;
-							else
-								sign[1][j] = true;
-						}
-					}
+					if (isPrime(i))
+						out.println(i);
 				}
 
-				if (!possible)
-					out.println("*");
-				else
-				{
-					StringBuilder ans = new StringBuilder("");
-
-					for (int i = 0; i < n; i++)
-					{
-						if (sign[0][i] && sign[1][i])
-							ans.append("?");
-						else if (sign[0][i])
-							ans.append("-");
-						else
-							ans.append("+");
-					}
-
-					out.println(ans);
-				}
+				out.println();
 			}
 		}
 
-		boolean check(String bin)
+		boolean isPrime(int x)
 		{
-			int sum = 0;
+			if (x <= lim)
+				return !isComp[x];
 
-			for (int i = 0; i < n; i++)
+			int sqrt = (int) Math.sqrt(x) + 1;
+
+			for (int p : primes)
 			{
-				if (bin.charAt(i) == '0')
-					sum -= arr[i];
-				else
-					sum += arr[i];
+				if (p > sqrt)
+					break;
+
+				if (x % p == 0)
+					return false;
 			}
 
-			return sum == f;
+			return true;
+		}
+
+		void pre()
+		{
+			lim = (int) Math.sqrt(1e9);
+			isComp = new boolean[lim + 5];
+			isComp[1] = true;
+			primes = new ArrayList<>();
+			primes.add(2);
+
+			int curr = 2;
+
+			while ((curr << 1) <= lim)
+			{
+				isComp[curr << 1] = true;
+				curr++;
+			}
+
+			for (int i = 3; i <= lim; i += 2)
+			{
+				if (isComp[i])
+					continue;
+
+				primes.add(i);
+				curr = i + i;
+
+				while (curr <= lim)
+				{
+					isComp[curr] = true;
+					curr += i;
+				}
+			}
 		}
 
 		public Solver(InputReader in, PrintWriter out)
@@ -363,6 +352,100 @@ public final class BruteSolution
 			{
 				e.printStackTrace();
 			}
+		}
+
+	}
+
+	static class CMath
+	{
+		static long power(long number, long power)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			if (power == 1)
+				return number;
+
+			if (power % 2 == 0)
+				return power(number * number, power / 2);
+			else
+				return power(number * number, power / 2) * number;
+		}
+
+		static long modPower(long number, long power, long mod)
+		{
+			if (number == 1 || number == 0 || power == 0)
+				return 1;
+
+			number = mod(number, mod);
+
+			if (power == 1)
+				return number;
+
+			long square = mod(number * number, mod);
+
+			if (power % 2 == 0)
+				return modPower(square, power / 2, mod);
+			else
+				return mod(modPower(square, power / 2, mod) * number, mod);
+		}
+
+		static long moduloInverse(long number, long mod)
+		{
+			return modPower(number, mod - 2, mod);
+		}
+
+		static long mod(long number, long mod)
+		{
+			return number - (number / mod) * mod;
+		}
+
+		static int gcd(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
+		}
+
+		static long min(long... arr)
+		{
+			long min = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				min = Math.min(min, arr[i]);
+
+			return min;
+		}
+
+		static long max(long... arr)
+		{
+			long max = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				max = Math.max(max, arr[i]);
+
+			return max;
+		}
+
+		static int min(int... arr)
+		{
+			int min = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				min = Math.min(min, arr[i]);
+
+			return min;
+		}
+
+		static int max(int... arr)
+		{
+			int max = arr[0];
+
+			for (int i = 1; i < arr.length; i++)
+				max = Math.max(max, arr[i]);
+
+			return max;
 		}
 
 	}

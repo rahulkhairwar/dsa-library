@@ -1,7 +1,7 @@
 package com.checker;
 
-import com.a2onlinejudge.groupcontests.jan10_2017.Crimewave;
-import com.facebookhackercup.hc2017.qualification.TaskB;
+import com.hackerearth.competitions.hack_a_heart.TaskC;
+import com.spoj.practice.classic.PrimeIntervals;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,12 +11,11 @@ public class Checker
 {
 	public static void main(String[] args)
 	{
-		int tests = 100;
+		int tests = 10;
 
 		long start = System.currentTimeMillis();
 		while (tests-- > 0)
 		{
-
 			GenerateTests.main(null);
 //			System.out.println("generation in : " + (System.currentTimeMillis() - start));
 //			start = System.currentTimeMillis();
@@ -25,8 +24,8 @@ public class Checker
 //			System.out.println("brute in : " + (System.currentTimeMillis() - start));
 //			start = System.currentTimeMillis();
 
-			Crimewave.main(null);
-			System.out.println("tests : " + tests);
+			TaskC.main(null);
+//			System.out.println("tests : " + tests);
 //			System.out.println("sol in : " + (System.currentTimeMillis() - start));
 
 /*			if (!check())

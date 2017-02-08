@@ -8,7 +8,7 @@ public final class Polygons
     public static void main(String[] args)
     {
         InputReader in = new InputReader(System.in);
-        OutputWriter out = new OutputWriter(System.out);
+        PrintWriter out = new PrintWriter(System.out);
 		Solver solver = new Solver(in, out);
 
 		solver.solve();
@@ -22,7 +22,7 @@ public final class Polygons
         int n, m;
         Point[] one, two;
         InputReader in;
-        OutputWriter out;
+        PrintWriter out;
 
 		void solve()
 		{
@@ -200,7 +200,7 @@ public final class Polygons
 
 		}
 
-        public Solver(InputReader in, OutputWriter out)
+        public Solver(InputReader in, PrintWriter out)
         {
         	this.in = in;
         	this.out = out;
@@ -439,132 +439,6 @@ public final class Polygons
             {
                 e.printStackTrace();
             }
-        }
-
-    }
-
-    static class OutputWriter
-    {
-        private PrintWriter writer;
-
-        public OutputWriter(OutputStream stream)
-        {
-            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-                    stream)));
-        }
-
-        public OutputWriter(Writer writer)
-        {
-            this.writer = new PrintWriter(writer);
-        }
-
-        public void println(int x)
-        {
-            writer.println(x);
-        }
-
-        public void print(int x)
-        {
-            writer.print(x);
-        }
-
-		public void println(char x)
-		{
-			writer.println(x);
-		}
-
-		public void print(char x)
-		{
-			writer.print(x);
-		}
-
-        public void println(int array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                println(array[i]);
-        }
-
-        public void print(int array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                print(array[i] + " ");
-        }
-
-        public void println(long x)
-        {
-            writer.println(x);
-        }
-
-        public void print(long x)
-        {
-            writer.print(x);
-        }
-
-        public void println(long array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                println(array[i]);
-        }
-
-        public void print(long array[], int size)
-        {
-            for (int i = 0; i < size; i++)
-                print(array[i]);
-        }
-
-        public void println(float num)
-        {
-            writer.println(num);
-        }
-
-        public void print(float num)
-        {
-            writer.print(num);
-        }
-
-        public void println(double num)
-        {
-            writer.println(num);
-        }
-
-        public void print(double num)
-        {
-            writer.print(num);
-        }
-
-        public void println(String s)
-        {
-            writer.println(s);
-        }
-
-        public void print(String s)
-        {
-            writer.print(s);
-        }
-
-        public void println()
-        {
-            writer.println();
-        }
-
-        public void printSpace()
-        {
-            writer.print(" ");
-        }
-
-		public void printf(String format, Object args)
-		{
-			writer.printf(format, args);
-		}
-
-        public void flush()
-        {
-            writer.flush();
-        }
-
-        public void close()
-        {
-            writer.close();
         }
 
     }

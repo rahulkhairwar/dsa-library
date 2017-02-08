@@ -1,13 +1,12 @@
 package com.checker;
 
-import java.awt.*;
+import com.checker.util.GeneratorUtils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.HashSet;
-import java.util.Set;
 
-public class GenerateTests
+class GenerateTests
 {
 	public static void main(String[] args)
 	{
@@ -34,38 +33,37 @@ public class GenerateTests
 
 		void generate()
 		{
-			int p = (int) (Math.random() * 100) + 1;
+			int n = (int) (Math.random() * 1e5) + 1;
 
-			out.println(p);
+			out.println(n);
 
-			while (p-- > 0)
+			for (int i = 0; i < n; i++)
+				out.print(((int) (Math.random() * 1e5) + 1) + " ");
+
+			out.println();
+
+			int[] par = GeneratorUtils.getRandomTreeAsParentArray(n, false);
+
+			for (int i = 1; i < n; i++)
+				out.print(par[i] + " ");
+
+			out.println();
+
+			int q = (int) (Math.random() * 1e5) + 1;
+
+			out.println(q);
+
+			while (q-- > 0)
 			{
-				int r, c, tot, b;
+				int u, v;
 
-				r = (int) (Math.random() * 50) + 1;
-				c = (int) (Math.random() * 50) + 1;
-				tot = r * c;
-				b = (int) (Math.random() * tot / 2) + 1;
-
-				out.println(r + " " + c + " " + b);
-
-				Set<Point> set = new HashSet<>();
-
-				for (int i = 0; i < b; i++)
+				do
 				{
-					int u, v;
+					u = (int) (Math.random() * n) + 1;
+					v = (int) (Math.random() * n) + 1;
+				} while (u == v);
 
-					u = (int) (Math.random() * r) + 1;
-					v = (int) (Math.random() * c) + 1;
-
-					if (!set.contains(new Point(u, v)))
-					{
-						set.add(new Point(u, v));
-						out.println(u + " " + v);
-					}
-					else
-						i--;
-				}
+				out.println(u + " " + v);
 			}
 		}
 

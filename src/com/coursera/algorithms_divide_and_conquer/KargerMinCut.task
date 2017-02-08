@@ -1,0 +1,21 @@
+12 KargerMinCut
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+46 src/com/coursera/algorithms_divide_and_conquer
+16 -Xmx256m -Xss64m
+4 Main
+55 com.coursera.algorithms_divide_and_conquer.KargerMinCut
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2017.02.04
+0 
+1
+0 
+0 
+0
+0

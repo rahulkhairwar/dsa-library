@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * Prime Factorization in O(n log n).√
+ * Prime Factorization in O(n log n).
  */
 public class PrimeFactorization
 {

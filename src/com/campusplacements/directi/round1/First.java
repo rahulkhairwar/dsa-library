@@ -63,7 +63,6 @@ public class First
 	{
 		int len = s.length();
 		int[] count = new int[26];
-		
 		int x = 0;
 		
 		for (int i = 0; i < len; i++)

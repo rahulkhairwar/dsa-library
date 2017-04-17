@@ -1,4 +1,4 @@
-package %package%;
+wpackage %package%;
 
 import net.egork.chelper.task.Test;
 import net.egork.chelper.tester.TestCase;

@@ -7,6 +7,11 @@ public class %TaskClass%
         return %DefaultValue%;
     }
 
+	static void debug(Object... o)
+	{
+		System.err.println(Arrays.deepToString(o));
+	}
+
 	static class CMath
 	{
 		static long power(long number, long power)

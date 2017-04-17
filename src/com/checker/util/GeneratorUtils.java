@@ -103,5 +103,64 @@ public class GeneratorUtils
 		return edges;
 	}
 
+	public static List<Edge> generateRandomGraph(int v, int e, boolean isZeroBased)
+	{
+		List<Edge> edges = new ArrayList<>();
+		Set<Edge> set = new HashSet<>();
+
+		for (int i = 0; i < e; i++)
+		{
+			int fr, to;
+
+			do
+			{
+				fr = (int) (Math.random() * v);
+
+				do
+				{
+					to = (int) (Math.random() * v);
+//					System.out.println("fr : " + fr + ", to : " + to);
+				} while (to == fr);
+
+				if (isZeroBased)
+					set.add(new Edge(fr, to, 0));
+				else
+					set.add(new Edge(fr + 1, to + 1,0));
+			} while (set.size() == i);
+		}
+
+		edges.addAll(set);
+
+		return edges;
+	}
+
+	public static String[] generateRandomStrings(int size, int maxLen)
+	{
+		String[] s = new String[size];
+		Set<String> set = new HashSet<>();
+
+		for (int i = 0; i < size; i++)
+		{
+			s[i] = generateRandomString(maxLen);
+			set.add(s[i]);
+
+			if (set.size() == i)
+				i--;
+		}
+
+		return s;
+	}
+
+	public static String generateRandomString(int maxLen)
+	{
+		int len = (int) (Math.random() * maxLen) + 1;
+		StringBuilder s = new StringBuilder("");
+
+		for (int i = 0; i < len; i++)
+			s.append((char) ((Math.random() * 26) + 'a'));
+
+		return s.toString();
+	}
+
 }
 

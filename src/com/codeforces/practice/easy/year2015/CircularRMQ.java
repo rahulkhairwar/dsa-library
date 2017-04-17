@@ -92,22 +92,22 @@ public final class CircularRMQ
 		}
 	}
 	
-	static void buildTree(int currNode, int tSI, int tEI)
+	static void buildTree(int node, int treeStart, int treeEnd)
 	{
-		if (tSI == tEI)
+		if (treeStart == treeEnd)
 		{
-			tree[currNode] = new Node(array[tSI], 0);
+			tree[node] = new Node(array[treeStart], 0);
 
 			return;
 		}
 
-		int mid = (tSI + tEI) / 2;
+		int mid = (treeStart + treeEnd) / 2;
 
-		buildTree(2 * currNode, tSI, mid);
-		buildTree(2 * currNode + 1, mid + 1, tEI);
+		buildTree(2 * node, treeStart, mid);
+		buildTree(2 * node + 1, mid + 1, treeEnd);
 
-		tree[currNode] = new Node(Math.min(tree[2 * currNode].min,
-				tree[2 * currNode + 1].min), 0);
+		tree[node] = new Node(Math.min(tree[2 * node].min,
+				tree[2 * node + 1].min), 0);
 	}
 	
 	static void updateTree(int currNode, int tSI, int tEI, int rSI, int rEI,

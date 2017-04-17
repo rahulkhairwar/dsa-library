@@ -3,7 +3,7 @@ package com.checker;
 import java.io.*;
 import java.util.*;
 
-public final class BruteSolution
+class BruteSolution
 {
 	public static void main(String[] args)
 	{
@@ -12,12 +12,10 @@ public final class BruteSolution
 
 		try
 		{
-			in = new InputReader(new FileInputStream(new File(
-					"/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-							+ "Programming/src/com/checker/input.txt")));
-			out = new PrintWriter(new FileOutputStream(new File(
-					"/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-							+ "Programming/src/com/checker/bruteOutput.txt")));
+			in = new InputReader(new FileInputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
+					+ "Workspace/Competitive Programming/src/com/checker/input.txt")));
+			out = new PrintWriter(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
+					+ "Programming/src/com/checker/bruteOutput.txt"));
 		}
 		catch (FileNotFoundException e)
 		{
@@ -34,81 +32,120 @@ public final class BruteSolution
 
 	static class Solver
 	{
-		int t, l, r, lim;
-		boolean[] isComp;
-		List<Integer> primes;
+		int v, e;
+		boolean[] vis, done;
+		boolean[][] poss;
+		List<Integer>[] adj;
 		InputReader in;
 		PrintWriter out;
 
 		void solve()
 		{
-			pre();
-			t = in.nextInt();
+			v = in.nextInt();
+			e = in.nextInt();
+			vis = new boolean[v];
+			done = new boolean[v];
+			poss = new boolean[v][v];
+			adj = new List[v];
 
-			while (t-- > 0)
+			for (int i = 0; i < v; i++)
+				adj[i] = new ArrayList<>();
+
+			for (int i = 0; i < e; i++)
 			{
-				l = in.nextInt();
-				r = in.nextInt();
+				int u = in.nextInt() - 1;
+				int v = in.nextInt() - 1;
 
-				for (int i = l; i <= r; i++)
+				adj[u].add(v);
+			}
+
+			for (int i = 0; i < v; i++)
+			{
+				poss[i][i] = true;
+
+				for (int j = 0; j < v; j++)
 				{
-					if (isPrime(i))
-						out.println(i);
-				}
+					Arrays.fill(vis, false);
 
-				out.println();
+					if (i != j && !poss[i][j])
+						check(i, j);
+				}
+			}
+
+/*			System.out.println("poss :");
+
+			for (int i = 0; i < v; i++, System.out.println())
+				for (int j = 0; j < v; j++)
+					System.out.print(poss[i][j] ? "t " : "f ");*/
+
+			List<Set<Integer>> list = new ArrayList<>();
+			PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+			StringBuilder ans = new StringBuilder("");
+
+			for (int i = 0; i < v; i++)
+			{
+				Set<Integer> set = new HashSet<>();
+
+				if (!done[i])
+				{
+					list.add(set);
+					findOthers(i, set);
+					queue.add(set.size());
+				}
+			}
+
+			for (int i = 0; i < 5; i++)
+			{
+				if (queue.size() == 0)
+					ans.append("0,");
+				else
+					ans.append(queue.poll()).append(",");
+			}
+
+			out.println(ans.substring(0, ans.length() - 1));
+
+/*			for (Set<Integer> set : list)
+				System.out.println("set : " + set + ", size : " + set.size());*/
+		}
+
+		boolean check(int from, int to)
+		{
+			vis[from] = true;
+
+			if (from == to)
+			{
+				poss[from][to] = true;
+
+				return true;
+			}
+
+			for (int x : adj[from])
+			{
+				if (!vis[x])
+				{
+					if (check(x, to))
+						return poss[from][to] = true;
+				}
+			}
+
+			return false;
+		}
+
+		void findOthers(int node, Set<Integer> set)
+		{
+			for (int i = 0; i < v; i++)
+			{
+				if (poss[node][i] && poss[i][node])
+				{
+					done[i] = true;
+					set.add(i);
+				}
 			}
 		}
 
-		boolean isPrime(int x)
+		void debug(Object... o)
 		{
-			if (x <= lim)
-				return !isComp[x];
-
-			int sqrt = (int) Math.sqrt(x) + 1;
-
-			for (int p : primes)
-			{
-				if (p > sqrt)
-					break;
-
-				if (x % p == 0)
-					return false;
-			}
-
-			return true;
-		}
-
-		void pre()
-		{
-			lim = (int) Math.sqrt(1e9);
-			isComp = new boolean[lim + 5];
-			isComp[1] = true;
-			primes = new ArrayList<>();
-			primes.add(2);
-
-			int curr = 2;
-
-			while ((curr << 1) <= lim)
-			{
-				isComp[curr << 1] = true;
-				curr++;
-			}
-
-			for (int i = 3; i <= lim; i += 2)
-			{
-				if (isComp[i])
-					continue;
-
-				primes.add(i);
-				curr = i + i;
-
-				while (curr <= lim)
-				{
-					isComp[curr] = true;
-					curr += i;
-				}
-			}
+			System.err.println(Arrays.deepToString(o));
 		}
 
 		public Solver(InputReader in, PrintWriter out)
@@ -125,11 +162,6 @@ public final class BruteSolution
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
-
-		public InputReader(InputStream stream)
-		{
-			this.stream = stream;
-		}
 
 		public int read()
 		{
@@ -354,6 +386,11 @@ public final class BruteSolution
 			}
 		}
 
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
+
 	}
 
 	static class CMath
@@ -451,3 +488,23 @@ public final class BruteSolution
 	}
 
 }
+
+/*
+
+8 14
+1 2
+2 3
+2 5
+2 6
+6 2
+5 6
+6 7
+3 7
+7 3
+5 4
+6 4
+4 8
+8 4
+7 8
+
+*/

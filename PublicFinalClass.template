@@ -28,6 +28,11 @@ public final class %TaskClass%
 			n = in.nextInt();
 		}
 
+		void debug(Object... o)
+		{
+        	System.err.println(Arrays.deepToString(o));
+        }
+
         public Solver(InputReader in, PrintWriter out)
         {
         	this.in = in;

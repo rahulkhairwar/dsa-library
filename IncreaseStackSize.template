@@ -38,6 +38,11 @@ class %TaskClass%
 		// your code here ..
 	}
 
+	static void debug(Object... o)
+	{
+		System.err.println(Arrays.deepToString(o));
+	}
+
     static class InputReader
     {
         private InputStream stream;

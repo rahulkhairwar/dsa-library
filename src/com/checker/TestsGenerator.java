@@ -1,8 +1,5 @@
 package com.checker;
 
-import com.checker.dto.Edge;
-import com.checker.util.GeneratorUtils;
-
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,17 +34,38 @@ class TestsGenerator
 
 		void generate()
 		{
-			int v = (int) (Math.random() * 20) + 2;
-			int e = Math.min((int) (Math.random() * v), v * (v - 1) / 2);
+			int n = 10;
+			int q = 5;
 
-			out.println(v + " " + e);
+			out.println(n + " " + q);
 
-//			System.out.println("will generate graph.");
-			List<Edge> list = GeneratorUtils.generateRandomGraph(v, e, false);
-//			System.out.println("graph generated.");
+			for (int i = 0; i < n; i++)
+				out.print((int) (Math.random() * 50 + 1) + " ");
 
-			for (Edge ed : list)
-				out.println(ed.from + " " + ed.to);
+			out.println();
+
+			while (q-- > 0)
+			{
+				int type = (int) (Math.random() * 4) + 1;
+				int x = (int) (Math.random() * n) + 1;
+				int y = (int) (Math.random() * n) + 1;
+				int val = (int) (Math.random() * 50) + 1;
+
+				if (x > y)
+				{
+					int temp = x;
+
+					x = y;
+					y = temp;
+				}
+
+				out.print(type + " " + x + " " + y);
+
+				if (type < 4)
+					out.print(" " + val + "\n");
+				else
+					out.println();
+			}
 		}
 
 		Generator(PrintWriter out)

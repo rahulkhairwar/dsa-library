@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3
+2
+1
+3
+2
+1
+0</input>
+        <output>? 000
+? 001
+? 010
+? 011
+? 100
+? 101
+! 2 1</output>
+    </test>
+</testCases>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3 2
+L??
+</input>
+        <output>LDL
+</output>
+    </test>
+    <test>
+        <input>3 1
+W??
+</input>
+        <output>NO
+</output>
+    </test>
+    <test>
+        <input>20 5
+?LLLLLWWWWW?????????
+</input>
+        <output>WLLLLLWWWWWWWWLWLWDW
+</output>
+    </test>
+</testCases>

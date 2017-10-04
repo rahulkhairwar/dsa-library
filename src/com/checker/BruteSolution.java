@@ -3,6 +3,8 @@ package com.checker;
 import java.io.*;
 import java.util.*;
 
+import static jdk.nashorn.internal.objects.NativeString.replace;
+
 class BruteSolution
 {
 	public static void main(String[] args)
@@ -39,7 +41,73 @@ class BruteSolution
 		InputReader in;
 		PrintWriter out;
 
+		int n, q;
+		int[] arr;
+		static final int mod = (int) 1e9 + 7;
+
 		void solve()
+		{
+			n = in.nextInt();
+			q = in.nextInt();
+			arr = in.nextIntArray(n);
+
+			while (q-- > 0)
+			{
+				int type = in.nextInt();
+				int x = in.nextInt() - 1;
+				int y = in.nextInt() - 1;
+
+				if (type == 4)
+					out.println(getSum(x, y));
+				else
+				{
+					int val = in.nextInt();
+
+					switch (type)
+					{
+						case 1:
+							add(x, y, val);
+							break;
+						case 2:
+							mul(x, y, val);
+							break;
+						case 3:
+							replace(x, y, val);
+							break;
+					}
+				}
+			}
+		}
+
+		void add(int x, int y, int val)
+		{
+			for (int i = x; i <= y; i++)
+				arr[i] += val;
+		}
+
+		void mul(int x, int y, int val)
+		{
+			for (int i = x; i <= y; i++)
+				arr[i] = (int) CMath.mod(arr[i] * (long) val, mod);
+		}
+
+		void replace(int x, int y, int val)
+		{
+			for (int i = x; i <= y; i++)
+				arr[i] = val;
+		}
+
+		int getSum(int x, int y)
+		{
+			long sum = 0;
+
+			for (int i = x; i <= y; i++)
+				sum = CMath.mod(sum + arr[i], mod);
+
+			return (int) sum;
+		}
+
+		void solve2()
 		{
 			v = in.nextInt();
 			e = in.nextInt();

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>8 6 4 5
+</input>
+        <output>YES
+</output>
+    </test>
+    <test>
+        <input>8 6 4 6
+</input>
+        <output>NO
+</output>
+    </test>
+    <test>
+        <input>10 3 11 4
+</input>
+        <output>NO
+</output>
+    </test>
+    <test>
+        <input>4 2 1 4
+</input>
+        <output>YES
+</output>
+    </test>
+</testCases>

@@ -5,276 +5,274 @@ import java.util.*;
 
 public final class %TaskClass%
 {
-    public static void main(String[] args)
-    {
-        InputReader in = new InputReader(System.in);
-        PrintWriter out = new PrintWriter(System.out);
-		Solver solver = new Solver(in, out);
+	public static void main(String[] args)
+	{
+		new %TaskClass%(System.in, System.out);
+	}
 
-		solver.solve();
-        in.close();
-        out.flush();
-        out.close();
-    }
-
-    static class Solver
-    {
+	static class Solver
+	{
+//		BufferedReader in;
         int n, arr[];
         InputReader in;
         PrintWriter out;
 
-		void solve()
+		void solve() throws IOException
 		{
 			n = in.nextInt();
 		}
 
 		void debug(Object... o)
 		{
-        	System.err.println(Arrays.deepToString(o));
-        }
+			System.err.println(Arrays.deepToString(o));
+		}
 
-        public Solver(InputReader in, PrintWriter out)
-        {
-        	this.in = in;
-        	this.out = out;
-        }
+//		uncomment below line to change to BufferedReader
+//		public Solver(BufferedReader in, PrintWriter out)
+		public Solver(InputReader in, PrintWriter out)
+		{
+			this.in = in;
+			this.out = out;
+		}
 
 	}
 
-    static class InputReader
-    {
-        private InputStream stream;
-        private byte[] buf = new byte[1024];
-        private int curChar;
-        private int numChars;
+	static class InputReader
+	{
+		private InputStream stream;
+		private byte[] buf = new byte[1024];
+		private int curChar;
+		private int numChars;
 
-        public InputReader(InputStream stream)
-        {
-            this.stream = stream;
-        }
+		public int read()
+		{
+			if (numChars == -1)
+				throw new InputMismatchException();
 
-        public int read()
-        {
-            if (numChars == -1)
-                throw new InputMismatchException();
+			if (curChar >= numChars)
+			{
+				curChar = 0;
+				try
+				{
+					numChars = stream.read(buf);
+				}
+				catch (IOException e)
+				{
+					throw new InputMismatchException();
+				}
+				if (numChars <= 0)
+					return -1;
+			}
 
-            if (curChar >= numChars)
-            {
-                curChar = 0;
-                try
-                {
-                    numChars = stream.read(buf);
-                } catch (IOException e)
-                {
-                    throw new InputMismatchException();
-                }
-                if (numChars <= 0)
-                    return -1;
-            }
+			return buf[curChar++];
+		}
 
-            return buf[curChar++];
-        }
+		public int nextInt()
+		{
+			int c = read();
 
-        public int nextInt()
-        {
-            int c = read();
+			while (isSpaceChar(c))
+				c = read();
 
-            while (isSpaceChar(c))
-                c = read();
+			int sgn = 1;
 
-            int sgn = 1;
+			if (c == '-')
+			{
+				sgn = -1;
+				c = read();
+			}
 
-            if (c == '-')
-            {
-                sgn = -1;
-                c = read();
-            }
+			int res = 0;
 
-            int res = 0;
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
 
-            do
-            {
-                if (c < '0' || c > '9')
-                    throw new InputMismatchException();
+				res *= 10;
+				res += c & 15;
 
-                res *= 10;
-                res += c & 15;
+				c = read();
+			} while (!isSpaceChar(c));
 
-                c = read();
-            } while (!isSpaceChar(c));
+			return res * sgn;
+		}
 
-            return res * sgn;
-        }
+		public int[] nextIntArray(int arraySize)
+		{
+			int array[] = new int[arraySize];
 
-        public int[] nextIntArray(int arraySize)
-        {
-            int array[] = new int[arraySize];
+			for (int i = 0; i < arraySize; i++)
+				array[i] = nextInt();
 
-            for (int i = 0; i < arraySize; i++)
-                array[i] = nextInt();
+			return array;
+		}
 
-            return array;
-        }
+		public long nextLong()
+		{
+			int c = read();
 
-        public long nextLong()
-        {
-            int c = read();
+			while (isSpaceChar(c))
+				c = read();
 
-            while (isSpaceChar(c))
-                c = read();
+			int sign = 1;
 
-            int sign = 1;
+			if (c == '-')
+			{
+				sign = -1;
 
-            if (c == '-')
-            {
-                sign = -1;
+				c = read();
+			}
 
-                c = read();
-            }
+			long result = 0;
 
-            long result = 0;
+			do
+			{
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
 
-            do
-            {
-                if (c < '0' || c > '9')
-                    throw new InputMismatchException();
+				result *= 10;
+				result += c & 15;
 
-                result *= 10;
-                result += c & 15;
+				c = read();
+			} while (!isSpaceChar(c));
 
-                c = read();
-            } while (!isSpaceChar(c));
+			return result * sign;
+		}
 
-            return result * sign;
-        }
+		public long[] nextLongArray(int arraySize)
+		{
+			long array[] = new long[arraySize];
 
-        public long[] nextLongArray(int arraySize)
-        {
-            long array[] = new long[arraySize];
+			for (int i = 0; i < arraySize; i++)
+				array[i] = nextLong();
 
-            for (int i = 0; i < arraySize; i++)
-                array[i] = nextLong();
+			return array;
+		}
 
-            return array;
-        }
+		public float nextFloat()
+		{
+			float result, div;
+			byte c;
 
-        public float nextFloat()
-        {
-            float result, div;
-            byte c;
+			result = 0;
+			div = 1;
+			c = (byte) read();
 
-            result = 0;
-            div = 1;
-            c = (byte) read();
+			while (c <= ' ')
+				c = (byte) read();
 
-            while (c <= ' ')
-                c = (byte) read();
+			boolean isNegative = (c == '-');
 
-            boolean isNegative = (c == '-');
+			if (isNegative)
+				c = (byte) read();
 
-            if (isNegative)
-                c = (byte) read();
+			do
+			{
+				result = result * 10 + c - '0';
+			} while ((c = (byte) read()) >= '0' && c <= '9');
 
-            do
-            {
-                result = result * 10 + c - '0';
-            } while ((c = (byte) read()) >= '0' && c <= '9');
+			if (c == '.')
+				while ((c = (byte) read()) >= '0' && c <= '9')
+					result += (c - '0') / (div *= 10);
 
-            if (c == '.')
-                while ((c = (byte) read()) >= '0' && c <= '9')
-                    result += (c - '0') / (div *= 10);
+			if (isNegative)
+				return -result;
 
-            if (isNegative)
-                return -result;
+			return result;
+		}
 
-            return result;
-        }
+		public double nextDouble()
+		{
+			double ret = 0, div = 1;
+			byte c = (byte) read();
 
-        public double nextDouble()
-        {
-            double ret = 0, div = 1;
-            byte c = (byte) read();
+			while (c <= ' ')
+				c = (byte) read();
 
-            while (c <= ' ')
-                c = (byte) read();
+			boolean neg = (c == '-');
 
-            boolean neg = (c == '-');
+			if (neg)
+				c = (byte) read();
 
-            if (neg)
-                c = (byte) read();
+			do
+			{
+				ret = ret * 10 + c - '0';
+			} while ((c = (byte) read()) >= '0' && c <= '9');
 
-            do
-            {
-                ret = ret * 10 + c - '0';
-            } while ((c = (byte) read()) >= '0' && c <= '9');
+			if (c == '.')
+				while ((c = (byte) read()) >= '0' && c <= '9')
+					ret += (c - '0') / (div *= 10);
 
-            if (c == '.')
-                while ((c = (byte) read()) >= '0' && c <= '9')
-                    ret += (c - '0') / (div *= 10);
+			if (neg)
+				return -ret;
 
-            if (neg)
-                return -ret;
+			return ret;
+		}
 
-            return ret;
-        }
+		public String next()
+		{
+			int c = read();
 
-        public String next()
-        {
-            int c = read();
+			while (isSpaceChar(c))
+				c = read();
 
-            while (isSpaceChar(c))
-                c = read();
+			StringBuilder res = new StringBuilder();
 
-            StringBuilder res = new StringBuilder();
+			do
+			{
+				res.appendCodePoint(c);
 
-            do
-            {
-                res.appendCodePoint(c);
+				c = read();
+			} while (!isSpaceChar(c));
 
-                c = read();
-            } while (!isSpaceChar(c));
+			return res.toString();
+		}
 
-            return res.toString();
-        }
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
 
-        public boolean isSpaceChar(int c)
-        {
-            return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-        }
+		public String nextLine()
+		{
+			int c = read();
 
-        public String nextLine()
-        {
-            int c = read();
+			StringBuilder result = new StringBuilder();
 
-            StringBuilder result = new StringBuilder();
+			do
+			{
+				result.appendCodePoint(c);
 
-            do
-            {
-                result.appendCodePoint(c);
+				c = read();
+			} while (!isNewLine(c));
 
-                c = read();
-            } while (!isNewLine(c));
+			return result.toString();
+		}
 
-            return result.toString();
-        }
+		public boolean isNewLine(int c)
+		{
+			return c == '\n';
+		}
 
-        public boolean isNewLine(int c)
-        {
-            return c == '\n';
-        }
+		public void close()
+		{
+			try
+			{
+				stream.close();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
 
-        public void close()
-        {
-            try
-            {
-                stream.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
 
-    }
+	}
 
 	static class CMath
 	{
@@ -368,6 +366,28 @@ public final class %TaskClass%
 			return max;
 		}
 
+	}
+
+	public Task(InputStream inputStream, OutputStream outputStream)
+	{
+//		uncomment below line to change to BufferedReader
+//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
+		InputReader in = new InputReader(inputStream);
+		PrintWriter out = new PrintWriter(outputStream);
+		Solver solver = new Solver(in, out);
+
+		try
+		{
+			solver.solve();
+			in.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		out.flush();
+		out.close();
 	}
 
 }

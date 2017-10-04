@@ -1,33 +1,36 @@
 package com.checker;
 
-import com.a2onlinejudge.groupcontests.feb20_2017.CountOnATree2;
-import com.coursera.algorithms.graphSearch_shortestPaths_dS.SCC;
+//import com.codechef.practice.easy.year2016.ADDMUL;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Checker
 {
 	public static void main(String[] args) throws IOException
 	{
-		int tests = 100;
+		int tests = 10;
 		long start = System.currentTimeMillis();
 
 		while (tests-- > 0)
 		{
-			TestsGenerator.main(null);
+//			TestsGenerator.main(null);
 //			System.out.println("test generated");
 //			System.out.println("generation in : " + (System.currentTimeMillis() - start));
 			start = System.currentTimeMillis();
 
-			BruteSolution.main(null);
+//			BruteSolution.main(null);
 //			System.out.println("brute done");
 //			System.out.println("brute in : " + (System.currentTimeMillis() - start));
 			start = System.currentTimeMillis();
 
-			SCC.main(null);
+			InputStream in = new FileInputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
+					+ "Workspace/Competitive Programming/src/com/checker/input.txt"));
+			OutputStream out = new FileOutputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
+					+ "Workspace/Competitive Programming/src/com/checker/output.txt"));
+
+//			new ADDMUL(in, out);
+//			SCC.main(null);
 //			System.out.println("sol done");
 //			System.out.println("tests : " + tests);
 //			System.out.println("sol in : " + (System.currentTimeMillis() - start));
@@ -38,7 +41,11 @@ public class Checker
 
 				break;
 			}
-//			System.out.println("tests : " + tests);
+
+			if (tests % 1000 == 0)
+				System.out.println("tests : " + tests);
+
+//			System.out.println("*************");
 		}
 
 		System.out.println("time taken for all tests : " + (System.currentTimeMillis() - start));

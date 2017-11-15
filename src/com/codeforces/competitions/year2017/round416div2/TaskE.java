@@ -1,3 +1,5 @@
+package com.codeforces.competitions.year2017.round416div2;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

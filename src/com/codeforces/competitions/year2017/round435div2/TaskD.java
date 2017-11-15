@@ -39,7 +39,6 @@ public class TaskD
 			{
 				int mid = low + high >> 1;
 				int zeroesMinusOnesCount = getZeroesMinusOnesCount(low, mid);
-//				System.out.println("(0s - 1s) in [" + low + ", " + mid + "] : " + zeroesMinusOnesCount);
 
 				if (zeroesMinusOnesCount == mid - low + 1)
 				{
@@ -56,8 +55,6 @@ public class TaskD
 					high = mid;
 			}
 
-//			System.out.println("zP : " + zeroPos + ", oP : " + onePos);
-
 			if (onePos == -1)
 			{
 				low = 0;
@@ -67,7 +64,6 @@ public class TaskD
 				{
 					int mid = low + high >> 1;
 					int onesMinusZeroesCount = getOnesMinusZeroesCount(low, mid);
-//					System.out.println("(1s - 0s) in [" + low + ", " + mid + "] : " + onesMinusZeroesCount);
 
 					if (onesMinusZeroesCount == mid - low + 1)
 					{
@@ -110,7 +106,6 @@ public class TaskD
 
 		int getOnesMinusZeroesCount(int l, int r)
 		{
-//			System.out.println("****l : " + l + ", r : " + r + ", (0s - 1s) : " + getZeroesMinusOnesCount(l, r));
 			return -getZeroesMinusOnesCount(l, r);
 		}
 
@@ -148,7 +143,7 @@ public class TaskD
 
 				return l == interval.l && r == interval.r;
 			}
-			
+
 		}
 
 		public Solver(InputReader in, PrintWriter out)

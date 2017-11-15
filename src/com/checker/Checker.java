@@ -2,6 +2,8 @@ package com.checker;
 
 //import com.codechef.practice.easy.year2016.ADDMUL;
 
+import com.codechef.practice.easy.year2017.LEDIV;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -14,12 +16,12 @@ public class Checker
 
 		while (tests-- > 0)
 		{
-//			TestsGenerator.main(null);
+			TestsGenerator.main(null);
 //			System.out.println("test generated");
 //			System.out.println("generation in : " + (System.currentTimeMillis() - start));
 			start = System.currentTimeMillis();
 
-//			BruteSolution.main(null);
+			BruteSolution.main(null);
 //			System.out.println("brute done");
 //			System.out.println("brute in : " + (System.currentTimeMillis() - start));
 			start = System.currentTimeMillis();
@@ -29,7 +31,7 @@ public class Checker
 			OutputStream out = new FileOutputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
 					+ "Workspace/Competitive Programming/src/com/checker/output.txt"));
 
-//			new ADDMUL(in, out);
+//			new LEDIV(in, out);
 //			SCC.main(null);
 //			System.out.println("sol done");
 //			System.out.println("tests : " + tests);

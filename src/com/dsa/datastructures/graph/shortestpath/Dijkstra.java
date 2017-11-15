@@ -6,8 +6,7 @@ import java.util.*;
 
 /**
  * An implementation of Dijkstra's Algorithm.
- * <br />
- * <p>
+ * <br /><p/>
  * Hackerrank question <a href="https://www.hackerrank.com/challenges/dijkstrashortreach">link</a>
  */
 public class Dijkstra

@@ -12,71 +12,53 @@ public final class ChocolateBar
 
 	private static class Solver
 	{
-		// BufferedReader in;
-		static final int INF = (int) 1e9;
+		static final long INF = (long) 1e9;
 		int t, n, m, k;
-		int[][][] dp;
+		long[][][] dp;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
 			t = in.nextInt();
-			dp = new int[31][31][51];
+			dp = new long[31][31][51];
 
 			for (int i = 0; i < 31; i++)
 				for (int j = 0; j < 31; j++)
-					Arrays.fill(dp[i][j], INF);
+					Arrays.fill(dp[i][j], -1);
 
 			while (t-- > 0)
 			{
 				n = in.nextInt();
 				m = in.nextInt();
 				k = in.nextInt();
-				out.println(n <= m ? find(m, n, k) : find(n, m, k));
+				out.println(find(n, m, k));
 			}
 		}
 
-		int find(int len, int bre, int needed)
+		long find(int len, int bre, int needed)
 		{
-//            System.out.println("len : " + len + ", bre : " + bre + ", needed : " + needed + ", (n/b) : " + (needed /
-//                    bre) + ", (n/l) : " + (needed / len));
-
 			if (needed == 0 || needed == len * bre)
 				return 0;
 
-			if (needed < bre)
-				return bre * bre + 1;
-
-			if (needed == bre)
-				return bre * bre;
-
-			if (dp[len][bre][needed] != INF)
+			if (dp[len][bre][needed] != -1)
 				return dp[len][bre][needed];
 
-			int subLen = (needed / len) * len;
-			int subBre = (needed / bre) * bre;
-			int a = len - (needed / bre);
-			int b = bre - (needed / len);
-//            int ans = Math.min(bre * bre + find(Math.max(a, bre), Math.min(a, bre), needed - subBre), len * len +
-//                    find(Math.max(b, len), Math.min(b, len), needed - subLen));
+			long ans = INF;
 
-			int ans;
+			for (int i = 1; i < len; i++)
+				for (int j = Math.min(needed, i * bre); j >= 0; j--)
+					if ((len - i) * bre >= needed - j)
+						ans = Math.min(ans, bre * bre + find(i, bre, j) + find(len - i, bre, needed - j));
 
-			ans = bre * bre + find(Math.max(a, bre), Math.min(a, bre), needed - subBre);
-
-			if (subLen > 0)
-				ans = Math.min(ans, len * len + find(Math.max(b, len), Math.min(b, len), needed - subLen));
-
-//            int ans = bre * bre + find(Math.max(a, bre), Math.min(a, bre), needed - subBre);
+			for (int i = 1; i < bre; i++)
+				for (int j = Math.min(needed, i * len); j >= 0; j--)
+					if (len * (bre - i) >= needed - j)
+						ans = Math.min(ans, len * len + find(len, i, j) + find(len, bre - i, needed - j));
 
 			return dp[len][bre][needed] = ans;
-
-//            return dp[len][bre][needed] = bre * bre + find(Math.max(a, bre), Math.min(a, bre), needed - subBre);
 		}
 
-		// uncomment below line to change to BufferedReader
-		// public Solver(BufferedReader in, PrintWriter out)
 		Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
@@ -170,11 +152,8 @@ public final class ChocolateBar
 
 	}
 
-	public ChocolateBar(InputStream inputStream, OutputStream outputStream)
+	ChocolateBar(InputStream inputStream, OutputStream outputStream)
 	{
-		// uncomment below line to change to BufferedReader
-		// BufferedReader in = new BufferedReader(new
-		// InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
 		Solver solver = new Solver(in, out);
@@ -194,19 +173,3 @@ public final class ChocolateBar
 	}
 
 }
-
-/*
-
-4
-2 2 1
-2 2 3
-2 2 2
-2 2 4
-
-1
-2 2 3
-
-1
-3 3 2
-
-*/

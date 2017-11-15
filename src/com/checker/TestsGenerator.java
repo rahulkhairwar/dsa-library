@@ -34,37 +34,20 @@ class TestsGenerator
 
 		void generate()
 		{
-			int n = 10;
-			int q = 5;
+			int t = (int) (Math.random() * 5) + 1;
 
-			out.println(n + " " + q);
+			out.println(t);
 
-			for (int i = 0; i < n; i++)
-				out.print((int) (Math.random() * 50 + 1) + " ");
-
-			out.println();
-
-			while (q-- > 0)
+			while (t-- > 0)
 			{
-				int type = (int) (Math.random() * 4) + 1;
-				int x = (int) (Math.random() * n) + 1;
-				int y = (int) (Math.random() * n) + 1;
-				int val = (int) (Math.random() * 50) + 1;
+				int n = (int) (Math.random() * 10) + 1;
 
-				if (x > y)
-				{
-					int temp = x;
+				out.println(n);
 
-					x = y;
-					y = temp;
-				}
+				for (int i = 0; i < n; i++)
+					out.print((int) ((Math.random()) * 100 + 1) + " ");
 
-				out.print(type + " " + x + " " + y);
-
-				if (type < 4)
-					out.print(" " + val + "\n");
-				else
-					out.println();
+				out.println();
 			}
 		}
 

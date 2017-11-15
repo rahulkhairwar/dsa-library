@@ -47,168 +47,37 @@ class BruteSolution
 
 		void solve()
 		{
-			n = in.nextInt();
-			q = in.nextInt();
-			arr = in.nextIntArray(n);
-
-			while (q-- > 0)
+			outer:for(int T = in.nextInt();T>0;T--)
 			{
-				int type = in.nextInt();
-				int x = in.nextInt() - 1;
-				int y = in.nextInt() - 1;
-
-				if (type == 4)
-					out.println(getSum(x, y));
-				else
-				{
-					int val = in.nextInt();
-
-					switch (type)
-					{
-						case 1:
-							add(x, y, val);
-							break;
-						case 2:
-							mul(x, y, val);
-							break;
-						case 3:
-							replace(x, y, val);
-							break;
+				int n = in.nextInt();
+				int gcd = -1;
+				for(int i=0;i<n;i++) {
+					if(i == 0) {
+						gcd = in.nextInt();
+					} else {
+						gcd = (int) gcd(gcd,in.nextInt());
 					}
 				}
-			}
-		}
-
-		void add(int x, int y, int val)
-		{
-			for (int i = x; i <= y; i++)
-				arr[i] += val;
-		}
-
-		void mul(int x, int y, int val)
-		{
-			for (int i = x; i <= y; i++)
-				arr[i] = (int) CMath.mod(arr[i] * (long) val, mod);
-		}
-
-		void replace(int x, int y, int val)
-		{
-			for (int i = x; i <= y; i++)
-				arr[i] = val;
-		}
-
-		int getSum(int x, int y)
-		{
-			long sum = 0;
-
-			for (int i = x; i <= y; i++)
-				sum = CMath.mod(sum + arr[i], mod);
-
-			return (int) sum;
-		}
-
-		void solve2()
-		{
-			v = in.nextInt();
-			e = in.nextInt();
-			vis = new boolean[v];
-			done = new boolean[v];
-			poss = new boolean[v][v];
-			adj = new List[v];
-
-			for (int i = 0; i < v; i++)
-				adj[i] = new ArrayList<>();
-
-			for (int i = 0; i < e; i++)
-			{
-				int u = in.nextInt() - 1;
-				int v = in.nextInt() - 1;
-
-				adj[u].add(v);
-			}
-
-			for (int i = 0; i < v; i++)
-			{
-				poss[i][i] = true;
-
-				for (int j = 0; j < v; j++)
-				{
-					Arrays.fill(vis, false);
-
-					if (i != j && !poss[i][j])
-						check(i, j);
+				if(gcd == -1 || gcd == 1) {
+					out.println(-1);
+				} else {
+					for(int d = 2;d*d<=100000;d++) {
+						if(gcd%d == 0) {
+							out.println(d);
+							continue outer;
+						}
+					}
+					out.println(gcd);
 				}
 			}
-
-/*			System.out.println("poss :");
-
-			for (int i = 0; i < v; i++, System.out.println())
-				for (int j = 0; j < v; j++)
-					System.out.print(poss[i][j] ? "t " : "f ");*/
-
-			List<Set<Integer>> list = new ArrayList<>();
-			PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
-			StringBuilder ans = new StringBuilder("");
-
-			for (int i = 0; i < v; i++)
-			{
-				Set<Integer> set = new HashSet<>();
-
-				if (!done[i])
-				{
-					list.add(set);
-					findOthers(i, set);
-					queue.add(set.size());
-				}
-			}
-
-			for (int i = 0; i < 5; i++)
-			{
-				if (queue.size() == 0)
-					ans.append("0,");
-				else
-					ans.append(queue.poll()).append(",");
-			}
-
-			out.println(ans.substring(0, ans.length() - 1));
-
-/*			for (Set<Integer> set : list)
-				System.out.println("set : " + set + ", size : " + set.size());*/
 		}
-
-		boolean check(int from, int to)
-		{
-			vis[from] = true;
-
-			if (from == to)
-			{
-				poss[from][to] = true;
-
-				return true;
+		public static long gcd(long a, long b) {
+			while (b > 0) {
+				long c = a;
+				a = b;
+				b = c % b;
 			}
-
-			for (int x : adj[from])
-			{
-				if (!vis[x])
-				{
-					if (check(x, to))
-						return poss[from][to] = true;
-				}
-			}
-
-			return false;
-		}
-
-		void findOthers(int node, Set<Integer> set)
-		{
-			for (int i = 0; i < v; i++)
-			{
-				if (poss[node][i] && poss[i][node])
-				{
-					done[i] = true;
-					set.add(i);
-				}
-			}
+			return a;
 		}
 
 		void debug(Object... o)

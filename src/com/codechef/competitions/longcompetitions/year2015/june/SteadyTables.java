@@ -1,12 +1,8 @@
 package com.codechef.competitions.longcompetitions.year2015.june;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.InputMismatchException;
 
 class SteadyTables
@@ -14,36 +10,31 @@ class SteadyTables
 	private static int t, rows, columns;
 	private static long mod, c[][], answer[][];
 	private static InputReader reader;
-	private static OutputWriter writer;
+	private static PrintWriter out;
 	
 	public static void main(String[] args)
 	{
 		SteadyTables tables = new SteadyTables();
 		
 		reader = tables.new InputReader(System.in);
-		writer = tables.new OutputWriter(System.out);
-		
+		out = new PrintWriter(System.out);
 		getAttributes();
-		
-		writer.flush();
-		
+		out.flush();
 		reader.close();
-		writer.close();
+		out.close();
 	}
 	
 	public static void getAttributes()
 	{
 		t = reader.nextInt();
 		mod = 1000000000;	// 10^9
-		
 		precalculateCombinations();
 		
 		for (int i = 0; i < t; i++)
 		{
 			rows = reader.nextInt();
 			columns = reader.nextInt();
-			
-			writer.println(solve());
+			out.println(solve());
 		}
 	}
 	
@@ -62,7 +53,6 @@ class SteadyTables
 	public static long solve()
 	{
 		answer = new long[rows + 1][columns + 1];
-		
 		answer[0][0] = 1;
 		
 		for (int i = 1; i <= rows; i++)
@@ -76,7 +66,7 @@ class SteadyTables
 				if (s >= mod)
 					s -= mod;
 				
-				answer[i][j] = (1L * s * c[j + columns - 1][columns - 1]) % mod;
+				answer[i][j] = (s * c[j + columns - 1][columns - 1]) % mod;
 			}
 		}
 		
@@ -285,117 +275,6 @@ class SteadyTables
 			{
 				e.printStackTrace();
 			}
-		}
-
-	}
-
-	class OutputWriter
-	{
-		private PrintWriter writer;
-
-		public OutputWriter(OutputStream stream)
-		{
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					stream)));
-		}
-
-		public OutputWriter(Writer writer)
-		{
-			this.writer = new PrintWriter(writer);
-		}
-
-		public void println(int x)
-		{
-			writer.println(x);
-		}
-
-		public void print(int x)
-		{
-			writer.print(x);
-		}
-		
-		public void println(int array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				println(array[i]);
-		}
-		
-		public void print(int array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				print(array[i] + " ");
-		}
-
-		public void println(long x)
-		{
-			writer.println(x);
-		}
-
-		public void print(long x)
-		{
-			writer.print(x);
-		}
-		
-		public void println(long array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				println(array[i]);
-		}
-		
-		public void print(long array[], int size)
-		{
-			for (int i = 0; i < size; i++)
-				print(array[i]);
-		}
-		
-		public void println(float num)
-		{
-			writer.println(num);
-		}
-		
-		public void print(float num)
-		{
-			writer.print(num);
-		}
-		
-		public void println(double num)
-		{
-			writer.println(num);
-		}
-		
-		public void print(double num)
-		{
-			writer.print(num);
-		}
-
-		public void println(String s)
-		{
-			writer.println(s);
-		}
-
-		public void print(String s)
-		{
-			writer.print(s);
-		}
-		
-		public void println()
-		{
-			writer.println();
-		}
-
-		public void printSpace()
-		{
-			writer.print(" ");
-		}
-
-		public void flush()
-		{
-			writer.flush();
-		}
-
-		public void close()
-		{
-			writer.close();
 		}
 
 	}

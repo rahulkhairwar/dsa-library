@@ -1,8 +1,6 @@
 package com.checker;
 
-//import com.codechef.practice.easy.year2016.ADDMUL;
-
-import com.codechef.practice.easy.year2017.LEDIV;
+import com.codeforces.competitions.year2017.round452div2.TaskF;
 
 import java.io.*;
 import java.util.Scanner;
@@ -11,38 +9,35 @@ public class Checker
 {
 	public static void main(String[] args) throws IOException
 	{
-		int tests = 10;
+		int tests = 1;
 		long start = System.currentTimeMillis();
 
 		while (tests-- > 0)
 		{
-			TestsGenerator.main(null);
+//			TestsGenerator.main(null);
 //			System.out.println("test generated");
 //			System.out.println("generation in : " + (System.currentTimeMillis() - start));
 			start = System.currentTimeMillis();
 
-			BruteSolution.main(null);
-//			System.out.println("brute done");
-//			System.out.println("brute in : " + (System.currentTimeMillis() - start));
-			start = System.currentTimeMillis();
+//			BruteSolution.main(null);
+//			System.out.println("brute done in : " + (System.currentTimeMillis() - start));
 
 			InputStream in = new FileInputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
 					+ "Workspace/Competitive Programming/src/com/checker/input.txt"));
 			OutputStream out = new FileOutputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
 					+ "Workspace/Competitive Programming/src/com/checker/output.txt"));
 
-//			new LEDIV(in, out);
-//			SCC.main(null);
-//			System.out.println("sol done");
+			start = System.currentTimeMillis();
+			new TaskF(in, out);
+			System.out.println("sol done in : " + (System.currentTimeMillis() - start));
 //			System.out.println("tests : " + tests);
-//			System.out.println("sol in : " + (System.currentTimeMillis() - start));
 
-			if (!check())
+/*			if (!check())
 			{
 				System.out.println("Caught!!");
 
 				break;
-			}
+			}*/
 
 			if (tests % 1000 == 0)
 				System.out.println("tests : " + tests);

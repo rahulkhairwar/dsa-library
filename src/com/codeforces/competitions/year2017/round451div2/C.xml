@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2
+ivan 1 00123
+masha 1 00123
+</input>
+        <output>2
+masha 1 00123 
+ivan 1 00123 
+</output>
+    </test>
+    <test>
+        <input>3
+karl 2 612 12
+petr 1 12
+katya 1 612
+</input>
+        <output>3
+katya 1 612 
+petr 1 12 
+karl 1 612 
+</output>
+    </test>
+    <test>
+        <input>4
+ivan 3 123 123 456
+ivan 2 456 456
+ivan 8 789 3 23 6 56 9 89 2
+dasha 2 23 789
+</input>
+        <output>2
+dasha 2 23 789 
+ivan 4 789 123 2 456 
+</output>
+    </test>
+</testCases>

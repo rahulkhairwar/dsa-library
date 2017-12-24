@@ -10,10 +10,10 @@ public final class %TaskClass%
 		new %TaskClass%(System.in, System.out);
 	}
 
-	static class Solver
+	static class Solver implements Runnable
 	{
+        int n;
 //		BufferedReader in;
-        int n, arr[];
         InputReader in;
         PrintWriter out;
 
@@ -33,6 +33,19 @@ public final class %TaskClass%
 		{
 			this.in = in;
 			this.out = out;
+		}
+
+		@Override
+		public void run()
+		{
+			try
+			{
+				solve();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 
 	}
@@ -229,11 +242,6 @@ public final class %TaskClass%
 			return res.toString();
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public String nextLine()
 		{
 			int c = read();
@@ -253,6 +261,11 @@ public final class %TaskClass%
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
+		}
+
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
 
 		public void close()
@@ -374,20 +387,23 @@ public final class %TaskClass%
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Solver solver = new Solver(in, out);
+		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
 
 		try
 		{
-			solver.solve();
-			in.close();
+			thread.start();
+			thread.join();
 		}
-		catch (IOException e)
+		catch (InterruptedException e)
 		{
 			e.printStackTrace();
 		}
-
-		out.flush();
-		out.close();
+		finally
+		{
+			in.close();
+			out.flush();
+			out.close();
+		}
 	}
 
 }

@@ -4,7 +4,7 @@
 #$ctr = 0
 #$ctr2 = 0
 while
-#	javac BruteSolution.java
+	javac BruteSolution.java
 	javac TestsGenerator.java
 	java TestsGenerator > input.txt
 	# head -n$3 input.txt
@@ -12,7 +12,7 @@ while
 	utime="$( TIMEFORMAT='%lR';time ( java BruteSolution < input.txt > bruteOutput.txt; ) 2>&1 1>/dev/null )"
 	if [ $? -ne 0 ]
 	then
-		echo "Damn It" $1 "failed."
+		echo "Damn It" $1 "failed.****"
 		exit 1
 	fi
 	utime2="$( TIMEFORMAT='%lR';time ( ./$2 < input.txt > output.txt; ) 2>&1 1>/dev/null )"

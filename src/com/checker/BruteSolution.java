@@ -3,9 +3,7 @@ package com.checker;
 import java.io.*;
 import java.util.*;
 
-import static jdk.nashorn.internal.objects.NativeString.replace;
-
-class BruteSolution
+public class BruteSolution
 {
 	public static void main(String[] args)
 	{
@@ -26,69 +24,96 @@ class BruteSolution
 
 		Solver solver = new Solver(in, out);
 
-		solver.solve();
+		try
+		{
+			solver.solve();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		in.close();
 		out.flush();
 		out.close();
 	}
 
-	static class Solver
+	static class Solver implements Runnable
 	{
-		int v, e;
-		boolean[] vis, done;
-		boolean[][] poss;
-		List<Integer>[] adj;
+		int n;
+		List<Integer> list, temp;
 		InputReader in;
 		PrintWriter out;
 
-		int n, q;
-		int[] arr;
-		static final int mod = (int) 1e9 + 7;
-
-		void solve()
+		void solve() throws IOException
 		{
-			outer:for(int T = in.nextInt();T>0;T--)
+			n = in.nextInt();
+			list = new ArrayList<>();
+
+			for (int i = 0; i < n; i++)
+				list.add(in.nextInt());
+
+			int cnt = 0;
+
+			while (list.size() > 0)
 			{
-				int n = in.nextInt();
-				int gcd = -1;
-				for(int i=0;i<n;i++) {
-					if(i == 0) {
-						gcd = in.nextInt();
-					} else {
-						gcd = (int) gcd(gcd,in.nextInt());
-					}
-				}
-				if(gcd == -1 || gcd == 1) {
-					out.println(-1);
-				} else {
-					for(int d = 2;d*d<=100000;d++) {
-						if(gcd%d == 0) {
-							out.println(d);
-							continue outer;
+				int start = 0;
+				int end = 0;
+				int maxStart = 0;
+				int maxEnd = 0;
+				int maxSize = 1;
+
+				for (int i = 1; i < list.size(); i++)
+				{
+					if (list.get(i).equals(list.get(i - 1)))
+					{
+						end++;
+
+						if (end - start + 1 > maxSize)
+						{
+							maxSize = end - start + 1;
+							maxStart = start;
+							maxEnd = end;
 						}
 					}
-					out.println(gcd);
+					else
+						start = end = i;
 				}
-			}
-		}
-		public static long gcd(long a, long b) {
-			while (b > 0) {
-				long c = a;
-				a = b;
-				b = c % b;
-			}
-			return a;
-		}
 
-		void debug(Object... o)
-		{
-			System.err.println(Arrays.deepToString(o));
+//				System.out.println("list : " + list);
+//				System.out.println("st : " + maxStart + ", end : " + maxEnd);
+
+				cnt++;
+				temp = new ArrayList<>();
+
+				for (int i = 0; i < maxStart; i++)
+					temp.add(list.get(i));
+
+				for (int i = maxEnd + 1; i < list.size(); i++)
+					temp.add(list.get(i));
+
+				list = temp;
+			}
+
+			out.println(cnt);
 		}
 
 		public Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
 			this.out = out;
+		}
+
+		@Override
+		public void run()
+		{
+			try
+			{
+				solve();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 
 	}

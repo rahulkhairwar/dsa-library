@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5
+</input>
+        <output>0
+</output>
+    </test>
+    <test>
+        <input>113
+</input>
+        <output>110
+</output>
+    </test>
+    <test>
+        <input>1000000000
+</input>
+        <output>1000000000
+</output>
+    </test>
+    <test>
+        <input>5432359
+</input>
+        <output>5432360
+</output>
+    </test>
+</testCases>

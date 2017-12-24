@@ -1,7 +1,11 @@
 package com.acmtimus;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.InputMismatchException;
 
 public final class Problem1111
 {
@@ -12,14 +16,39 @@ public final class Problem1111
 
 	static class Solver
 	{
-//		BufferedReader in;
-        int n, arr[];
-        InputReader in;
-        PrintWriter out;
+		int n;
+		Point pt;
+		Square[] squares;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
 			n = in.nextInt();
+			squares = new Square[n];
+
+			for (int i = 0; i < n; i++)
+			{
+				Point a = new Point(in.nextInt(), in.nextInt());
+				Point c = new Point(in.nextInt(), in.nextInt());
+
+				squares[i] = new Square(a, c);
+			}
+
+			Point pt = new Point(in.nextInt(), in.nextInt());
+
+			for (int i = 0; i < n; i++)
+			{
+				Point center = new Point((squares[i].a.x + squares[i].c.x) / 2, (squares[i].a.y + squares[i].c.y) / 2);
+				double halfDiag = center.distSquare(squares[i].a);
+				double centerToPt = center.distSquare(pt);
+
+				if (centerToPt <= halfDiag)
+					squares[i].dist = 0;
+				else
+				{
+				}
+			}
 		}
 
 		void debug(Object... o)
@@ -27,7 +56,45 @@ public final class Problem1111
 			System.err.println(Arrays.deepToString(o));
 		}
 
-//		uncomment below line to change to BufferedReader
+		static class Point
+		{
+			double x, y;
+
+			double distSquare(Point pt)
+			{
+				return (pt.x - x) * (pt.x - x) + (pt.y - y) * (pt.y - y);
+			}
+
+			Point(double x, double y)
+			{
+				this.x = x;
+				this.y = y;
+			}
+
+		}
+
+		static class Square
+		{
+			Point a, b, c, d;
+			double dist;
+
+			Square(Point a, Point c)
+			{
+				this.a = a;
+				this.c = c;
+			}
+
+			Square(Point a, Point b, Point c, Point d)
+			{
+				this.a = a;
+				this.b = b;
+				this.c = c;
+				this.d = d;
+			}
+
+		}
+
+		//		uncomment below line to change to BufferedReader
 //		public Solver(BufferedReader in, PrintWriter out)
 		public Solver(InputReader in, PrintWriter out)
 		{
@@ -365,12 +432,6 @@ public final class Problem1111
 
 			return max;
 		}
-
-	}
-
-	static class Geometry
-	{
-
 
 	}
 

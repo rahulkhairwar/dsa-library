@@ -2,19 +2,7 @@ package com.topcoder.practice.medium;
 
 public class WordFind
 {
-	static Node root;
-
-	public static void main(String[] args)
-	{
-		String[] grid = {"RAHUL", "ABORT", "HELLO", "UROCK", "LIONS", "SUCKS"};
-		String[] wordList =
-				{"RAHUL", "HE", "OCK", "ION", "RAHULS", "HEL", "RLCN", "LTOKSS", "LU", "AOLK", "L", "RAHOOL"};
-
-		String[] answers = findWords(grid, wordList);
-
-		for (int i = 0; i < answers.length; i++)
-			System.out.println("i : " + i + ", word : " + wordList[i] + ", pos : " + answers[i]);
-	}
+	private static Node root;
 
 	public static String[] findWords(String[] grid, String[] wordList)
 	{
@@ -35,8 +23,8 @@ public class WordFind
 			else if (triplets[i].type == 2)
 				answers[i] = "" + (triplets[i].row - wordList[i].length() + 1) + " " + triplets[i].col;
 			else if (triplets[i].type == 3)
-				answers[i] = "" + (triplets[i].row - wordList[i].length() + 1) + " " + (triplets[i].col - wordList[i]
-						.length() + 1);
+				answers[i] = "" + (triplets[i].row - wordList[i].length() + 1) + " " + (
+						triplets[i].col - wordList[i].length() + 1);
 			else
 				answers[i] = "";
 		}
@@ -44,10 +32,11 @@ public class WordFind
 		return answers;
 	}
 
-	public static void insertWords(String[] grid)
+	private static void insertWords(String[] grid)
 	{
 		int n = grid.length;
 		int len = grid[0].length();
+
 		root = new Node();
 
 		// right
@@ -83,7 +72,7 @@ public class WordFind
 				root = insert(root, curr.substring(j, length), length - j, 0, 3, i + j, j);
 		}
 
-		for (int i = 1; i < n; i++)
+		for (int i = 1; i < len; i++)
 		{
 			String curr = "";
 
@@ -104,18 +93,53 @@ public class WordFind
 	// 1 = right
 	// 2 = down
 	// 3 = down-right
-	public static Node insert(Node node, String word, int length, int index, int type, int row, int col)
+	private static Node insert(Node node, String word, int length, int index, int type, int row, int col)
 	{
 		int pos = word.charAt(index) - 'A';
 		Node temp = node.next[pos];
 
 		if (temp == null)
+		{
 			temp = new Node();
+			temp.isWord = true;
+			temp.row = row;
+			temp.col = col;
+			temp.type = type;
+		}
+		else
+		{
+			int prevStartRow = temp.row;
+			int prevStartCol = temp.col;
+			int currStartRow = row;
+			int currStartCol = col;
 
-		temp.isWord = true;
-		temp.row = row;
-		temp.col = col;
-		temp.type = type;
+			if (temp.type == 1)
+				prevStartCol -= index;
+			else if (temp.type == 2)
+				prevStartRow -= index;
+			else
+			{
+				prevStartRow -= index;
+				prevStartCol -= index;
+			}
+
+			if (type == 1)
+				currStartCol -= index;
+			else if (type == 2)
+				currStartRow -= index;
+			else
+			{
+				currStartRow -= index;
+				currStartCol -= index;
+			}
+
+			if (prevStartRow > currStartRow || (prevStartRow == currStartRow && prevStartCol > currStartCol))
+			{
+				temp.row = row;
+				temp.col = col;
+				temp.type = type;
+			}
+		}
 
 		if (type == 1)
 			col++;
@@ -135,7 +159,7 @@ public class WordFind
 		return node;
 	}
 
-	public static Triplet find(Node node, String word, int length, int index)
+	private static Triplet find(Node node, String word, int length, int index)
 	{
 		int pos = word.charAt(index) - 'A';
 		Node temp = node.next[pos];
@@ -155,7 +179,7 @@ public class WordFind
 		int row, col, type;
 		Node[] next;
 
-		public Node()
+		Node()
 		{
 			next = new Node[26];
 		}
@@ -166,7 +190,7 @@ public class WordFind
 	{
 		int type, row, col;
 
-		public Triplet(int type, int row, int col)
+		Triplet(int type, int row, int col)
 		{
 			this.type = type;
 			this.row = row;

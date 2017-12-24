@@ -1,8 +1,5 @@
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.util.InputMismatchException;
+import java.io.*;
+import java.util.*;
 
 public class Task
 {
@@ -13,13 +10,18 @@ public class Task
 
 	static class Solver implements Runnable
 	{
-//		BufferedReader in;
 		int n;
+//		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+		}
+
+		void debug(Object... o)
+		{
+			System.err.println(Arrays.deepToString(o));
 		}
 
 //		uncomment below line to change to BufferedReader
@@ -237,11 +239,6 @@ public class Task
 			return res.toString();
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public String nextLine()
 		{
 			int c = read();
@@ -261,6 +258,11 @@ public class Task
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
+		}
+
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
 
 		public void close()
@@ -382,20 +384,28 @@ public class Task
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Task(in, out), "Task", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "Task", 1 << 29);
 
 		try
 		{
 			thread.start();
 			thread.join();
 		}
-		catch (IOException e)
+		catch (InterruptedException e)
 		{
 			e.printStackTrace();
 		}
 		finally
 		{
-			in.close();
+			try
+			{
+				in.close();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+
 			out.flush();
 			out.close();
 		}

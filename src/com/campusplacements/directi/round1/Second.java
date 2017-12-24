@@ -24,7 +24,6 @@ public class Second
 			n = in.nextInt(tokens[0]);
 			m = in.nextInt(tokens[1]);
 			q = in.nextInt(tokens[2]);
-
 			parent = new int[n + 1];
 			add = new long[n + 1];
 			addUp = new long[n + 1];

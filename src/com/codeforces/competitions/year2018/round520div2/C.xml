@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4 2
+1011
+1 4
+3 4
+</input>
+        <output>14
+3
+</output>
+    </test>
+    <test>
+        <input>3 2
+111
+1 2
+3 3
+</input>
+        <output>3
+1
+</output>
+    </test>
+</testCases>

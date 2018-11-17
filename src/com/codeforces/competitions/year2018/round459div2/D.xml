@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4 4
+1 2 b
+1 3 a
+2 4 c
+3 4 b
+</input>
+        <output>BAAA
+ABAA
+BBBA
+BBBB
+</output>
+    </test>
+    <test>
+        <input>5 8
+5 3 h
+1 2 c
+3 1 c
+3 2 r
+5 1 r
+4 3 z
+5 4 r
+5 2 h
+</input>
+        <output>BABBB
+BBBBB
+AABBB
+AAABA
+AAAAB
+</output>
+    </test>
+</testCases>

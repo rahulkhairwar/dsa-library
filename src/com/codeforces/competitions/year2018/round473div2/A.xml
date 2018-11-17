@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>1
+</input>
+        <output>Ehab</output>
+    </test>
+    <test>
+        <input>2
+</input>
+        <output>Mahmoud</output>
+    </test>
+</testCases>

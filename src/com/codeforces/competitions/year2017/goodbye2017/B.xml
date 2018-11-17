@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5 6
+.....#
+S....#
+.#....
+.#....
+...E..
+333300012
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>6 6
+......
+......
+..SE..
+......
+......
+......
+01232123212302123021
+</input>
+        <output>14
+</output>
+    </test>
+    <test>
+        <input>5 3
+...
+.S.
+###
+.E.
+...
+3
+</input>
+        <output>0
+</output>
+    </test>
+</testCases>

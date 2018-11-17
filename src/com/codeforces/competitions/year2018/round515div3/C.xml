@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>8
+L 1
+R 2
+R 3
+? 2
+L 4
+? 1
+L 5
+? 1
+</input>
+        <output>1
+1
+2
+</output>
+    </test>
+    <test>
+        <input>10
+L 100
+R 100000
+R 123
+L 101
+? 123
+L 10
+R 115
+? 100
+R 110
+? 115
+</input>
+        <output>0
+2
+1
+</output>
+    </test>
+</testCases>

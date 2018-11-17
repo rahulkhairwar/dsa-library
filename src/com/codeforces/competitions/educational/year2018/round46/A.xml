@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3
+XS
+XS
+M
+XL
+S
+XS
+</input>
+        <output>2
+</output>
+    </test>
+    <test>
+        <input>2
+XXXL
+XXL
+XXL
+XXXS
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>2
+M
+XS
+XS
+M
+</input>
+        <output>0
+</output>
+    </test>
+</testCases>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4
+-5 R
+0 P
+3 P
+7 B
+</input>
+        <output>12
+</output>
+    </test>
+    <test>
+        <input>5
+10 R
+14 B
+16 B
+21 R
+32 R
+</input>
+        <output>24
+</output>
+    </test>
+</testCases>

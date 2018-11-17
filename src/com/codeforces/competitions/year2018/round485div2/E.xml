@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5
+2 4 5 1 3
+</input>
+        <output>Petr
+</output>
+    </test>
+</testCases>

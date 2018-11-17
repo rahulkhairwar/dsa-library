@@ -3,26 +3,39 @@
 #$loop = 0
 #$ctr = 0
 #$ctr2 = 0
+#$tests = 0
+
 while
 	javac BruteSolution.java
 	javac TestsGenerator.java
 	java TestsGenerator > input.txt
-	# head -n$3 input.txt
-	echo "1 is : " $1 ", 2 is : " $2
-	utime="$( TIMEFORMAT='%lR';time ( java BruteSolution < input.txt > bruteOutput.txt; ) 2>&1 1>/dev/null )"
-	if [ $? -ne 0 ]
-	then
-		echo "Damn It" $1 "failed.****"
-		exit 1
-	fi
-	utime2="$( TIMEFORMAT='%lR';time ( ./$2 < input.txt > output.txt; ) 2>&1 1>/dev/null )"
-	if [ $? -ne 0 ]
-	then
-		echo "Damn It" $2 "failed."
-		exit 1
-	fi
+	java BruteSolution < input.txt > bruteOutput.txt
+
+#	./$2 < input.txt > output.txt
+	./a.out < input.txt > output.txt
+
+	diff output.txt bruteOutput.txt
+#	$tests++;
+
+#	if [
+
+
+#	# head -n$3 input.txt
+#	echo "1 is : " $1 ", 2 is : " $2
+#	utime="$( TIMEFORMAT='%lR';time ( java BruteSolution < input.txt > bruteOutput.txt; ) 2>&1 1>/dev/null )"
+#	if [ $? -ne 0 ]
+#	then
+#		echo "Damn It" $1 "failed.****"
+#		exit 1
+#	fi
+#	utime2="$( TIMEFORMAT='%lR';time ( ./$2 < input.txt > output.txt; ) 2>&1 1>/dev/null )"
+#	if [ $? -ne 0 ]
+#	then
+#		echo "Damn It" $2 "failed."
+#		exit 1
+#	fi
 	# echo ${utime2};
-	echo $utime $utime2;
+#	echo $utime $utime2;
 
 #	if $utime ne $utime2
 #	then
@@ -36,5 +49,5 @@ while
 #		echo "java : " $ctr ", c++ : " $ctr2
 #	fi
 
-	diff bruteOutput.txt output.txt;
+#	diff bruteOutput.txt output.txt;
 do :; done

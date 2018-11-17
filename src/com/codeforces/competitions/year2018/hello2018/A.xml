@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4
+42
+</input>
+        <output>10
+</output>
+    </test>
+    <test>
+        <input>1
+58
+</input>
+        <output>0
+</output>
+    </test>
+    <test>
+        <input>98765432
+23456789
+</input>
+        <output>23456789
+</output>
+    </test>
+</testCases>

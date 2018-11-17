@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4
+red
+purple
+yellow
+orange
+</input>
+        <output>2
+Time
+Space
+</output>
+    </test>
+    <test>
+        <input>0
+</input>
+        <output>6
+Power
+Space
+Soul
+Mind
+Time
+Reality
+</output>
+    </test>
+</testCases>

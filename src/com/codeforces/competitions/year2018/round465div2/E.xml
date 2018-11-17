@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>(1?1)
+1 0
+</input>
+        <output>2
+</output>
+    </test>
+    <test>
+        <input>(2?(1?2))
+1 1
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>((1?(5?7))?((6?2)?7))
+3 2
+</input>
+        <output>18
+</output>
+    </test>
+    <test>
+        <input>((1?(5?7))?((6?2)?7))
+2 3
+</input>
+        <output>16
+</output>
+    </test>
+</testCases>

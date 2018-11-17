@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5 3
+15 13 15 15 12
+</input>
+        <output>YES
+1 2 5 
+</output>
+    </test>
+    <test>
+        <input>5 4
+15 13 15 15 12
+</input>
+        <output>NO
+</output>
+    </test>
+    <test>
+        <input>4 4
+20 10 40 30
+</input>
+        <output>YES
+1 2 3 4 
+</output>
+    </test>
+</testCases>

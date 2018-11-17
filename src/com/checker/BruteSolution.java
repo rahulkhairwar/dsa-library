@@ -1,4 +1,4 @@
-package com.checker;
+//package com.checker;
 
 import java.io.*;
 import java.util.*;
@@ -7,94 +7,86 @@ public class BruteSolution
 {
 	public static void main(String[] args)
 	{
-		InputReader in = new InputReader(System.in);
-		PrintWriter out = new PrintWriter(System.out);
-
-		try
-		{
-			in = new InputReader(new FileInputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
-					+ "Workspace/Competitive Programming/src/com/checker/input.txt")));
-			out = new PrintWriter(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-					+ "Programming/src/com/checker/bruteOutput.txt"));
-		}
-		catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-
-		Solver solver = new Solver(in, out);
-
-		try
-		{
-			solver.solve();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		in.close();
-		out.flush();
-		out.close();
+		new BruteSolution();
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
-		List<Integer> list, temp;
+		static final long MOD = (long) 1e9 + 7;
+		int t, n;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
-			n = in.nextInt();
-			list = new ArrayList<>();
+			t = in.nextInt();
 
-			for (int i = 0; i < n; i++)
-				list.add(in.nextInt());
-
-			int cnt = 0;
-
-			while (list.size() > 0)
+			while (t-- > 0)
 			{
-				int start = 0;
-				int end = 0;
-				int maxStart = 0;
-				int maxEnd = 0;
-				int maxSize = 1;
+				n = in.nextInt();
 
-				for (int i = 1; i < list.size(); i++)
+				TreeMap<Integer, Integer> map = new TreeMap<>((o1, o2) -> Integer.compare(o2, o1));
+
+				for (int i = 0; i < n; i++)
 				{
-					if (list.get(i).equals(list.get(i - 1)))
-					{
-						end++;
+					int s = in.nextInt();
+					Integer cnt = map.get(s);
 
-						if (end - start + 1 > maxSize)
-						{
-							maxSize = end - start + 1;
-							maxStart = start;
-							maxEnd = end;
-						}
-					}
+					if (cnt == null)
+						map.put(s, 1);
 					else
-						start = end = i;
+						map.put(s, cnt + 1);
 				}
 
-//				System.out.println("list : " + list);
-//				System.out.println("st : " + maxStart + ", end : " + maxEnd);
+				long ans = 1;
+				Deque<Integer> queue = new LinkedList<>();
 
-				cnt++;
-				temp = new ArrayList<>();
+				for (Map.Entry<Integer, Integer> entry : map.entrySet())
+				{
+					long cnt = entry.getValue();
 
-				for (int i = 0; i < maxStart; i++)
-					temp.add(list.get(i));
+					queue.add((int) cnt);
+				}
 
-				for (int i = maxEnd + 1; i < list.size(); i++)
-					temp.add(list.get(i));
+				while (queue.size() > 0)
+				{
+					int first = queue.pollFirst();
 
-				list = temp;
+					if (first % 2 == 0)
+						ans = CMath.mod(ans * getMul(first - 1), MOD);
+					else
+					{
+						if (first == 1)
+						{
+							int second = queue.pollFirst();
+
+							ans = CMath.mod(ans * second, MOD);
+							second--;
+							queue.addFirst(second);
+
+							continue;
+						}
+
+						ans = CMath.mod(ans * CMath.mod(first * getMul(first - 2), MOD), MOD);
+						queue.addFirst(1);
+					}
+				}
+
+				out.println(ans);
+			}
+		}
+
+		long getMul(long cnt)
+		{
+			long mul = 1;
+
+			while (cnt >= 1)
+			{
+				mul = CMath.mod(mul * cnt, MOD);
+				cnt -= 2;
 			}
 
-			out.println(cnt);
+			return mul;
 		}
 
 		public Solver(InputReader in, PrintWriter out)
@@ -103,8 +95,7 @@ public class BruteSolution
 			this.out = out;
 		}
 
-		@Override
-		public void run()
+		@Override public void run()
 		{
 			try
 			{
@@ -407,6 +398,14 @@ public class BruteSolution
 				return gcd(b, a % b);
 		}
 
+		static long gcd(long a, long b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return gcd(b, a % b);
+		}
+
 		static long min(long... arr)
 		{
 			long min = arr[0];
@@ -449,24 +448,48 @@ public class BruteSolution
 
 	}
 
+	public BruteSolution()
+	{
+		InputReader in = new InputReader(System.in);
+		PrintWriter out = new PrintWriter(System.out);
+
+		try
+		{
+			in = new InputReader(new FileInputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
+					+ "Workspace/Competitive Programming/src/com/checker/input.txt")));
+			out = new PrintWriter(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
+					+ "Programming/src/com/checker/bruteOutput.txt"));
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
+		Solver solver = new Solver(in, out);
+
+		try
+		{
+			solver.solve();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		in.close();
+		out.flush();
+		out.close();
+	}
+
 }
 
 /*
 
-8 14
-1 2
-2 3
-2 5
-2 6
-6 2
-5 6
-6 7
-3 7
-7 3
-5 4
-6 4
-4 8
-8 4
-7 8
+5 5
+2 1 2
+2 2 3
+2 3 4
+2 4 5
+2 5 1
 
 */

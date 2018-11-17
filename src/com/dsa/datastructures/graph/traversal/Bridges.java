@@ -20,13 +20,10 @@ public class Bridges
 	{
 		Scanner in = new Scanner(System.in);
 		OutputWriter out = new OutputWriter(System.out);
-
 		Solver solver = new Solver();
 
-		solver.solve(1, in, out);
-
+		solver.solve(in, out);
 		out.flush();
-
 		in.close();
 		out.close();
 	}
@@ -45,7 +42,7 @@ public class Bridges
 		 * @param in  a Scanner object to read input
 		 * @param out an OutputWriter object to write output
 		 */
-		void solve(int testNumber, Scanner in, OutputWriter out)
+		void solve(Scanner in, OutputWriter out)
 		{
 			this.in = in;
 			this.out = out;

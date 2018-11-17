@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>8
+</input>
+        <output>OOOoOooO
+</output>
+    </test>
+    <test>
+        <input>15
+</input>
+        <output>OOOoOooOooooOoo
+</output>
+    </test>
+</testCases>

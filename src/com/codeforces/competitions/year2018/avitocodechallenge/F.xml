@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2 4
+0 1
+2 3
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>10 100
+3 14 15 92 65 35 89 79 32 38
+2 71 82 81 82 84 5 90 45 23
+</input>
+        <output>27
+</output>
+    </test>
+</testCases>

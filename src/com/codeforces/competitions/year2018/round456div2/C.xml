@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3 2
+1000 10 50
+70 5 5
+90 70 1
+110 20 2
+20 2 10
+30 3 10
+</input>
+        <output>3000
+</output>
+    </test>
+    <test>
+        <input>1 1
+500 50 1000
+750 750 20
+10 1 300
+</input>
+        <output>-1
+</output>
+    </test>
+</testCases>

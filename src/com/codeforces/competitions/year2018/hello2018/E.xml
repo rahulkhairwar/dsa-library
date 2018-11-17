@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4
+00110011
+00000111
+11110000
+00011111
+</input>
+        <output>y
+(y|z)&amp;amp;x
+!x
+x|y&amp;amp;z
+</output>
+    </test>
+</testCases>

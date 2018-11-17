@@ -94,8 +94,7 @@ public class TaskD
 			this.out = out;
 		}
 
-		@Override
-		public void run()
+		@Override public void run()
 		{
 			try
 			{

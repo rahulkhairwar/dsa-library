@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5 300
+3 100
+4 150
+4 80
+2 90
+2 300
+</input>
+        <output>2
+3
+3 1 4
+</output>
+    </test>
+    <test>
+        <input>2 100
+1 787
+2 788
+</input>
+        <output>0
+0
+
+</output>
+    </test>
+    <test>
+        <input>2 100
+2 42
+2 58
+</input>
+        <output>2
+2
+1 2
+</output>
+    </test>
+</testCases>

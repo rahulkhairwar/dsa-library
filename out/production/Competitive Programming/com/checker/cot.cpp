@@ -1,93 +1,186 @@
-#include <bits/stdc++.h>//Ê÷ÉÏÄª¶Ó COT2
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <algorithm>
+
+#define MAXN 3000000
+#define MODM 1000000007LL
+#define ll long long
+
 using namespace std;
-const int N = 40005, M = 100005;
-int now, S, tot, cnt, cnt2, blo[N << 1], to[N << 1], nxt[N << 1], head[N], a[N], b[N], sum[N], l[N], r[N], dfn[N], dep[N], idx[N << 1], p[N][20], ans[M];
-bool vis[N];
-struct data {
-	int id, l, r;
-}Q[M];
-bool cmp(const data &p, const data &q) {
-	return blo[p.l] < blo[q.l] || (blo[p.l] == blo[q.l] && p.r < q.r);
+
+int t, n, a[MAXN+5], b[MAXN+5], tot_b;
+ll ans, tmp, tmp2, x, y, d, cnt[MAXN+5], fact[MAXN+15], df[MAXN+15];
+
+void f( ll a, ll b ) {
+
+    if ( b == 0 ) {
+        d = a;
+        x = 1;
+        y = 0;
+    }else {
+        f( b, a % b );
+        tmp = x;
+        x = y;
+        y = tmp - ( (ll)a/(ll)b) * y;
+    }
+
 }
-void add(int u, int v) {
-	to[tot] = v, nxt[tot] = head[u], head[u] = tot++;
-	to[tot] = u, nxt[tot] = head[v], head[v] = tot++;
+
+ll pow( ll x, ll b, ll m ) {
+
+    ll ret = 1LL;
+
+    while ( b > 0LL ) {
+        if ( b % 2LL == 1LL ) {
+            ret = ( ret * x ) % m;
+        }
+        x = ( x * x ) % m;
+        b /= 2LL;
+    }
+
+    return ( ret );
+
+
 }
-inline int readint() {
-	char c;
-	while (c = getchar(), c < '0' || c > '9');
-	int t = c - '0';
-	while (c = getchar(), c >= '0' && c <= '9')	t = t * 10 + c - '0';
-	return t;
+
+ll modInverse( ll a, ll m ) {
+    //f(a,m);
+    //return ( ( x%m + m ) % m );
+    return pow( a, m-2, m );
 }
-void dfs(int u, int fa) {
-	dfn[u] = ++cnt, l[u] = ++cnt2, idx[cnt2] = u, dep[u] = dep[fa] + 1, p[u][0] = fa;
-	for (int i = 1; i <= 17; ++i)	p[u][i] = p[p[u][i - 1]][i - 1];
-	for (int i = head[u], v; ~i; i = nxt[i]) {
-		if (!dfn[v = to[i]]) dfs(v, u);
-	}
-	r[u] = ++cnt2, idx[cnt2] = u;
+
+ll calc( ll tmp2 ) {
+    ll ans;
+
+    ans = (tmp2 * ( (tmp2-1+MODM) % MODM ) ) % MODM;
+    ans = (ans * modInverse(2,MODM)) % MODM;
+
+    return ans;
 }
-inline int lca(int u, int v) {
-	if (dep[u] > dep[v])	swap(u, v);
-	if (dep[u] < dep[v]) {
-		int del = dep[v] - dep[u];
-		for (int i = 0; i <= 17; ++i) {
-			if (del >> i & 1)	v = p[v][i];
-		}
-	}
-	if (u != v) {
-		for (int i = 17; i >= 0; --i) {
-			if (p[u][i] != p[v][i]) {
-				u = p[u][i];
-				v = p[v][i];
-			}
-		}
-		u = p[u][0], v = p[v][0];
-	}
-	return u;
+
+ll c( ll n, ll r ) {
+    ll ret = 0;
+
+    ret = fact[n];
+    ret = (ret * modInverse(fact[r], MODM)) % MODM;
+    ret = ((ret%MODM) * (modInverse(fact[n-r] % MODM,MODM)) ) % MODM;
+    ret = ( ret%MODM + MODM ) % MODM;
+
+    return ( ret );
 }
-void gao(int x) {
-	if (vis[x]) {
-		if (!(--sum[a[x]]))	--now;
-	}
-	else if ((++sum[a[x]]) == 1)	++now;
-	vis[x] ^= 1;
+
+ll sn( ll n ) {
+    //return df[n];
+    ll a = fact[n];
+    ll b = modInverse( fact[n/2LL], MODM );
+    ll c = pow( modInverse(2LL,MODM), n/2LL, MODM);
+    //ll c = modInverse( pow( 2LL, n/2LL, MODM), MODM );
+    ll tmp = ( (a%MODM) * (b%MODM) ) % MODM;
+    tmp = ( (tmp%MODM) * (c%MODM) ) % MODM;
+    return ( tmp );
 }
-int main() {
-	memset(head, -1, sizeof(head));
-	int n = readint(), m = readint();
-	for (int i = 1; i <= n; ++i)	a[i] = b[i] = readint();
-	sort(b + 1, b + n + 1);
-	for (int i = 1; i <= n; ++i)	a[i] = lower_bound(b + 1, b + n + 1, a[i]) - b;
-	for (int i = 1, x, y; i < n; ++i) {
-		x = readint(), y = readint();
-		add(x, y);
-	}
-	dfs(1, 1);
-	S = sqrt(cnt2);
-	for (int i = 1; i <= cnt2; ++i)	blo[i] = (i - 1) / S + 1;
-	for (int i = 1, x, y; i <= m; ++i) {
-		x = readint(), y = readint();
-		if (dfn[x] > dfn[y])	swap(x, y);
-		int t = lca(x, y);
-		if (t == x)	Q[i].l = l[x], Q[i].r = l[y];
-		else Q[i].l = r[x], Q[i].r = l[y];
-		Q[i].id = i;
-	}
-	sort(Q + 1, Q + m + 1, cmp);
-	int L = 1, R = 0;
-	for (int i = 1; i <= m; ++i) {
-		while (L > Q[i].l)	gao(idx[--L]);
-		while (L < Q[i].l)	gao(idx[L++]);
-		while (R < Q[i].r)	gao(idx[++R]);
-		while (R > Q[i].r)	gao(idx[R--]);
-		int u = idx[L], v = idx[R];
-		int t = lca(u, v);
-		if (t != u && t != v)	gao(t);
-		ans[Q[i].id] = now;
-		if (t != u && t != v)	gao(t);
-	}
-	for (int i = 1; i <= m; ++i)	printf("%d\n", ans[i]);
-	return 0;
+
+ll sn2( ll n ) {
+    //return df[n];
+    ll a = fact[n];
+    ll b = modInverse( fact[n/2LL], MODM );
+    // /ll c = pow( modInverse(2LL,MODM), n/2LL, MODM);
+    ll c = modInverse( pow( 2LL, n/2LL, MODM), MODM );
+    ll tmp = ( (a%MODM) * (b%MODM) ) % MODM;
+    tmp = ( (tmp%MODM) * (c%MODM) ) % MODM;
+    return ( tmp );
+}
+
+
+int main( ) {
+
+    fact[0] = 1;
+    df[0] = 1;
+    df[1] = 1;
+
+    for ( int i = 1; i <= MAXN+5; ++i ) {
+        fact[i] = ( (fact[i-1]%MODM) * (i%MODM) ) % MODM;
+        fact[i] = ( fact[i]%MODM + MODM ) % MODM;
+    }
+
+    ll val = 1;
+
+    for ( int i = 1; 2*i <= MAXN+5; ++i ) {
+        df[2*i-1] = val;  //;( (fact[i-1];%MODM) * (i%MODM) ) % MODM;
+        df[2*i] = val;
+        ll tmp = (2*i+1);
+        val = ( (val%MODM) * (tmp%MODM) ) % MODM;
+        val = ( val%MODM + MODM ) % MODM;
+    }
+
+    /*//Test if they are same
+    for ( int i = 0; i <= MAXN; ++i ) {
+        cout << sn(i) << " " << sn2(i) << endl;
+        if ( sn(i) != sn2(i) ) {
+            cout << "do not match :(\n";
+            break;
+        }
+
+    }
+
+    exit(0);
+    */
+
+    scanf( "%d", &t );
+
+    while ( t-- ) {
+
+        scanf( "%d", &n );
+
+        for ( int i = 1; i <= n; ++i ) {
+            scanf( "%d", &a[i] );
+            ++cnt[a[i]];
+        }
+
+        sort( a+1, a+n+1 );
+
+        /*
+        for ( int i = 1; i <= n;++i)
+            cout << sn(i) << endl;
+        cout << endl;
+        */
+        //(n!) / ( (n/2)!   * (2^(n/2) ) )
+        int cur = 0;
+        tot_b = 0;
+        for ( int i = 1; i <= n; ++i ) {
+            if ( i == 1 || a[cur] != a[i] ) {
+                cur = i;
+                b[++tot_b] = a[i];
+            }
+        }
+
+        ans = 1;
+        //cnt[0] = 1;
+
+        for ( int i = tot_b; i >= 1; --i ) {
+            if ( cnt[ b[i] ] % 2 == 0 ) {
+                ans = ( (ans%MODM) * (sn( cnt[ b[i] ] )%MODM) ) % MODM;
+            }else {
+                //cnt[ current_value ] * cnt[ next_value ] * calc( cnt[next_value] - 1)?
+                ans = ( (ans%MODM) * (cnt[ b[i] ]%MODM) )%MODM;
+                ans = ( (ans%MODM) * (cnt[ b[i-1] ]%MODM) ) % MODM;
+                cnt[ b[i-1] ] = max( 0LL, cnt[ b[i-1] ]-1LL );
+            }
+        }
+
+        ans = ( (ans%MODM) + MODM ) % MODM;
+
+        cout << ans << endl;
+
+        for ( int i = 1; i <= n; ++i ) {
+            cnt[ a[i] ] = 0;
+        }
+
+        //exit(0);
+
+    }
+
+    return 0;
+
 }

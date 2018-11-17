@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2
+abcDCE
+htQw27
+</input>
+        <output>abcD4E
+htQw27
+</output>
+    </test>
+</testCases>

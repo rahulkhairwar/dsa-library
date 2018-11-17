@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5 3 3 1 1
+</input>
+        <output>3.7677669529663684 3.7677669529663684 3.914213562373095
+</output>
+    </test>
+    <test>
+        <input>10 5 5 5 15
+</input>
+        <output>5.0 5.0 10.0
+</output>
+    </test>
+</testCases>

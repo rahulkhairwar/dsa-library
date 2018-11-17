@@ -1,0 +1,21 @@
+10 FleaTravel
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+47 src/com/a2onlinejudge/groupcontests/july30_2018
+16 -Xmx256m -Xss64m
+4 Main
+54 com.a2onlinejudge.groupcontests.july30_2018.FleaTravel
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2018.08.22
+0 
+1
+0 
+0 
+0
+0

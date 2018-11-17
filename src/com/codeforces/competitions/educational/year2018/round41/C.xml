@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>1
+0
+
+0
+
+1
+
+0
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>3
+101
+010
+101
+
+101
+000
+101
+
+010
+101
+011
+
+010
+101
+010
+</input>
+        <output>2
+</output>
+    </test>
+</testCases>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4 12
+20 30 70 90
+</input>
+        <output>150
+</output>
+    </test>
+    <test>
+        <input>4 3
+10000 1000 100 10
+</input>
+        <output>10
+</output>
+    </test>
+    <test>
+        <input>4 3
+10 100 1000 10000
+</input>
+        <output>30
+</output>
+    </test>
+    <test>
+        <input>5 787787787
+123456789 234567890 345678901 456789012 987654321
+</input>
+        <output>44981600785557577
+</output>
+    </test>
+</testCases>

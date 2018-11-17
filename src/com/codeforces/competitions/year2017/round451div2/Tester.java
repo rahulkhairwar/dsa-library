@@ -23,7 +23,9 @@ public class Tester
 	{
 		List<Boolean> results = new ArrayList<>();
 		List<Long> timeTaken = new ArrayList<>();
-		List<TestCase> testCases = readTestCases("/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive Programming/src/com/codeforces/competitions/year2017/round451div2/E.xml");
+		List<TestCase> testCases = readTestCases(
+				"/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
+						+ "Programming/src/com/codeforces/competitions/year2017/round451div2/F.xml");
 
 		for (int i = 0; i < testCases.size(); i++)
 		{
@@ -33,7 +35,7 @@ public class Tester
 			StringOutputStream outputStream = new StringOutputStream();
 			long start = System.currentTimeMillis();
 
-			new TaskE(inputStream, outputStream);
+			new TaskF(inputStream, outputStream);
 
 			long time = System.currentTimeMillis() - start;
 
@@ -62,8 +64,9 @@ public class Tester
 		System.out.println("******************************************");
 
 		for (int i = 0; i < results.size(); i++)
-			System.out.println("TestCase #" + (i + 1) + ": " + (results.get(i) ? "SUCCESS" : "WRONG ANSWER") + " in "
-					+ timeTaken.get(i) + "ms");
+			System.out.println(
+					"TestCase #" + (i + 1) + ": " + (results.get(i) ? "SUCCESS" : "WRONG ANSWER") + " in " + timeTaken
+							.get(i) + "ms");
 	}
 
 	static List<TestCase> readTestCases(String xml)

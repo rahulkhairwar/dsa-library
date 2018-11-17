@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>17 15 5 3
+</input>
+        <output>3
+</output>
+    </test>
+    <test>
+        <input>14 16 7 22
+</input>
+        <output>0
+</output>
+    </test>
+    <test>
+        <input>4 2 6 4
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>1000000000000000000 1000000000000000000 999999866000004473 999999822000007597
+</input>
+        <output>1000000063
+</output>
+    </test>
+</testCases>

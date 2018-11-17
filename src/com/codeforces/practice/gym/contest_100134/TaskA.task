@@ -1,0 +1,21 @@
+5 TaskA
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+0
+46 src/com/codeforces/practice/gym/contest_100134
+16 -Xmx256m -Xss64m
+4 Main
+48 com.codeforces.practice.gym.contest_100134.TaskA
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2018.10.13
+0 
+1
+0 
+0 
+0
+0

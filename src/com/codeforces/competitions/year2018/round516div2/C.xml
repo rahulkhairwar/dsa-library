@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5
+oolol
+</input>
+        <output>ololo
+</output>
+    </test>
+    <test>
+        <input>16
+gagadbcgghhchbdf
+</input>
+        <output>abccbaghghghgdfd
+</output>
+    </test>
+</testCases>

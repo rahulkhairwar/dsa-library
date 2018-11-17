@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2
+3 1
+0011
+</input>
+        <output>2 1 1 2 
+</output>
+    </test>
+    <test>
+        <input>6
+10 8 9 11 13 5
+010010011101
+</input>
+        <output>6 6 2 3 3 1 4 4 1 2 5 5 
+</output>
+    </test>
+</testCases>

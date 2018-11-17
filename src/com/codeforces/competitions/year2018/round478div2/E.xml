@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3 4
+0 0
+2 0
+2 2
+1 1 2
+2 1
+2 2
+2 3
+</input>
+        <output>3.4142135624 -1.4142135624
+2.0000000000 0.0000000000
+0.5857864376 -1.4142135624
+</output>
+    </test>
+    <test>
+        <input>3 2
+-1 1
+0 0
+1 1
+1 1 2
+2 1
+</input>
+        <output>1.0000000000 -1.0000000000
+</output>
+    </test>
+</testCases>

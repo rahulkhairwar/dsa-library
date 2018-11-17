@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2
+6 12 10
+4 3 10
+</input>
+        <output>Finite
+Infinite
+</output>
+    </test>
+    <test>
+        <input>4
+1 1 2
+9 36 2
+4 12 3
+3 5 4
+</input>
+        <output>Finite
+Finite
+Finite
+Infinite
+</output>
+    </test>
+</testCases>

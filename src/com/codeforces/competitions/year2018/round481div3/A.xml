@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>6
+1 5 5 1 6 1
+</input>
+        <output>3
+5 6 1 
+</output>
+    </test>
+    <test>
+        <input>5
+2 4 2 4 4
+</input>
+        <output>2
+2 4 
+</output>
+    </test>
+    <test>
+        <input>5
+6 6 6 6 6
+</input>
+        <output>1
+6 
+</output>
+    </test>
+</testCases>

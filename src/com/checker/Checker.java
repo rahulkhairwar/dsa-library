@@ -1,6 +1,7 @@
 package com.checker;
 
-import com.codeforces.competitions.year2017.round452div2.TaskF;
+import com.codechef.competitions.longcompetitions.year2018.july.GEARS;
+import com.codeforces.competitions.year2018.round465div2.TaskD;
 
 import java.io.*;
 import java.util.Scanner;
@@ -9,9 +10,11 @@ public class Checker
 {
 	public static void main(String[] args) throws IOException
 	{
-		int tests = 1;
+		int tests = 10;
 		long start = System.currentTimeMillis();
+		int cnt = 0;
 
+//		while (true)
 		while (tests-- > 0)
 		{
 //			TestsGenerator.main(null);
@@ -28,9 +31,9 @@ public class Checker
 					+ "Workspace/Competitive Programming/src/com/checker/output.txt"));
 
 			start = System.currentTimeMillis();
-			new TaskF(in, out);
+			new GEARS(in, out);
 			System.out.println("sol done in : " + (System.currentTimeMillis() - start));
-//			System.out.println("tests : " + tests);
+			System.out.println("tests : " + tests);
 
 /*			if (!check())
 			{
@@ -39,9 +42,17 @@ public class Checker
 				break;
 			}*/
 
-			if (tests % 1000 == 0)
-				System.out.println("tests : " + tests);
+//			if (tests % 1000 == 0)
+//				System.out.println("tests : " + tests);
 
+			cnt++;
+
+			if (cnt % 1000 == 0)
+				System.out.println("Tests cnt : " + cnt);
+
+			in.close();
+			out.flush();
+			out.close();
 //			System.out.println("*************");
 		}
 

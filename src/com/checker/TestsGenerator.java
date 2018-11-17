@@ -27,65 +27,45 @@ public class TestsGenerator
 
 	private static class Generator
 	{
-		int n, m;
-		char[] s;
+		int t, n;
+		int[] s;
 		PrintWriter out;
 
 		void generate()
 		{
-//			n = (int) (Math.random() * 2e5) + 1;
-//			m = (int) (Math.random() * 2e5) + 1;
-			n = (int) 2e5;
-			m = (int) 2e5;
-//			n = 1000;
-//			m = 1000;
-			s = new char[n];
-			out.println(n + " " + m);
+			t = 1;
 
-			for (int i = 0; i < n; i++)
+			out.println(t);
+
+			while (t-- > 0)
 			{
-				s[i] = (char) ((int) (Math.random() * 26) + 'a');
-				out.print(s[i]);
-			}
+				n = nextRandomInt(8, 10);
+				n <<= 1;
+				s = new int[n];
 
-			out.println();
-			out.flush();
+				for (int i = 0; i < n; i++)
+					s[i] = nextRandomInt(1, 11);
 
-			for (int i = 0; i < m; i++)
-			{
-				int l = (int) (Math.random() * n);
-				int r = (int) (Math.random() * n);
-				char ch = (char) ((int) (Math.random() * 26) + 'a');
+				out.println(n);
 
-				if (l > r)
-				{
-					int temp = l;
+				for (int x : s)
+					out.print(x + " ");
 
-					l = r;
-					r = temp;
-				}
-
-				out.println(l + 1 + " " + (r + 1) + " " + ch);
-				delete(l, r, ch);
+				out.println();
 			}
 		}
 
-		void delete(int l, int r, char ch)
+
+		/**
+		 * Returns a random integer in the range [start, limit).
+		 *
+		 * @param start start is the lower limit for the randomly generated integer.
+		 * @param limit limit - 1 is the upper limit for the randomly generated integer.
+		 * @return returns a random integer in the range [start, limit).
+		 */
+		int nextRandomInt(int start, int limit)
 		{
-			char[] temp = new char[n];
-			int ctr = 0;
-			int deleted = 0;
-
-			for (int i = l; i <= r; i++)
-			{
-				if (s[i] == ch)
-					deleted++;
-				else
-					temp[ctr++] = s[i];
-			}
-
-			n -= deleted;
-			s = temp;
+			return (int) (Math.random() * (limit - start + 1)) + start;
 		}
 
 		Generator(PrintWriter out)

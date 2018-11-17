@@ -39,29 +39,9 @@ public class KMP
 			n = text.length;
 			m = pattern.length;
 
-			int[] pre = new int[m];
-			int i = 1, j = 0;
-
-			while (i < m)
-			{
-				if (pattern[i] == pattern[j])
-				{
-					pre[i] = j + 1;
-					i++;
-					j++;
-				}
-				else
-				{
-					if (j > 0)
-						j = pre[j - 1];
-					else
-						i++;
-				}
-			}
-
-			i = j = 0;
-
+			int[] pre = StringFunctions.prefixFunction(pattern);
 			List<Integer> pos = new ArrayList<>();
+			int i = 0, j = 0;
 
 			while (i < n)
 			{

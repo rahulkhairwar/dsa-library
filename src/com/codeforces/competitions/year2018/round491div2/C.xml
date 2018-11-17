@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>68
+</input>
+        <output>3
+</output>
+    </test>
+</testCases>

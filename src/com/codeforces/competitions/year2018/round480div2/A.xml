@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>&lt;span class="tex-font-style-tt"&gt;-o-o--&lt;/span&gt;</input>
+        <output>YES</output>
+    </test>
+    <test>
+        <input>&lt;span class="tex-font-style-tt"&gt;-o---&lt;/span&gt;
+</input>
+        <output>YES</output>
+    </test>
+    <test>
+        <input>&lt;span class="tex-font-style-tt"&gt;-o---o-&lt;/span&gt;
+</input>
+        <output>NO</output>
+    </test>
+    <test>
+        <input>ooo
+</input>
+        <output>YES
+</output>
+    </test>
+</testCases>

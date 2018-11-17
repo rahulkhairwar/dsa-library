@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>ababababa
+3
+2 1 7 aba
+1 5 c
+2 1 7 aba
+</input>
+        <output>3
+1
+</output>
+    </test>
+    <test>
+        <input>abcdcbc
+5
+2 1 7 bc
+1 4 b
+2 4 7 bc
+1 2 a
+2 1 4 aa
+</input>
+        <output>2
+2
+1
+</output>
+    </test>
+</testCases>

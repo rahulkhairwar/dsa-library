@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>6
+2 1 4
+1 2 4
+3 4 4
+2 8 3
+3 16 3
+1 32 2
+</input>
+        <output>63</output>
+    </test>
+    <test>
+        <input>7
+1 100000 1
+1 100000 2
+1 100000 2
+4 50000 3
+3 50000 4
+4 50000 4
+3 50000 3
+</input>
+        <output>300000</output>
+    </test>
+    <test>
+        <input>4
+1 1000 1
+2 500 2
+3 250 3
+4 125 4
+</input>
+        <output>1000</output>
+    </test>
+</testCases>

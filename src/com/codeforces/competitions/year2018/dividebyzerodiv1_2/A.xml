@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>aaabccc
+</input>
+        <output>YES
+</output>
+    </test>
+    <test>
+        <input>bbacc
+</input>
+        <output>NO
+</output>
+    </test>
+    <test>
+        <input>aabc
+</input>
+        <output>YES
+</output>
+    </test>
+</testCases>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3 5 5 7
+3 1 4
+1 1
+73 1 48 85 89
+2 1
+2 3
+1 2 3
+2 1
+2 3
+</input>
+        <output>2920.333333333333
+593.000000000000
+49.000000000000
+3217.000000000000
+</output>
+    </test>
+</testCases>

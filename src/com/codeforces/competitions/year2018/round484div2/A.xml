@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3
+101
+</input>
+        <output>Yes
+</output>
+    </test>
+    <test>
+        <input>4
+1011
+</input>
+        <output>No
+</output>
+    </test>
+    <test>
+        <input>5
+10001
+</input>
+        <output>No
+</output>
+    </test>
+</testCases>

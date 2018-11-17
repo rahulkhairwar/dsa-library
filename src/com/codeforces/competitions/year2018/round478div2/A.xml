@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5
+a aa aaa ab abb
+</input>
+        <output>2</output>
+    </test>
+    <test>
+        <input>3
+amer arem mrea
+</input>
+        <output>1</output>
+    </test>
+</testCases>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3
+abb
+dad
+</input>
+        <output>2
+a d
+b a</output>
+    </test>
+    <test>
+        <input>8
+drpepper
+cocacola
+</input>
+        <output>7
+l e
+e d
+d c
+c p
+p o
+o r
+r a
+</output>
+    </test>
+</testCases>

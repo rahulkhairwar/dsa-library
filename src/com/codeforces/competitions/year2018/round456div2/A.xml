@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4 3
+2 1 1
+</input>
+        <output>2
+</output>
+    </test>
+    <test>
+        <input>3 9
+1 1 3
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>12345678 87654321
+43043751 1000000000 53798715
+</input>
+        <output>2147483648
+</output>
+    </test>
+</testCases>

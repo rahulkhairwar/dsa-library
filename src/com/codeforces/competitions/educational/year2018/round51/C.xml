@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>4
+3 5 7 1
+</input>
+        <output>YES
+BABA
+</output>
+    </test>
+    <test>
+        <input>3
+3 5 1
+</input>
+        <output>NO
+</output>
+    </test>
+</testCases>

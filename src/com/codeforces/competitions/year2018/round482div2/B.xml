@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3
+Kuroo
+Shiro
+Katie
+</input>
+        <output>Kuro
+</output>
+    </test>
+    <test>
+        <input>7
+treasurehunt
+threefriends
+hiCodeforces
+</input>
+        <output>Shiro
+</output>
+    </test>
+    <test>
+        <input>1
+abcabc
+cbabac
+ababca
+</input>
+        <output>Katie
+</output>
+    </test>
+    <test>
+        <input>15
+foPaErcvJ
+mZaxowpbt
+mkuOlaHRE
+</input>
+        <output>Draw
+</output>
+    </test>
+</testCases>

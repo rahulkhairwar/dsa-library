@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>15 3
+cccaabababaccbc
+</input>
+        <output>cccbbabaccbc
+</output>
+    </test>
+    <test>
+        <input>15 9
+cccaabababaccbc
+</input>
+        <output>cccccc
+</output>
+    </test>
+    <test>
+        <input>1 1
+u
+</input>
+        <output/>
+    </test>
+</testCases>

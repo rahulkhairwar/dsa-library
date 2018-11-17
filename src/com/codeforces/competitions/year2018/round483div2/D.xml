@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3
+8 4 1
+2
+2 3
+1 2
+</input>
+        <output>5
+12
+</output>
+    </test>
+    <test>
+        <input>6
+1 2 4 8 16 32
+4
+1 6
+2 5
+3 4
+1 2
+</input>
+        <output>60
+30
+12
+3
+</output>
+    </test>
+</testCases>

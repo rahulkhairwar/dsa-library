@@ -1,3 +1,5 @@
+package com.codeforces.competitions.year2018.round516div2;
+
 import java.io.*;
 import java.util.*;
 

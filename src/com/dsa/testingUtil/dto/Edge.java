@@ -23,10 +23,11 @@ public class Edge
 
 	@Override public boolean equals(Object obj)
 	{
-		com.checker.dto.Edge edge = (com.checker.dto.Edge) obj;
+		Edge edge = (Edge) obj;
 
 		// checking only for connection between nodes, edge weight doesn't matter.
 		return Math.min(from, to) == Math.min(edge.from, edge.to) && Math.max(from, to) == Math.max(edge.from, edge.to);
+
 	}
 
 	@Override public String toString()

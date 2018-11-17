@@ -1,50 +1,30 @@
 package com.dsa.testingUtil;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import com.dsa.testingUtil.util.GeneratorUtils;
 
-public class TestsGenerator
+import java.io.*;
+
+class TestsGenerator
 {
-	public static void main(String[] args)
-	{
-		try
-		{
-			PrintWriter out = new PrintWriter(new File(
-					"/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-							+ "Programming/src/com/checker/input.txt"));
-			Generator generator = new Generator(out);
-
-			generator.generate();
-			out.flush();
-			out.close();
-		}
-		catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	private static class Generator
+	private static class Generator implements Runnable
 	{
 		int t, n;
 		int[] s;
 		PrintWriter out;
 
-		void generate()
+		void generate() throws IOException
 		{
 			t = 1;
-
 			out.println(t);
 
 			while (t-- > 0)
 			{
-				n = nextRandomInt(8, 10);
+				n = GeneratorUtils.nextRandomInt(8, 10);
 				n <<= 1;
 				s = new int[n];
 
 				for (int i = 0; i < n; i++)
-					s[i] = nextRandomInt(1, 11);
+					s[i] = GeneratorUtils.nextRandomInt(1, 11);
 
 				out.println(n);
 
@@ -55,17 +35,16 @@ public class TestsGenerator
 			}
 		}
 
-
-		/**
-		 * Returns a random integer in the range [start, limit).
-		 *
-		 * @param start start is the lower limit for the randomly generated integer.
-		 * @param limit limit - 1 is the upper limit for the randomly generated integer.
-		 * @return returns a random integer in the range [start, limit).
-		 */
-		int nextRandomInt(int start, int limit)
+		@Override public void run()
 		{
-			return (int) (Math.random() * (limit - start + 1)) + start;
+			try
+			{
+				generate();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 
 		Generator(PrintWriter out)
@@ -73,6 +52,27 @@ public class TestsGenerator
 			this.out = out;
 		}
 
+	}
+
+	TestsGenerator(OutputStream outputStream)
+	{
+		PrintWriter out = new PrintWriter(outputStream);
+		Thread thread = new Thread(null, new Generator(out), "Generator", 1 << 29);
+
+		try
+		{
+			thread.start();
+			thread.join();
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			out.flush();
+			out.close();
+		}
 	}
 
 }

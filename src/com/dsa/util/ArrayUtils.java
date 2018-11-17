@@ -1,7 +1,5 @@
 package com.dsa.util;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -17,17 +15,23 @@ public final class ArrayUtils
 	}
 
 	/**
-	 * Uses reverse(List<>) method of Collections interface to reverse an array of type T
+	 * Reverses an array of type T.
 	 *
-	 * @param array the array whose elements are to be reversed.
-	 * @param <T>   the type of the array.
-	 * @return the array with the reversed elements.
+	 * @param arr the arr whose elements are to be reversed.
+	 * @param <T>   the type of the arr.
+	 * @return the reversed array.
 	 */
-	public static <T> T[] reverse(T[] array)
+	public static <T> T[] reverse(T[] arr)
 	{
-		Collections.reverse(Arrays.asList(array));
+		for (int i = 0, j = arr.length - 1; i < arr.length / 2; i++, j--)
+		{
+			T temp = arr[i];
 
-		return array;
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}
+
+		return arr;
 	}
 
 	/**
@@ -45,6 +49,7 @@ public final class ArrayUtils
 		for (int i = from, j = to; i < from + size / 2; i++, j--)
 		{
 			double temp = array[i];
+
 			array[i] = array[j];
 			array[j] = temp;
 		}
@@ -134,6 +139,7 @@ public final class ArrayUtils
 		for (int i = from, j = to; i < from + size / 2; i++, j--)
 		{
 			T temp = array[i];
+
 			array[i] = array[j];
 			array[j] = temp;
 		}
@@ -215,37 +221,5 @@ public final class ArrayUtils
 			arr[randomPosition] = temp;
 		}
 	}
-
-	// have to add parameter for OutputWriter object
-	public static void printOnSameLine(double[] arr)
-	{
-		for (double curr : arr)
-			System.out.print(curr + " ");
-	}
-
-	public static void printOnSameLine(long[] arr)
-	{
-		for (long curr : arr)
-			System.out.print(curr + " ");
-	}
-
-	public static void printOnSameLine(int[] arr)
-	{
-		for (int curr : arr)
-			System.out.print(curr + " ");
-	}
-
-	public static void printOnSameLine(boolean[] arr)
-	{
-		for (boolean curr : arr)
-			System.out.print(curr + " ");
-	}
-
-	public static void printOnSameLine(Object[] arr)
-	{
-		for (Object curr : arr)
-			System.out.print(curr + " ");
-	}
-
 
 }

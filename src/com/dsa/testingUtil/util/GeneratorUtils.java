@@ -1,6 +1,6 @@
 package com.dsa.testingUtil.util;
 
-import com.checker.dto.Edge;
+import com.dsa.testingUtil.dto.Edge;
 
 import java.awt.*;
 import java.util.*;
@@ -119,7 +119,6 @@ public class GeneratorUtils
 				do
 				{
 					to = (int) (Math.random() * v);
-//					System.out.println("fr : " + fr + ", to : " + to);
 				} while (to == fr);
 
 				if (isZeroBased)
@@ -160,6 +159,18 @@ public class GeneratorUtils
 			s.append((char) ((Math.random() * 26) + 'a'));
 
 		return s.toString();
+	}
+
+	/**
+	 * Returns a random integer in the range [start, limit).
+	 *
+	 * @param start start is the lower limit for the randomly generated integer.
+	 * @param limit limit - 1 is the upper limit for the randomly generated integer.
+	 * @return returns a random integer in the range [start, limit).
+	 */
+	public static int nextRandomInt(int start, int limit)
+	{
+		return (int) (Math.random() * (limit - start + 1)) + start;
 	}
 
 }

@@ -1,76 +1,83 @@
 package com.dsa.testingUtil;
 
 import com.codechef.competitions.longcompetitions.year2018.july.GEARS;
-import com.codeforces.competitions.year2018.round465div2.TaskD;
 
 import java.io.*;
+import java.util.Properties;
 import java.util.Scanner;
 
-public class Checker
+@SuppressWarnings("ALL") public class Checker
 {
+	private static final String propertyFilePath = "/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
+			+ "Programming/src/com/dsa/testingUtil/properties.properties";
+	private static String inputFilePath;
+	private static String bruteOutputFilePath;
+	private static String outputFilePath;
+
 	public static void main(String[] args) throws IOException
 	{
-		int tests = 10;
+		int tests = 1;
 		long start = System.currentTimeMillis();
-		int cnt = 0;
 
 //		while (true)
 		while (tests-- > 0)
 		{
-//			TestsGenerator.main(null);
-//			System.out.println("test generated");
-//			System.out.println("generation in : " + (System.currentTimeMillis() - start));
-			start = System.currentTimeMillis();
+			FileReader fileReader = new FileReader(propertyFilePath);
+			Properties properties = new Properties();
 
-//			BruteSolution.main(null);
-//			System.out.println("brute done in : " + (System.currentTimeMillis() - start));
+			properties.load(fileReader);
+			inputFilePath = properties.getProperty("inputPath");
+			bruteOutputFilePath = properties.getProperty("bruteOutputPath");
+			outputFilePath = properties.getProperty("outputPath");
 
-			InputStream in = new FileInputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
-					+ "Workspace/Competitive Programming/src/com/checker/input.txt"));
-			OutputStream out = new FileOutputStream(new File("/Users/rahulkhairwar/Documents/IntelliJ IDEA "
-					+ "Workspace/Competitive Programming/src/com/checker/output.txt"));
+			InputStream inputStream = new FileInputStream(new File(inputFilePath));
+			OutputStream outputStream = new FileOutputStream(new File(outputFilePath));
+			OutputStream testsOutputStream = new FileOutputStream(new File(inputFilePath));
+			OutputStream bruteOutputStream = new FileOutputStream(new File(bruteOutputFilePath));
 
-			start = System.currentTimeMillis();
-			new GEARS(in, out);
-			System.out.println("sol done in : " + (System.currentTimeMillis() - start));
-			System.out.println("tests : " + tests);
+			/*********************** TESTS GENERATION ***********************/
+//			start = System.currentTimeMillis();
+			new TestsGenerator(testsOutputStream);
+//			System.out.printf("Tests generated in : %dms\n", (System.currentTimeMillis() - start));
 
-/*			if (!check())
+			/*********************** BRUTE SOLUTION ***********************/
+//			start = System.currentTimeMillis();
+			new BruteSolution(inputStream, bruteOutputStream);
+//			System.out.printf("Brute done in : %dms\n", (System.currentTimeMillis() - start));
+
+			/*********************** OPTIMISED SOLUTION ***********************/
+//			start = System.currentTimeMillis();
+			new GEARS(inputStream, outputStream);
+//			System.out.printf("Solution done in : %dms\n", (System.currentTimeMillis() - start));
+
+			if (!check())
 			{
 				System.out.println("Caught!!");
 
 				break;
-			}*/
+			}
 
-//			if (tests % 1000 == 0)
-//				System.out.println("tests : " + tests);
-
-			cnt++;
-
-			if (cnt % 1000 == 0)
-				System.out.println("Tests cnt : " + cnt);
-
-			in.close();
-			out.flush();
-			out.close();
-//			System.out.println("*************");
+			fileReader.close();
+			inputStream.close();
+			outputStream.flush();
+			outputStream.close();
+			testsOutputStream.flush();
+			testsOutputStream.close();
+			bruteOutputStream.flush();
+			bruteOutputStream.close();
 		}
 
-		System.out.println("time taken for all tests : " + (System.currentTimeMillis() - start));
+		System.out.printf("Time taken for all tests : %dms\n", (System.currentTimeMillis() - start));
 	}
 
-	static boolean check()
+	private static boolean check()
 	{
 		Scanner one, two;
 
 		try
 		{
-			one = new Scanner(new File(
-					"/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-							+ "Programming/src/com/checker/bruteOutput.txt"));
-			two = new Scanner(new File(
-					"/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-							+ "Programming/src/com/checker/output.txt"));
+			one = new Scanner(new File(bruteOutputFilePath));
+			two = new Scanner(new File(outputFilePath));
 
 			while (one.hasNext() || two.hasNext())
 			{

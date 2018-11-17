@@ -1,4 +1,4 @@
-package com.rahul.algolibrary.util;
+package com.dsa.util;
 
 import java.math.BigInteger;
 

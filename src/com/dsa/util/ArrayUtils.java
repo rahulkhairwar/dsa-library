@@ -1,4 +1,4 @@
-package com.rahul.algolibrary.util;
+package com.dsa.util;
 
 import java.util.Arrays;
 import java.util.Collections;

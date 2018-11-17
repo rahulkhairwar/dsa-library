@@ -1,4 +1,4 @@
-package com.checker;
+package com.dsa.testingUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;

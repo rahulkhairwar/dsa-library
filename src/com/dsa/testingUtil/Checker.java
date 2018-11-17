@@ -1,4 +1,4 @@
-package com.checker;
+package com.dsa.testingUtil;
 
 import com.codechef.competitions.longcompetitions.year2018.july.GEARS;
 import com.codeforces.competitions.year2018.round465div2.TaskD;

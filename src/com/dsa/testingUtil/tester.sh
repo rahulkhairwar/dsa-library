@@ -12,7 +12,7 @@ while
 	java BruteSolution < input.txt > bruteOutput.txt
 
 #	./$2 < input.txt > output.txt
-	./a.out < input.txt > output.txt
+	../../checker/a.out < input.txt > output.txt
 
 	diff output.txt bruteOutput.txt
 #	$tests++;

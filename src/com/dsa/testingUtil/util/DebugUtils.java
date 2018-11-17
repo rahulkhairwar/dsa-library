@@ -1,4 +1,4 @@
-package com.checker.util;
+package com.dsa.testingUtil.util;
 
 import java.util.ArrayList;
 import java.util.List;

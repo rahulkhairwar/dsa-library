@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ExcludeFromValidation">
-    <file url="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2018/codecraft18div1_2/TaskD.java" />
-    <file url="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2018/avitocodechallenge/TaskE.java" />
-    <file url="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2018/round495div2/TaskF.java" />
-    <file url="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2018/dividebyzerodiv1_2/TaskF.java" />
-  </component>
-</project>

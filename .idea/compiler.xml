@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="CompilerConfiguration">
-    <option name="BUILD_PROCESS_HEAP_SIZE" value="2048" />
-    <excludeFromCompile>
-      <file url="file://$PROJECT_DIR$/src/com/codeforces/competitions/year2018/round485div2/TaskF.java" />
-    </excludeFromCompile>
-  </component>
-</project>

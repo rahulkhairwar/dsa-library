@@ -1,5 +1,0 @@
-JAVA :
-
-1. The class must be named Main.
-2. If the number of test cases are not provided, use Scanner class for taking input and keep checking
-	scannerObject.hasNext() or .hasNextInt() for input termination.

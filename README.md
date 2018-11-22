@@ -3,4 +3,6 @@
 
 <b>[DSA Library](/src/com/dsa)<b>
 
-<b>[A Stress-Testing Library](src/com/testingUtil)<b>
+<b>[A Stress-Testing Library](/src/com/testingUtil)<b>
+
+<b>[A Java Cookbook for ICPC](/src/com/icpc/Cookbook.java)<b

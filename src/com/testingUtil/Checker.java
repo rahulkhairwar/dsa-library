@@ -1,4 +1,4 @@
-package com.dsa.testingUtil;
+package com.testingUtil;
 
 import com.codechef.competitions.longcompetitions.year2018.july.GEARS;
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>5 6
+3 3 3 3 3
+</input>
+        <output>10</output>
+    </test>
+    <test>
+        <input>3 5
+1 2 4
+</input>
+        <output>3</output>
+    </test>
+    <test>
+        <input>5 5
+2 3 1 4 4
+</input>
+        <output>9</output>
+    </test>
+    <test>
+        <input>1 1000
+548
+</input>
+        <output>0</output>
+    </test>
+    <test>
+        <input>3 3
+3 1 1
+</input>
+        <output>1</output>
+    </test>
+</testCases>

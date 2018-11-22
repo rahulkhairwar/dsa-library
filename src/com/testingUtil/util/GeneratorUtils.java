@@ -1,6 +1,6 @@
-package com.dsa.testingUtil.util;
+package com.testingUtil.util;
 
-import com.dsa.testingUtil.dto.Edge;
+import com.testingUtil.dto.Edge;
 
 import java.awt.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package com.dsa.testingUtil.dto;
+package com.testingUtil.dto;
 
 import java.util.Objects;
 

@@ -1,6 +1,6 @@
-package com.dsa.testingUtil;
+package com.testingUtil;
 
-import com.dsa.testingUtil.util.InputReader;
+import com.testingUtil.util.InputReader;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package com.dsa.testingUtil.util;
+package com.testingUtil.util;
 
 public class CMath
 {

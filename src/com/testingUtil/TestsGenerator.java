@@ -1,6 +1,6 @@
-package com.dsa.testingUtil;
+package com.testingUtil;
 
-import com.dsa.testingUtil.util.GeneratorUtils;
+import com.testingUtil.util.GeneratorUtils;
 
 import java.io.*;
 

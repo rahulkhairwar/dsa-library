@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+3
+2 2 2
+</input>
+        <output>
+YES 2
+2
+1 2
+2 3
+</output>
+    </test>
+    <test>
+        <input>
+5
+1 4 1 1 1
+</input>
+        <output>
+YES 2
+4
+1 2
+3 2
+4 2
+5 2
+</output>
+    </test>
+    <test>
+        <input>
+3
+1 1 1
+</input>
+        <output>
+NO
+</output>
+    </test>
+</testCases>

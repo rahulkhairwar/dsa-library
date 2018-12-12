@@ -1,4 +1,4 @@
-package com.dsa.datastructures.graph.traversal;
+package com.dsa.algorithms.graph.traversal;
 
 import java.util.*;
 

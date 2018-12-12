@@ -99,9 +99,6 @@ public class SegmentTree
 	 */
 	static void buildTree(int node, int treeStart, int treeEnd)
 	{
-		if (treeStart > treeEnd)
-			return;
-
 		// i.e., leaf node
 		if (treeStart == treeEnd)
 		{
@@ -110,14 +107,13 @@ public class SegmentTree
 			return;
 		}
 
-		int mid = (treeStart + treeEnd) / 2;
+		int mid = treeStart + treeEnd >> 1;
+		int left = node << 1;
+		int right = left + 1;
 
-		// left child
-		buildTree(2 * node, treeStart, mid);
-		// right child
-		buildTree(2 * node + 1, mid + 1, treeEnd);
-
-		tree[node] = Math.max(tree[2 * node], tree[2 * node + 1]);
+		buildTree(left, treeStart, mid);	// left child.
+		buildTree(right, mid + 1, treeEnd);	// right child.
+		tree[node] = Math.max(tree[left], tree[right]);
 	}
 
 	/**
@@ -139,18 +135,18 @@ public class SegmentTree
 	static int queryTree(int node, int treeStart, int treeEnd, int rangeStart, int rangeEnd)
 	{
 		// if the query range is completely out of the range that this node stores information of
-		if (treeStart > treeEnd || treeStart > rangeEnd || treeEnd < rangeStart)
+		if (treeStart > rangeEnd || treeEnd < rangeStart)
 			return Integer.MIN_VALUE;
 
-		// if the range that this node holds is completely inside of the qeury range
+		// if the range that this node holds is completely inside of the query range
 		if (treeStart >= rangeStart && treeEnd <= rangeEnd)
 			return tree[node];
 
-		int mid, leftChildMax, rightChildMax;
-
-		mid = (treeStart + treeEnd) / 2;
-		leftChildMax = queryTree(2 * node, treeStart, mid, rangeStart, rangeEnd);
-		rightChildMax = queryTree(2 * node + 1, mid + 1, treeEnd, rangeStart, rangeEnd);
+		int mid = treeStart + treeEnd >> 1;
+		int left = node << 1;
+		int right = left + 1;
+		int leftChildMax = queryTree(left, treeStart, mid, rangeStart, rangeEnd);
+		int rightChildMax = queryTree(right, mid + 1, treeEnd, rangeStart, rangeEnd);
 
 		return Math.max(leftChildMax, rightChildMax);
 	}
@@ -169,7 +165,7 @@ public class SegmentTree
 	 */
 	static void pointUpdate(int node, int treeStart, int treeEnd, int updateNode, int updateValue)
 	{
-		if (treeStart > treeEnd || treeStart > updateNode || treeEnd < updateNode)
+		if (treeStart > updateNode || treeEnd < updateNode)
 			return;
 
 		// i.e., treeStart = treeEnd = updateNode
@@ -180,12 +176,13 @@ public class SegmentTree
 			return;
 		}
 
-		int mid = (treeStart + treeEnd) / 2;
+		int mid = treeStart + treeEnd >> 1;
+		int left = node << 1;
+		int right = left + 1;
 
-		pointUpdate(2 * node, treeStart, mid, updateNode, updateValue);
-		pointUpdate(2 * node + 1, mid + 1, treeEnd, updateNode, updateValue);
-
-		tree[node] = Math.max(tree[2 * node], tree[2 * node + 1]);
+		pointUpdate(left, treeStart, mid, updateNode, updateValue);
+		pointUpdate(right, mid + 1, treeEnd, updateNode, updateValue);
+		tree[node] = Math.max(tree[left], tree[right]);
 	}
 
 	static class InputReader

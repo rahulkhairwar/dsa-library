@@ -1,4 +1,4 @@
-package com.dsa.datastructures.graph.maxflow;
+package com.dsa.algorithms.graph.maxflow;
 
 import java.util.*;
 

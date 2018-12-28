@@ -1,24 +1,35 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round527div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public final class TaskB
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskB(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+        int n;
+        int[] arr;
 //		BufferedReader in;
-		InputReader in;
-		PrintWriter out;
+        InputReader in;
+        PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			arr = in.nextIntArray(n);
+			Arrays.sort(arr);
+
+			int sum = 0;
+
+			for (int i = 0; i < n; i += 2)
+				sum += Math.abs(arr[i] - arr[i + 1]);
+
+			out.println(sum);
 		}
 
 		void debug(Object... o)
@@ -415,13 +426,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskB(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskB", 1 << 29);
 
 		try
 		{
@@ -441,4 +452,3 @@ public class TaskE
 	}
 
 }
-

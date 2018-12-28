@@ -1,24 +1,80 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round529div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskD
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskD(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
 		int n;
+		int[][] adj;
+		boolean valid;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			adj = new int[n][2];
+
+			for (int i = 0; i < n; i++)
+			{
+				adj[i][0] = in.nextInt() - 1;
+				adj[i][1] = in.nextInt() - 1;
+			}
+
+			List<Integer> list = new ArrayList<>();
+
+			valid = true;
+			list.add(0);
+			list.add(adj[0][0]);
+			list.add(adj[0][1]);
+
+			circle(list);
+
+			if (!valid)
+			{
+				list = new ArrayList<>();
+				valid = true;
+				list.add(0);
+				list.add(adj[0][1]);
+				list.add(adj[0][0]);
+				circle(list);
+			}
+
+			for (int x : list)
+				out.print(x + 1 + " ");
+		}
+
+		void circle(List<Integer> list)
+		{
+			if (list.size() == n)
+				return;
+
+			int secondLast = list.get(list.size() - 2);
+			int last = list.get(list.size() - 1);
+			int x = adj[secondLast][0];
+			int y = adj[secondLast][1];
+
+			if (x == last)
+				list.add(y);
+			else if (y == last)
+				list.add(x);
+			else
+			{
+				valid = false;
+
+				return;
+			}
+
+			circle(list);
 		}
 
 		void debug(Object... o)
@@ -415,13 +471,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskD(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskD", 1 << 29);
 
 		try
 		{

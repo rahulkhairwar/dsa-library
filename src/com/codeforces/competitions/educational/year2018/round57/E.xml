@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2 6 3
+</input>
+        <output>124780545
+</output>
+    </test>
+    <test>
+        <input>5 20 11
+</input>
+        <output>1
+</output>
+    </test>
+    <test>
+        <input>10 30 10
+</input>
+        <output>85932500
+</output>
+    </test>
+</testCases>

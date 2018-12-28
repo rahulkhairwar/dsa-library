@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+3
+3 -1 -1
+</input>
+        <output>
+499122179
+</output>
+    </test>
+    <test>
+        <input>
+2
+1 2
+</input>
+        <output>
+0
+</output>
+    </test>
+    <test>
+        <input>
+2
+-1 -1
+</input>
+        <output>
+499122177
+</output>
+    </test>
+</testCases>

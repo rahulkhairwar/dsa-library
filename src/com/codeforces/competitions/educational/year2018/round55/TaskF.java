@@ -1,3 +1,5 @@
+package com.codeforces.competitions.educational.year2018.round55;
+
 import java.io.*;
 import java.util.*;
 

@@ -1,24 +1,85 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.educational.year2018.round57;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskC
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskC(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+		int t;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			t = in.nextInt();
+
+			while (t-- > 0)
+			{
+				int angle = in.nextInt();
+				int min = Integer.MAX_VALUE;
+
+				if (angle <= 90)
+				{
+					int x = 2 * angle;
+					int sub = 360 - x;
+
+					for (int i = 1; i <= sub; i++)
+					{
+						if (x % i > 0)
+							continue;
+
+						if (x / i > 90)
+							continue;
+
+						int y = x / i;
+
+						if (360 % y > 0)
+							continue;
+
+						int parts = 360 / y;
+
+						min = Math.min(min, parts);
+					}
+
+					out.println(min);
+				}
+				else
+				{
+					int x = 360 - 2 * angle;
+					int sub = 360 - x;
+
+					for (int i = 1; i <= x; i++)
+					{
+						if (x % i > 0)
+							continue;
+
+						if (x / i > 90)
+							continue;
+
+//						System.out.println("i : " + i + ", x / i : " + (x / i));
+
+						int y = x / i;
+
+						if (360 % y > 0)
+							continue;
+
+						int parts = 360 / y;
+//						System.out.println("\tparts : " + parts);
+
+						min = Math.min(min, parts);
+					}
+
+					out.println(min * 2);
+				}
+			}
 		}
 
 		void debug(Object... o)
@@ -415,13 +476,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskC(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskC", 1 << 29);
 
 		try
 		{

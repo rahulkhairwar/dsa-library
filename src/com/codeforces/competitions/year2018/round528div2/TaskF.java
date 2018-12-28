@@ -1,13 +1,13 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round528div2;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskF
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskF(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
@@ -415,13 +415,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskF(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskF", 1 << 29);
 
 		try
 		{

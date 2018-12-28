@@ -1,24 +1,81 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round529div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskF
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskF(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+		int n, m;
+		long[] arr;
+		Offer[] offers;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			m = in.nextInt();
+			arr = in.nextLongArray(n);
+			offers = new Offer[m];
+
+			PriorityQueue<Long> queue = new PriorityQueue<>();
+
+			for (int i = 0; i < n; i++)
+				queue.add(arr[i]);
+
+			long[] temp = new long[n];
+
+			System.arraycopy(arr, 0, temp, 0, n);
+			Arrays.sort(temp);
+
+			long min = temp[0] + temp[1];
+			int offerInd = -1;
+
+			for (int i = 0; i < m; i++)
+			{
+				offers[i] = new Offer(in.nextInt() - 1, in.nextInt() - 1, in.nextLong());
+
+				if (offers[i].cost < min)
+				{
+					min = offers[i].cost;
+					offerInd = i;
+				}
+			}
+
+			long total = min;
+
+			if (offerInd == -1)
+			{
+				queue.remove(temp[0]);
+				queue.remove(temp[1]);
+			}
+			else
+			{
+				queue.remove(arr[offers[offerInd].x]);
+				queue.remove(arr[offers[offerInd].y]);
+			}
+		}
+
+		class Offer
+		{
+			int x, y;
+			long cost;
+
+			Offer(int x, int y, long cost)
+			{
+				this.x = x;
+				this.y = y;
+				this.cost = cost;
+			}
+
 		}
 
 		void debug(Object... o)
@@ -415,13 +472,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskF(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskF", 1 << 29);
 
 		try
 		{

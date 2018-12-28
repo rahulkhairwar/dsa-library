@@ -1,33 +1,58 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round528div2;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskB
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskB(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
-//		BufferedReader in;
+		long n, k;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			k = in.nextInt();
+
+			int sqrt = (int) Math.sqrt(n);
+			long minX = Long.MAX_VALUE;
+			List<Integer> factors = new ArrayList<>();
+
+			for (int fac = 1; fac <= sqrt; fac++)
+			{
+				if (n % fac > 0)
+					continue;
+
+				factors.add(fac);
+				factors.add((int) (n / fac));
+			}
+
+			for (int factor : factors)
+			{
+				if (factor >= k)
+					continue;
+
+				// factor * other = n.
+				// => (x % k) * (x / k) = n.
+				// => x / k = n / (x % k) => (x / k) = n / factor
+
+				long temp = n / factor;
+
+//				System.out.println("factor : " + factor + ", other : " + other + ", n/f : " + temp + ", x : " + (temp
+//				* k + factor));
+				minX = Math.min(minX, temp * k + factor);
+			}
+
+			out.println(minX);
 		}
 
-		void debug(Object... o)
-		{
-			System.err.println(Arrays.deepToString(o));
-		}
-
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
 		public Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
@@ -415,13 +440,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskB(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskB", 1 << 29);
 
 		try
 		{

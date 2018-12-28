@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+ncteho
+</input>
+        <output>
+techno
+</output>
+    </test>
+    <test>
+        <input>
+erfdcoeocs
+</input>
+        <output>
+codeforces
+</output>
+    </test>
+    <test>
+        <input>
+z
+</input>
+        <output>
+z
+</output>
+    </test>
+</testCases>

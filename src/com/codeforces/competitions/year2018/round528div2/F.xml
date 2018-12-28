@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+3 5
+RPS
+1 S
+2 R
+3 P
+1 P
+2 P
+</input>
+        <output>
+2
+2
+1
+2
+2
+3
+</output>
+    </test>
+</testCases>

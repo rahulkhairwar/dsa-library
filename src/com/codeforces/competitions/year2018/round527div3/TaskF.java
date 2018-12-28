@@ -1,24 +1,135 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round527div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public final class TaskF
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskF(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
-//		BufferedReader in;
-		InputReader in;
-		PrintWriter out;
+        int n;
+        Node[] nodes;
+        InputReader in;
+        PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			nodes = new Node[n];
+
+			for (int i = 0; i < n; i++)
+				nodes[i] = new Node(in.nextInt());
+
+			for (int i = 1; i < n; i++)
+			{
+				int u = in.nextInt() - 1;
+				int v = in.nextInt() - 1;
+
+				nodes[u].adj.add(v);
+				nodes[v].adj.add(u);
+			}
+
+			dfs(0, -1);
+			dfs2(0, -1);
+			dfs3(0, -1, nodes[0].childrenValSum, nodes[0].childrenDistSum);
+
+			long max = 0;
+
+			for (int i = 0; i < n; i++)
+				max = Math.max(max, nodes[i].ans);
+
+			out.println(max);
+
+			for (int i = 0; i < n; i++)
+			{
+				System.out.println("i : " + i + ", ch val sum : " + nodes[i].childrenValSum + ", ch ds sum : " +
+						nodes[i].childrenDistSum + ", ans : " + nodes[i].ans);
+			}
+		}
+
+		void dfs(int node, int par)
+		{
+			Node temp = nodes[node];
+
+			for (int x : temp.adj)
+			{
+				if (x == par)
+					continue;
+
+				dfs(x, node);
+				temp.childrenValSum += nodes[x].val + nodes[x].childrenValSum;
+//				temp.childrenDistSum += nodes[x].childrenValSum + nodes[x].childrenDistSum;
+			}
+		}
+
+		void dfs2(int node, int par)
+		{
+			Node temp = nodes[node];
+
+			for (int x : temp.adj)
+			{
+				if (x == par)
+					continue;
+
+				dfs2(x, node);
+			}
+
+			for (int x : temp.adj)
+			{
+				if (x == par)
+					continue;
+
+				temp.childrenDistSum += nodes[x].childrenDistSum + nodes[x].childrenValSum + nodes[x].val;
+			}
+		}
+
+		void dfs3(int node, int par, long parValSum, long parDistSum)
+		{
+			Node temp = nodes[node];
+/*			long childrenDistSum = 0;
+
+			for (int x : temp.adj)
+			{
+				if (x == par)
+					continue;
+
+				childrenDistSum += nodes[x].childrenDistSum;
+			}*/
+
+			temp.ans = parDistSum + parValSum + temp.childrenDistSum;
+
+			if (par >= 0)
+				temp.ans += nodes[par].val;
+
+			long downValSum = temp.childrenValSum;
+			long downDistSum = temp.childrenDistSum;
+
+			for (int x : temp.adj)
+			{
+				if (x == par)
+					continue;
+
+//				dfs3(x, node, temp.)
+				dfs3(x, node, downValSum - nodes[x].childrenValSum, downDistSum - nodes[x].childrenDistSum);
+			}
+		}
+
+		class Node
+		{
+			long val, childrenValSum, childrenDistSum, ans;
+			List<Integer> adj;
+
+			Node(long val)
+			{
+				this.val = val;
+				adj = new ArrayList<>();
+			}
+
 		}
 
 		void debug(Object... o)
@@ -415,13 +526,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskF(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskF", 1 << 29);
 
 		try
 		{
@@ -441,4 +552,3 @@ public class TaskE
 	}
 
 }
-

@@ -1,4 +1,4 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round528div2;
 
 import java.io.*;
 import java.util.*;

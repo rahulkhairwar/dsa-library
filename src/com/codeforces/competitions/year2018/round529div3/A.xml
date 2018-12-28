@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+6
+baabbb
+</input>
+        <output>
+bab</output>
+    </test>
+    <test>
+        <input>
+10
+ooopppssss
+</input>
+        <output>
+oops</output>
+    </test>
+    <test>
+        <input>
+1
+z
+</input>
+        <output>
+z</output>
+    </test>
+</testCases>

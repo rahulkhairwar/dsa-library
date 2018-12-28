@@ -1,24 +1,108 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round529div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskC
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskC(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+		int n, k;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			k = in.nextInt();
+
+			long pow = 1;
+
+			while (pow <= n)
+				pow <<= 1;
+
+			pow >>= 1;
+
+			if (n < k)
+			{
+				out.println("NO");
+
+				return;
+			}
+
+			PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+			int tot = n;
+
+			while (pow > 1)
+			{
+				tot -= pow;
+				queue.add((int) pow);
+
+				while (pow > tot)
+					pow >>= 1;
+			}
+
+			while (tot > 0)
+			{
+				queue.add(1);
+				tot--;
+			}
+
+			while (queue.size() < k)
+			{
+				int max = queue.poll();
+
+				queue.add(max / 2);
+				queue.add(max / 2);
+			}
+
+			if (queue.size() > k)
+			{
+				int size = queue.size();
+				int[] list = new int[size];
+
+				for (int i = 0; i < size; i++)
+					list[i] = queue.poll();
+
+				int len = size;
+
+				for (int i = 0; i < len; i += 2)
+				{
+					if (i == len - 1)
+					{
+						queue.add(list[i]);
+
+						continue;
+					}
+
+					if (size != k && list[i] == 1 && list[i + 1] == 1)
+					{
+						queue.add(2);
+						size--;
+					}
+					else
+					{
+						queue.add(list[i]);
+						queue.add(list[i + 1]);
+					}
+				}
+			}
+
+			if (queue.size() == k)
+			{
+				out.println("YES");
+
+				while (queue.size() > 0)
+					out.print(queue.poll() + " ");
+			}
+			else
+				out.println("NO");
 		}
 
 		void debug(Object... o)
@@ -415,13 +499,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskC(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskC", 1 << 29);
 
 		try
 		{

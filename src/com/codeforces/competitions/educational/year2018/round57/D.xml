@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+6
+hhardh
+3 2 9 11 7 1
+</input>
+        <output>
+5
+</output>
+    </test>
+    <test>
+        <input>
+8
+hhzarwde
+3 2 6 9 4 8 7 1
+</input>
+        <output>
+4
+</output>
+    </test>
+    <test>
+        <input>
+6
+hhaarr
+1 2 3 4 5 6
+</input>
+        <output>
+0
+</output>
+    </test>
+</testCases>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>2
+4
+bbcb
+aada
+aada
+3
+abc
+bbb
+bbb
+</input>
+        <output>YES
+badc
+NO
+</output>
+    </test>
+</testCases>

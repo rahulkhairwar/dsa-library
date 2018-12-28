@@ -1,24 +1,47 @@
-package com.codeforces.competitions.educational.year2018.round54;
+package com.codeforces.competitions.year2018.round529div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskE
+public class TaskB
 {
 	public static void main(String[] args)
 	{
-		new TaskE(System.in, System.out);
+		new TaskB(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
 		int n;
-//		BufferedReader in;
+		int[] arr;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			arr = in.nextIntArray(n);
+			Arrays.sort(arr);
+
+			int minCnt = 0;
+			int maxCnt = 0;
+
+			for (int x : arr)
+			{
+				if (x == arr[0])
+					minCnt++;
+				else if (x == arr[n - 1])
+					maxCnt++;
+			}
+
+			if (minCnt == 1 && maxCnt == 1)
+				out.println(Math.min(arr[n - 1] - arr[1], arr[n - 2] - arr[0]));
+			else if (minCnt == 1)
+				out.println(arr[n - 1] - arr[1]);
+			else if (maxCnt == 1)
+				out.println(arr[n - 2] - arr[0]);
+			else
+				out.println(Math.min(arr[n - 1] - arr[1], arr[n - 2] - arr[0]));
 		}
 
 		void debug(Object... o)
@@ -415,13 +438,13 @@ public class TaskE
 
 	}
 
-	public TaskE(InputStream inputStream, OutputStream outputStream)
+	public TaskB(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskB", 1 << 29);
 
 		try
 		{

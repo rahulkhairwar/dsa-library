@@ -1,25 +1,57 @@
-package %package%;
+package com.codeforces.competitions.year2018.goodbye2018;
 
+import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskB
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskB(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
+		int n;
+		Point[] pts, clues;
 //		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
 			n = in.nextInt();
+			pts = new Point[n];
+			clues = new Point[n];
+
+			long totalX = 0;
+			long totalY = 0;
+
+			for (int i = 0; i < n; i++)
+			{
+				int x = in.nextInt();
+				int y = in.nextInt();
+
+				pts[i] = new Point(x, y);
+				totalX += x;
+				totalY += y;
+			}
+
+			for (int i = 0; i < n; i++)
+			{
+				int x = in.nextInt();
+				int y = in.nextInt();
+
+				clues[i] = new Point(x, y);
+				totalX += x;
+				totalY += y;
+			}
+
+			long x = totalX / n;
+			long y = totalY / n;
+
+			out.println(x + " " + y);
 		}
 
 		void debug(Object... o)
@@ -113,7 +145,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +187,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -416,13 +448,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskB(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskB", 1 << 29);
 
 		try
 		{
@@ -442,3 +474,4 @@ public final class %TaskClass%
 	}
 
 }
+

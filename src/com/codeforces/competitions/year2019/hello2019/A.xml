@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+AS
+2H 4C TH JH AD
+</input>
+        <output>
+YES
+</output>
+    </test>
+    <test>
+        <input>
+2H
+3D 4C AC KD AS
+</input>
+        <output>
+NO
+</output>
+    </test>
+    <test>
+        <input>
+4D
+AS AC AD AH 5H
+</input>
+        <output>
+YES
+</output>
+    </test>
+</testCases>

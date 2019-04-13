@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+1
+10
+G
+</input>
+        <output>
+30
+</output>
+    </test>
+    <test>
+        <input>
+2
+10 10
+WL
+</input>
+        <output>
+40
+</output>
+    </test>
+    <test>
+        <input>
+2
+1 2
+WL
+</input>
+        <output>
+8
+</output>
+    </test>
+    <test>
+        <input>
+3
+10 10 10
+GLW
+</input>
+        <output>
+80
+</output>
+    </test>
+</testCases>

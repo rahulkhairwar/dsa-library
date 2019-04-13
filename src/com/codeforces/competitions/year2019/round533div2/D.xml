@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+3 3 2
+1 1
+1..
+...
+..2
+</input>
+        <output>
+6 3 
+</output>
+    </test>
+    <test>
+        <input>
+3 4 4
+1 1 1 1
+....
+#...
+1234
+</input>
+        <output>
+1 4 3 3 
+</output>
+    </test>
+</testCases>

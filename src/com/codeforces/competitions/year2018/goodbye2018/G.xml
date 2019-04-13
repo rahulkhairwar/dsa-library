@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>21
+
+7
+
+17
+
+15
+
+17
+
+11
+
+-1
+
+15
+
+</input>
+        <output>+ 12 16
+
+- 6 10
+
+* 8 15
+
+/ 5 4
+
+sqrt 16
+
+sqrt 5
+
+^ 6 12
+
+! 2 3 7</output>
+    </test>
+</testCases>

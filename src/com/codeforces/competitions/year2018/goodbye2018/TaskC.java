@@ -1,25 +1,97 @@
-package %package%;
+package com.codeforces.competitions.year2018.goodbye2018;
 
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskC
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskC(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
+		int n;
+		Set<Integer> set;
 //		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
 			n = in.nextInt();
+
+			int sqrt = (int) Math.sqrt(n);
+			TreeSet<Long> treeSet = new TreeSet<>();
+
+			treeSet.add(1L);
+
+			for (int i = 1; i <= sqrt; i++)
+			{
+				if (n % i == 0)
+				{
+					add(i, treeSet);
+
+					int other = n / i;
+
+					if (other != i)
+						add(other, treeSet);
+				}
+			}
+
+			for (long x : treeSet)
+				out.print(x + " ");
+
+/*			set = new HashSet<>();
+
+			for (int i = 1; i <= n; i++)
+			{
+				jump(i);
+			}
+
+			out.println(set);*/
+		}
+
+		void add(int k, TreeSet<Long> treeSet)
+		{
+//			System.out.println("***k : " + k);
+			if (k == 1)
+			{
+				treeSet.add((long) n * (n + 1) / 2);
+
+				return;
+			}
+
+			// 1, 1 + k, 1 + 2k, ..., 1 + (n / k)*k
+			int cnt = (n / k);
+			long tot = cnt + (long) cnt * (cnt - 1) * k / 2;
+
+			treeSet.add(tot);
+		}
+
+		void jump(int steps)
+		{
+			int curr = 1;
+			int tot = 1;
+
+			do
+			{
+				curr += steps;
+				curr = curr % n;
+
+				if (curr == 0)
+					curr = n;
+
+				if (curr == 1)
+					break;
+
+//				System.out.println("curr : " + curr);
+				tot += curr;
+			} while (curr != 1);
+
+			System.out.println("k : " + steps + ", tot : " + tot);
+			set.add(tot);
 		}
 
 		void debug(Object... o)
@@ -113,7 +185,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +227,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -416,13 +488,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskC(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskC", 1 << 29);
 
 		try
 		{
@@ -442,3 +514,4 @@ public final class %TaskClass%
 	}
 
 }
+

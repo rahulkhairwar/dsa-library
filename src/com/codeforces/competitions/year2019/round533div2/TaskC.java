@@ -1,25 +1,60 @@
-package %package%;
+package com.codeforces.competitions.year2019.round533div2;
 
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskC
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskC(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
-//		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		static final long MOD = (long) 1e9 + 7;
+		int n;
+		long l, r;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
 			n = in.nextInt();
+			l = in.nextLong();
+			r = in.nextLong();
+
+			long min = l * n;
+			long max = r * n;
+
+			while (min % 3 != 0)
+				min++;
+
+			while (max % 3 != 0)
+				max--;
+
+			long subtract = l * n;
+			System.out.println("l : " + l + ", n : " + n + ", sub : " + subtract);
+			long a = CMath.modPower(n, min - subtract, MOD);
+			long terms = 1 + (max - min) / 3;
+
+			System.out.printf("min : %d, max : %d, terms : %d, a : %d\n", min, max, terms, a);
+			System.out.printf("sub : %d, min : %d\n", subtract, min);
+
+			long num = CMath.modPower(CMath.modPower(n, 3, MOD), terms, MOD) - 1;
+
+			if (num < 0)
+				num += MOD;
+
+			long ans = CMath.mod(a * num, MOD);
+			long den = CMath.modPower(n, 3, MOD) - 1;
+
+			if (den < 0)
+				den += MOD;
+
+			ans = CMath.mod(ans * CMath.moduloInverse(den, MOD), MOD);
+
+			out.println(ans);
 		}
 
 		void debug(Object... o)
@@ -113,7 +148,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +190,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -416,13 +451,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskC(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskC", 1 << 29);
 
 		try
 		{
@@ -442,3 +477,4 @@ public final class %TaskClass%
 	}
 
 }
+

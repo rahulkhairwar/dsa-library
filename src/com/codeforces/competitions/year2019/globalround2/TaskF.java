@@ -1,25 +1,22 @@
-package %package%;
-
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskF
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskF(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
+		int n;
 //		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
-			n = in.nextInt();
 		}
 
 		void debug(Object... o)
@@ -113,7 +110,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +152,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -416,13 +413,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskF(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskF", 1 << 29);
 
 		try
 		{
@@ -442,3 +439,4 @@ public final class %TaskClass%
 	}
 
 }
+

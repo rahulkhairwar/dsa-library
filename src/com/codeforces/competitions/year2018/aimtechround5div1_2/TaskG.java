@@ -1,3 +1,5 @@
+package com.codeforces.competitions.year2018.aimtechround5div1_2;
+
 import java.io.*;
 import java.util.*;
 

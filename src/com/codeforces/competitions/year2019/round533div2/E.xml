@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+5 3
+1
+2 motarack
+2 mike
+1
+2 light
+</input>
+        <output>
+2
+</output>
+    </test>
+    <test>
+        <input>
+4 3
+1
+2 alice
+2 bob
+2 tanyaromanova
+</input>
+        <output>
+1
+</output>
+    </test>
+</testCases>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+2 1 3
+</input>
+        <output>
+3
+</output>
+    </test>
+    <test>
+        <input>
+3 2 2
+</input>
+        <output>
+1
+</output>
+    </test>
+    <test>
+        <input>
+9 9 99
+</input>
+        <output>
+711426616
+</output>
+    </test>
+</testCases>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+8 13 9
+</input>
+        <output>
+24</output>
+    </test>
+    <test>
+        <input>
+13 3 6
+</input>
+        <output>
+9</output>
+    </test>
+</testCases>

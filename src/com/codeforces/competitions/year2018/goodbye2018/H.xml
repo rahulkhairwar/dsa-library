@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+1 6
+0 3 9
+</input>
+        <output>
+Alice
+Bob
+</output>
+    </test>
+    <test>
+        <input>
+1 2
+0 3 9
+</input>
+        <output>
+Alice
+Bob
+</output>
+    </test>
+    <test>
+        <input>
+10 133
+-248 -193 -187
+97 101 202
+-72 67 91
+23 89 215
+-129 -108 232
+-223 -59 236
+-99 86 242
+-137 -109 -45
+-105 173 246
+-44 228 243
+</input>
+        <output>
+Bob
+Alice
+</output>
+    </test>
+</testCases>

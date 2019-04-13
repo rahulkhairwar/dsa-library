@@ -1,25 +1,122 @@
-package %package%;
+package com.codeforces.competitions.year2018.goodbye2018;
 
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskD
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskD(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
+		static final long MOD = 998244353;
+		int n;
+		long[] fact, invFact;
 //		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			pre();
 			n = in.nextInt();
+			brute(n);
+
+			if (n == 1)
+			{
+				out.println(1);
+
+				return;
+			}
+
+			long startOne = fact[n - 1];
+			long cnt = startOne * invFact[2];
+
+			long ans = fact[n];
+			long temp = CMath.mod(cnt * (n - 2), MOD) + CMath.mod((cnt - 1) * (n - 3), MOD);
+
+			System.out.println("ans : " + ans);
+			System.out.println("cnt : " + cnt + ", sO : " + startOne);
+			System.out.println("cnt % mod : " + (cnt % MOD));
+			System.out.println("temp : " + temp);
+
+			temp = CMath.mod(temp * n, MOD);
+			ans = CMath.mod(ans + temp, MOD);
+			out.println(ans);
+
+
+/*			int[] arr = new int[n];
+
+			for (int i = 1; i <= n; i++)
+				arr[i - 1] = i;
+
+			StringBuilder sb = new StringBuilder();
+
+			do
+			{
+				for (int x : arr)
+					sb.append(x);
+
+				sb.append(" ");
+			} while (Utils.nextPermutation(arr));
+
+			System.out.println(sb);*/
+		}
+
+		void pre()
+		{
+			int lim = (int) 1e6 + 5;
+
+			fact = new long[lim];
+			fact[0] = fact[1] = 1;
+
+			for (int i = 2; i < lim; i++)
+				fact[i] = CMath.mod(fact[i - 1] * i, MOD);
+
+			invFact = new long[lim];
+			invFact[lim - 1] = CMath.moduloInverse(fact[lim - 1], MOD);
+
+			for (int i = lim - 1; i > 0; i--)
+				invFact[i - 1] = CMath.mod(i * invFact[i], MOD);
+
+//			System.out.println("inv[0] : " + invFact[0]);
+		}
+
+		void brute(int n)
+		{
+			long[] arr = new long[n];
+
+			for (int i = 1; i <= n; i++)
+				arr[i - 1] = i;
+
+			List<Long> list = new ArrayList<>();
+
+			do
+			{
+				for (long x : arr)
+					list.add(x);
+			} while (Utils.nextPermutation(arr));
+
+			for (int i = 1; i < list.size(); i++)
+				list.set(i, list.get(i - 1) + list.get(i));
+
+			long sum = list.get(n - 1);
+			int cnt = 1;
+
+			System.out.println("list : " + list);
+			System.out.println("sum : " + sum);
+
+			for (int i = n; i < list.size(); i++)
+			{
+//				System.out.println("i : " + list.get(i) + ", i - 4 : " + list.get(i - 4));
+				if (list.get(i) - list.get(i - n) == sum)
+					cnt++;
+			}
+
+			System.out.println("answer : " + cnt);
 		}
 
 		void debug(Object... o)
@@ -113,7 +210,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +252,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -383,7 +480,7 @@ public final class %TaskClass%
 
 	static class Utils
 	{
-		static boolean nextPermutation(int[] arr)
+		static boolean nextPermutation(long[] arr)
 		{
 			for (int a = arr.length - 2; a >= 0; --a)
 			{
@@ -393,7 +490,7 @@ public final class %TaskClass%
 					{
 						if (arr[b] > arr[a])
 						{
-							int t = arr[a];
+							long t = arr[a];
 
 							arr[a] = arr[b];
 							arr[b] = t;
@@ -416,13 +513,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskD(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskD", 1 << 29);
 
 		try
 		{
@@ -442,3 +539,4 @@ public final class %TaskClass%
 	}
 
 }
+

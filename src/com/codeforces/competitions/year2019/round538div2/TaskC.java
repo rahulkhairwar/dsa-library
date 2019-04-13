@@ -1,51 +1,108 @@
-package %package%;
+package com.codeforces.competitions.year2019.round538div2;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskC
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskC(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
-//		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		long x, y, temp;
+		InputReader in;
+		PrintWriter out;
 
-		void solve() throws IOException
+		void solve()
 		{
-			n = in.nextInt();
+			x = in.nextLong();
+			temp = y = in.nextLong();
+
+			BigInteger n = BigInteger.valueOf(x);
+			BigInteger b = BigInteger.valueOf(y);
+			int size = (int) (Math.log(x) / Math.log(y));
+			BigInteger[] arr = new BigInteger[size + 5];
+
+			arr[0] = BigInteger.ONE;
+
+			for (int i = 1; i < size + 5; i++)
+				arr[i] = arr[i - 1].multiply(b);
+
+			List<Pair> pfs = new ArrayList<>();
+			int sqrt = (int) Math.sqrt(y);
+
+			for (int i = 2; i <= sqrt; i++)
+			{
+				int pow = 0;
+
+				while (y % i == 0)
+				{
+					y /= i;
+					pow++;
+				}
+
+				if (pow > 0)
+					pfs.add(new Pair(i, pow));
+			}
+
+			if (y > 1)
+				pfs.add(new Pair(y, 1));
+
+			long min = Long.MAX_VALUE;
+
+			for (Pair p : pfs)
+			{
+				long cnt = get(n, BigInteger.valueOf(p.f));
+
+				min = Math.min(min, cnt / p.pow);
+			}
+
+			out.println(min);
 		}
 
-		void debug(Object... o)
+		long get(BigInteger n, BigInteger b)
 		{
-			System.err.println(Arrays.deepToString(o));
+			long cnt = 0;
+
+			do
+			{
+				cnt += n.divide(b).longValue();
+				b = b.multiply(BigInteger.valueOf(temp));
+			} while (b.compareTo(n) <= 0);
+
+			return cnt;
 		}
 
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		class Pair
+		{
+			long f;
+			int pow;
+
+			public Pair(long f, int pow)
+			{
+				this.f = f;
+				this.pow = pow;
+			}
+
+			@Override public String toString()
+			{
+				return "Pair{" + "f=" + f + ", pow=" + pow + '}';
+			}
+		}
+
+		Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
 			this.out = out;
 		}
 
-		@Override
-		public void run()
+		@Override public void run()
 		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
+			solve();
 		}
 
 	}
@@ -113,7 +170,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +212,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -416,13 +473,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskC(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskC", 1 << 29);
 
 		try
 		{
@@ -442,3 +499,4 @@ public final class %TaskClass%
 	}
 
 }
+

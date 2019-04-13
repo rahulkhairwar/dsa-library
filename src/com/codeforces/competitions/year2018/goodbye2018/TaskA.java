@@ -1,25 +1,37 @@
-package %package%;
+package com.codeforces.competitions.year2018.goodbye2018;
 
 import java.io.*;
 import java.util.*;
 
-public final class %TaskClass%
+public class TaskA
 {
 	public static void main(String[] args)
 	{
-		new %TaskClass%(System.in, System.out);
+		new TaskA(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-        int n;
+		int yellow, blue, red;
 //		BufferedReader in;
-        InputReader in;
-        PrintWriter out;
+		InputReader in;
+		PrintWriter out;
 
 		void solve() throws IOException
 		{
-			n = in.nextInt();
+			yellow = in.nextInt();
+			blue = in.nextInt();
+			red = in.nextInt();
+
+			for (int i = yellow; i >= 0; i--)
+			{
+				if (blue >= i + 1 && red >= i + 2)
+				{
+					out.println(3 * i + 3);
+
+					return;
+				}
+			}
 		}
 
 		void debug(Object... o)
@@ -113,7 +125,7 @@ public final class %TaskClass%
 
 		public int[] nextIntArray(int arraySize)
 		{
-			int[] array = new int[arraySize];
+			int array[] = new int[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextInt();
@@ -155,7 +167,7 @@ public final class %TaskClass%
 
 		public long[] nextLongArray(int arraySize)
 		{
-			long[] array = new long[arraySize];
+			long array[] = new long[arraySize];
 
 			for (int i = 0; i < arraySize; i++)
 				array[i] = nextLong();
@@ -416,13 +428,13 @@ public final class %TaskClass%
 
 	}
 
-	public %TaskClass%(InputStream inputStream, OutputStream outputStream)
+	public TaskA(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "%TaskClass%", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskA", 1 << 29);
 
 		try
 		{
@@ -442,3 +454,4 @@ public final class %TaskClass%
 	}
 
 }
+

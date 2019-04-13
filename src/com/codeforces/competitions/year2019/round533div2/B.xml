@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+8 2
+aaacaabb
+</input>
+        <output>
+2
+</output>
+    </test>
+    <test>
+        <input>
+2 1
+ab
+</input>
+        <output>
+1
+</output>
+    </test>
+    <test>
+        <input>
+4 2
+abab
+</input>
+        <output>
+0
+</output>
+    </test>
+</testCases>

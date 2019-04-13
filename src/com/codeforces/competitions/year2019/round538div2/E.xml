@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+4
+
+0
+
+1
+
+14
+
+24
+
+9
+
+19
+
+</input>
+        <output>
+
+&amp;gt; 25
+
+&amp;gt; 15
+
+? 1
+
+? 2
+
+? 3
+
+? 4
+
+! 9 5</output>
+    </test>
+</testCases>

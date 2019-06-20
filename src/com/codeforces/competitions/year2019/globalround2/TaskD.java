@@ -22,27 +22,95 @@ public class TaskD
 			n = in.nextInt();
 			s = in.nextLongArray(n);
 			q = in.nextInt();
+			Arrays.sort(s);
 
-			long min = Long.MAX_VALUE;
-			long max = 0;
-			TreeSet<Long> set = new TreeSet<>(Long::compareTo);
+			TreeMap<Long, Integer> map = new TreeMap<>(Long::compareTo);
 
-			for (int i = 0; i < n; i++)
+			for (int i = 1; i < n; i++)
 			{
-				min = Math.min(min, s[i]);
-				max = Math.max(max, s[i]);
-				set.add(s[i]);
+				long diff = s[i] - s[i - 1];
+
+				map.merge(diff, 1, (a, b) -> a + b);
+			}
+
+			int size = map.size();
+			Window[] windows = new Window[size];
+			int iterator = 0;
+
+			for (Map.Entry<Long, Integer> entry : map.entrySet())
+			{
+				long diff = entry.getKey();
+				int cnt = entry.getValue();
+
+				windows[iterator] = new Window(diff, cnt, cnt * diff, cnt);
+
+				if (iterator > 0)
+				{
+					windows[iterator].cumCnt += windows[iterator - 1].cumCnt;
+					windows[iterator].cumSum += windows[iterator - 1].cumSum;
+				}
+
+				iterator++;
 			}
 
 			while (q-- > 0)
 			{
-				long left = in.nextLong();
-				long right = in.nextLong();
-				long minValue = min + left;
-				long maxValue = min + right;
+				long l = in.nextLong();
+				long r = in.nextLong();
+				long diff = r - l + 1;
+				int ind = binarySearch(diff, windows);
 
-				Long maxLowerThanMV = set.floor(maxValue);
+				if (ind == -1)
+				{
+					long ans = diff * n;
+
+					out.print(ans + " ");
+				}
+				else
+				{
+					long ans = diff + windows[ind].cumSum + (windows[size - 1].cumCnt - windows[ind].cumCnt) * diff;
+
+					out.print(ans + " ");
+				}
 			}
+		}
+
+		int binarySearch(long diff, Window[] windows)
+		{
+			int low = 0;
+			int high = windows.length - 1;
+
+			while (low <= high)
+			{
+				int mid = low + high >> 1;
+
+				if (windows[mid].jumpSize < diff)
+				{
+					if (mid == windows.length - 1 || windows[mid + 1].jumpSize >= diff)
+						return mid;
+
+					low = mid + 1;
+				}
+				else
+					high = mid - 1;
+			}
+
+			return -1;
+		}
+
+		class Window
+		{
+			long jumpSize, cumCnt, cumSum;
+			int cnt;
+
+			Window(long jumpSize, long cumCnt, long cumSum, int cnt)
+			{
+				this.jumpSize = jumpSize;
+				this.cumCnt = cumCnt;
+				this.cumSum = cumSum;
+				this.cnt = cnt;
+			}
+
 		}
 
 		Solver(InputReader in, PrintWriter out)
@@ -228,4 +296,3 @@ public class TaskD
 	}
 
 }
-

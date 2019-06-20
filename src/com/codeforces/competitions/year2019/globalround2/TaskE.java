@@ -13,22 +13,44 @@ public class TaskE
 	static class Solver implements Runnable
 	{
 		int n;
-//		BufferedReader in;
+		long[] counts;
 		InputReader in;
 		PrintWriter out;
 
-		void solve() throws IOException
+		void solve()
 		{
+			n = in.nextInt();
+			counts = new long[n];
+
+			for (int i = 0; i < n; i++)
+				counts[i] = in.nextInt();
+
+			long remaining = 0;
+			long ans = 0;
+
+			for (int i = 0; i < n; i++)
+			{
+				if (remaining > 0)
+				{
+					long cnt = counts[i] / 2;
+					long min = Math.min(cnt, remaining);
+
+					remaining -= min;
+					counts[i] -= min << 1;
+					ans += min;
+				}
+
+				long eq = counts[i] / 3;
+
+				counts[i] -= eq * 3;
+				ans += eq;
+				remaining += counts[i];
+			}
+
+			out.println(ans);
 		}
 
-		void debug(Object... o)
-		{
-			System.err.println(Arrays.deepToString(o));
-		}
-
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
 			this.out = out;
@@ -37,14 +59,7 @@ public class TaskE
 		@Override
 		public void run()
 		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
+			solve();
 		}
 
 	}
@@ -110,153 +125,6 @@ public class TaskE
 			return res * sgn;
 		}
 
-		public int[] nextIntArray(int arraySize)
-		{
-			int array[] = new int[arraySize];
-
-			for (int i = 0; i < arraySize; i++)
-				array[i] = nextInt();
-
-			return array;
-		}
-
-		public long nextLong()
-		{
-			int c = read();
-
-			while (isSpaceChar(c))
-				c = read();
-
-			int sign = 1;
-
-			if (c == '-')
-			{
-				sign = -1;
-
-				c = read();
-			}
-
-			long result = 0;
-
-			do
-			{
-				if (c < '0' || c > '9')
-					throw new InputMismatchException();
-
-				result *= 10;
-				result += c & 15;
-
-				c = read();
-			} while (!isSpaceChar(c));
-
-			return result * sign;
-		}
-
-		public long[] nextLongArray(int arraySize)
-		{
-			long array[] = new long[arraySize];
-
-			for (int i = 0; i < arraySize; i++)
-				array[i] = nextLong();
-
-			return array;
-		}
-
-		public float nextFloat()
-		{
-			float result, div;
-			byte c;
-
-			result = 0;
-			div = 1;
-			c = (byte) read();
-
-			while (c <= ' ')
-				c = (byte) read();
-
-			boolean isNegative = (c == '-');
-
-			if (isNegative)
-				c = (byte) read();
-
-			do
-			{
-				result = result * 10 + c - '0';
-			} while ((c = (byte) read()) >= '0' && c <= '9');
-
-			if (c == '.')
-				while ((c = (byte) read()) >= '0' && c <= '9')
-					result += (c - '0') / (div *= 10);
-
-			if (isNegative)
-				return -result;
-
-			return result;
-		}
-
-		public double nextDouble()
-		{
-			double ret = 0, div = 1;
-			byte c = (byte) read();
-
-			while (c <= ' ')
-				c = (byte) read();
-
-			boolean neg = (c == '-');
-
-			if (neg)
-				c = (byte) read();
-
-			do
-			{
-				ret = ret * 10 + c - '0';
-			} while ((c = (byte) read()) >= '0' && c <= '9');
-
-			if (c == '.')
-				while ((c = (byte) read()) >= '0' && c <= '9')
-					ret += (c - '0') / (div *= 10);
-
-			if (neg)
-				return -ret;
-
-			return ret;
-		}
-
-		public String next()
-		{
-			int c = read();
-
-			while (isSpaceChar(c))
-				c = read();
-
-			StringBuilder res = new StringBuilder();
-
-			do
-			{
-				res.appendCodePoint(c);
-
-				c = read();
-			} while (!isSpaceChar(c));
-
-			return res.toString();
-		}
-
-		public String nextLine()
-		{
-			int c = read();
-
-			StringBuilder result = new StringBuilder();
-
-			do
-			{
-				result.appendCodePoint(c);
-
-				c = read();
-			} while (!isNewLine(c));
-
-			return result.toString();
-		}
-
 		public boolean isNewLine(int c)
 		{
 			return c == '\n';
@@ -279,146 +147,15 @@ public class TaskE
 			}
 		}
 
-		public InputReader(InputStream stream)
+		InputReader(InputStream stream)
 		{
 			this.stream = stream;
 		}
 
 	}
 
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-		static long min(long... arr)
-		{
-			long min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static long max(long... arr)
-		{
-			long max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-		static int min(int... arr)
-		{
-			int min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static int max(int... arr)
-		{
-			int max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-	}
-
-	static class Utils
-	{
-		static boolean nextPermutation(int[] arr)
-		{
-			for (int a = arr.length - 2; a >= 0; --a)
-			{
-				if (arr[a] < arr[a + 1])
-				{
-					for (int b = arr.length - 1; ; --b)
-					{
-						if (arr[b] > arr[a])
-						{
-							int t = arr[a];
-
-							arr[a] = arr[b];
-							arr[b] = t;
-
-							for (++a, b = arr.length - 1; a < b; ++a, --b)
-							{
-								t = arr[a];
-								arr[a] = arr[b];
-								arr[b] = t;
-							}
-
-							return true;
-						}
-					}
-				}
-			}
-
-			return false;
-		}
-
-	}
-
 	public TaskE(InputStream inputStream, OutputStream outputStream)
 	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
 		Thread thread = new Thread(null, new Solver(in, out), "TaskE", 1 << 29);
@@ -441,4 +178,3 @@ public class TaskE
 	}
 
 }
-

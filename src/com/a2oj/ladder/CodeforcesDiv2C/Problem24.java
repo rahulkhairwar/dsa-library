@@ -1,50 +1,105 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.a2oj.ladder.CodeforcesDiv2C;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.List;
 
-public class TaskH
+public class Problem24
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
+
+		Solver solver = new Solver(in, out);
+
+		solver.solve(1);
+
+		out.flush();
+
+		in.close();
+		out.close();
 	}
 
-	static class Solver implements Runnable
+	static class Solver
 	{
 		int n;
-//		BufferedReader in;
+		Node[] nodes;
 		InputReader in;
-		PrintWriter out;
+		OutputWriter out;
 
-		void solve() throws IOException
+		void solve(int testNumber)
 		{
+			n = in.nextInt();
+			nodes = new Node[n];
+
+			for (int i = 0; i < n; i++)
+				nodes[i] = new Node(in.nextInt(), in.nextInt());
+
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = i + 1; j < n; j++)
+				{
+					if (nodes[i].x == nodes[j].x || nodes[i].y == nodes[j].y)
+					{
+						nodes[i].adj.add(j);
+						nodes[j].adj.add(i);
+					}
+				}
+			}
+
+			int connectedComponents = 0;
+
+			for (int i = 0; i < n; i++)
+			{
+				if (!nodes[i].visited)
+				{
+					connectedComponents++;
+					dfs(i);
+				}
+			}
+
+			out.println(connectedComponents - 1);
 		}
 
-		void debug(Object... o)
+		private void dfs(int node)
 		{
-			System.err.println(Arrays.deepToString(o));
+			Node temp = nodes[node];
+
+			temp.visited = true;
+
+			Iterator<Integer> iterator = temp.adj.iterator();
+
+			while (iterator.hasNext())
+			{
+				int curr = iterator.next();
+
+				if (!nodes[curr].visited)
+					dfs(curr);
+			}
 		}
 
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		class Node
+		{
+			int x, y;
+			List<Integer> adj;
+			boolean visited;
+
+			public Node(int x, int y)
+			{
+				this.x = x;
+				this.y = y;
+				adj = new ArrayList<>();
+			}
+
+		}
+
+		public Solver(InputReader in, OutputWriter out)
 		{
 			this.in = in;
 			this.out = out;
-		}
-
-		@Override
-		public void run()
-		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
 		}
 
 	}
@@ -55,6 +110,11 @@ public class TaskH
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
+
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
 
 		public int read()
 		{
@@ -162,7 +222,7 @@ public class TaskH
 			return array;
 		}
 
-		public float nextFloat()
+		public float nextFloat() // problematic
 		{
 			float result, div;
 			byte c;
@@ -194,7 +254,7 @@ public class TaskH
 			return result;
 		}
 
-		public double nextDouble()
+		public double nextDouble() // not completely accurate
 		{
 			double ret = 0, div = 1;
 			byte c = (byte) read();
@@ -241,6 +301,11 @@ public class TaskH
 			return res.toString();
 		}
 
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
 		public String nextLine()
 		{
 			int c = read();
@@ -262,11 +327,6 @@ public class TaskH
 			return c == '\n';
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public void close()
 		{
 			try
@@ -279,9 +339,115 @@ public class TaskH
 			}
 		}
 
-		public InputReader(InputStream stream)
+	}
+
+	static class OutputWriter
+	{
+		private PrintWriter writer;
+
+		public OutputWriter(OutputStream stream)
 		{
-			this.stream = stream;
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+					stream)));
+		}
+
+		public OutputWriter(Writer writer)
+		{
+			this.writer = new PrintWriter(writer);
+		}
+
+		public void println(int x)
+		{
+			writer.println(x);
+		}
+
+		public void print(int x)
+		{
+			writer.print(x);
+		}
+
+		public void println(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i] + " ");
+		}
+
+		public void println(long x)
+		{
+			writer.println(x);
+		}
+
+		public void print(long x)
+		{
+			writer.print(x);
+		}
+
+		public void println(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i]);
+		}
+
+		public void println(float num)
+		{
+			writer.println(num);
+		}
+
+		public void print(float num)
+		{
+			writer.print(num);
+		}
+
+		public void println(double num)
+		{
+			writer.println(num);
+		}
+
+		public void print(double num)
+		{
+			writer.print(num);
+		}
+
+		public void println(String s)
+		{
+			writer.println(s);
+		}
+
+		public void print(String s)
+		{
+			writer.print(s);
+		}
+
+		public void println()
+		{
+			writer.println();
+		}
+
+		public void printSpace()
+		{
+			writer.print(" ");
+		}
+
+		public void flush()
+		{
+			writer.flush();
+		}
+
+		public void close()
+		{
+			writer.close();
 		}
 
 	}
@@ -338,73 +504,6 @@ public class TaskH
 				return gcd(b, a % b);
 		}
 
-		static long min(long... arr)
-		{
-			long min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static long max(long... arr)
-		{
-			long max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-		static int min(int... arr)
-		{
-			int min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static int max(int... arr)
-		{
-			int max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-	}
-
-	public TaskH(InputStream inputStream, OutputStream outputStream)
-	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
-
-		try
-		{
-			thread.start();
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			in.close();
-
-			out.flush();
-			out.close();
-		}
 	}
 
 }
-

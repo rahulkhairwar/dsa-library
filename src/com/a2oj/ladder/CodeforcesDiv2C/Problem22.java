@@ -1,50 +1,62 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.a2oj.ladder.CodeforcesDiv2C;
 
 import java.io.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.InputMismatchException;
 
-public class TaskH
+/**
+ * Created by rahulkhairwar on 23/06/16.
+ */
+public class Problem22
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
+
+		Solver solver = new Solver(in, out);
+
+		solver.solve(1);
+
+		out.flush();
+
+		in.close();
+		out.close();
 	}
 
-	static class Solver implements Runnable
+	static class Solver
 	{
-		int n;
-//		BufferedReader in;
+		int n, arr[];
 		InputReader in;
-		PrintWriter out;
+		OutputWriter out;
 
-		void solve() throws IOException
+		void solve(int testNumber)
 		{
+			n = in.nextInt();
+			arr = new int[n];
+
+			int count = 0;
+			int[] copy = new int[n];
+
+			for (int i = 0; i < n; i++)
+				arr[i] = copy[i] = in.nextInt();
+
+			Arrays.sort(copy);
+
+			for (int i = 0; i < n; i++)
+				if (arr[i] != copy[i])
+					count++;
+
+			if (count > 2)
+				out.println("NO");
+			else
+				out.println("YES");
 		}
 
-		void debug(Object... o)
-		{
-			System.err.println(Arrays.deepToString(o));
-		}
-
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		public Solver(InputReader in, OutputWriter out)
 		{
 			this.in = in;
 			this.out = out;
-		}
-
-		@Override
-		public void run()
-		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
 		}
 
 	}
@@ -55,6 +67,11 @@ public class TaskH
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
+
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
 
 		public int read()
 		{
@@ -162,7 +179,7 @@ public class TaskH
 			return array;
 		}
 
-		public float nextFloat()
+		public float nextFloat() // problematic
 		{
 			float result, div;
 			byte c;
@@ -194,7 +211,7 @@ public class TaskH
 			return result;
 		}
 
-		public double nextDouble()
+		public double nextDouble() // not completely accurate
 		{
 			double ret = 0, div = 1;
 			byte c = (byte) read();
@@ -241,6 +258,11 @@ public class TaskH
 			return res.toString();
 		}
 
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
 		public String nextLine()
 		{
 			int c = read();
@@ -262,11 +284,6 @@ public class TaskH
 			return c == '\n';
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public void close()
 		{
 			try
@@ -279,9 +296,115 @@ public class TaskH
 			}
 		}
 
-		public InputReader(InputStream stream)
+	}
+
+	static class OutputWriter
+	{
+		private PrintWriter writer;
+
+		public OutputWriter(OutputStream stream)
 		{
-			this.stream = stream;
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+					stream)));
+		}
+
+		public OutputWriter(Writer writer)
+		{
+			this.writer = new PrintWriter(writer);
+		}
+
+		public void println(int x)
+		{
+			writer.println(x);
+		}
+
+		public void print(int x)
+		{
+			writer.print(x);
+		}
+
+		public void println(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i] + " ");
+		}
+
+		public void println(long x)
+		{
+			writer.println(x);
+		}
+
+		public void print(long x)
+		{
+			writer.print(x);
+		}
+
+		public void println(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i]);
+		}
+
+		public void println(float num)
+		{
+			writer.println(num);
+		}
+
+		public void print(float num)
+		{
+			writer.print(num);
+		}
+
+		public void println(double num)
+		{
+			writer.println(num);
+		}
+
+		public void print(double num)
+		{
+			writer.print(num);
+		}
+
+		public void println(String s)
+		{
+			writer.println(s);
+		}
+
+		public void print(String s)
+		{
+			writer.print(s);
+		}
+
+		public void println()
+		{
+			writer.println();
+		}
+
+		public void printSpace()
+		{
+			writer.print(" ");
+		}
+
+		public void flush()
+		{
+			writer.flush();
+		}
+
+		public void close()
+		{
+			writer.close();
 		}
 
 	}
@@ -338,73 +461,6 @@ public class TaskH
 				return gcd(b, a % b);
 		}
 
-		static long min(long... arr)
-		{
-			long min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static long max(long... arr)
-		{
-			long max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-		static int min(int... arr)
-		{
-			int min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static int max(int... arr)
-		{
-			int max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-	}
-
-	public TaskH(InputStream inputStream, OutputStream outputStream)
-	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
-
-		try
-		{
-			thread.start();
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			in.close();
-
-			out.flush();
-			out.close();
-		}
 	}
 
 }
-

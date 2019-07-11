@@ -1,50 +1,162 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.a2oj.groupcontests.pendingQuestions;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskH
+/**
+ * Question <a href="http://www.spoj.com/problems/DOMINOES/">link</a>.
+ */
+public final class Dominoes
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		InputReader in = new InputReader(System.in);
+		PrintWriter out = new PrintWriter(System.out);
+		Solver solver = new Solver(in, out);
+
+		solver.solve();
+		in.close();
+		out.flush();
+		out.close();
 	}
 
-	static class Solver implements Runnable
+	static class Solver
 	{
 		int n;
-//		BufferedReader in;
+		Domino[] dominoes;
 		InputReader in;
 		PrintWriter out;
 
-		void solve() throws IOException
+		void solve()
 		{
+			n = in.nextInt();
+			dominoes = new Domino[n];
+
+			for (int i = 0; i < n; i++)
+				dominoes[i] = new Domino(in.nextInt(), in.nextInt());
+
+			Arrays.sort(dominoes, new Comparator<Domino>()
+			{
+				@Override public int compare(Domino o1, Domino o2)
+				{
+					return Integer.compare(o1.x, o2.x);
+				}
+			});
+
+			for (int i = 0; i < n; i++)
+				dominoes[i].leftMax = dominoes[i].rightMax = i;
+
+			for (int i = 1; i < n; i++)
+			{
+				if (dominoes[i].x - dominoes[i].height <= dominoes[i - 1].x)
+					dominoes[i].leftMax = Math.min(findLeftMost(dominoes[i].x - dominoes[i].height), dominoes[i - 1]
+							.leftMax);
+			}
+
+			for (int i = n - 2; i >= 0; i--)
+			{
+				if (dominoes[i].x + dominoes[i].height >= dominoes[i + 1].x)
+					dominoes[i].rightMax = Math.max(findRightMost(dominoes[i].x + dominoes[i].height), dominoes[i +
+							1].rightMax);
+			}
+
+			int curr = 0;
+			int cnt = 0;
+
+			while (curr < n - 1)
+			{
+			}
 		}
 
-		void debug(Object... o)
+		int findRightMost(int xx)
 		{
-			System.err.println(Arrays.deepToString(o));
+			int left, right, mid;
+
+			left = 0;
+			right = n - 1;
+
+			while (left <= right)
+			{
+				mid = left + right >> 1;
+
+				if (dominoes[mid].x <= xx)
+				{
+					if (mid == n - 1)
+						return mid;
+
+					if (dominoes[mid + 1].x > xx)
+						return mid;
+
+					left = mid + 1;
+				}
+				else
+				{
+					if (mid == 0)
+						return -1;
+
+					if (dominoes[mid - 1].x <= xx)
+						return mid - 1;
+
+					right = mid - 1;
+				}
+			}
+
+			return -1;
 		}
 
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
+		int findLeftMost(int xx)
+		{
+			int left, right, mid;
+
+			left = 0;
+			right = n - 1;
+
+			while (left <= right)
+			{
+				mid = left + right >> 1;
+
+				if (dominoes[mid].x >= xx)
+				{
+					if (mid == 0)
+						return mid;
+
+					if (dominoes[mid - 1].x < xx)
+						return mid;
+
+					right = mid - 1;
+				}
+				else
+				{
+					if (mid == n - 1)
+						return -1;
+
+					if (dominoes[mid + 1].x >= xx)
+						return mid + 1;
+
+					left = mid + 1;
+				}
+			}
+
+			return -1;
+		}
+
+		class Domino
+		{
+			int x, height, leftMax, rightMax;
+
+			Domino(int x, int height)
+			{
+				this.x = x;
+				this.height = height;
+				leftMax = rightMax = x;
+			}
+
+		}
+
 		public Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
 			this.out = out;
-		}
-
-		@Override
-		public void run()
-		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
 		}
 
 	}
@@ -55,6 +167,11 @@ public class TaskH
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
+
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
 
 		public int read()
 		{
@@ -241,6 +358,11 @@ public class TaskH
 			return res.toString();
 		}
 
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
 		public String nextLine()
 		{
 			int c = read();
@@ -262,11 +384,6 @@ public class TaskH
 			return c == '\n';
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public void close()
 		{
 			try
@@ -277,11 +394,6 @@ public class TaskH
 			{
 				e.printStackTrace();
 			}
-		}
-
-		public InputReader(InputStream stream)
-		{
-			this.stream = stream;
 		}
 
 	}
@@ -380,31 +492,4 @@ public class TaskH
 
 	}
 
-	public TaskH(InputStream inputStream, OutputStream outputStream)
-	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
-
-		try
-		{
-			thread.start();
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			in.close();
-
-			out.flush();
-			out.close();
-		}
-	}
-
 }
-

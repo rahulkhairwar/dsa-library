@@ -1,50 +1,175 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.a2oj.groupcontests.dec28_2016;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskH
+/**
+ * Question <a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2932">link</a>.
+ */
+public class AccountBook
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		Solver solver = new Solver(in, out);
+
+		try
+		{
+			solver.solve();
+			in.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		out.flush();
+		out.close();
 	}
 
-	static class Solver implements Runnable
+	static class Solver
 	{
-		int n;
-//		BufferedReader in;
-		InputReader in;
+		int n, f;
+		int[] arr;
+		int[][] pos, neg;
+		boolean[][] sign;
+		BufferedReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			arr = new int[41];
+			pos = new int[41][(int) 16e3 + 5];
+			neg = new int[41][(int) 16e3 + 5];
+			sign = new boolean[2][41];
+
+			while (true)
+			{
+				String[] tok = in.readLine().split(" ");
+
+				n = Integer.parseInt(tok[0]);
+				f = Integer.parseInt(tok[1]);
+
+				if (n == 0 && f == 0)
+					break;
+
+				for (int i = 0; i < n; i++)
+					arr[i] = Integer.parseInt(in.readLine());
+
+				for (int i = 0; i < n; i++)
+				{
+					Arrays.fill(pos[i], -1);
+					Arrays.fill(neg[i], -1);
+				}
+
+				Arrays.fill(sign[0], false);
+				Arrays.fill(sign[1], false);
+
+				int possible = possible(0, 0);
+
+				if (possible == 0)
+				{
+					out.println("*");
+
+					continue;
+				}
+
+				StringBuilder ans = new StringBuilder("");
+
+				for (int i = 0; i < n; i++)
+				{
+					if (sign[0][i] && sign[1][i])
+						ans.append("?");
+					else if (sign[0][i])
+						ans.append("-");
+					else
+						ans.append("+");
+				}
+
+				out.println(ans.toString());
+			}
 		}
 
-		void debug(Object... o)
+		int possible(int ind, int currSum)
 		{
-			System.err.println(Arrays.deepToString(o));
+			if (ind == n - 1)
+			{
+				int a, b;
+
+				a = currSum + arr[ind];
+				b = currSum - arr[ind];
+
+				// adding this number to the sum.
+				if (a == f)
+				{
+					if (a < 0)
+						neg[ind][-a] = 1;
+					else
+						pos[ind][a] = 1;
+
+					sign[1][ind] = true;
+
+					return 1;
+				}
+
+				// subtracting this number from the sum.
+				if (b == f)
+				{
+					if (b < 0)
+						neg[ind][-b] = 1;
+					else
+						pos[ind][b] = 1;
+
+					sign[0][ind] = true;
+
+					return 1;
+				}
+
+				return 0;
+			}
+
+			if (currSum < -16e3 || currSum > 16e3)
+				return 0;
+
+			if (currSum < 0 && neg[ind][-currSum] != -1)
+				return neg[ind][-currSum];
+
+			if (currSum >= 0 && pos[ind][currSum] != -1)
+				return pos[ind][currSum];
+
+			int add, sub;
+
+			add = possible(ind + 1, currSum + arr[ind]);
+			sub = possible(ind + 1, currSum - arr[ind]);
+
+			if (add == 1)
+				sign[1][ind] = true;
+
+			if (sub == 1)
+				sign[0][ind] = true;
+
+			if (add == 1 || sub == 1)
+			{
+				if (currSum < 0)
+					neg[ind][-currSum] = 1;
+				else
+					pos[ind][currSum] = 1;
+
+				return 1;
+			}
+
+			if (currSum < 0)
+				neg[ind][-currSum] = 0;
+			else
+				pos[ind][currSum] = 0;
+
+			return 0;
 		}
 
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		public Solver(BufferedReader in, PrintWriter out)
 		{
 			this.in = in;
 			this.out = out;
-		}
-
-		@Override
-		public void run()
-		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
 		}
 
 	}
@@ -55,6 +180,11 @@ public class TaskH
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
+
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
 
 		public int read()
 		{
@@ -241,6 +371,11 @@ public class TaskH
 			return res.toString();
 		}
 
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
 		public String nextLine()
 		{
 			int c = read();
@@ -262,11 +397,6 @@ public class TaskH
 			return c == '\n';
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public void close()
 		{
 			try
@@ -279,132 +409,29 @@ public class TaskH
 			}
 		}
 
-		public InputReader(InputStream stream)
-		{
-			this.stream = stream;
-		}
-
-	}
-
-	static class CMath
-	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-		static long min(long... arr)
-		{
-			long min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static long max(long... arr)
-		{
-			long max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-		static int min(int... arr)
-		{
-			int min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static int max(int... arr)
-		{
-			int max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-	}
-
-	public TaskH(InputStream inputStream, OutputStream outputStream)
-	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
-
-		try
-		{
-			thread.start();
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			in.close();
-
-			out.flush();
-			out.close();
-		}
 	}
 
 }
 
+/*
+
+5 7
+1
+2
+3
+4
+5
+4 15
+3
+5
+7
+11
+5 12
+6
+7
+7
+1
+7
+0 0
+
+*/

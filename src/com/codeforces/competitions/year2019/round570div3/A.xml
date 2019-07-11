@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+432
+</input>
+        <output>
+435
+</output>
+    </test>
+    <test>
+        <input>
+99
+</input>
+        <output>
+103
+</output>
+    </test>
+    <test>
+        <input>
+237
+</input>
+        <output>
+237
+</output>
+    </test>
+    <test>
+        <input>
+42
+</input>
+        <output>
+44
+</output>
+    </test>
+</testCases>

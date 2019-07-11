@@ -1,33 +1,36 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.a2oj.groupcontests.mar16_2018;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskH
+/**
+ * Problem <a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2507">link</a>.
+ */
+public final class GATTACA
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		new GATTACA(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
-//		BufferedReader in;
-		InputReader in;
-		PrintWriter out;
+        int t, n;
+        char[] s;
+        InputReader in;
+        PrintWriter out;
 
 		void solve() throws IOException
 		{
+			t = in.nextInt();
+
+			while (t-- > 0)
+			{
+				s = in.nextLine().toCharArray();
+				n = s.length;
+			}
 		}
 
-		void debug(Object... o)
-		{
-			System.err.println(Arrays.deepToString(o));
-		}
-
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
 		public Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
@@ -286,107 +289,11 @@ public class TaskH
 
 	}
 
-	static class CMath
+	public GATTACA(InputStream inputStream, OutputStream outputStream)
 	{
-		static long power(long number, long power)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			if (power == 1)
-				return number;
-
-			if (power % 2 == 0)
-				return power(number * number, power / 2);
-			else
-				return power(number * number, power / 2) * number;
-		}
-
-		static long modPower(long number, long power, long mod)
-		{
-			if (number == 1 || number == 0 || power == 0)
-				return 1;
-
-			number = mod(number, mod);
-
-			if (power == 1)
-				return number;
-
-			long square = mod(number * number, mod);
-
-			if (power % 2 == 0)
-				return modPower(square, power / 2, mod);
-			else
-				return mod(modPower(square, power / 2, mod) * number, mod);
-		}
-
-		static long moduloInverse(long number, long mod)
-		{
-			return modPower(number, mod - 2, mod);
-		}
-
-		static long mod(long number, long mod)
-		{
-			return number - (number / mod) * mod;
-		}
-
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-		static long min(long... arr)
-		{
-			long min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static long max(long... arr)
-		{
-			long max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-		static int min(int... arr)
-		{
-			int min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static int max(int... arr)
-		{
-			int max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-	}
-
-	public TaskH(InputStream inputStream, OutputStream outputStream)
-	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "GATTACA", 1 << 29);
 
 		try
 		{
@@ -400,11 +307,9 @@ public class TaskH
 		finally
 		{
 			in.close();
-
 			out.flush();
 			out.close();
 		}
 	}
 
 }
-

@@ -1,52 +1,133 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.a2oj.ladder.CodeforcesDiv2C;
 
 import java.io.*;
-import java.util.*;
+import java.util.InputMismatchException;
 
-public class TaskH
+/**
+ * Created by rahulkhairwar on 04/02/16.
+ */
+public final class Problem2
 {
+	static int n, arr[];
+	static long[] leftCum, rightCum;
+	static int[] leftRequiredPos, rightRequiredPos;
+	static InputReader in;
+	static OutputWriter out;
+
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		in = new InputReader(System.in);
+		out = new OutputWriter(System.out);
+
+		solve();
+
+		out.flush();
+
+		in.close();
+		out.close();
 	}
 
-	static class Solver implements Runnable
+	static void solve()
 	{
-		int n;
-//		BufferedReader in;
-		InputReader in;
-		PrintWriter out;
+		n = in.nextInt();
 
-		void solve() throws IOException
+		arr = new int[n];
+		leftCum = new long[n];
+		rightCum = new long[n];
+		leftRequiredPos = new int[n];
+		rightRequiredPos = new int[n];
+
+		arr[0] = in.nextInt();
+		leftCum[0] = arr[0];
+
+		long total = arr[0];
+
+		for (int i = 1; i < n; i++)
 		{
+			arr[i] = in.nextInt();
+			leftCum[i] = leftCum[i - 1] + arr[i];
+			total += arr[i];
 		}
 
-		void debug(Object... o)
+		if (total % 3 != 0)
 		{
-			System.err.println(Arrays.deepToString(o));
+			out.println(0);
+
+			return;
 		}
 
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		long required;
+		int leftCount, rightCount;
+
+		required = total / 3;
+		leftCount = rightCount = 0;
+
+		rightCum[n - 1] = arr[n - 1];
+
+		if (rightCum[n - 1] == required)
+			rightRequiredPos[rightCount++] = n - 1;
+
+		for (int i = n - 2; i >= 0; i--)
 		{
-			this.in = in;
-			this.out = out;
+			rightCum[i] = rightCum[i + 1] + arr[i];
+
+			if (rightCum[i] == required)
+				rightRequiredPos[rightCount++] = i;
 		}
 
-		@Override
-		public void run()
+		for (int i = 0; i < n; i++)
+			if (leftCum[i] == required)
+				leftRequiredPos[leftCount++] = i;
+
+		long answer = 0;
+
+		for (int i = 0; i < leftCount; i++)
 		{
-			try
+			int index = searchRightMost(0, rightCount - 1, leftRequiredPos[i]);
+
+			if (index != -1)
 			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
+				if (rightRequiredPos[index] == leftRequiredPos[i] + 1)
+					answer += index;
+				else
+					answer += (index + 1);
 			}
 		}
 
+		out.println(answer);
+	}
+
+	static int searchRightMost(int from, int to, int value)
+	{
+		int mid;
+
+		while (from <= to)
+		{
+			mid = from + (to - from) / 2;
+
+			if (rightRequiredPos[mid] == value)
+				return mid - 1;
+			else if (rightRequiredPos[mid] > value)
+			{
+				if (mid == to)
+					return mid;
+				else if (rightRequiredPos[mid + 1] < value)
+					return mid;
+
+				from = mid + 1;
+			}
+			else
+			{
+				if (mid == 0)
+					return -1;
+				else if (rightRequiredPos[mid - 1] > value)
+					return mid - 1;
+
+				to = mid - 1;
+			}
+		}
+
+		return -1;
 	}
 
 	static class InputReader
@@ -55,6 +136,11 @@ public class TaskH
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
+
+		public InputReader(InputStream stream)
+		{
+			this.stream = stream;
+		}
 
 		public int read()
 		{
@@ -67,8 +153,7 @@ public class TaskH
 				try
 				{
 					numChars = stream.read(buf);
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					throw new InputMismatchException();
 				}
@@ -162,7 +247,7 @@ public class TaskH
 			return array;
 		}
 
-		public float nextFloat()
+		public float nextFloat() // problematic
 		{
 			float result, div;
 			byte c;
@@ -194,7 +279,7 @@ public class TaskH
 			return result;
 		}
 
-		public double nextDouble()
+		public double nextDouble() // not completely accurate
 		{
 			double ret = 0, div = 1;
 			byte c = (byte) read();
@@ -241,6 +326,11 @@ public class TaskH
 			return res.toString();
 		}
 
+		public boolean isSpaceChar(int c)
+		{
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
 		public String nextLine()
 		{
 			int c = read();
@@ -262,26 +352,126 @@ public class TaskH
 			return c == '\n';
 		}
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
-
 		public void close()
 		{
 			try
 			{
 				stream.close();
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				e.printStackTrace();
 			}
 		}
 
-		public InputReader(InputStream stream)
+	}
+
+	static class OutputWriter
+	{
+		private PrintWriter writer;
+
+		public OutputWriter(OutputStream stream)
 		{
-			this.stream = stream;
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+					stream)));
+		}
+
+		public OutputWriter(Writer writer)
+		{
+			this.writer = new PrintWriter(writer);
+		}
+
+		public void println(int x)
+		{
+			writer.println(x);
+		}
+
+		public void print(int x)
+		{
+			writer.print(x);
+		}
+
+		public void println(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(int array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i] + " ");
+		}
+
+		public void println(long x)
+		{
+			writer.println(x);
+		}
+
+		public void print(long x)
+		{
+			writer.print(x);
+		}
+
+		public void println(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				println(array[i]);
+		}
+
+		public void print(long array[], int size)
+		{
+			for (int i = 0; i < size; i++)
+				print(array[i]);
+		}
+
+		public void println(float num)
+		{
+			writer.println(num);
+		}
+
+		public void print(float num)
+		{
+			writer.print(num);
+		}
+
+		public void println(double num)
+		{
+			writer.println(num);
+		}
+
+		public void print(double num)
+		{
+			writer.print(num);
+		}
+
+		public void println(String s)
+		{
+			writer.println(s);
+		}
+
+		public void print(String s)
+		{
+			writer.print(s);
+		}
+
+		public void println()
+		{
+			writer.println();
+		}
+
+		public void printSpace()
+		{
+			writer.print(" ");
+		}
+
+		public void flush()
+		{
+			writer.flush();
+		}
+
+		public void close()
+		{
+			writer.close();
 		}
 
 	}
@@ -330,81 +520,26 @@ public class TaskH
 			return number - (number / mod) * mod;
 		}
 
-		static int gcd(int a, int b)
-		{
-			if (b == 0)
-				return a;
-			else
-				return gcd(b, a % b);
-		}
-
-		static long min(long... arr)
-		{
-			long min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static long max(long... arr)
-		{
-			long max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-		static int min(int... arr)
-		{
-			int min = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				min = Math.min(min, arr[i]);
-
-			return min;
-		}
-
-		static int max(int... arr)
-		{
-			int max = arr[0];
-
-			for (int i = 1; i < arr.length; i++)
-				max = Math.max(max, arr[i]);
-
-			return max;
-		}
-
-	}
-
-	public TaskH(InputStream inputStream, OutputStream outputStream)
-	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
-
-		try
-		{
-			thread.start();
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			in.close();
-
-			out.flush();
-			out.close();
-		}
 	}
 
 }
 
+/*
+
+4
+0 1 -1 0
+: 1
+
+6
+0 0 0 0 0 0
+: 10
+
+8
+-2 2 0 0 0 0 0 0
+: 15
+
+10
+-2 2 0 0 2 -2 4 -4 -2 2
+: 10
+
+ */

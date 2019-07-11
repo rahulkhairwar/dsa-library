@@ -1,32 +1,75 @@
-import java.io.*;
+package com.a2oj.groupcontests.july30_2018;
+
+//package a2oj.groupContests.july30;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.*;
 
-public class Task
+public class GregAndGraph
 {
 	public static void main(String[] args)
 	{
-		new Task(System.in, System.out);
+		new GregAndGraph(System.in, System.out);
 	}
 
-	static class Solver implements Runnable
+	private static class Solver implements Runnable
 	{
+		static int INFINITY = (int) 1e9;
 		int n;
-//		BufferedReader in;
+		int[][] adj, dist;
+		int[] order;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			n = in.nextInt();
+			adj = new int[n][n];
+			dist = new int[n][n];
+			order = new int[n];
+
+			for (int i = 0; i < n; i++)
+				for (int j = 0; j < n; j++)
+					adj[i][j] = in.nextInt();
+
+			for (int i = n - 1; i >= 0; i--)
+			{
+				order[i] = in.nextInt() - 1;
+				Arrays.fill(dist[i], INFINITY);
+				dist[i][i] = 0;
+			}
+
+			long[] ans = new long[n];
+
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < i; j++)
+				{
+					for (int k = 0; k < i; k++)
+					{
+						if (adj[j][order[i]] + adj[order[i]][k] < dist[j][k])
+							dist[j][k] = adj[j][order[i]] + adj[order[i]][k];
+					}
+				}
+
+				for (int j = 0; j < n; j++)
+					ans[i] += dist[order[i]][j];
+			}
+
+			System.out.println("dist :");
+
+			for (int i = 0; i < n; i++, System.out.println())
+				for (int j = 0; j < n; j++)
+					System.out.print(dist[i][j] + " ");
+
+			for (int i = n - 1; i >= 0; i--)
+				out.print(ans[i] + " ");
 		}
 
-		void debug(Object... o)
-		{
-			System.err.println(Arrays.deepToString(o));
-		}
-
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
-		public Solver(InputReader in, PrintWriter out)
+		Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
 			this.out = out;
@@ -47,14 +90,14 @@ public class Task
 
 	}
 
-	static class InputReader
+	private static class InputReader
 	{
 		private InputStream stream;
 		private byte[] buf = new byte[1024];
 		private int curChar;
 		private int numChars;
 
-		public int read()
+		int read()
 		{
 			if (numChars == -1)
 				throw new InputMismatchException();
@@ -77,7 +120,7 @@ public class Task
 			return buf[curChar++];
 		}
 
-		public int nextInt()
+		int nextInt()
 		{
 			int c = read();
 
@@ -108,164 +151,12 @@ public class Task
 			return res * sgn;
 		}
 
-		public int[] nextIntArray(int arraySize)
-		{
-			int[] array = new int[arraySize];
-
-			for (int i = 0; i < arraySize; i++)
-				array[i] = nextInt();
-
-			return array;
-		}
-
-		public long nextLong()
-		{
-			int c = read();
-
-			while (isSpaceChar(c))
-				c = read();
-
-			int sign = 1;
-
-			if (c == '-')
-			{
-				sign = -1;
-
-				c = read();
-			}
-
-			long result = 0;
-
-			do
-			{
-				if (c < '0' || c > '9')
-					throw new InputMismatchException();
-
-				result *= 10;
-				result += c & 15;
-
-				c = read();
-			} while (!isSpaceChar(c));
-
-			return result * sign;
-		}
-
-		public long[] nextLongArray(int arraySize)
-		{
-			long[] array = new long[arraySize];
-
-			for (int i = 0; i < arraySize; i++)
-				array[i] = nextLong();
-
-			return array;
-		}
-
-		public float nextFloat()
-		{
-			float result, div;
-			byte c;
-
-			result = 0;
-			div = 1;
-			c = (byte) read();
-
-			while (c <= ' ')
-				c = (byte) read();
-
-			boolean isNegative = (c == '-');
-
-			if (isNegative)
-				c = (byte) read();
-
-			do
-			{
-				result = result * 10 + c - '0';
-			} while ((c = (byte) read()) >= '0' && c <= '9');
-
-			if (c == '.')
-				while ((c = (byte) read()) >= '0' && c <= '9')
-					result += (c - '0') / (div *= 10);
-
-			if (isNegative)
-				return -result;
-
-			return result;
-		}
-
-		public double nextDouble()
-		{
-			double ret = 0, div = 1;
-			byte c = (byte) read();
-
-			while (c <= ' ')
-				c = (byte) read();
-
-			boolean neg = (c == '-');
-
-			if (neg)
-				c = (byte) read();
-
-			do
-			{
-				ret = ret * 10 + c - '0';
-			} while ((c = (byte) read()) >= '0' && c <= '9');
-
-			if (c == '.')
-				while ((c = (byte) read()) >= '0' && c <= '9')
-					ret += (c - '0') / (div *= 10);
-
-			if (neg)
-				return -ret;
-
-			return ret;
-		}
-
-		public String next()
-		{
-			int c = read();
-
-			while (isSpaceChar(c))
-				c = read();
-
-			StringBuilder res = new StringBuilder();
-
-			do
-			{
-				res.appendCodePoint(c);
-
-				c = read();
-			} while (!isSpaceChar(c));
-
-			return res.toString();
-		}
-
-		public String nextLine()
-		{
-			int c = read();
-
-			StringBuilder result = new StringBuilder();
-
-			do
-			{
-				result.appendCodePoint(c);
-
-				c = read();
-			} while (!isNewLine(c));
-
-			return result.toString();
-		}
-
-		public boolean isNewLine(int c)
-		{
-			return c == '\n';
-		}
-
-		public boolean isSpaceChar(int c)
+		boolean isSpaceChar(int c)
 		{
 			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
 		}
 
-		public void close()
+		void close()
 		{
 			try
 			{
@@ -277,14 +168,14 @@ public class Task
 			}
 		}
 
-		public InputReader(InputStream stream)
+		InputReader(InputStream stream)
 		{
 			this.stream = stream;
 		}
 
 	}
 
-	static class CMath
+	private static class CMath
 	{
 		static long power(long number, long power)
 		{
@@ -378,7 +269,7 @@ public class Task
 
 	}
 
-	static class Utils
+	private static class Utils
 	{
 		static boolean nextPermutation(int[] arr)
 		{
@@ -413,13 +304,11 @@ public class Task
 
 	}
 
-	public Task(InputStream inputStream, OutputStream outputStream)
+	private GregAndGraph(InputStream inputStream, OutputStream outputStream)
 	{
-//		uncomment below line to change to BufferedReader
-//		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "Task", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "Solver", 1 << 29);
 
 		try
 		{
@@ -430,12 +319,10 @@ public class Task
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			in.close();
-			out.flush();
-			out.close();
-		}
+
+		in.close();
+		out.flush();
+		out.close();
 	}
 
 }

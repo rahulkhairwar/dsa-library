@@ -1,24 +1,48 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.codeforces.competitions.year2019.round570div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskH
+public class TaskA
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		new TaskA(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+		int a;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
-		void solve() throws IOException
+		void solve() throws Exception
 		{
+			a = in.nextInt();
+
+			for (int i = 0; i < 20; i++)
+			{
+				if (isDivBy4(a + i))
+				{
+					out.println(a + i);
+
+					return;
+				}
+			}
+
+			throw new Exception("not found!!");
+		}
+
+		boolean isDivBy4(int x)
+		{
+			String s = "" + x;
+			int sum = 0;
+
+			for (char ch : s.toCharArray())
+				sum += ch - '0';
+
+			return sum % 4 == 0;
 		}
 
 		void debug(Object... o)
@@ -41,7 +65,7 @@ public class TaskH
 			{
 				solve();
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -380,13 +404,48 @@ public class TaskH
 
 	}
 
-	public TaskH(InputStream inputStream, OutputStream outputStream)
+	static class Utils
+	{
+		static boolean nextPermutation(int[] arr)
+		{
+			for (int a = arr.length - 2; a >= 0; --a)
+			{
+				if (arr[a] < arr[a + 1])
+				{
+					for (int b = arr.length - 1; ; --b)
+					{
+						if (arr[b] > arr[a])
+						{
+							int t = arr[a];
+
+							arr[a] = arr[b];
+							arr[b] = t;
+
+							for (++a, b = arr.length - 1; a < b; ++a, --b)
+							{
+								t = arr[a];
+								arr[a] = arr[b];
+								arr[b] = t;
+							}
+
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		}
+
+	}
+
+	public TaskA(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskA", 1 << 29);
 
 		try
 		{
@@ -400,7 +459,6 @@ public class TaskH
 		finally
 		{
 			in.close();
-
 			out.flush();
 			out.close();
 		}

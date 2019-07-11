@@ -1,33 +1,94 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.codeforces.competitions.year2019.round570div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskH
+public class TaskC
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		new TaskC(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+		int q;
+		long k, n, a, b, maxA, maxB;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			q = in.nextInt();
+
+			while (q-- > 0)
+			{
+				k = in.nextInt();
+				n = in.nextInt();
+				a = in.nextInt();
+				b = in.nextInt();
+
+				maxA = getMaxPoss(k, a);
+				maxB = getMaxPoss(k, b);
+
+				if (k <= b * n)
+					out.println(-1);
+				else
+					out.println(binarySearch(k, a, b));
+			}
 		}
 
-		void debug(Object... o)
+		long getMaxPoss(long battery, long x)
 		{
-			System.err.println(Arrays.deepToString(o));
+			return (battery - x) / x;
 		}
 
-//		uncomment below line to change to BufferedReader
-//		public Solver(BufferedReader in, PrintWriter out)
+		long binarySearch(long battery, long a, long b)
+		{
+			long low = 0;
+			long high = maxA;
+//			System.out.println("maxA : " + maxA);
+
+			while (low <= high)
+			{
+				long mid = low + high >> 1;
+//				here, we'll use mid * a + (n - mid) * b
+				long needed = mid * a + (n - mid) * b;
+//				System.out.println("mid : " + mid + ", needed : " + needed + ", battery : " + battery);
+
+				if (needed <= battery)
+				{
+/*					if (needed == battery && mid == n)
+					{
+						return mid - 1;
+					}
+
+					if (battery - (mid - 1) * a <= a)
+					{
+						high = mid - 1;
+
+						continue;
+					}*/
+
+//					if (needed == battery && mid == 0)
+//						return -1;
+
+//					System.out.println("\there, or : " + ((mid + 1) * a + (n - mid - 1) * b));
+					if (mid == n || (mid + 1) * a + (n - mid - 1) * b >= battery)
+					{
+						return mid;
+					}
+
+					low = mid + 1;
+				}
+				else
+					high = mid - 1;
+			}
+
+			return -1;
+		}
+
 		public Solver(InputReader in, PrintWriter out)
 		{
 			this.in = in;
@@ -380,13 +441,48 @@ public class TaskH
 
 	}
 
-	public TaskH(InputStream inputStream, OutputStream outputStream)
+	static class Utils
+	{
+		static boolean nextPermutation(int[] arr)
+		{
+			for (int a = arr.length - 2; a >= 0; --a)
+			{
+				if (arr[a] < arr[a + 1])
+				{
+					for (int b = arr.length - 1; ; --b)
+					{
+						if (arr[b] > arr[a])
+						{
+							int t = arr[a];
+
+							arr[a] = arr[b];
+							arr[b] = t;
+
+							for (++a, b = arr.length - 1; a < b; ++a, --b)
+							{
+								t = arr[a];
+								arr[a] = arr[b];
+								arr[b] = t;
+							}
+
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		}
+
+	}
+
+	public TaskC(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskC", 1 << 29);
 
 		try
 		{
@@ -400,7 +496,6 @@ public class TaskH
 		finally
 		{
 			in.close();
-
 			out.flush();
 			out.close();
 		}
@@ -408,3 +503,15 @@ public class TaskH
 
 }
 
+/*
+
+1
+15 5 3 2
+
+1
+20 5 7 3
+
+1
+15 5 4 3
+
+*/

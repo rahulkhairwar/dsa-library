@@ -1,24 +1,149 @@
-package com.codeforces.competitions.year2017.goodbye2017;
+package com.codeforces.competitions.year2019.round570div3;
 
 import java.io.*;
 import java.util.*;
 
-public class TaskH
+public class TaskG
 {
 	public static void main(String[] args)
 	{
-		new TaskH(System.in, System.out);
+		new TaskG(System.in, System.out);
 	}
 
 	static class Solver implements Runnable
 	{
-		int n;
+		int q;
 //		BufferedReader in;
 		InputReader in;
 		PrintWriter out;
 
 		void solve() throws IOException
 		{
+			q = in.nextInt();
+
+			while (q-- > 0)
+			{
+				int n = in.nextInt();
+				Candy[] candies = new Candy[n];
+
+				Map<Integer, Integer> map = new HashMap<>();
+				Map<Integer, Integer> giveMap = new HashMap<>();
+
+				for (int i = 0; i < n; i++)
+				{
+					int type = in.nextInt();
+					int give = in.nextInt();
+					Integer cnt = map.get(type);
+					Integer giveCnt = giveMap.get(type);
+
+					candies[i] = new Candy(type, give);
+
+					if (cnt == null)
+						map.put(type, 1);
+					else
+						map.put(type, cnt + 1);
+
+					if (give == 1)
+					{
+						if (giveCnt == null)
+							giveMap.put(type, 1);
+						else
+							giveMap.put(type, giveCnt + 1);
+					}
+				}
+
+				int size = map.size();
+				int cnt = 0;
+				int[] counts = new int[size];
+				Pair[] pairs = new Pair[size];
+
+				for (Map.Entry<Integer, Integer> entry : map.entrySet())
+				{
+					int count = entry.getValue();
+					int giveCnt = giveMap.getOrDefault(entry.getKey(), 0);
+
+					counts[cnt] = count;
+					pairs[cnt++] = new Pair(giveCnt, count);
+				}
+
+				Arrays.sort(counts);
+
+				long maxPossible = 0;
+				int ptr = size - 1;
+				long curr = counts[size - 1];
+
+				while (true)
+				{
+					maxPossible += curr;
+					ptr--;
+
+					if (ptr == -1)
+						break;
+
+					curr = Math.min(counts[ptr], curr - 1);
+
+					if (curr <= 0)
+						break;
+				}
+
+				Arrays.sort(pairs, (o1, o2) -> {
+					if (o1.totCnt == o2.totCnt)
+						return Integer.compare(o2.giveCnt, o1.giveCnt);
+
+					return Integer.compare(o2.totCnt, o1.totCnt);
+				});
+
+				long maxGiveCnt = 0;
+
+				ptr = size - 1;
+				curr = counts[size - 1];
+
+				while (true)
+				{
+					System.out.println("pair : " + pairs[ptr].totCnt + ", " + pairs[ptr].giveCnt + ", curr : " + curr + ", mng : " + maxGiveCnt);
+
+//					int sub = (int) Math.max(0, curr - pairs[ptr].giveCnt);
+					long sub = Math.min(curr, pairs[ptr].giveCnt);
+
+					maxGiveCnt += sub;
+					System.out.println("\tmng updated : " + maxGiveCnt);
+					ptr--;
+
+					if (ptr == -1)
+						break;
+
+					curr = Math.min(curr - 1, pairs[ptr].totCnt);
+
+					if (curr <= 0)
+						break;
+				}
+
+				out.println(maxPossible + " " + maxGiveCnt);
+			}
+		}
+
+		class Candy
+		{
+			int type, give;
+
+			Candy(int type, int give)
+			{
+				this.type = type;
+				this.give = give;
+			}
+
+		}
+
+		class Pair
+		{
+			int giveCnt, totCnt;
+
+			public Pair(int giveCnt, int totCnt)
+			{
+				this.giveCnt = giveCnt;
+				this.totCnt = totCnt;
+			}
+
 		}
 
 		void debug(Object... o)
@@ -380,13 +505,48 @@ public class TaskH
 
 	}
 
-	public TaskH(InputStream inputStream, OutputStream outputStream)
+	static class Utils
+	{
+		static boolean nextPermutation(int[] arr)
+		{
+			for (int a = arr.length - 2; a >= 0; --a)
+			{
+				if (arr[a] < arr[a + 1])
+				{
+					for (int b = arr.length - 1; ; --b)
+					{
+						if (arr[b] > arr[a])
+						{
+							int t = arr[a];
+
+							arr[a] = arr[b];
+							arr[b] = t;
+
+							for (++a, b = arr.length - 1; a < b; ++a, --b)
+							{
+								t = arr[a];
+								arr[a] = arr[b];
+								arr[b] = t;
+							}
+
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		}
+
+	}
+
+	public TaskG(InputStream inputStream, OutputStream outputStream)
 	{
 //		uncomment below line to change to BufferedReader
 //		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		InputReader in = new InputReader(inputStream);
 		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskH", 1 << 29);
+		Thread thread = new Thread(null, new Solver(in, out), "TaskG", 1 << 29);
 
 		try
 		{
@@ -400,7 +560,6 @@ public class TaskH
 		finally
 		{
 			in.close();
-
 			out.flush();
 			out.close();
 		}
@@ -408,3 +567,36 @@ public class TaskH
 
 }
 
+/*
+
+1
+8
+1 0
+4 1
+2 0
+4 1
+5 1
+6 1
+3 0
+2 0
+
+1
+4
+1 1
+1 1
+2 1
+2 1
+
+1
+9
+2 0
+2 0
+4 1
+4 1
+4 1
+7 0
+7 1
+7 0
+7 1
+
+*/

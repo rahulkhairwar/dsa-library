@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>3 2
+1 2 10
+2 3 5
+</input>
+        <output>2
+1 2 5
+1 3 5
+</output>
+    </test>
+    <test>
+        <input>3 3
+1 2 10
+2 3 15
+3 1 10
+</input>
+        <output>1
+2 3 5
+</output>
+    </test>
+    <test>
+        <input>4 2
+1 2 12
+3 4 8
+</input>
+        <output>2
+1 2 12
+3 4 8
+</output>
+    </test>
+    <test>
+        <input>3 4
+2 3 1
+2 3 2
+2 3 4
+2 3 8
+</input>
+        <output>1
+2 3 15
+</output>
+    </test>
+</testCases>

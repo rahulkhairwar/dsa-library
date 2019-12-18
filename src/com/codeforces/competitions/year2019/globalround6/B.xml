@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCases>
+    <test>
+        <input>
+4
+29 34 19 38
+</input>
+        <output>
+YES
+YES
+YES
+NO
+</output>
+    </test>
+</testCases>

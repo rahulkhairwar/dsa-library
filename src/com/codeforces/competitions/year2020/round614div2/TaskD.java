@@ -3,281 +3,237 @@ package com.codeforces.competitions.year2020.round614div2;
 import java.io.*;
 import java.util.*;
 
-public class TaskD
-{
-	public static void main(String[] args)
-	{
-		new TaskD(System.in, System.out);
-	}
+public class TaskD {
 
-	static class Solver implements Runnable
-	{
-		int n;
-		long x0, y0, ax, ay, bx, by, xs, ys, t;
-		InputReader in;
-		PrintWriter out;
+  public static void main(String[] args) {
+    new TaskD(System.in, System.out);
+  }
 
-		void solve() throws IOException
-		{
-			x0 = in.nextLong();
-			y0 = in.nextLong();
-			ax = in.nextLong();
-			ay = in.nextLong();
-			bx = in.nextLong();
-			by = in.nextLong();
-			xs = in.nextLong();
-			ys = in.nextLong();
-			t = in.nextLong();
+  static class Solver implements Runnable {
 
-			long prevX = x0;
-			long prevY = y0;
+    long x0, y0, ax, ay, bx, by, xs, ys, t;
+    InputReader in;
+    PrintWriter out;
 
-			List<Node> nodes = new ArrayList<>();
+    void solve() {
+      x0 = in.nextLong();
+      y0 = in.nextLong();
+      ax = in.nextLong();
+      ay = in.nextLong();
+      bx = in.nextLong();
+      by = in.nextLong();
+      xs = in.nextLong();
+      ys = in.nextLong();
+      t = in.nextLong();
 
-			nodes.add(new Node(x0, y0));
+      long prevX = x0;
+      long prevY = y0;
 
-			for (int i = 1; i < 63; i++) {
-				long xx = ax * prevX + bx;
-				long yy = ay * prevY + by;
+      List<Node> nodes = new ArrayList<>();
 
-				nodes.add(new Node(xx, yy));
-				prevX = xx;
-				prevY = yy;
+      nodes.add(new Node(x0, y0));
 
-				if (prevX > 1e16 || prevY > 1e16) {
-					break;
-				}
-			}
+      for (int i = 1; i < 63; i++) {
+        long xx = ax * prevX + bx;
+        long yy = ay * prevY + by;
 
-			nodes.sort(Comparator.comparingLong(o -> o.x + o.y));
+        nodes.add(new Node(xx, yy));
+        prevX = xx;
+        prevY = yy;
 
-			int n = nodes.size();
-			int max = 0;
-			int startIndex = -1;
+        if (prevX > 1e16 || prevY > 1e16) {
+          break;
+        }
+      }
 
-			for (int i = 0; i < nodes.size(); i++) {
-				Node node = nodes.get(i);
+      nodes.sort(Comparator.comparingLong(o -> o.x + o.y));
 
-				if (node.x == xs && node.y == ys) {
-					startIndex = i;
+      int n = nodes.size();
+      int max = 0;
+      int startIndex = -1;
 
-					break;
-				}
-			}
+      for (int i = 0; i < nodes.size(); i++) {
+        Node node = nodes.get(i);
 
-			for (int i = 0; i < n; i++) {
-				for(int j = i; j < n; j++) {
-					int ans = 0;
+        if (node.x == xs && node.y == ys) {
+          startIndex = i;
 
-					if (startIndex >= 0 && (startIndex < i || startIndex > j)) {
-						ans = 1;
-						max = Math.max(max, ans);
-					}
+          break;
+        }
+      }
 
-					prevX = xs;
-					prevY = ys;
+      for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+          int ans = 0;
 
-					long time = 0;
+          if (startIndex >= 0 && (startIndex < i || startIndex > j)) {
+            ans = 1;
+            max = Math.max(max, ans);
+          }
 
-					for (int k = i; k <= j; k++) {
-						long dist = Math.abs(prevX - nodes.get(k).x) + Math.abs(prevY - nodes.get(k).y);
+          prevX = xs;
+          prevY = ys;
 
-						time += dist;
+          long time = 0;
 
-						if (time <= t) {
-							ans++;
-							max = Math.max(max, ans);
-						}
+          for (int k = i; k <= j; k++) {
+            long dist = Math.abs(prevX - nodes.get(k).x) + Math.abs(prevY - nodes.get(k).y);
 
-						prevX = nodes.get(k).x;
-						prevY = nodes.get(k).y;
-					}
+            time += dist;
 
-					prevX = xs;
-					prevY = ys;
-					time = 0;
+            if (time <= t) {
+              ans++;
+              max = Math.max(max, ans);
+            }
 
-					if (startIndex >= 0 && (startIndex < i || startIndex > j)) {
-						ans = 1;
-					} else {
-						ans = 0;
-					}
+            prevX = nodes.get(k).x;
+            prevY = nodes.get(k).y;
+          }
 
-					for (int k = j; k >= i; k--) {
-						long dist = Math.abs(prevX - nodes.get(k).x) + Math.abs(prevY - nodes.get(k).y);
+          prevX = xs;
+          prevY = ys;
+          time = 0;
 
-						time += dist;
+          if (startIndex >= 0 && (startIndex < i || startIndex > j)) {
+            ans = 1;
+          } else {
+            ans = 0;
+          }
 
-						if (time <= t) {
-							ans++;
-							max = Math.max(max, ans);
-						}
+          for (int k = j; k >= i; k--) {
+            long dist = Math.abs(prevX - nodes.get(k).x) + Math.abs(prevY - nodes.get(k).y);
 
-						prevX = nodes.get(k).x;
-						prevY = nodes.get(k).y;
-					}
-				}
-			}
+            time += dist;
 
-			out.println(max);
-		}
+            if (time <= t) {
+              ans++;
+              max = Math.max(max, ans);
+            }
 
-		static class Node {
-			long x, y;
+            prevX = nodes.get(k).x;
+            prevY = nodes.get(k).y;
+          }
+        }
+      }
 
-			Node(long x, long y) {
-				this.x = x;
-				this.y = y;
-			}
+      out.println(max);
+    }
 
-			@Override
-			public boolean equals(Object obj) {
-				Node node = (Node) obj;
+    static class Node {
 
-				return x == node.x && y == node.y;
-			}
+      long x, y;
 
-			@Override
-			public int hashCode() {
-				return Objects.hash(x, y);
-			}
+      Node(long x, long y) {
+        this.x = x;
+        this.y = y;
+      }
 
-			@Override
-			public String toString() {
-				return String.format("(%d, %d)", x, y);
-			}
+    }
 
-		}
+    Solver(InputReader in, PrintWriter out) {
+      this.in = in;
+      this.out = out;
+    }
 
-		Solver(InputReader in, PrintWriter out)
-		{
-			this.in = in;
-			this.out = out;
-		}
+    @Override
+    public void run() {
+      solve();
+    }
 
-		@Override
-		public void run()
-		{
-			try
-			{
-				solve();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-		}
+  }
 
-	}
+  static class InputReader {
 
-	static class InputReader
-	{
-		private InputStream stream;
-		private byte[] buf = new byte[1024];
-		private int curChar;
-		private int numChars;
+    private InputStream stream;
+    private byte[] buf = new byte[1024];
+    private int curChar;
+    private int numChars;
 
-		public int read()
-		{
-			if (numChars == -1)
+    public int read() {
+			if (numChars == -1) {
 				throw new InputMismatchException();
+			}
 
-			if (curChar >= numChars)
-			{
-				curChar = 0;
-				try
-				{
-					numChars = stream.read(buf);
-				}
-				catch (IOException e)
-				{
-					throw new InputMismatchException();
-				}
-				if (numChars <= 0)
+      if (curChar >= numChars) {
+        curChar = 0;
+        try {
+          numChars = stream.read(buf);
+        } catch (IOException e) {
+          throw new InputMismatchException();
+        }
+				if (numChars <= 0) {
 					return -1;
-			}
+				}
+      }
 
-			return buf[curChar++];
-		}
+      return buf[curChar++];
+    }
 
-		public long nextLong()
-		{
-			int c = read();
+    public long nextLong() {
+      int c = read();
 
-			while (isSpaceChar(c))
-				c = read();
-
-			int sign = 1;
-
-			if (c == '-')
-			{
-				sign = -1;
-
+			while (isSpaceChar(c)) {
 				c = read();
 			}
 
-			long result = 0;
+      int sign = 1;
 
-			do
-			{
-				if (c < '0' || c > '9')
+      if (c == '-') {
+        sign = -1;
+
+        c = read();
+      }
+
+      long result = 0;
+
+      do {
+				if (c < '0' || c > '9') {
 					throw new InputMismatchException();
+				}
 
-				result *= 10;
-				result += c & 15;
+        result *= 10;
+        result += c & 15;
 
-				c = read();
-			} while (!isSpaceChar(c));
+        c = read();
+      } while (!isSpaceChar(c));
 
-			return result * sign;
-		}
+      return result * sign;
+    }
 
-		public boolean isSpaceChar(int c)
-		{
-			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-		}
+    public boolean isSpaceChar(int c) {
+      return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+    }
 
-		public void close()
-		{
-			try
-			{
-				stream.close();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-		}
+    public void close() {
+      try {
+        stream.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
 
-		InputReader(InputStream stream)
-		{
-			this.stream = stream;
-		}
+    InputReader(InputStream stream) {
+      this.stream = stream;
+    }
 
-	}
+  }
 
-	public TaskD(InputStream inputStream, OutputStream outputStream)
-	{
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
-		Thread thread = new Thread(null, new Solver(in, out), "TaskD", 1 << 29);
+  public TaskD(InputStream inputStream, OutputStream outputStream) {
+    InputReader in = new InputReader(inputStream);
+    PrintWriter out = new PrintWriter(outputStream);
+    Thread thread = new Thread(null, new Solver(in, out), "TaskD", 1 << 29);
 
-		try
-		{
-			thread.start();
-			thread.join();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			in.close();
-			out.flush();
-			out.close();
-		}
-	}
+    try {
+      thread.start();
+      thread.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } finally {
+      in.close();
+      out.flush();
+      out.close();
+    }
+  }
 
 }
 

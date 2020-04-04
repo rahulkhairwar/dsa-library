@@ -73,7 +73,6 @@ public class GeneratorUtils
 	 */
 	public static List<Edge> generateRandomWeightedGraph(int v, int e, int maxWeight, boolean isZeroBased)
 	{
-		List<Edge> edges = new ArrayList<>();
 		Set<Edge> set = new HashSet<>();
 
 		for (int i = 0; i < e; i++)
@@ -98,14 +97,11 @@ public class GeneratorUtils
 			} while (set.size() == i);
 		}
 
-		edges.addAll(set);
-
-		return edges;
+		return new ArrayList<>(set);
 	}
 
 	public static List<Edge> generateRandomGraph(int v, int e, boolean isZeroBased)
 	{
-		List<Edge> edges = new ArrayList<>();
 		Set<Edge> set = new HashSet<>();
 
 		for (int i = 0; i < e; i++)
@@ -128,9 +124,7 @@ public class GeneratorUtils
 			} while (set.size() == i);
 		}
 
-		edges.addAll(set);
-
-		return edges;
+		return new ArrayList<>(set);
 	}
 
 	public static String[] generateRandomStrings(int size, int maxLen)
@@ -162,11 +156,11 @@ public class GeneratorUtils
 	}
 
 	/**
-	 * Returns a random integer in the range [start, limit).
+	 * Returns a random integer in the range [start, limit].
 	 *
 	 * @param start start is the lower limit for the randomly generated integer.
-	 * @param limit limit - 1 is the upper limit for the randomly generated integer.
-	 * @return returns a random integer in the range [start, limit).
+	 * @param limit limit is the upper limit for the randomly generated integer.
+	 * @return returns a random integer in the range [start, limit].
 	 */
 	public static int nextRandomInt(int start, int limit)
 	{

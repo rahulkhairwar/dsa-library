@@ -2,14 +2,15 @@ package com.testingUtil;
 
 import com.codechef.competitions.longcompetitions.year2018.july.GEARS;
 
+import com.grab.Solution;
 import java.io.*;
 import java.util.Properties;
 import java.util.Scanner;
 
 @SuppressWarnings("ALL") public class Checker
 {
-	private static final String propertyFilePath = "/Users/rahulkhairwar/Documents/IntelliJ IDEA Workspace/Competitive "
-			+ "Programming/src/com/dsa/testingUtil/properties.properties";
+
+	private static final String propertyFilePath = "/Users/rahulkhairwar_deskera/Documents/personal_projects/dsa-library/src/com/testingUtil/properties.properties";
 	private static String inputFilePath;
 	private static String bruteOutputFilePath;
 	private static String outputFilePath;
@@ -42,20 +43,27 @@ import java.util.Scanner;
 
 			/*********************** BRUTE SOLUTION ***********************/
 //			start = System.currentTimeMillis();
-			new BruteSolution(inputStream, bruteOutputStream);
+//			new BruteSolution(inputStream, bruteOutputStream);
 //			System.out.printf("Brute done in : %dms\n", (System.currentTimeMillis() - start));
+
+			Solution solution = new Solution();
+
+			solution.solve(inputStream, bruteOutputStream, 1);
 
 			/*********************** OPTIMISED SOLUTION ***********************/
 //			start = System.currentTimeMillis();
-			new GEARS(inputStream, outputStream);
+//			new GEARS(inputStream, outputStream);
+			Solution solution2 = new Solution();
+
+			solution2.solve(inputStream, outputStream, 2);
 //			System.out.printf("Solution done in : %dms\n", (System.currentTimeMillis() - start));
 
-			if (!check())
+/*			if (!check())
 			{
 				System.out.println("Caught!!");
 
 				break;
-			}
+			}*/
 
 			fileReader.close();
 			inputStream.close();

@@ -14,7 +14,7 @@ class TestsGenerator
 
 		void generate() throws IOException
 		{
-			t = 1;
+/*			t = 1;
 			out.println(t);
 
 			while (t-- > 0)
@@ -32,6 +32,33 @@ class TestsGenerator
 					out.print(x + " ");
 
 				out.println();
+			}*/
+
+			int n = GeneratorUtils.nextRandomInt(1, (int) 1e2);
+			int upper = GeneratorUtils.nextRandomInt(2, n);
+			int lower = GeneratorUtils.nextRandomInt(2, n);
+			int[][] mat = new int[2][n];
+
+			out.println(n + " " + upper + " " + lower);
+			fill(mat[0], upper);
+			fill(mat[1], lower);
+
+			for (int i = 0; i < n; i++) {
+				out.print(mat[0][i] + mat[1][i] + " ");
+			}
+		}
+
+		void fill(int[] arr, int sum) {
+			for (int i = 0; i < arr.length; i++) {
+				if (sum == arr.length - i) {
+					arr[i] = 1;
+					sum--;
+				} else if (sum > 0) {
+					int random = GeneratorUtils.nextRandomInt(0, 1);
+
+					arr[i] = random;
+					sum -= random;
+				}
 			}
 		}
 
